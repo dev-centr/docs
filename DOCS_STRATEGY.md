@@ -1,6 +1,6 @@
 # Documentation Stratification Strategy
 
-This document outlines the organization of documentation across the `the-dev-center` repositories. The goal is to maintain documentation close to the code while presenting a unified portal to the user via Antora.
+This document outlines the organization of documentation across the `devcntr-app` repositories. The goal is to maintain documentation close to the code while presenting a unified portal to the user via Antora.
 
 ## 1. Top-Level Organization
 
@@ -8,7 +8,7 @@ The documentation ecosystem is divided into **Portal**, **Core Application**, **
 
 ### 1.1 The Portal (`docs` Repository)
 
-- **Repository**: `the-dev-center/docs` (This repository)
+- **Repository**: `devcntr-app/docs` (This repository)
 - **Antora Component**: `home`
 - **Role**: The aggregation hub and entry point.
 - **Content**:
@@ -19,7 +19,7 @@ The documentation ecosystem is divided into **Portal**, **Core Application**, **
 
 ### 1.2 Core Application (`dev-center` Repository)
 
-- **Repository**: `the-dev-center/dev-center`
+- **Repository**: `devcntr-app/dev-center`
 - **Antora Component**: `dev-center`
 - **Role**: Documentation for the main Dev Center desktop application.
 - **Content**:
@@ -82,3 +82,4 @@ Tools that are forks or upstream clones are located in the `.forks` directory to
 - **Versioning**: Use Antora's versioning to match software releases (future goal).
 - **Images**: Store images in `modules/<module>/assets/images`.
 - **Examples**: Store code examples in `modules/<module>/examples` (or pull from source).
+
