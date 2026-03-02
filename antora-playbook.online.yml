@@ -1,44 +1,36 @@
-﻿site:
-  title: Dev Center Docs (Local)
+site:
+  title: Dev Center Docs
+  url: https://docs.devcntr.org
   start_page: home::index.adoc
 content:
   sources:
-    - url: .
+    - url: https://github.com/devcntr-org/docs.git
       branches: HEAD
       start_path: docs
-      worktrees: true
-    - url: ../devcntr
+    - url: https://github.com/devcntr-org/devcntr.git
       branches: HEAD
       start_path: docs
-      worktrees: true
-    - url: ../antora-dark-theme
+    - url: https://github.com/devcntr-org/antora-dark-theme.git
       branches: HEAD
       start_path: docs
-      worktrees: true
-    - url: ../antora-demo-template
+    - url: https://github.com/devcntr-org/antora-demo-template.git
       branches: HEAD
       start_path: docs
-      worktrees: true
-    - url: ../antora-extensions-registry
+    - url: https://github.com/devcntr-org/antora-extensions-registry.git
       branches: HEAD
       start_path: docs
-      worktrees: true
-    - url: ../antora-themes-site
+    - url: https://github.com/devcntr-org/antora-themes-site.git
       branches: HEAD
       start_path: docs
-      worktrees: true
-    - url: ../templates
+    - url: https://github.com/devcntr-org/templates.git
       branches: HEAD
       start_path: docs
-      worktrees: true
-    - url: ../msi-generator
+    - url: https://github.com/devcntr-org/msi-generator.git
       branches: HEAD
       start_path: docs
-      worktrees: true
 ui:
   bundle:
     url: https://github.com/devcntr-org/antora-dark-theme/releases/latest/download/ui-bundle.zip
     snapshot: true
   supplemental_files: ./supplemental-ui
-output:
-  dir: ./build/site
+
