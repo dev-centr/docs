@@ -5,10 +5,13 @@ This repository contains the Antora playbook and configuration for the **Dev Cen
 == Project Structure
 
 * `antora-playbook.online.yml`:: The production Antora playbook. Uses remote GitHub URLs for all content sources and the published UI bundle. Used by CI/CD.
-* `antora-playbook.example.yml`:: A committed template for the local dev playbook. Copy this to `antora-playbook.yml` to get started.
-* `antora-playbook.yml`:: Your local dev playbook (Git-ignored). Extends `antora-playbook.online.yml` but overrides content sources with local sibling directories.
-* `antora-playbook.testing.example.yml`:: A committed template for full local testing. Copy this to `antora-playbook.testing.yml`.
-* `antora-playbook.testing.yml`:: Full local testing playbook (Git-ignored). Extends `antora-playbook.yml` and additionally overrides the UI bundle with a local build.
+* `antora-playbook.yml`:: The local dev playbook. Configured for local sibling directories and the `devcntr-org` organization structure.
+* `antora-playbook.example.yml`:: A committed template for the local dev playbook.
+* `antora-playbook.testing.example.yml`:: A committed template for full local testing.
+
+== 🌍 Site URL
+
+The documentation site is hosted at link:https://docs.devcntr.org[docs.devcntr.org].
 * `docs.code-workspace`:: VS Code workspace file configured for multi-root editing across documentation sources.
 * `package.json`:: Defines dependencies and build scripts.
 

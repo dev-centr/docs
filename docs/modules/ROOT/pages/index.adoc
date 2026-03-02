@@ -10,7 +10,7 @@ Welcome to the central hub for all project documentation. Select a repository be
 Main developer tooling and project management application.
 Includes: Onboarding, Flutter/Tailwind setup, and Git management guides.
 
-xref:dev-center:ROOT:index.adoc[Explore Dev Center Docs]
+xref:devcntr:ROOT:index.adoc[Explore Dev Center Docs]
 
 [.cards]
 == Other Projects
