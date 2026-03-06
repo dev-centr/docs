@@ -2,9 +2,9 @@
 
 Welcome to the tools section. Here you will find documentation for the various tools and repositories that make up the Dev Center ecosystem.
 
-Due to the nature of distributed development, some tools are documented directly in their repositories (like `msi-generator`), while others are documented here (like `code-d` and `dprint`).
+Some tools are documented in their own repositories (e.g. MSI Generator); others are documented here (e.g. dprint, dlangui).
 
 * xref:tools/code-d.adoc[code-d]
 * xref:tools/dprint.adoc[dprint]
 * xref:tools/dlangui.adoc[dlangui]
-* xref:tools/msi-generator.adoc[MSI Generator]
+* xref:tools/msi-installer-generator.adoc[MSI Generator]

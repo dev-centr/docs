@@ -3,4 +3,4 @@
 ** xref:tools/code-d.adoc[code-d]
 ** xref:tools/dprint.adoc[dprint]
 ** xref:tools/dlangui.adoc[dlangui]
-** xref:tools/msi-generator.adoc[MSI Generator]
+** xref:tools/msi-installer-generator.adoc[MSI Generator]

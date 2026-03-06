@@ -1,6 +1,6 @@
 = The Dev Center Portal
 
-Welcome to the central hub for all project documentation. Select a repository below to explore its specific guides and reference materials.
+Welcome to the central hub for Dev Center project documentation. Select a repository below to explore its guides and reference materials.
 
 [.cards]
 == Featured Project
@@ -10,7 +10,7 @@ Welcome to the central hub for all project documentation. Select a repository be
 Main developer tooling and project management application.
 Includes: Onboarding, Flutter/Tailwind setup, and Git management guides.
 
-xref:Dev-Centr:ROOT:index.adoc[Explore Dev Center Docs]
+xref:DevCentr:ROOT:index.adoc[Explore Dev Center Docs]
 
 [.cards]
 == Other Projects
@@ -18,37 +18,9 @@ xref:Dev-Centr:ROOT:index.adoc[Explore Dev Center Docs]
 [.card]
 === 📄 Docs Playbook
 Configuration and playbook for this documentation site.
-Contains the Antora setup and local development guides.
+Antora setup and local development guides.
 
 xref:home:ROOT:index.adoc[You are here]
-
-[.card]
-=== 🌙 Antora Dark Theme
-A sleek, modern dark theme for Antora documentation sites.
-Custom CSS and UI bundle configuration for the Dev Center.
-
-xref:antora-dark-theme:guide:index.adoc[View Theme Docs]
-
-[.card]
-=== 🧪 Samples
-Demo template for Antora documentation.
-Example content structure and component usage.
-
-xref:samples:ROOT:index.adoc[View Samples]
-
-[.card]
-=== 🧩 Antora Extensions Registry
-Registry for Antora extensions and custom functionality.
-Extending the documentation site with new features.
-
-xref:registry:ROOT:index.adoc[Explore Registry]
-
-[.card]
-=== 🎨 Antora Themes Gallery
-Visual gallery of available Antora themes and styles.
-Showcasing the design possibilities for our documentation.
-
-xref:antora-themes-site:user:index.adoc[Browse Themes]
 
 [.card]
 === 📋 Templates
@@ -56,3 +28,10 @@ Standardized code-workspace templates for new projects.
 Consistent structure and boilerplate for all repositories.
 
 xref:templates:ROOT:index.adoc[Usage Guide]
+
+[.card]
+=== 📦 MSI Generator
+Windows installer (MSI/MSIX) generator for D applications.
+JSON-based configuration and CI/CD integration.
+
+xref:tools/msi-installer-generator.adoc[MSI Generator Docs]
