@@ -83,6 +83,9 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../publishing/index.html">Software Publishing</a>
   </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
@@ -270,6 +273,18 @@
   </li>
 </ul>
   </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/dprint-vscode.html">dprint-vscode</a>
+  </li>
+</ul>
+  </li>
 </ul>
   </nav>
 </div>
@@ -413,17 +428,17 @@ git config --global core.eol lf</code></pre>
 <div class="paragraph">
 <p>See <a href="../reference/git-management.html#line-endings-configuration" class="xref page">Line Endings Configuration</a> for when to use <code>autocrlf true</code> or <code>input</code> instead.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Set the default branch name for new repositories:</p>
+<div class="paragraph">
+<p>+
+2. Set the default branch name for new repositories:</p>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git config --global init.defaultBranch main</code></pre>
 </div>
-</div>
-</li>
-</ol>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -455,17 +470,17 @@ git config --global core.eol lf</code></pre>
 </tr>
 </table>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Install <strong>pnpm</strong> globally:</p>
+<div class="paragraph">
+<p>+
+3. Install <strong>pnpm</strong> globally:</p>
+</div>
+<div class="paragraph">
+<p>+</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">npm install -g pnpm</code></pre>
 </div>
-</div>
-</li>
-</ol>
 </div>
 <div class="paragraph">
 <p>Your system uses Corepack to manage package managers. Corepack acts as a wrapper that ensures the version of pnpm used matches what the project expects.</p>

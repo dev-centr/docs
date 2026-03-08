@@ -83,6 +83,9 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="index.html">Software Publishing</a>
   </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="0">
@@ -267,6 +270,18 @@
   </li>
   <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="antora-deployment.html">Antora Deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../upstream-contributions/dprint-vscode.html">dprint-vscode</a>
   </li>
 </ul>
   </li>
@@ -510,13 +525,10 @@ Running <code>antora docs/antora-playbook.yml</code> causes relative path resolu
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create <code>local-antora-playbook.yml</code> (and Git-ignore it).</p>
+<p>Create <code>antora-playbook-local.yml</code> (and Git-ignore it).</p>
 </li>
 <li>
 <p>Define only the local overrides:</p>
-</li>
-</ol>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">extends: ./antora-playbook.yml
@@ -527,16 +539,90 @@ content:
       start_path: docs</code></pre>
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
-<p>Run locally with: <code>antora local-antora-playbook.yml</code>.</p>
+<p>Run locally with: <code>antora antora-playbook-local.yml</code> (or <code>pnpm run build:local</code> if that script points at it).</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p>This keeps your <strong>Root Strategy</strong> intact for the repo&#8217;s specific CI, while allowing the global "hub" site to aggregate everything seamlessly.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_playbook_file_naming_why_antora_playbook_yml_and_antora_playbook_local_yml"><a class="anchor" href="#_playbook_file_naming_why_antora_playbook_yml_and_antora_playbook_local_yml"></a>Playbook file naming: why <code>antora-playbook.yml</code> and <code>antora-playbook-local.yml</code></h3>
+<div class="paragraph">
+<p>Use these names even though you might prefer a different scheme (e.g. <code>playbook.yml</code> for local and <code>playbook-online.yml</code> for production). The reason is <strong>ecosystem convention</strong>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>antora-playbook.yml</code></strong> = production/online playbook (remote URLs, used by CI).</p>
+</li>
+<li>
+<p><strong><code>antora-playbook-local.yml</code></strong> = local-only playbook (sibling paths, git-ignored); extends the main playbook.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Why the main playbook must be "online":</strong></p>
+</div>
+<div class="paragraph">
+<p>In npm/pnpm, the script name <code>build</code> is the standard default. CI, READMEs, and tooling assume <code>pnpm build</code> (or <code>npm run build</code>) runs the <strong>main</strong> build—i.e. the one that produces the deployable site. So:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <strong><code>build</code></strong> script in <code>package.json</code> should run the production playbook (<code>antora-playbook.yml</code>). That way <code>pnpm build</code> does what everyone expects.</p>
+</li>
+<li>
+<p>The <strong><code>build:local</code></strong> script runs the local playbook (<code>antora-playbook-local.yml</code>) when you want to use sibling repos.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Reasoning chain (what we tried):</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>First we tried naming by suffix: <code>playbook.yml</code> (local) and <code>playbook-online.yml</code> (online). Clean, but then the default <code>pnpm build</code> would run the local playbook—wrong for CI and for anyone running a plain <code>pnpm build</code>.</p>
+</li>
+<li>
+<p>Then we swapped so <code>build</code> = online and added <code>build:online</code>. That fixed CI, but we had to give up the nice short names and accept that "build" is a reserved default.</p>
+</li>
+<li>
+<p>Conclusion: the whole world expects <code>pnpm build</code> to be production. So the <strong>file</strong> that production uses should be the one that has the conventional name: <code>antora-playbook.yml</code>. The local override is <code>antora-playbook-local.yml</code>. Not our first choice, but it matches how the ecosystem works.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_package_manager_run_commands"><a class="anchor" href="#_package_manager_run_commands"></a>Package manager run commands</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When writing or following docs that run a package binary (e.g. a dev server or a one-off tool), the behavior differs by package manager:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>npm</strong>: A single entry point for both cases. <code>npx</code> (or <code>npm exec</code>) runs a binary from the current project&#8217;s dependencies if present, otherwise fetches and runs it. No separate "local" vs "download and run" command.</p>
+</li>
+<li>
+<p><strong>pnpm</strong>: Two commands. Use <code>pnpm exec</code> to run a binary from <strong>already installed</strong> dependencies. Use <code>pnpm dlx</code> to <strong>download and run</strong> a package without adding it to the project (one-off execution).</p>
+</li>
+<li>
+<p><strong>yarn</strong> (Berry 2+): <code>yarn dlx</code> is the equivalent of "download and run"; for local binaries use <code>yarn run &lt;script&gt;</code> or the binary from <code>node_modules/.bin</code>.</p>
+</li>
+<li>
+<p><strong>bun</strong>: <code>bunx</code> behaves like <code>npx</code> (run local or fetch and run in one command).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When you see <code>npx</code> in documentation, use the equivalent for your manager: <code>pnpm exec</code> or <code>pnpm dlx</code>, <code>yarn dlx</code> (one-off) or <code>yarn run</code>, or <code>bunx</code> as appropriate.</p>
 </div>
 </div>
 </div>
@@ -558,6 +644,128 @@ content:
 <p><strong>Configure</strong>: Set GitHub Pages to deploy from <code>gh-pages</code> / <code>root</code>.</p>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_auto_rebuild_when_an_extension_ui_bundle_updates"><a class="anchor" href="#_auto_rebuild_when_an_extension_ui_bundle_updates"></a>Auto-rebuild when an extension (UI bundle) updates</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sites that depend on a shared Antora extension (e.g. a UI bundle or playbook extension) should rebuild when that extension is updated. Use GitHub&#8217;s <code>repository_dispatch</code> event so the <strong>extension repo</strong> can notify all <strong>subscriber</strong> sites to run their deploy workflow.</p>
+</div>
+<div class="sect2">
+<h3 id="_1_subscriber_site_each_antora_docs_repo"><a class="anchor" href="#_1_subscriber_site_each_antora_docs_repo"></a>1. Subscriber site (each Antora docs repo)</h3>
+<div class="paragraph">
+<p>Add <code>repository_dispatch</code> to the deploy workflow so it runs on push to <code>main</code> <strong>and</strong> when the extension repo sends a dispatch:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"># In .github/workflows/deploy.yml (or docs.yml)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  repository_dispatch:
+    types: [extension-updated]   # or ui-bundle-updated, docs-updated, etc.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>No other changes are needed; the rest of the job (checkout, Antora build, deploy) stays the same. Use a distinct <code>types</code> value if you have multiple extension sources (e.g. <code>ui-bundle-updated</code> for the theme, <code>playbook-extension-updated</code> for a shared playbook).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_extension_repo_ui_bundle_or_playbook_extension"><a class="anchor" href="#_2_extension_repo_ui_bundle_or_playbook_extension"></a>2. Extension repo (UI bundle or playbook extension)</h3>
+<div class="paragraph">
+<p>On push or release, trigger each subscriber&#8217;s workflow by sending a <code>repository_dispatch</code> event. Use a Personal Access Token (PAT) that has access to trigger workflows in the subscriber repos.</p>
+</div>
+<div class="paragraph">
+<p><strong>Option A — peter-evans/repository-dispatch (one subscriber per step):</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml"># In the extension repo, e.g. .github/workflows/notify-subscribers.yml
+name: Notify subscriber sites
+
+on:
+  push:
+    branches: [main]
+  release:
+    types: [published]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger dev-centr/docs
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.SUBSCRIBER_DISPATCH_TOKEN }}
+          repository: dev-centr/docs
+          event-type: extension-updated
+          client-payload: '{"source": "${{ github.repository }}", "ref": "${{ github.ref }}"}'
+      - name: Trigger other-subscriber/other-docs
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.SUBSCRIBER_DISPATCH_TOKEN }}
+          repository: other-subscriber/other-docs
+          event-type: extension-updated</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Option B — API call (many subscribers via matrix):</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">  notify:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo: [dev-centr/docs, dev-centr/devcentr]
+    steps:
+      - name: Trigger ${{ matrix.repo }}
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.SUBSCRIBER_DISPATCH_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/${{ matrix.repo }}/dispatches \
+            -d '{"event_type":"extension-updated","client_payload":{"source":"${{ github.repository }}","ref":"${{ github.ref }}"}}'</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_token_pat_setup"><a class="anchor" href="#_3_token_pat_setup"></a>3. Token (PAT) setup</h3>
+<div class="paragraph">
+<p>The extension repo needs a secret (e.g. <code>SUBSCRIBER_DISPATCH_TOKEN</code>) that can create <code>repository_dispatch</code> events in each subscriber repo:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Classic PAT</strong>: <code>repo</code> scope (or minimal scope that allows "Actions: trigger workflow" where applicable).</p>
+</li>
+<li>
+<p><strong>Fine-grained PAT</strong>: Repository access set to each subscriber repo, with permission to trigger workflow runs (e.g. "Actions: Read and write" or the minimal option that allows repository dispatch).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The PAT must be issued by (or have access as) a user or app that has write (or "trigger workflow") access to every subscriber repository. For organization-owned subscriber repos, use an org-level secret or a PAT from a user who has write access to those repos.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Subscriber</strong>: Add <code>repository_dispatch</code> with a chosen <code>event-type</code> to the existing deploy workflow.</p>
+</li>
+<li>
+<p><strong>Extension</strong>: On push/release, call the repository dispatch API (or use <code>peter-evans/repository-dispatch</code>) for each subscriber repo.</p>
+</li>
+<li>
+<p><strong>Secret</strong>: Store one PAT in the extension repo that can trigger workflows in all subscriber repos.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
