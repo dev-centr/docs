@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Secrets Manager Architecture :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/DevCentr/secrets-manager/architecture.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="DevCentr" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">DevCentr</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Dev Center</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../project-vision.html">Project Vision</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../todo-roadmap.html">Todo &amp; Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../activity-log.html">Activity Log</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/index.html">Knowledge Base</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../specifications/index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/index.html">Software Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/index.html">Knowledge Base</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🎓 Tutorials</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/tutorials/onboarding.html">Developer Onboarding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🛠️ How-to Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/how-to/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/how-to/flutter-setup.html">Flutter Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/how-to/tailwind-setup.html">Tailwind Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/how-to/file-sync.html">File Sync</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/how-to/git-ignore-local.html">.gitignore.local</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/how-to/git-hooks.html">Git Hooks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/how-to/git-lfs.html">Large Files &amp; LFS</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/how-to/git-recovery.html">Git Recovery</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/how-to/kvm-windows-automation.html">Windows Automation via KVM</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/how-to/github-pages-custom-domain.html">GitHub Pages Custom Domain</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">📚 Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/reference/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/reference/workspace-organization.html">Workspace Organization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/reference/recommended-tools.html">Recommended Tools</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/reference/git-management.html">Git Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/reference/git-installation.html">Git Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/reference/nodejs-env.html">Node.js Environment</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../knowledge-base/reference/asciidoc-tools.html">AsciiDoc Tooling</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🧠 Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../knowledge-base/explanation/index.html">Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Architecture</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../knowledge-base/explanation/architecture/principles.html">Core Principles</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../knowledge-base/explanation/architecture/google-docs-apps-script.html">Apps Script Optimization</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Infrastructure</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../knowledge-base/explanation/infrastructure/ssh-keys.html">SSH Keys</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../knowledge-base/explanation/infrastructure/git-branching.html">Branching Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../knowledge-base/explanation/infrastructure/git-submodules.html">Submodules &amp; Monorepos</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../knowledge-base/explanation/infrastructure/pnpm-mechanics.html">pnpm Mechanics</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../knowledge-base/explanation/infrastructure/self-hosting.html">Self-Hosting</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../knowledge-base/explanation/infrastructure/windows-testing-on-linux.html">Windows Testing on Linux</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../knowledge-base/explanation/infrastructure/sync-by-gemini.html">Sync: Gemini</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../knowledge-base/explanation/infrastructure/sync-grok4.html">Sync: Grok4</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Documentation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../knowledge-base/explanation/writing-clear-docs-with-ai.html">Writing Clear Docs with AI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../specifications/index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../specifications/components/dependency-modeler.html">Dependency Modeler</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../specifications/components/project-recognizer.html">Project Recognizer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../specifications/components/repository-provider-registry.html">Repository Provider Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../specifications/components/text-editor-link-system.html">Text Editor Link System</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../specifications/components/code-execution-recording.html">Code Execution Recording</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../specifications/components/git-repository-manager.html">Git Repository Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../specifications/components/workspace-template-manager.html">Workspace Template Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../specifications/components/secrets-manager.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../specifications/components/ssh-manager.html">SSH Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../specifications/features/opening-web-content-from-docs.html">Opening Web Content from Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../specifications/features/text-editor-separate-process.html">Text Editor Separate Process</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Secrets Manager</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Overview &amp; design</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="overview.html">Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="architecture.html">Architecture</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/env-patterns.html">.env Usage Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/provider-tool-profiles.html">Provider and Tool Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="reference/environments.html">Environments (dev / prod / test)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">How-to</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="how-to/copy-to-env.html">Copy Secrets into .env</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="how-to/inject-into-process.html">Injecting Secrets into the Dev Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="how-to/docker-integration.html">Docker and Docker Secrets</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="explanation/standalone-vs-integrated.html">Standalone vs Integrated</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="explanation/encryption-modes.html">Encryption and Plaintext Mode</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="explanation/backend-providers.html">Back-end Providers (Bitwarden and Others)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="explanation/explaining-the-proxy-in-the-gui.html">Explaining the Proxy in the GUI</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="explanation/connecting-to-wsl.html">Connecting to WSL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="explanation/virtual-environments.html">Virtual Environments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Publishing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/index.html">Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/git-release-workflow.html">Git Release Workflow</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/automated-releases.html">Automated Releases</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/package-registries.html">Package Registries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../publishing/antora-deployment.html">Antora Deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../upstream-contributions/dprint-vscode.html">dprint-vscode</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DevCentr</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">DevCentr</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../home/index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">DevCentr</a></li>
+    <li>Overview &amp; design</li>
+    <li><a href="architecture.html">Architecture</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/devcentr/edit/main/docs/modules/secrets-manager/pages/architecture.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Secrets Manager Architecture</h1>
+<div class="sect1">
+<h2 id="_separation_of_responsibilities"><a class="anchor" href="#_separation_of_responsibilities"></a>Separation of responsibilities</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <strong>secrets database is owned by the standalone Secrets Manager application</strong>, not by DevCentr. This keeps:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Single source of truth:</strong> One process is responsible for creating, updating, and locking the database. No risk of two apps writing different formats or locking the same file incorrectly.</p>
+</li>
+<li>
+<p><strong>Independent use:</strong> Users can run the standalone app without ever opening DevCentr (e.g. to browse the global store, add secrets, or install to a repo).</p>
+</li>
+<li>
+<p><strong>Clear client role:</strong> DevCentr acts as a <strong>client</strong>: it discovers or is configured with the manager&#8217;s data directory or API endpoint, then reads (and possibly requests writes through the manager) to show the integrated, repo-filtered view and perform copy/inject actions.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_components"><a class="anchor" href="#_components"></a>Components</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_standalone_secrets_manager"><a class="anchor" href="#_standalone_secrets_manager"></a>Standalone Secrets Manager</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Process:</strong> Runs in its own window (desktop or CLI). May be a separate repository from DevCentr to keep build and release cycles independent.</p>
+</li>
+<li>
+<p><strong>Database:</strong> Local store (e.g. SQLite or similar) at a known path (e.g. user data directory). Encrypted or plaintext depending on user choice.</p>
+</li>
+<li>
+<p><strong>Responsibilities:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Create/read/update/delete secrets and metadata (provider, tool, environment, project).</p>
+</li>
+<li>
+<p>Expose a way for other processes to query and, if designed, to request injection (e.g. local HTTP/socket or shared config).</p>
+</li>
+<li>
+<p>Optional: small daemon or server mode that runs in the background so DevCentr and scripts can request secrets without launching the full UI.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_devcentr_integration"><a class="anchor" href="#_devcentr_integration"></a>DevCentr integration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Module:</strong> A "Secrets" or "Secrets Manager" module inside DevCentr that:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Resolves the current repository (and optionally current environment).</p>
+</li>
+<li>
+<p>Connects to the standalone manager&#8217;s data or API.</p>
+</li>
+<li>
+<p>Displays a <strong>canvas-like interface</strong>: cards or list of secrets, filterable by repo and environment, with drag-and-drop.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Drag-and-drop semantics:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Register to project:</strong> From the global store (or another project), drag a secret into the current repo&#8217;s bucket to associate it with this project and selected environment.</p>
+</li>
+<li>
+<p><strong>Import to global:</strong> From a local source (e.g. existing <code>.env</code> or manual entry), drag or add into the global registry so it can be reused.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Copy to .env:</strong> Trigger an action that writes selected secrets into the project&#8217;s <code>.env</code> (or chosen env file), using provider/tool profiles to choose variable names and format.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_inter_process_communication_ipc"><a class="anchor" href="#_inter_process_communication_ipc"></a>Inter-process communication (IPC)</h3>
+<div class="paragraph">
+<p>For the standalone and DevCentr to work together:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Option A — Shared database path:</strong> DevCentr is configured with the path to the standalone&#8217;s database (or a config file that points to it). DevCentr opens the database read-only or via a library that respects the same schema and locking. The standalone remains the only writer when it is running; or both use a shared SQLite DB with a single writer at a time.</p>
+</li>
+<li>
+<p><strong>Option B — API/socket:</strong> The standalone runs a small local server (e.g. HTTP on localhost or a named pipe/socket). DevCentr sends requests (e.g. "list secrets for repo X, environment Y", "write these keys to repo Z&#8217;s .env"). The standalone performs all writes and returns results.</p>
+</li>
+<li>
+<p><strong>Option C — File-based protocol:</strong> The standalone writes a manifest or export to a known location; DevCentr reads it. Less real-time but avoids a long-running server.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Recommendation: <strong>Option B</strong> gives the cleanest separation (standalone is the only process that ever writes the DB) and allows the standalone to enforce encryption and access control. Option A is simpler if both apps can share a library and agree on single-writer discipline.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_data_model_conceptual"><a class="anchor" href="#_data_model_conceptual"></a>Data model (conceptual)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Secret:</strong> Id, name, value (or reference to encrypted blob), optional metadata (provider, tool, notes).</p>
+</li>
+<li>
+<p><strong>Project binding:</strong> (Secret, Repo path or id, Environment) — which secret is attached to which project and environment.</p>
+</li>
+<li>
+<p><strong>Environments:</strong> Named sets (e.g. <code>dev</code>, <code>prod</code>, <code>test</code>, <code>staging</code>) that can be defined globally or per project.</p>
+</li>
+<li>
+<p><strong>Provider/tool profiles:</strong> Named templates that define typical variable names and formats for <code>.env</code> (e.g. <code>STRIPE_SECRET_KEY</code>, <code>DATABASE_URL</code>). Used for recognition and for generating consistent <code>.env</code> content.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Schema details are left to the implementation; the important point is that the <strong>standalone</strong> owns this schema and any migrations.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/site-dark-mode.js"></script>
+  </body>
+</html>

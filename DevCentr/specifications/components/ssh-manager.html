@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SSH Manager :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/DevCentr/specifications/components/ssh-manager.html">
+    <meta name="description" content="Specification for the SSH manager as a master coordinator of SSH agent providers.">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="DevCentr" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">DevCentr</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Dev Center</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../project-vision.html">Project Vision</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../todo-roadmap.html">Todo &amp; Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../activity-log.html">Activity Log</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/index.html">Knowledge Base</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Software Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/index.html">Knowledge Base</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🎓 Tutorials</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/tutorials/onboarding.html">Developer Onboarding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🛠️ How-to Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/flutter-setup.html">Flutter Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/tailwind-setup.html">Tailwind Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/file-sync.html">File Sync</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/git-ignore-local.html">.gitignore.local</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/git-hooks.html">Git Hooks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/git-lfs.html">Large Files &amp; LFS</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/git-recovery.html">Git Recovery</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/kvm-windows-automation.html">Windows Automation via KVM</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/github-pages-custom-domain.html">GitHub Pages Custom Domain</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">📚 Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/reference/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/reference/workspace-organization.html">Workspace Organization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/reference/recommended-tools.html">Recommended Tools</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/reference/git-management.html">Git Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/reference/git-installation.html">Git Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/reference/nodejs-env.html">Node.js Environment</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/reference/asciidoc-tools.html">AsciiDoc Tooling</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🧠 Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../knowledge-base/explanation/index.html">Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Architecture</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/architecture/principles.html">Core Principles</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/architecture/google-docs-apps-script.html">Apps Script Optimization</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Infrastructure</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/ssh-keys.html">SSH Keys</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/git-branching.html">Branching Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/git-submodules.html">Submodules &amp; Monorepos</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/pnpm-mechanics.html">pnpm Mechanics</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/self-hosting.html">Self-Hosting</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/windows-testing-on-linux.html">Windows Testing on Linux</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/sync-by-gemini.html">Sync: Gemini</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/sync-grok4.html">Sync: Grok4</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Documentation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/writing-clear-docs-with-ai.html">Writing Clear Docs with AI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="dependency-modeler.html">Dependency Modeler</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="project-recognizer.html">Project Recognizer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-provider-registry.html">Repository Provider Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="text-editor-link-system.html">Text Editor Link System</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="code-execution-recording.html">Code Execution Recording</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-repository-manager.html">Git Repository Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="workspace-template-manager.html">Workspace Template Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="ssh-manager.html">SSH Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/opening-web-content-from-docs.html">Opening Web Content from Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/text-editor-separate-process.html">Text Editor Separate Process</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Overview &amp; design</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/architecture.html">Architecture</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/env-patterns.html">.env Usage Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/provider-tool-profiles.html">Provider and Tool Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/environments.html">Environments (dev / prod / test)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">How-to</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/copy-to-env.html">Copy Secrets into .env</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/inject-into-process.html">Injecting Secrets into the Dev Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/docker-integration.html">Docker and Docker Secrets</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/standalone-vs-integrated.html">Standalone vs Integrated</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/encryption-modes.html">Encryption and Plaintext Mode</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/backend-providers.html">Back-end Providers (Bitwarden and Others)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/explaining-the-proxy-in-the-gui.html">Explaining the Proxy in the GUI</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/connecting-to-wsl.html">Connecting to WSL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/virtual-environments.html">Virtual Environments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Publishing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/git-release-workflow.html">Git Release Workflow</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/automated-releases.html">Automated Releases</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/package-registries.html">Package Registries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/antora-deployment.html">Antora Deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/dprint-vscode.html">dprint-vscode</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DevCentr</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">DevCentr</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../home/index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">DevCentr</a></li>
+    <li><a href="ssh-manager.html">SSH Manager</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/devcentr/edit/main/docs/modules/specifications/pages/components/ssh-manager.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">SSH Manager</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The SSH Manager is a <strong>master coordinator</strong> for SSH agent providers. It does not replace the system SSH agent or third-party agents (e.g. Bitwarden SSH agent, 1Password SSH agent, Windows OpenSSH). Instead, it acts as a <strong>proxy</strong>: it is a <strong>client</strong> of those agents (pulling data from them, sending sign requests) and a <strong>provider</strong> to the rest of DevCentr and the user (presenting a unified view of keys and identities, and fulfilling SSH/Git operations by delegating to the underlying agent). The goal is one place to see and use SSH keys regardless of which agent actually holds them, while the real security (storage, passphrase, signing) stays in the industrial or system agent.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_why_a_coordinator"><a class="anchor" href="#_why_a_coordinator"></a>Why a coordinator?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Users may have:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Windows OpenSSH agent</strong> — Keys loaded with <code>ssh-add</code>; agent holds them in memory.</p>
+</li>
+<li>
+<p><strong>Bitwarden SSH agent</strong> — Keys stored in Bitwarden; the Bitwarden app or CLI unlocks and signs.</p>
+</li>
+<li>
+<p><strong>1Password SSH agent</strong> — Similar: 1Password holds keys and signs on request.</p>
+</li>
+<li>
+<p><strong>Pageant (PuTTY)</strong> or other agents on Windows.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each agent has its own GUI or CLI for login and key management. The user might not want to give that up — they trust Bitwarden or 1Password for storage and unlock. So DevCentr does <strong>not</strong> become a new SSH agent that stores keys; it becomes a <strong>coordinator</strong> that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Pulls data</strong> from configured agents (list identities, status: locked/unlocked).</p>
+</li>
+<li>
+<p><strong>Launches the agent&#8217;s login/unlock GUI</strong> when the user needs to authenticate (e.g. "Unlock Bitwarden to use this key"). The user completes login in Bitwarden (or the system); we don&#8217;t see the passphrase or private key.</p>
+</li>
+<li>
+<p><strong>Sends sign requests</strong> to the agent when Git or SSH needs to authenticate. The agent performs the signing; we just forward the request and the result. So we&#8217;re a <strong>client</strong> of the agent and a <strong>provider</strong> to the rest of the system (e.g. Git, terminal, or DevCentr features that need SSH).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ideal_workflow_and_why_it_can_sound_insecure"><a class="anchor" href="#_ideal_workflow_and_why_it_can_sound_insecure"></a>Ideal workflow (and why it can sound insecure)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The flow is:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User configures one or more <strong>SSH agent providers</strong> (e.g. "Use Bitwarden SSH agent," "Use Windows OpenSSH agent").</p>
+</li>
+<li>
+<p>DevCentr&#8217;s SSH Manager <strong>queries</strong> them (via agent socket or provider API) to list available keys.</p>
+</li>
+<li>
+<p>When the user (or Git) needs to use a key, the manager <strong>sends a signal</strong> to the appropriate agent: "please sign this challenge for identity X." The agent may show its own GUI (e.g. Bitwarden unlock) if the key is locked.</p>
+</li>
+<li>
+<p>The agent signs and returns the result; DevCentr (or the SSH client) uses it to complete authentication. The private key never leaves the agent.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This can <strong>sound</strong> insecure because "DevCentr is in the middle" — but the important point is that <strong>we don&#8217;t hold or see the private key</strong>. We only send requests and pass through responses. The agent remains the single place where keys live and where signing happens. We&#8217;re a <strong>proxy</strong>: client to the agent, provider to the rest of the stack. The GUI must explain this so users aren&#8217;t confused — see <a href="../../secrets-manager/explanation/explaining-the-proxy-in-the-gui.html" class="xref page">Explaining the Proxy in the GUI</a> (the same principles apply to SSH).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_capabilities"><a class="anchor" href="#_capabilities"></a>Capabilities</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Unified view:</strong> List SSH identities from all configured agents in one place (e.g. "Key for GitHub" from Bitwarden, "id_ed25519" from OpenSSH). Show which agent provides each key.</p>
+</li>
+<li>
+<p><strong>Launch login GUIs:</strong> When a key is locked or the agent needs auth, trigger the provider&#8217;s unlock flow (e.g. open Bitwarden, or prompt for <code>ssh-add</code> passphrase via the system). Don&#8217;t implement our own password box for their keys — let the agent do it.</p>
+</li>
+<li>
+<p><strong>Delegate signing:</strong> When Git or SSH needs to authenticate, route the sign request to the correct agent. This may require DevCentr (or a helper) to act as an SSH agent that <strong>forwards</strong> to the underlying agents, or to set <code>SSH_AUTH_SOCK</code> (or equivalent) so the SSH client talks to an agent we control that in turn talks to Bitwarden/OpenSSH. Implementation details (e.g. agent forwarding process, socket layout) are left to the product.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ssh_auth_sock_one_socket_per_session_transient_not_permanent"><a class="anchor" href="#_ssh_auth_sock_one_socket_per_session_transient_not_permanent"></a>SSH_AUTH_SOCK: one socket per session (transient, not permanent)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The SSH client (<code>ssh</code>, Git when using SSH) talks to exactly <strong>one</strong> agent per process: it reads the <code>SSH_AUTH_SOCK</code> environment variable and connects to that socket (or Windows named pipe). There is no built-in "try agent A, then B" — one process, one <code>SSH_AUTH_SOCK</code>, one agent.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Not permanently mapped to one provider:</strong> The "lease" on <code>SSH_AUTH_SOCK</code> is <strong>per session</strong> (or per process tree). Whatever sets the env when that session starts — e.g. your shell profile, Bitwarden&#8217;s launcher, or DevCentr — determines which agent the SSH client uses. So it&#8217;s <strong>transient</strong>: Terminal A might point at Bitwarden&#8217;s socket, Terminal B at OpenSSH&#8217;s, depending on how each was started. There is no system-wide permanent binding.</p>
+</li>
+<li>
+<p><strong>Within a session it&#8217;s fixed:</strong> For that process, all SSH/Git auth goes to the one agent behind that socket. To have <strong>multiple</strong> providers (Bitwarden + OpenSSH) usable from the same shell without the user switching env, we must <strong>be</strong> that single agent: run our own process that binds to a socket, set <code>SSH_AUTH_SOCK</code> to it, and implement the SSH agent protocol by <strong>forwarding</strong> list-identities and sign requests to the appropriate backend (Bitwarden for key X, OpenSSH for key Y). Then from the client&#8217;s perspective there is still one socket = one agent; that agent is us, and we multiplex to the real providers.</p>
+</li>
+<li>
+<p><strong>Configuration:</strong> Let the user add/remove agent providers (Bitwarden, OpenSSH, 1Password, etc.) and optionally set priority or which key to use for which host (e.g. reuse <code>~/.ssh/config</code> semantics or surface them in the UI).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_interfacing_with_bitwarden_ssh_and_other_agents"><a class="anchor" href="#_interfacing_with_bitwarden_ssh_and_other_agents"></a>Interfacing with Bitwarden SSH and other agents</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bitwarden SSH agent:</strong> Bitwarden can act as an SSH agent (socket or named pipe). DevCentr would need to discover or configure that socket and send standard SSH agent protocol messages (list identities, sign request). When the key is locked, Bitwarden shows its own unlock UI. We don&#8217;t handle the passphrase — we just wait for the agent to become ready.</p>
+</li>
+<li>
+<p><strong>Windows OpenSSH agent:</strong> Uses a socket or Windows named pipe. Same idea: list keys, forward sign requests. If the user hasn&#8217;t run <code>ssh-add</code>, the agent may have no keys; we can show "Add keys in OpenSSH" or link to docs.</p>
+</li>
+<li>
+<p><strong>1Password / others:</strong> Similar: each provider has an agent interface (socket, CLI, or API). We integrate by implementing the client side and, when needed, launching their app for login.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So we <strong>pull data from them</strong> (list keys, status) and <strong>send signals</strong> (sign this, or "user wants to use this key — please unlock"). We act as <strong>manager</strong> in the sense of "orchestrator," not "storage."</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_relation_to_existing_ssh_key_docs"><a class="anchor" href="#_relation_to_existing_ssh_key_docs"></a>Relation to existing SSH key docs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <a href="../../knowledge-base/explanation/infrastructure/ssh-keys.html" class="xref page">SSH Keys</a> explanation in the Knowledge Base covers key generation, <code>~/.ssh/config</code>, and using the system ssh-agent. The <strong>SSH Manager</strong> is an optional layer on top: it coordinates multiple agents and presents a single view in DevCentr. Users who are happy with a single agent (e.g. OpenSSH only) don&#8217;t need to use the SSH Manager; those who use Bitwarden or multiple agents can use it as a master front-end.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_user_communication"><a class="anchor" href="#_user_communication"></a>User communication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Because the model is "we coordinate, they store and sign," the GUI must explain:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Who holds the keys</strong> — e.g. "Keys from Bitwarden SSH Agent" vs "Keys from Windows OpenSSH."</p>
+</li>
+<li>
+<p><strong>What happens when you unlock</strong> — "We&#8217;ll open Bitwarden so you can unlock your keys. DevCentr doesn&#8217;t see your passphrase."</p>
+</li>
+<li>
+<p><strong>What we do</strong> — "We show your keys here and forward sign requests to your agent when Git or SSH needs them."</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>See <a href="../../secrets-manager/explanation/explaining-the-proxy-in-the-gui.html" class="xref page">Explaining the Proxy in the GUI</a> for shared guidance on source labels, one-line explanations, and first-run copy. The same ideas apply to both the Secrets Manager (Bitwarden Secrets Manager, etc.) and the SSH Manager (Bitwarden SSH, OpenSSH, etc.).</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/site-dark-mode.js"></script>
+  </body>
+</html>

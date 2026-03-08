@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>GitHub Pages: Use Your Own Domain :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/DevCentr/knowledge-base/how-to/github-pages-custom-domain.html">
+    <meta name="description" content="Simple guide to point your own domain (like my site.com) at a GitHub Pages site.">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="DevCentr" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">DevCentr</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Dev Center</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../project-vision.html">Project Vision</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../todo-roadmap.html">Todo &amp; Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../activity-log.html">Activity Log</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Knowledge Base</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Software Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Knowledge Base</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🎓 Tutorials</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../tutorials/onboarding.html">Developer Onboarding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🛠️ How-to Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="flutter-setup.html">Flutter Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="tailwind-setup.html">Tailwind Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="file-sync.html">File Sync</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-ignore-local.html">.gitignore.local</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-hooks.html">Git Hooks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-lfs.html">Large Files &amp; LFS</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-recovery.html">Git Recovery</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="kvm-windows-automation.html">Windows Automation via KVM</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="github-pages-custom-domain.html">GitHub Pages Custom Domain</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">📚 Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/workspace-organization.html">Workspace Organization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/recommended-tools.html">Recommended Tools</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/git-management.html">Git Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/git-installation.html">Git Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/nodejs-env.html">Node.js Environment</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/asciidoc-tools.html">AsciiDoc Tooling</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🧠 Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../explanation/index.html">Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Architecture</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../explanation/architecture/principles.html">Core Principles</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../explanation/architecture/google-docs-apps-script.html">Apps Script Optimization</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Infrastructure</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../explanation/infrastructure/ssh-keys.html">SSH Keys</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../explanation/infrastructure/git-branching.html">Branching Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../explanation/infrastructure/git-submodules.html">Submodules &amp; Monorepos</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../explanation/infrastructure/pnpm-mechanics.html">pnpm Mechanics</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../explanation/infrastructure/self-hosting.html">Self-Hosting</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../explanation/infrastructure/windows-testing-on-linux.html">Windows Testing on Linux</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../explanation/infrastructure/sync-by-gemini.html">Sync: Gemini</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../explanation/infrastructure/sync-grok4.html">Sync: Grok4</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Documentation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../explanation/writing-clear-docs-with-ai.html">Writing Clear Docs with AI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/dependency-modeler.html">Dependency Modeler</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/project-recognizer.html">Project Recognizer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/repository-provider-registry.html">Repository Provider Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/text-editor-link-system.html">Text Editor Link System</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/code-execution-recording.html">Code Execution Recording</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/git-repository-manager.html">Git Repository Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/workspace-template-manager.html">Workspace Template Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/secrets-manager.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/ssh-manager.html">SSH Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/features/opening-web-content-from-docs.html">Opening Web Content from Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/features/text-editor-separate-process.html">Text Editor Separate Process</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Overview &amp; design</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/architecture.html">Architecture</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/env-patterns.html">.env Usage Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/provider-tool-profiles.html">Provider and Tool Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/environments.html">Environments (dev / prod / test)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">How-to</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/copy-to-env.html">Copy Secrets into .env</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/inject-into-process.html">Injecting Secrets into the Dev Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/docker-integration.html">Docker and Docker Secrets</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/standalone-vs-integrated.html">Standalone vs Integrated</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/encryption-modes.html">Encryption and Plaintext Mode</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/backend-providers.html">Back-end Providers (Bitwarden and Others)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/explaining-the-proxy-in-the-gui.html">Explaining the Proxy in the GUI</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/connecting-to-wsl.html">Connecting to WSL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/virtual-environments.html">Virtual Environments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Publishing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/git-release-workflow.html">Git Release Workflow</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/automated-releases.html">Automated Releases</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/package-registries.html">Package Registries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/antora-deployment.html">Antora Deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/dprint-vscode.html">dprint-vscode</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DevCentr</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">DevCentr</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../home/index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">DevCentr</a></li>
+    <li>🛠️ How-to Guides</li>
+    <li><a href="github-pages-custom-domain.html">GitHub Pages Custom Domain</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/devcentr/edit/main/docs/modules/knowledge-base/pages/how-to/github-pages-custom-domain.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">GitHub Pages: Use Your Own Domain</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This guide tells you how to make your GitHub Pages site open at your own domain instead of <code>yourname.github.io</code>. We use short sentences and explain every step. If you get stuck, the <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site">official GitHub doc</a> has more detail.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_do_i_need_quick_list"><a class="anchor" href="#_what_do_i_need_quick_list"></a>What do I need? (Quick list)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You do two things: (1) tell GitHub your domain name, and (2) tell the place that owns your domain (your "DNS provider") where to send visitors. The table below shows what to add at your DNS provider depending on what you want.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Apex domain</strong> = your main domain with no extra part in front. Example: <code>example.com</code>.</p>
+</li>
+<li>
+<p><strong>Subdomain</strong> = something in front of your domain. Examples: <code>www.example.com</code>, <code>blog.example.com</code>. For GitHub Pages, <code>www</code> is the one people use most.</p>
+</li>
+<li>
+<p><strong>DNS provider</strong> = the place where you manage your domain (where you bought it or where you set its "DNS records"). Examples: Cloudflare, Namecheap, Google Domains, your registrar.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">What you want</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Record type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name (or "host")</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value (copy this)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Just the main domain (e.g. <code>example.com</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A (four of them)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@</code> or your apex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See "Apex: A records" below</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Just the main domain (e.g. <code>example.com</code>) — if your DNS supports it</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ALIAS or ANAME (one record)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@</code> or your apex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>yourusername.github.io</code> or <code>yourorg.github.io</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Just www (e.g. <code>www.example.com</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CNAME (one record)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>www</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>yourusername.github.io</code> or <code>yourorg.github.io</code> (no repo name, no <code>https://</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Both main domain and www</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A (or ALIAS) for apex + CNAME for www</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apex: <code>@</code>; www: <code>www</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apex: IPs or ALIAS value below; www: <code>yourusername.github.io</code> (or org)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Use your real GitHub username or org name instead of <code>yourusername</code> / <code>yourorg</code>. Do not add the repository name in the CNAME value.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_order_of_work_do_this_first_then_that"><a class="anchor" href="#_order_of_work_do_this_first_then_that"></a>Order of work (do this first, then that)</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>First:</strong> Add your custom domain in GitHub (Settings → Pages → Custom domain). Save. That way GitHub knows you own it and no one else can use it for their site.</p>
+</li>
+<li>
+<p><strong>Second:</strong> Add the DNS records at your DNS provider (see the table and sections below). If you do DNS first and forget GitHub, someone else could point your domain to their site.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>DNS changes can take up to 24 hours to show up. Be patient.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_1_add_the_domain_in_github"><a class="anchor" href="#_step_1_add_the_domain_in_github"></a>Step 1: Add the domain in GitHub</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open your repository on GitHub.</p>
+</li>
+<li>
+<p>Click <strong>Settings</strong>.</p>
+</li>
+<li>
+<p>In the left sidebar, under "Code and automation", click <strong>Pages</strong>.</p>
+</li>
+<li>
+<p>Find the <strong>Custom domain</strong> box.</p>
+</li>
+<li>
+<p>Type your domain (e.g. <code>example.com</code> or <code>www.example.com</code>). Do not type <code>https://</code> or a path.</p>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If you publish from a branch, GitHub will add a file called <code>CNAME</code> to your repo. If you build the site with GitHub Actions, you do not need that file.</p>
+</div>
+<div class="paragraph">
+<p>After the domain is set, you can turn on <strong>Enforce HTTPS</strong> when it appears (sometimes it takes a while). That makes your site load over a secure connection.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_2a_you_want_the_main_domain_only_e_g_example_com"><a class="anchor" href="#_step_2a_you_want_the_main_domain_only_e_g_example_com"></a>Step 2a: You want the main domain only (e.g. example.com)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is called an <strong>apex</strong> or <strong>root</strong> domain. You need either four <strong>A</strong> records or one <strong>ALIAS/ANAME</strong> record at your DNS provider.</p>
+</div>
+<div class="sect2">
+<h3 id="_option_a_four_a_records_works_everywhere"><a class="anchor" href="#_option_a_four_a_records_works_everywhere"></a>Option A: Four A records (works everywhere)</h3>
+<div class="paragraph">
+<p>Go to your DNS provider and create <strong>four</strong> A records. Each record points your domain to one of these four numbers (IP addresses):</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Record type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value (IP address)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">185.199.108.153</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">185.199.109.153</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">185.199.110.153</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">185.199.111.153</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Name / host:</strong> Use <code>@</code> or your apex (e.g. leave blank or <code>example.com</code> depending on the provider).</p>
+</li>
+<li>
+<p><strong>TTL:</strong> Default is fine (e.g. 3600 or "Auto").</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_option_b_one_alias_or_aname_record_if_your_dns_provider_has_it"><a class="anchor" href="#_option_b_one_alias_or_aname_record_if_your_dns_provider_has_it"></a>Option B: One ALIAS or ANAME record (if your DNS provider has it)</h3>
+<div class="paragraph">
+<p>Some providers (e.g. Cloudflare, DNSimple) let you use one record instead of four:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type:</strong> ALIAS or ANAME</p>
+</li>
+<li>
+<p><strong>Name / host:</strong> <code>@</code> or your apex</p>
+</li>
+<li>
+<p><strong>Value / target:</strong> <code>yourusername.github.io</code> or <code>yourorg.github.io</code> (user or org site). No repo name. No <code>https://</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you do not see ALIAS or ANAME in your provider, use the four A records above.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_optional_ipv6_aaaa_records"><a class="anchor" href="#_optional_ipv6_aaaa_records"></a>Optional: IPv6 (AAAA records)</h3>
+<div class="paragraph">
+<p>If you want IPv6 support, add four AAAA records. Name is the same as your A records. Values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>2606:50c0:8000::153</p>
+</li>
+<li>
+<p>2606:50c0:8001::153</p>
+</li>
+<li>
+<p>2606:50c0:8002::153</p>
+</li>
+<li>
+<p>2606:50c0:8003::153</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_2b_you_want_www_only_e_g_www_example_com"><a class="anchor" href="#_step_2b_you_want_www_only_e_g_www_example_com"></a>Step 2b: You want www only (e.g. www.example.com)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is a <strong>subdomain</strong>. You need <strong>one CNAME</strong> record.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to your DNS provider.</p>
+</li>
+<li>
+<p>Add a <strong>CNAME</strong> record:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Type:</strong> CNAME</p>
+</li>
+<li>
+<p><strong>Name / host:</strong> <code>www</code> (or <code>www.example.com</code> if the provider asks for the full name)</p>
+</li>
+<li>
+<p><strong>Value / target:</strong> <code>yourusername.github.io</code> or <code>yourorg.github.io</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Do <strong>not</strong> put the repository name in the value. Do <strong>not</strong> put <code>https://</code>. Just the <code>.github.io</code> address.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_2c_you_want_both_the_main_domain_and_www"><a class="anchor" href="#_step_2c_you_want_both_the_main_domain_and_www"></a>Step 2c: You want both the main domain and www</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Do "Step 2a" for your main domain (four A records or one ALIAS/ANAME).</p>
+</li>
+<li>
+<p>Do "Step 2b" for <code>www</code> (one CNAME pointing to <code>yourusername.github.io</code> or <code>yourorg.github.io</code>).</p>
+</li>
+<li>
+<p>In GitHub (Settings → Pages → Custom domain), type <strong>one</strong> of the two (either <code>example.com</code> or <code>www.example.com</code>) and save. GitHub will then redirect the other one to the one you chose. For example, if you set <code>example.com</code> in GitHub, then <code>www.example.com</code> will redirect to <code>example.com</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_check_that_it_worked"><a class="anchor" href="#_check_that_it_worked"></a>Check that it worked</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After you save your DNS records, wait a few minutes (or up to 24 hours). Then:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Windows (PowerShell):</strong> Run <code>Resolve-DnsName example.com</code> (use your domain instead of example.com). You should see the GitHub IPs or a CNAME to <code>.github.io</code>.</p>
+</li>
+<li>
+<p><strong>Mac / Linux:</strong> Run <code>dig example.com +short</code> (use your domain). You should see the four IPs or a CNAME to your <code>.github.io</code> address.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you see the right numbers or the right CNAME, your DNS is set. Your site should load at your domain once GitHub has finished updating (and after you turned on Enforce HTTPS if you want https).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_remove_a_custom_domain"><a class="anchor" href="#_remove_a_custom_domain"></a>Remove a custom domain</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to stop using your domain and go back to <code>yourname.github.io</code>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the repo on GitHub → <strong>Settings</strong> → <strong>Pages</strong>.</p>
+</li>
+<li>
+<p>Under <strong>Custom domain</strong>, click <strong>Remove</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Then you can remove or change the DNS records at your DNS provider so the domain points somewhere else (or nowhere).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_safety_tips"><a class="anchor" href="#_safety_tips"></a>Safety tips</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Verify your domain in GitHub</strong> before or right after adding it. That helps stop someone else from using your domain on their repo. See GitHub’s doc on "Verifying your custom domain."</p>
+</li>
+<li>
+<p><strong>Do not use wildcards</strong> like <code>*.example.com</code> in DNS. That can let other people use subdomains of your domain (e.g. <code>something.example.com</code>) for their site. Use exact names only (e.g. <code>www</code>, or your apex).</p>
+</li>
+<li>
+<p>If you <strong>turn off GitHub Pages</strong> but leave the domain in DNS pointing at GitHub, someone else could use your domain. If you disable the site, remove or change the DNS records too.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I want…</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I do this</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">My site at <code>example.com</code> (no www)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add domain in GitHub. At DNS: four A records (or one ALIAS) with the four IPs (or ALIAS to <code>.github.io</code>).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">My site at <code>www.example.com</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add domain in GitHub. At DNS: one CNAME — name <code>www</code>, value <code>yourusername.github.io</code> (or org).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">My site at both <code>example.com</code> and <code>www.example.com</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add domain in GitHub (use one of the two). At DNS: A (or ALIAS) for apex + CNAME for <code>www</code>. GitHub does the redirect.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Source: Based on <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site">Managing a custom domain for your GitHub Pages site</a> (GitHub Docs). Simplified and reordered for clarity.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/site-dark-mode.js"></script>
+  </body>
+</html>

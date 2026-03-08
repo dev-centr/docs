@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Connecting to WSL :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/DevCentr/secrets-manager/explanation/connecting-to-wsl.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="DevCentr" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">DevCentr</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Dev Center</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../project-vision.html">Project Vision</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../todo-roadmap.html">Todo &amp; Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../activity-log.html">Activity Log</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/index.html">Knowledge Base</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Software Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/index.html">Knowledge Base</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🎓 Tutorials</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/tutorials/onboarding.html">Developer Onboarding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🛠️ How-to Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/flutter-setup.html">Flutter Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/tailwind-setup.html">Tailwind Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/file-sync.html">File Sync</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/git-ignore-local.html">.gitignore.local</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/git-hooks.html">Git Hooks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/git-lfs.html">Large Files &amp; LFS</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/git-recovery.html">Git Recovery</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/kvm-windows-automation.html">Windows Automation via KVM</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/how-to/github-pages-custom-domain.html">GitHub Pages Custom Domain</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">📚 Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/reference/index.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/reference/workspace-organization.html">Workspace Organization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/reference/recommended-tools.html">Recommended Tools</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/reference/git-management.html">Git Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/reference/git-installation.html">Git Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/reference/nodejs-env.html">Node.js Environment</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../knowledge-base/reference/asciidoc-tools.html">AsciiDoc Tooling</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🧠 Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../knowledge-base/explanation/index.html">Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Architecture</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/architecture/principles.html">Core Principles</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/architecture/google-docs-apps-script.html">Apps Script Optimization</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Infrastructure</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/ssh-keys.html">SSH Keys</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/git-branching.html">Branching Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/git-submodules.html">Submodules &amp; Monorepos</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/pnpm-mechanics.html">pnpm Mechanics</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/self-hosting.html">Self-Hosting</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/windows-testing-on-linux.html">Windows Testing on Linux</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/sync-by-gemini.html">Sync: Gemini</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/infrastructure/sync-grok4.html">Sync: Grok4</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Documentation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../knowledge-base/explanation/writing-clear-docs-with-ai.html">Writing Clear Docs with AI</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/dependency-modeler.html">Dependency Modeler</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/project-recognizer.html">Project Recognizer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/repository-provider-registry.html">Repository Provider Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/text-editor-link-system.html">Text Editor Link System</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/code-execution-recording.html">Code Execution Recording</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/git-repository-manager.html">Git Repository Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/workspace-template-manager.html">Workspace Template Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/secrets-manager.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/components/ssh-manager.html">SSH Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/features/opening-web-content-from-docs.html">Opening Web Content from Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../specifications/features/text-editor-separate-process.html">Text Editor Separate Process</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Secrets Manager</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Overview &amp; design</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../architecture.html">Architecture</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/env-patterns.html">.env Usage Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/provider-tool-profiles.html">Provider and Tool Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/environments.html">Environments (dev / prod / test)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">How-to</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-to/copy-to-env.html">Copy Secrets into .env</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-to/inject-into-process.html">Injecting Secrets into the Dev Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../how-to/docker-integration.html">Docker and Docker Secrets</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="standalone-vs-integrated.html">Standalone vs Integrated</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="encryption-modes.html">Encryption and Plaintext Mode</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="backend-providers.html">Back-end Providers (Bitwarden and Others)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="explaining-the-proxy-in-the-gui.html">Explaining the Proxy in the GUI</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="connecting-to-wsl.html">Connecting to WSL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="virtual-environments.html">Virtual Environments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Publishing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/git-release-workflow.html">Git Release Workflow</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/automated-releases.html">Automated Releases</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/package-registries.html">Package Registries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/antora-deployment.html">Antora Deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/dprint-vscode.html">dprint-vscode</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DevCentr</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">DevCentr</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../home/index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">DevCentr</a></li>
+    <li>Explanation</li>
+    <li><a href="connecting-to-wsl.html">Connecting to WSL</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/devcentr/edit/main/docs/modules/secrets-manager/pages/explanation/connecting-to-wsl.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Connecting to WSL</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This page explains how the Secrets Manager and SSH Manager <strong>connect</strong> to workloads that run <strong>inside WSL (Windows Subsystem for Linux)</strong>. WSL is a separate Linux environment: its own processes, filesystem, and environment variables. Windows processes and WSL processes don&#8217;t share memory or env by default, so we have to cross that boundary in specific ways.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_why_connecting_matters"><a class="anchor" href="#_why_connecting_matters"></a>Why "connecting" matters</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Secrets Manager</strong> must either write files (e.g. <code>.env</code>) into a path the app can read, or inject env vars into the <strong>process</strong> that runs your app. If that process runs inside WSL, it&#8217;s a <strong>Linux</strong> process — we&#8217;re on Windows, so we need a strategy to get secrets across.</p>
+</li>
+<li>
+<p><strong>SSH Manager</strong> needs the <strong>process</strong> that runs <code>ssh</code> or <code>git</code> to see an agent (via <code>SSH_AUTH_SOCK</code>). If Git runs inside WSL, it looks for a socket in the <strong>Linux</strong> env; our agent might be on Windows. So we need a way for WSL to reach the Windows agent.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Below are the concrete ways we plug in.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_secrets_manager_writing_env_into_a_wsl_project"><a class="anchor" href="#_secrets_manager_writing_env_into_a_wsl_project"></a>Secrets Manager — writing <code>.env</code> into a WSL project</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Your repo might live <strong>inside WSL</strong> (e.g. <code>/home/user/projects/myapp</code>). From Windows, that path is often visible as <code>\\wsl$\Ubuntu\home\user\projects\myapp</code> (or <code>\\wsl.localhost...</code>). The Secrets Manager runs on Windows, so it can <strong>write</strong> a <code>.env</code> file to that path, same as any other Windows app writing to a WSL path. Then when you run <code>npm run dev</code> or <code>python app.py</code> <strong>inside WSL</strong>, the app (running in Linux) reads <code>.env</code> from its own filesystem.</p>
+</div>
+<div class="paragraph">
+<p>So <strong>copy to .env</strong> works: we target the WSL path from Windows, and the Linux process sees the file. We just need to resolve the project path to the WSL-accessible path when the user&#8217;s project is in WSL.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_secrets_manager_injecting_into_a_process_that_runs_inside_wsl"><a class="anchor" href="#_secrets_manager_injecting_into_a_process_that_runs_inside_wsl"></a>Secrets Manager — injecting into a process that runs inside WSL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you want to <strong>inject</strong> env vars (no <code>.env</code> file) into an app that runs <strong>inside WSL</strong>, the process is a <strong>Linux</strong> process. Our injector typically runs on Windows (we own the socket or API). So we need a <strong>small helper inside WSL</strong> that: (1) talks to the Windows-side manager (e.g. over TCP localhost, which WSL can reach), (2) gets the secret key-value pairs, (3) runs the user&#8217;s command with those vars in the environment (e.g. <code>env KEY=val python app.py</code>). The manager stays on Windows; the injection <strong>entry point</strong> for WSL is that helper.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ssh_manager_using_our_agent_from_inside_wsl"><a class="anchor" href="#_ssh_manager_using_our_agent_from_inside_wsl"></a>SSH Manager — using our agent from inside WSL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The SSH client that runs <strong>inside WSL</strong> (e.g. <code>git pull</code>, <code>ssh server</code>) is a <strong>Linux</strong> process. It looks for <code>SSH_AUTH_SOCK</code> in its <strong>Linux</strong> environment. Our forwarding agent might run on <strong>Windows</strong> and bind a Windows named pipe or socket — WSL processes don&#8217;t see that by default. So to connect we need a <strong>bridge</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Option A:</strong> Run something <strong>inside WSL</strong> that forwards to the Windows agent. For example, a Unix socket in WSL that relays to the Windows named pipe (tools like <code>npiperelay</code> + <code>socat</code>, or projects like <code>wsl-ssh-agent-gui</code>, do this). Then set <code>SSH_AUTH_SOCK</code> in WSL to that Unix socket. The Linux SSH client talks to the bridge, and the bridge talks to the Windows agent (which can be our coordinator that forwards to Bitwarden/OpenSSH).</p>
+</li>
+<li>
+<p><strong>Option B:</strong> Run our <strong>forwarding agent inside WSL</strong> and have it connect to Windows-side backends (e.g. over TCP or a socket). More complex and depends on whether Bitwarden/OpenSSH are reachable from WSL.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So we plug in by documenting or shipping a <strong>WSL bridge</strong> so that <code>SSH_AUTH_SOCK</code> in WSL points at a socket that eventually reaches our Windows agent (or the user&#8217;s chosen Windows agent). The existing <a href="../../knowledge-base/explanation/infrastructure/ssh-keys.html" class="xref page">SSH Keys</a> doc already notes that WSL users need a bridge to use the Windows ssh-agent; the same idea applies when our SSH Manager is the coordinator.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>| Goal | How we connect |
+|------|-----------------|
+| Copy secrets to a repo that lives in WSL | Write <code>.env</code> to the WSL path from Windows (<code>\\wsl$...</code> or <code>\\wsl.localhost...</code>). |
+| Inject secrets into an app that runs in WSL | Provide a WSL-side helper that asks the Windows manager for secrets (e.g. over localhost) and runs the command with those env vars. |
+| Use SSH Manager from inside WSL | Provide or document a bridge (e.g. npiperelay + socat) so WSL&#8217;s <code>SSH_AUTH_SOCK</code> points to a socket that forwards to our Windows agent. |</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vms_and_containers"><a class="anchor" href="#_vms_and_containers"></a>VMs and containers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For <strong>containers</strong> (e.g. Docker) and <strong>full VMs</strong>, the boundary is different again: a separate kernel or isolated userspace. Getting secrets in means files, env at container/VM start, or a helper process inside that talks to the host. Docker is the main case and is covered in <a href="../how-to/docker-integration.html" class="xref page">Docker and Docker Secrets</a>.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/site-dark-mode.js"></script>
+  </body>
+</html>
