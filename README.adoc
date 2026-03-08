@@ -1,8 +1,8 @@
+link:https://docs.devcentr.org[image:https://img.shields.io/badge/site-docs.devcentr.org-0066cc?style=flat[Site]]
+
 = Dev-Centr Documentation
 
 This repository contains the Antora playbook and configuration for the **Dev Center** documentation site. It aggregates content from multiple sources to build a unified documentation portal.
-
-link:https://docs.devcentr.org[image:https://img.shields.io/badge/site-docs.devcentr.org-0066cc?style=flat-square[Site]]
 
 == Project Structure
 
