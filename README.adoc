@@ -1,26 +1,29 @@
-= Dev Center Documentation
+= Dev-Centr Documentation
 
 This repository contains the Antora playbook and configuration for the **Dev Center** documentation site. It aggregates content from multiple sources to build a unified documentation portal.
 
+link:https://docs.devcentr.org[image:https://img.shields.io/badge/site-docs.devcentr.org-0066cc?style=flat-square[Site]]
+
 == Project Structure
 
-* `antora-playbook.online.yml`:: The production Antora playbook. Uses remote GitHub URLs for all content sources and the published UI bundle. Used by CI/CD.
-* `antora-playbook.yml`:: The local dev playbook. Configured for local sibling directories and the `dev-centr` organization structure.
-* `antora-playbook.example.yml`:: A committed template for the local dev playbook.
-* `antora-playbook.testing.example.yml`:: A committed template for full local testing.
-* `docs.code-workspace`:: VS Code workspace file configured for multi-root editing across documentation sources.
-* `package.json`:: Defines dependencies and build scripts.
-
-== 🌍 Site URL
-
-The documentation site is hosted at link:https://docs.devcentr.org[docs.devcentr.org].
-
-== Prerequisites
-
-* link:https://nodejs.org/[Node.js] (LTS recommended)
-* link:https://pnpm.io/[pnpm]
+|===
+| File | Description
+| `antora-playbook.yml` | Production Antora playbook. Uses remote GitHub URLs for all content sources and the published UI bundle. Used by CI/CD.
+| `antora-playbook-local.example.yml` | Committed template for the local dev playbook. Copy to `antora-playbook-local.yml` (gitignored) for local builds.
+| `antora-playbook.testing.example.yml` | Committed template for full local testing (e.g. local UI bundle).
+| `docs.code-workspace` | VS Code workspace file configured for multi-root editing across documentation sources.
+| `package.json` | Defines dependencies and build scripts.
+|===
 
 == Usage
+
+=== Prerequisites
+
+|===
+| Dependency | Notes
+| link:https://nodejs.org/[Node.js] | LTS recommended
+| link:https://pnpm.io/[pnpm] | Package manager for install and build scripts
+|===
 
 === Installation
 
@@ -37,7 +40,7 @@ Copy the example playbook to create your local config:
 
 [source,powershell]
 ----
-cp antora-playbook.example.yml antora-playbook.yml
+cp antora-playbook-local.example.yml antora-playbook-local.yml
 ----
 
 Then build the site locally:
@@ -64,10 +67,18 @@ To build with remote sources (as CI does):
 
 [source,powershell]
 ----
-pnpm build:online
+pnpm run build:online
 ----
 
 The output will be generated in the `build/site` directory (or as configured in the playbook).
+
+|===
+| Command | Purpose
+| `pnpm install` | Install dependencies
+| `pnpm build` | Build site with local playbook (`antora-playbook-local.yml`)
+| `pnpm build:testing` | Build with testing playbook (e.g. local UI bundle)
+| `pnpm run build:online` | Build with remote sources (production/CI)
+|===
 
 == Development
 
