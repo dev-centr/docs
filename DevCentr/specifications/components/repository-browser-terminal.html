@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Repository Browser Terminal :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/DevCentr/specifications/components/repository-browser-terminal.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="DevCentr" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">DevCentr</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Dev Center</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../docs-organization.html">Doc Organization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../project-vision.html">Project Vision</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../aspect-oriented-programming.html">Aspect-Oriented Programming</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../todo-roadmap.html">Todo &amp; Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gitignore-whitelist.html">Gitignore Strategy</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../ai-local-library-docs.html">AI Local Library Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../dub-local-remote-paths.html">DUB Local vs Remote Paths</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../local-library-mods.html">Local Library Mods</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../activity-log.html">Activity Log</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#general-knowledge:index.adoc">General Knowledge</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Software Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="dependency-modeler.html">Dependency Modeler</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="project-recognizer.html">Project Recognizer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ai-config-interface.html">AI Config Interface</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-browser.html">Repository Browser</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="repository-browser-terminal.html">Repository Browser Terminal</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-tools-registry.html">Repository Tools Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-provider-registry.html">Repository Provider Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-viewer.html">Git Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="gitignore-viewer.html">Gitignore Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="text-editor-link-system.html">Text Editor Link System</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="code-execution-recording.html">Code Execution Recording</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-repository-manager.html">Git Repository Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="workspace-template-manager.html">Workspace Template Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ssh-manager.html">SSH Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="iac-discovery.html">IaC Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installation-workflow.html">Installation Workflow</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/opening-web-content-from-docs.html">Opening Web Content from Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/ai-doc-sources-and-mcp-setup.html">AI Doc Sources and MCP Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/better-automatic-ai-routing.html">Automatic AI Model Routing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/text-editor-separate-process.html">Text Editor Separate Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/local-mod-management.html">Local Mod Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/document-preview-navigation.html">Document Preview Navigation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/dynamic-agent-preamble.html">Dynamic Agent Preamble</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/definition-files.html">Definition Files (Services and Languages)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../templates-schema.html">Templates Repository Schema</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Overview &amp; design</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/architecture.html">Architecture</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/env-patterns.html">.env Usage Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/provider-tool-profiles.html">Provider and Tool Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/environments.html">Environments (dev / prod / test)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">How-to</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/copy-to-env.html">Copy Secrets into .env</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/inject-into-process.html">Injecting Secrets into the Dev Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/docker-integration.html">Docker and Docker Secrets</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/standalone-vs-integrated.html">Standalone vs Integrated</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/encryption-modes.html">Encryption and Plaintext Mode</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/backend-providers.html">Back-end Providers (Bitwarden and Others)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/explaining-the-proxy-in-the-gui.html">Explaining the Proxy in the GUI</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/connecting-to-wsl.html">Connecting to WSL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/virtual-environments.html">Virtual Environments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Publishing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/vercel-deployment.html">Vercel Deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/dprint-vscode.html">dprint-vscode</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DevCentr</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">DevCentr</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../home/index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">DevCentr</a></li>
+    <li><a href="repository-browser-terminal.html">Repository Browser Terminal</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/devcentr/edit/main/docs/modules/specifications/pages/components/repository-browser-terminal.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Repository Browser Terminal</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>DevCentr should include an integrated terminal in the repository browser so users can run commands in a repository without depending on VS Code or another editor.</p>
+</div>
+<div class="paragraph">
+<p>This terminal is not meant to replace full terminal apps. It is a repo-scoped command workspace with better history visibility than a plain black console pane.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_goals"><a class="anchor" href="#_goals"></a>Goals</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Open a terminal directly in the selected repository directory</p>
+</li>
+<li>
+<p>Keep the session independent from external editors</p>
+</li>
+<li>
+<p>Make command history easy to scan and revisit</p>
+</li>
+<li>
+<p>Visually segment output by command</p>
+</li>
+<li>
+<p>Preserve session history while still allowing environment refresh actions</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_placement"><a class="anchor" href="#_placement"></a>Placement</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The terminal belongs to the repository browser tool area.</p>
+</div>
+<div class="paragraph">
+<p>It should be available when a repository is selected.</p>
+</div>
+<div class="paragraph">
+<p>The repository browser remains the owner of repo context, while the terminal component owns command execution and history rendering.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_main_layout"><a class="anchor" href="#_main_layout"></a>Main layout</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The component uses three zones:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Left: command index list</p>
+</li>
+<li>
+<p>Center: scrollable terminal viewer zone</p>
+</li>
+<li>
+<p>Bottom: compact toolbar</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_terminal_viewer_zone"><a class="anchor" href="#_terminal_viewer_zone"></a>Terminal viewer zone</h3>
+<div class="paragraph">
+<p>The viewer zone has:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Black outer background</p>
+</li>
+<li>
+<p>Dark grey terminal surface by default</p>
+</li>
+<li>
+<p>A stack of command blocks inside the scroll area</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each command execution creates its own block.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_command_blocks"><a class="anchor" href="#_command_blocks"></a>Command blocks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Every command runs in its own visual block, effectively creating "subterminals" within the same session history.</p>
+</div>
+<div class="paragraph">
+<p>Each block should have:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Margin on all sides</p>
+</li>
+<li>
+<p>Padding inside</p>
+</li>
+<li>
+<p>Header area for the command line</p>
+</li>
+<li>
+<p>Output area below</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The block background color should differ between commands so users can visually separate them.</p>
+</div>
+<div class="paragraph">
+<p>The output area should retain the normal terminal output background color even when the command block chrome changes state.</p>
+</div>
+<div class="sect2">
+<h3 id="_command_lifecycle_colors"><a class="anchor" href="#_command_lifecycle_colors"></a>Command lifecycle colors</h3>
+<div class="paragraph">
+<p>Before execution:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The command block starts as a single line</p>
+</li>
+<li>
+<p>It shows only the editable command line</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>While running:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The command block chrome changes color to indicate active execution</p>
+</li>
+<li>
+<p>The output area expands as output arrives</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After completion:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The command block stays in history</p>
+</li>
+<li>
+<p>The running highlight is removed</p>
+</li>
+<li>
+<p>Exit status should be visible</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_command_index"><a class="anchor" href="#_command_index"></a>Command index</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The left index zone lets users jump quickly to any command block.</p>
+</div>
+<div class="paragraph">
+<p>Each row represents one command execution.</p>
+</div>
+<div class="paragraph">
+<p>Requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Clicking an index row scrolls to that command block</p>
+</li>
+<li>
+<p>Labels are truncated, not wrapped</p>
+</li>
+<li>
+<p>If many commands share the same prefix, the UI should detect the next differing substring and show <code>&#8230;&#8203;</code> for the repeated prefix</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pnpm test --filter app-a</code></p>
+</li>
+<li>
+<p><code>&#8230;&#8203;app-b</code></p>
+</li>
+<li>
+<p><code>&#8230;&#8203;app-c</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_toolbar"><a class="anchor" href="#_toolbar"></a>Toolbar</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The bottom toolbar should stay small and unobtrusive.</p>
+</div>
+<div class="paragraph">
+<p>It should include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Run current command</p>
+</li>
+<li>
+<p>Clear current input only</p>
+</li>
+<li>
+<p>Refresh environment</p>
+</li>
+<li>
+<p>Open external terminal</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_refresh_environment_behavior"><a class="anchor" href="#_refresh_environment_behavior"></a>Refresh environment behavior</h3>
+<div class="paragraph">
+<p>Refreshing the environment must not erase the session history.</p>
+</div>
+<div class="paragraph">
+<p>Preferred behaviors:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Native environment refresh if the host platform supports it safely</p>
+</li>
+<li>
+<p>Otherwise inject the refresh command into the terminal input for the user to run manually</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>On Windows PowerShell, the UI can inject the standard PATH refresh command used by this workspace.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_process_model"><a class="anchor" href="#_process_model"></a>Process model</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The integrated terminal should maintain session continuity per repository tab or per selected repository instance.</p>
+</div>
+<div class="paragraph">
+<p>Commands within the same terminal session should share:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Current working directory</p>
+</li>
+<li>
+<p>Environment mutations made in that session</p>
+</li>
+<li>
+<p>Shell type</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_relation_to_repository_tools"><a class="anchor" href="#_relation_to_repository_tools"></a>Relation to repository tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The terminal should register itself with the repository tools registry as an attached tool.</p>
+</div>
+<div class="paragraph">
+<p>This lets the repository browser show terminal presence alongside editors and Git tools.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_non_goals"><a class="anchor" href="#_non_goals"></a>Non-goals</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The first version does not need:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Full terminal emulation parity with external terminal apps</p>
+</li>
+<li>
+<p>Tabs inside the integrated terminal</p>
+</li>
+<li>
+<p>Multiplexing remote shells</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The core value is command segmentation, repo scoping, and a better visual history than a plain terminal pane.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/site-dark-mode.js"></script>
+  </body>
+</html>

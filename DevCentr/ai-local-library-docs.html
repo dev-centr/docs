@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AI Local Library Docs :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/DevCentr/ai-local-library-docs.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="stylesheet" href="../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="DevCentr" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">DevCentr</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Dev Center</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="docs-organization.html">Doc Organization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="project-vision.html">Project Vision</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="aspect-oriented-programming.html">Aspect-Oriented Programming</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="todo-roadmap.html">Todo &amp; Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="gitignore-whitelist.html">Gitignore Strategy</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="ai-local-library-docs.html">AI Local Library Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="dub-local-remote-paths.html">DUB Local vs Remote Paths</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="local-library-mods.html">Local Library Mods</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="activity-log.html">Activity Log</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#general-knowledge:index.adoc">General Knowledge</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/index.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="publishing/index.html">Software Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/dependency-modeler.html">Dependency Modeler</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/project-recognizer.html">Project Recognizer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/ai-config-interface.html">AI Config Interface</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/repository-browser.html">Repository Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/repository-browser-terminal.html">Repository Browser Terminal</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/repository-tools-registry.html">Repository Tools Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/repository-provider-registry.html">Repository Provider Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/git-viewer.html">Git Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/gitignore-viewer.html">Gitignore Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/text-editor-link-system.html">Text Editor Link System</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/code-execution-recording.html">Code Execution Recording</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/git-repository-manager.html">Git Repository Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/workspace-template-manager.html">Workspace Template Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/secrets-manager.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/ssh-manager.html">SSH Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/iac-discovery.html">IaC Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/installation-workflow.html">Installation Workflow</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/features/opening-web-content-from-docs.html">Opening Web Content from Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/features/ai-doc-sources-and-mcp-setup.html">AI Doc Sources and MCP Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/features/better-automatic-ai-routing.html">Automatic AI Model Routing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/features/text-editor-separate-process.html">Text Editor Separate Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/features/local-mod-management.html">Local Mod Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/features/document-preview-navigation.html">Document Preview Navigation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/features/dynamic-agent-preamble.html">Dynamic Agent Preamble</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/reference/definition-files.html">Definition Files (Services and Languages)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/templates-schema.html">Templates Repository Schema</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/index.html">Secrets Manager</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Overview &amp; design</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/architecture.html">Architecture</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/reference/env-patterns.html">.env Usage Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/reference/provider-tool-profiles.html">Provider and Tool Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/reference/environments.html">Environments (dev / prod / test)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">How-to</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/how-to/copy-to-env.html">Copy Secrets into .env</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/how-to/inject-into-process.html">Injecting Secrets into the Dev Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/how-to/docker-integration.html">Docker and Docker Secrets</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/explanation/standalone-vs-integrated.html">Standalone vs Integrated</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/explanation/encryption-modes.html">Encryption and Plaintext Mode</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/explanation/backend-providers.html">Back-end Providers (Bitwarden and Others)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/explanation/explaining-the-proxy-in-the-gui.html">Explaining the Proxy in the GUI</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/explanation/connecting-to-wsl.html">Connecting to WSL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/explanation/virtual-environments.html">Virtual Environments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Publishing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="publishing/index.html">Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="publishing/vercel-deployment.html">Vercel Deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upstream-contributions/dprint-vscode.html">dprint-vscode</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DevCentr</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="index.html">DevCentr</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../home/index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">DevCentr</a></li>
+    <li><a href="ai-local-library-docs.html">AI Local Library Docs</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/devcentr/edit/main/docs/modules/ROOT/pages/ai-local-library-docs.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">AI Local Library Docs</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>When AI agents work on DevCentr, they should not rely on stale model memory for D, Phobos, DlangUI, or SDL parsing details.</p>
+</div>
+<div class="paragraph">
+<p>The preferred strategy is layered:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>MCP-hosted indexed docs such as Context7 when available</p>
+</li>
+<li>
+<p>Repo-local cloned docs/source inside this repository when MCP is missing or incomplete</p>
+</li>
+<li>
+<p>Direct web search only as the final fallback</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>DevCentr should eventually help developers bootstrap this stack automatically.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_preferred_order"><a class="anchor" href="#_preferred_order"></a>Preferred order</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use this order when AI-assisted development needs dependency truth:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Query an MCP docs source such as Context7 if the dependency has been indexed there.</p>
+</li>
+<li>
+<p>Fall back to repo-local cloned docs/source in <code>docs/_local-library-docs/</code>.</p>
+</li>
+<li>
+<p>Fall back to web search only when neither of the above is available or trustworthy.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_why_local_docs_beat_web_search_here"><a class="anchor" href="#_why_local_docs_beat_web_search_here"></a>Why local docs beat web search here</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Local docs/source are still preferred over plain web search for this repo because:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>They match the versions you actually have on disk.</p>
+</li>
+<li>
+<p>Repo-local AI indexing can search them quickly.</p>
+</li>
+<li>
+<p>They work offline.</p>
+</li>
+<li>
+<p>They reduce repeated web lookup for the same APIs.</p>
+</li>
+<li>
+<p>They let agents inspect examples, source, and doc comments together.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Web search is still useful, but only as a fallback when MCP and local docs are missing or clearly outdated.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_why_mcp_backed_docs_are_even_better_when_available"><a class="anchor" href="#_why_mcp_backed_docs_are_even_better_when_available"></a>Why MCP-backed docs are even better when available</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MCP-backed indexed docs such as Context7 can be the best primary source because:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>They are easier for AI tools to query directly.</p>
+</li>
+<li>
+<p>They can avoid repeated scraping and search noise.</p>
+</li>
+<li>
+<p>They let the AI stay inside a structured docs workflow.</p>
+</li>
+<li>
+<p>They are easier to standardize in onboarding if the MCP server is installed correctly.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>But MCP is not enough on its own. If the MCP server is missing, misconfigured, or the docs corpus is incomplete, DevCentr still needs a local fallback.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_required_files"><a class="anchor" href="#_required_files"></a>Required files</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Keep these files and folders in your local checkout:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>MCP docs source configuration when available (for example Context7)</p>
+</li>
+<li>
+<p><code>docs/_local-library-docs/</code> - gitignored clones of library docs/source</p>
+</li>
+<li>
+<p><code>AI-LOCAL-LIBRARY-DOCS.local.json5</code> - gitignored machine-specific manifest for AI tools</p>
+</li>
+<li>
+<p><code>AI-LOCAL-LIBRARY-DOCS.example.json5</code> - committed template</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The local manifest filename is intentionally obvious so AI tools notice it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setup"><a class="anchor" href="#_setup"></a>Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>From the repository root:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-powershell hljs" data-lang="powershell">pwsh ./scripts/refresh-local-library-docs.ps1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This clones or updates the current default set of local reference repos and rewrites <code>AI-LOCAL-LIBRARY-DOCS.local.json5</code>.</p>
+</div>
+<div class="paragraph">
+<p>If your AI tooling supports MCP, also install and configure the docs MCP server during machine setup.</p>
+</div>
+<div class="paragraph">
+<p>DevCentr should eventually automate or guide this setup instead of making each developer do it by hand.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_current_default_library_set"><a class="anchor" href="#_current_default_library_set"></a>Current default library set</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>dlang/phobos</code> - D standard library source and doc comments such as <code>std.logger</code></p>
+</li>
+<li>
+<p><code>dlang-supplemental/dlangui</code> - UI framework used by DevCentr</p>
+</li>
+<li>
+<p><code>dlang-community/SDLang-D</code> - SDL parser used by DevCentr</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_guidance_for_ai_assisted_work"><a class="anchor" href="#_guidance_for_ai_assisted_work"></a>Guidance for AI-assisted work</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you use Cursor, Copilot, or other AI tooling on this repo:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Try MCP-indexed docs first when available.</p>
+</li>
+<li>
+<p>Search the local docs/source next.</p>
+</li>
+<li>
+<p>Prefer both of those over generic web summaries.</p>
+</li>
+<li>
+<p>Use web search only when MCP and local docs are missing, stale, or clearly not the version in use.</p>
+</li>
+<li>
+<p>When API behavior smells wrong, verify against local source before making changes.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script src="../_/js/site-dark-mode.js"></script>
+  </body>
+</html>

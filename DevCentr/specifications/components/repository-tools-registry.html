@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Repository Tools Registry :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/DevCentr/specifications/components/repository-tools-registry.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="DevCentr" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">DevCentr</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Dev Center</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../docs-organization.html">Doc Organization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../project-vision.html">Project Vision</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../aspect-oriented-programming.html">Aspect-Oriented Programming</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../todo-roadmap.html">Todo &amp; Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gitignore-whitelist.html">Gitignore Strategy</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../ai-local-library-docs.html">AI Local Library Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../dub-local-remote-paths.html">DUB Local vs Remote Paths</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../local-library-mods.html">Local Library Mods</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../activity-log.html">Activity Log</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#general-knowledge:index.adoc">General Knowledge</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Software Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="dependency-modeler.html">Dependency Modeler</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="project-recognizer.html">Project Recognizer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ai-config-interface.html">AI Config Interface</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-browser.html">Repository Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-browser-terminal.html">Repository Browser Terminal</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="repository-tools-registry.html">Repository Tools Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-provider-registry.html">Repository Provider Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-viewer.html">Git Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="gitignore-viewer.html">Gitignore Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="text-editor-link-system.html">Text Editor Link System</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="code-execution-recording.html">Code Execution Recording</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-repository-manager.html">Git Repository Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="workspace-template-manager.html">Workspace Template Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ssh-manager.html">SSH Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="iac-discovery.html">IaC Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installation-workflow.html">Installation Workflow</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/opening-web-content-from-docs.html">Opening Web Content from Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/ai-doc-sources-and-mcp-setup.html">AI Doc Sources and MCP Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/better-automatic-ai-routing.html">Automatic AI Model Routing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/text-editor-separate-process.html">Text Editor Separate Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/local-mod-management.html">Local Mod Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/document-preview-navigation.html">Document Preview Navigation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/dynamic-agent-preamble.html">Dynamic Agent Preamble</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/definition-files.html">Definition Files (Services and Languages)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../templates-schema.html">Templates Repository Schema</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Overview &amp; design</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/architecture.html">Architecture</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/env-patterns.html">.env Usage Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/provider-tool-profiles.html">Provider and Tool Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/environments.html">Environments (dev / prod / test)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">How-to</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/copy-to-env.html">Copy Secrets into .env</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/inject-into-process.html">Injecting Secrets into the Dev Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/docker-integration.html">Docker and Docker Secrets</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/standalone-vs-integrated.html">Standalone vs Integrated</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/encryption-modes.html">Encryption and Plaintext Mode</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/backend-providers.html">Back-end Providers (Bitwarden and Others)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/explaining-the-proxy-in-the-gui.html">Explaining the Proxy in the GUI</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/connecting-to-wsl.html">Connecting to WSL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/virtual-environments.html">Virtual Environments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Publishing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/vercel-deployment.html">Vercel Deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/dprint-vscode.html">dprint-vscode</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DevCentr</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">DevCentr</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../home/index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">DevCentr</a></li>
+    <li><a href="repository-tools-registry.html">Repository Tools Registry</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/devcentr/edit/main/docs/modules/specifications/pages/components/repository-tools-registry.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Repository Tools Registry</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The repository tools registry tracks all tools and applications that are currently attached to repositories in the local workspace. It powers the right-hand tools panel in the repository browser and the tools column in the repository list.</p>
+</div>
+<div class="paragraph">
+<p>The registry discovers tools in two ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Processes launched directly by DevCentr (built-in modules and external apps).</p>
+</li>
+<li>
+<p>External applications that have open file handles within known repositories, even if DevCentr did not launch them.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_responsibilities"><a class="anchor" href="#_responsibilities"></a>Responsibilities</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The repository tools registry is responsible for:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Tracking built-in modules and external applications that operate on repositories.</p>
+</li>
+<li>
+<p>Discovering external applications with open file handles inside repositories and registering them automatically.</p>
+</li>
+<li>
+<p>Providing a per-repository list of attached tools for the UI.</p>
+</li>
+<li>
+<p>Attempting to bring the window for a selected tool to the foreground when the user clicks its icon.</p>
+</li>
+<li>
+<p>Persisting tool attachments across DevCentr restarts and reconnecting to still-running processes.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_data_model"><a class="anchor" href="#_data_model"></a>Data model</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>At minimum, the registry maintains:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Repository identity:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Repository root path (absolute path under <code>$ROOT</code>).</p>
+</li>
+<li>
+<p>Provider and owner identifiers where available (e.g. <code>github.com/dev-centr/devcentr</code>).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Tool instance:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Unique instance id (per process or module session).</p>
+</li>
+<li>
+<p>Kind (<code>builtin-module</code> or <code>external-app</code>).</p>
+</li>
+<li>
+<p>Human-readable label (e.g. <code>VS Code</code>, <code>DevCentr Git Viewer</code>, <code>Terminal</code>).</p>
+</li>
+<li>
+<p>Icon id for the UI.</p>
+</li>
+<li>
+<p>Process id (for external apps).</p>
+</li>
+<li>
+<p>Executable path (for external apps, where available).</p>
+</li>
+<li>
+<p>Start time and last-seen-alive timestamp.</p>
+</li>
+<li>
+<p>Platform identifier for per-OS behavior.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The registry persists this data in a local store (such as a small JSON5 or SQLite database) so that DevCentr can reconnect to active tools after a crash or restart.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_automatic_discovery_of_external_applications"><a class="anchor" href="#_automatic_discovery_of_external_applications"></a>Automatic discovery of external applications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The registry runs a background discovery loop that scans for external processes with open file handles under the workspace root:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Scope:</strong> All processes on the system that the current user can see.</p>
+</li>
+<li>
+<p><strong>Target paths:</strong> Directories under the configured <code>$ROOT</code> that match the workspace schema (<code>$ROOT/&lt;host&gt;/&lt;owner&gt;/&lt;repo&gt;</code> and its <code>.forks</code> and <code>.clones</code> variants).</p>
+</li>
+<li>
+<p><strong>Handle inspection:</strong> For each process, inspect open file handles and map each file path to the corresponding repository root.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_platform_specific_handle_inspection"><a class="anchor" href="#_platform_specific_handle_inspection"></a>Platform-specific handle inspection</h3>
+<div class="paragraph">
+<p>The specific mechanism for enumerating file handles is platform-dependent:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Windows:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Use Windows APIs (or a bundled helper tool) to enumerate processes and their open file handles.</p>
+</li>
+<li>
+<p>Filter handles whose paths begin with <code>$ROOT</code>.</p>
+</li>
+<li>
+<p>For each matching path, walk up the directory tree until a repository root is found.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>macOS and Linux:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Use <code>lsof</code>, <code>/proc</code>, or equivalent platform facilities to enumerate open files per process.</p>
+</li>
+<li>
+<p>Apply the same <code>$ROOT</code> prefix and repository-root resolution logic.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>DevCentr encapsulates these details behind a single discovery interface so that the higher-level registry logic remains platform-agnostic. If full handle enumeration is not available on a platform, the registry falls back to tracking processes that DevCentr launched directly, while surfacing a warning in diagnostics.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_registration_rules"><a class="anchor" href="#_registration_rules"></a>Registration rules</h3>
+<div class="paragraph">
+<p>When the discovery loop finds a process with an open file handle inside a repository:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If there is no existing tool instance for <code>(repo, process id)</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Create a new <code>external-app</code> tool instance.</p>
+</li>
+<li>
+<p>Attempt to infer the application name and icon from the executable path.</p>
+</li>
+<li>
+<p>Attach the instance to the repository in the registry.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>If there is an existing tool instance for <code>(repo, process id)</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Update its <code>last-seen-alive</code> timestamp.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If multiple repositories are associated with a single process (for example, a multi-root editor workspace), the process may be attached to each relevant repo, with the registry storing the set of repository roots for that instance.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_integration_with_devcentr_launched_tools"><a class="anchor" href="#_integration_with_devcentr_launched_tools"></a>Integration with DevCentr-launched tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When DevCentr launches a built-in module or an external application (for example, VS Code, Cursor, or a Git GUI), it immediately:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Creates a tool instance record with the known repository root and process id (where applicable).</p>
+</li>
+<li>
+<p>Marks the instance as <code>builtin-module</code> or <code>external-app</code> and records a stable label and icon id.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The automatic discovery loop is responsible for reconciling these records with the live process list:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If a DevCentr-launched process is still running, its tool instance remains active.</p>
+</li>
+<li>
+<p>If a process has exited, the registry marks the instance as closed and removes it from the active tools list for the repository.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ui_behavior"><a class="anchor" href="#_ui_behavior"></a>UI behavior</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The tools registry feeds two UI locations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Tools column in the repository list:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Shows up to N icons representing recent or important tools attached to each repository.</p>
+</li>
+<li>
+<p>Does not wrap lines; extra icons are allowed to be clipped at the right edge.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Right-hand tools panel:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>For the currently selected repository, shows all attached tools as tiles or icons.</p>
+</li>
+<li>
+<p>Clicking a tool icon attempts to bring that tool&#8217;s window to the foreground.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Bringing a window to the foreground uses per-platform mechanisms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>On Windows, DevCentr resolves the main window handle for the process and calls the appropriate foreground window API.</p>
+</li>
+<li>
+<p>On other platforms, equivalent window-manager integrations are used where available.</p>
+</li>
+<li>
+<p>If a process is headless or has no associated window, the UI indicates that the tool cannot be focused.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lifetime_and_reconnection"><a class="anchor" href="#_lifetime_and_reconnection"></a>Lifetime and reconnection</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The registry treats external tool instances as long-lived attachments tied to process lifetimes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When DevCentr starts, it loads the persisted registry state.</p>
+</li>
+<li>
+<p>It immediately runs a discovery pass to:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Confirm which recorded processes are still running.</p>
+</li>
+<li>
+<p>Remove instances whose processes have exited.</p>
+</li>
+<li>
+<p>Discover any new external applications that opened files under <code>$ROOT</code> while DevCentr was not running.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This ensures that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>External tools opened independently of DevCentr still appear in the tools panel when DevCentr is launched.</p>
+</li>
+<li>
+<p>DevCentr crashes or restarts do not lose track of running tools that are still operating on repositories.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_relation_to_other_components"><a class="anchor" href="#_relation_to_other_components"></a>Relation to other components</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="repository-browser.html" class="xref page">Repository Browser</a> uses the registry to populate the tools column and right tools panel.</p>
+</li>
+<li>
+<p><a href="git-repository-manager.html" class="xref page">Git Repository Manager</a> consults the registry when planning repository moves, so that it can warn about active processes and offer to close or skip them.</p>
+</li>
+<li>
+<p><a href="repository-provider-registry.html" class="xref page">Repository Provider Registry</a> and provider profiles contribute icons and labels for known tools (for example, official Git GUIs from providers).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/site-dark-mode.js"></script>
+  </body>
+</html>

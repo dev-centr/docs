@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Installation Workflow :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/DevCentr/specifications/components/installation-workflow.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="DevCentr" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">DevCentr</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Dev Center</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../docs-organization.html">Doc Organization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../project-vision.html">Project Vision</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../aspect-oriented-programming.html">Aspect-Oriented Programming</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../todo-roadmap.html">Todo &amp; Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gitignore-whitelist.html">Gitignore Strategy</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../ai-local-library-docs.html">AI Local Library Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../dub-local-remote-paths.html">DUB Local vs Remote Paths</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../local-library-mods.html">Local Library Mods</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../activity-log.html">Activity Log</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#general-knowledge:index.adoc">General Knowledge</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Software Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="dependency-modeler.html">Dependency Modeler</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="project-recognizer.html">Project Recognizer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ai-config-interface.html">AI Config Interface</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-browser.html">Repository Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-browser-terminal.html">Repository Browser Terminal</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-tools-registry.html">Repository Tools Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-provider-registry.html">Repository Provider Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-viewer.html">Git Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="gitignore-viewer.html">Gitignore Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="text-editor-link-system.html">Text Editor Link System</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="code-execution-recording.html">Code Execution Recording</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-repository-manager.html">Git Repository Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="workspace-template-manager.html">Workspace Template Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ssh-manager.html">SSH Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="iac-discovery.html">IaC Discovery</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="installation-workflow.html">Installation Workflow</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/opening-web-content-from-docs.html">Opening Web Content from Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/ai-doc-sources-and-mcp-setup.html">AI Doc Sources and MCP Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/better-automatic-ai-routing.html">Automatic AI Model Routing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/text-editor-separate-process.html">Text Editor Separate Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/local-mod-management.html">Local Mod Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/document-preview-navigation.html">Document Preview Navigation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/dynamic-agent-preamble.html">Dynamic Agent Preamble</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/definition-files.html">Definition Files (Services and Languages)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../templates-schema.html">Templates Repository Schema</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Overview &amp; design</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/architecture.html">Architecture</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/env-patterns.html">.env Usage Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/provider-tool-profiles.html">Provider and Tool Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/environments.html">Environments (dev / prod / test)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">How-to</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/copy-to-env.html">Copy Secrets into .env</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/inject-into-process.html">Injecting Secrets into the Dev Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/docker-integration.html">Docker and Docker Secrets</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/standalone-vs-integrated.html">Standalone vs Integrated</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/encryption-modes.html">Encryption and Plaintext Mode</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/backend-providers.html">Back-end Providers (Bitwarden and Others)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/explaining-the-proxy-in-the-gui.html">Explaining the Proxy in the GUI</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/connecting-to-wsl.html">Connecting to WSL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/virtual-environments.html">Virtual Environments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Publishing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/vercel-deployment.html">Vercel Deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/dprint-vscode.html">dprint-vscode</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DevCentr</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">DevCentr</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../home/index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">DevCentr</a></li>
+    <li><a href="installation-workflow.html">Installation Workflow</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/devcentr/edit/main/docs/modules/specifications/pages/components/installation-workflow.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Installation Workflow</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The installation workflow is the GUI path for adding and bootstrapping tools, runtimes, frameworks, and infrastructure as code. It lets users discover options, try things out, and get a consistent setup without memorizing CLI commands.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_purpose"><a class="anchor" href="#_purpose"></a>Purpose</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Discover:</strong> Show what can be installed (languages, frameworks, IaC tools) in a given context (personal vs org, owner vs repo).</p>
+</li>
+<li>
+<p><strong>Install and bootstrap:</strong> Run install scripts or wizards so the user gets a working setup (e.g. OpenTofu + initial config, or a framework in a repo).</p>
+</li>
+<li>
+<p><strong>Context rules:</strong> Personal use and org use are different. IaC is usually <strong>repo-level</strong> for personal repos; orgs may have an org-level infra repo and per-repo IaC with governance.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_context_personal_vs_org_owner_vs_repo"><a class="anchor" href="#_context_personal_vs_org_owner_vs_repo"></a>Context: personal vs org, owner vs repo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The repository browser exposes <strong>host</strong>, <strong>owner</strong> (user or organization), and <strong>repository</strong>. The workflow adapts to whether the owner is a <strong>personal account</strong> or an <strong>organization</strong>.</p>
+</div>
+<div class="sect2">
+<h3 id="_personal_account_user"><a class="anchor" href="#_personal_account_user"></a>Personal account (user)</h3>
+<div class="paragraph">
+<p>When the user is browsing their <strong>own account</strong> (personal repos):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>At a repo:</strong> Offer <strong>repo-level IaC</strong> as the main option when they choose “Add Infrastructure as Code.” This is the typical case: one repo, one project, infra in that repo (e.g. <code>infra/</code> with OpenTofu). Recommend OpenTofu, offer to bootstrap a minimal layout and install the CLI if needed. No “org-level infra repo” or “orphaned” / “register with central” messaging unless the user has explicitly set up a personal infra repo and wants to link projects to it.</p>
+</li>
+<li>
+<p><strong>At the user (owner) level:</strong> Optionally offer “Create or manage a personal infrastructure repo” for users who want one place for shared personal infra across many projects. This is an advanced option; the default guidance is repo-level IaC per project.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Suggestions and explanations in the flow should match <strong>personal use</strong>: simple, repo-centric, no org governance or registration patterns unless the user opts in.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_organization"><a class="anchor" href="#_organization"></a>Organization</h3>
+<div class="paragraph">
+<p>When the user is browsing an <strong>organization</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>At the org (owner) level:</strong> Offer <strong>org-level Infrastructure as Code</strong> setup: create or link an <code>infrastructure</code> (or similar) repo for the org, recommend OpenTofu, bootstrap initial layout. This is the only place where org-level IaC setup is offered.</p>
+</li>
+<li>
+<p><strong>At a repo:</strong> Offer <strong>project technologies</strong> (languages, frameworks) and <strong>per-project IaC</strong>. Choosing per-project IaC enters the decision flow below (org-level vs per-project, orphaned IaC, registration).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Project technologies (languages, runtimes, frameworks) are always installed <strong>only into a repo</strong>, whether the owner is personal or an org.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_iac_as_a_sub_option"><a class="anchor" href="#_iac_as_a_sub_option"></a>IaC as a sub-option</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>IaC is one sub-option inside the broader installation workflow. The entry point might be “Install or add…” and then:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add / manage <strong>Infrastructure as Code</strong></p>
+</li>
+<li>
+<p>Add / manage <strong>project technologies</strong> (languages, frameworks)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Behavior depends on context:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Personal + repo:</strong> IaC flow is <strong>repo-level</strong> by default: add IaC to this repo, recommend OpenTofu, bootstrap. Docs button opens the IaC doc with <strong>personal use</strong> and <strong>org use</strong> sections so they can read more if needed.</p>
+</li>
+<li>
+<p><strong>Org + owner:</strong> IaC flow is <strong>org-level</strong> infra repo (create/link, OpenTofu, bootstrap).</p>
+</li>
+<li>
+<p><strong>Org + repo:</strong> IaC flow is <strong>per-project</strong> and must present the decision flow below (and orphaned/registration when relevant).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>During any IaC flow, a <strong>Docs</strong> button opens the DevCentr documentation section for Infrastructure as Code (the <a href="#general-knowledge:explanation/infrastructure/iac.adoc" class="xref unresolved">Infrastructure as Code (IaC)</a> page). That page explains OpenTofu, <strong>personal use (repo-level)</strong> vs <strong>organization use</strong> (org-level, per-project, delegation patterns).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_decision_flow_installing_infra_into_a_repository"><a class="anchor" href="#_decision_flow_installing_infra_into_a_repository"></a>Decision flow: installing Infra into a repository</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When the user attempts to <strong>install or add IaC definitions to a repository</strong>, the app explains tradeoffs and adapts to personal vs org.</p>
+</div>
+<div class="sect2">
+<h3 id="_when_the_repo_is_under_a_personal_account"><a class="anchor" href="#_when_the_repo_is_under_a_personal_account"></a>When the repo is under a <strong>personal</strong> account</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Default:</strong> Repo-level IaC is the norm. Explain that adding IaC to this repo keeps everything in one place (app + infra). Recommend <strong>OpenTofu</strong>, offer to bootstrap a minimal layout (e.g. <code>infra/main.tofu</code>, <code>variables.tofu</code>, <code>backend.tofu</code>) and install the OpenTofu CLI if missing.</p>
+</li>
+<li>
+<p><strong>Optional:</strong> If the user has a personal infra repo and wants to register this project with it, offer that as an advanced step; otherwise do not show “orphaned” or “register with central repo” messaging.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_when_the_repo_is_under_an_organization"><a class="anchor" href="#_when_the_repo_is_under_an_organization"></a>When the repo is under an <strong>organization</strong></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Explain the two main models:</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Org-level infra repo:</strong> One central repo (e.g. <code>infrastructure</code>) for the org; app repos typically have no IaC or only thin wrappers. Best for consistency and governance.</p>
+</li>
+<li>
+<p><strong>Per-project IaC:</strong> This repo gets its own IaC (e.g. <code>infra/</code> with OpenTofu). Best for team autonomy or isolated services.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>If the org already has an infrastructure repo:</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Warn that adding IaC here may create <strong>orphaned</strong> IaC (infra outside the central model).</p>
+</li>
+<li>
+<p>Offer to <strong>register</strong> this project with the central repo instead (see Orphaned IaC and registration below), or to add a thin wrapper / registration file so the org can see and govern without moving code.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>If the user still wants to add IaC to this repo:</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Recommend <strong>OpenTofu</strong> by default (open source, Terraform-compatible).</p>
+</li>
+<li>
+<p>Offer to bootstrap a minimal layout and optionally install the OpenTofu CLI if missing.</p>
+</li>
+<li>
+<p>Link to the Docs page for full patterns (registration, thin modules, remote state, policy as code).</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The flow should expose these patterns (registration via metadata, thin wrapper modules, remote state linking, policy as code) either in the UI or via the Docs button, so the user can choose an approach that fits their org.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_orphaned_iac_detection_and_registration_org_only"><a class="anchor" href="#_orphaned_iac_detection_and_registration_org_only"></a>Orphaned IaC detection and registration (org only)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Orphaned IaC and registration assistance apply only when the repo’s <strong>owner is an organization</strong> and the org has (or is expected to have) a central infrastructure repo.</p>
+</div>
+<div class="paragraph">
+<p>When DevCentr detects that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An <strong>org-level infrastructure repo</strong> exists (e.g. discovered under the same org or via a known naming convention), and</p>
+</li>
+<li>
+<p>A <strong>project repo</strong> in that org contains its own IaC (e.g. an <code>infra/</code> directory with OpenTofu/Terraform files),</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>it should <strong>mark</strong> that project IaC as potentially orphaned (e.g. in the Infra discovery view or repo browser) and <strong>offer assistance</strong> to register with the central repo.</p>
+</div>
+<div class="paragraph">
+<p>Registration assistance can follow the patterns described in the <a href="#general-knowledge:explanation/infrastructure/iac.adoc" class="xref unresolved">Infrastructure as Code (IaC)</a> doc (organization use):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Registration via metadata:</strong> Add or edit a registration file in the central repo (e.g. <code>services/&lt;project&gt;.yaml</code>) with repo URL, environments, required modules, outputs, ownership. The central repo never holds the project’s actual <code>.tofu</code> files.</p>
+</li>
+<li>
+<p><strong>Thin wrapper module:</strong> Expose a small public module from this repo that the central repo can import; keep full IaC in the project.</p>
+</li>
+<li>
+<p><strong>Remote state linking:</strong> Central repo only references this project’s remote state outputs; no code move required.</p>
+</li>
+<li>
+<p><strong>Policy as code:</strong> Ensure this repo’s IaC is validated by org policies (OPA, Conftest, or CI checks); no need to move code.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The UI should guide the user through one of these options (depending on what the org’s central repo supports) so they can keep IaC in the project while giving the org visibility and guardrails.</p>
+</div>
+<div class="paragraph">
+<p>For <strong>personal repos</strong>, do not treat IaC as “orphaned” or offer org-style registration unless the user has explicitly configured a personal infra repo and chosen to register projects with it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_services_vs_language_ecosystems"><a class="anchor" href="#_services_vs_language_ecosystems"></a>Services vs language ecosystems</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Services</strong> (e.g. OpenTofu, AWS, GitHub Actions, Cloud Run) are described in <strong>service definition files</strong> (e.g. <code>services/descriptions.sdl</code>). They are independent of any one language and are used for infra discovery, install offers, and docs links.</p>
+</li>
+<li>
+<p><strong>Languages and frameworks</strong> (e.g. Node.js, Next.js, Python, FastAPI) are grouped by <strong>language ecosystem</strong>. Each ecosystem has its own definition file (e.g. <code>languages/node.sdl</code>, <code>languages/python.sdl</code>) listing runtimes and frameworks that can be installed or bootstrapped in a repo.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This split keeps file operations clear: service definitions stay in one place; framework and runtime definitions are split by ecosystem so that adding or editing a language does not touch unrelated services.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_related"><a class="anchor" href="#_related"></a>Related</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#iac-discovery.adoc" class="xref unresolved">IaC Discovery</a> — how IaC is discovered and mapped in repos.</p>
+</li>
+<li>
+<p><a href="#general-knowledge:explanation/infrastructure/iac.adoc" class="xref unresolved">Infrastructure as Code (IaC)</a> — OpenTofu, <strong>personal use (repo-level)</strong> vs <strong>organization use</strong>, delegation patterns (Docs button target).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/site-dark-mode.js"></script>
+  </body>
+</html>

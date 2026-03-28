@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Changelog :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/DevCentr/changelog.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../_/css/site.css">
+<link rel="stylesheet" href="../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="DevCentr" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="index.html">DevCentr</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Dev Center</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="docs-organization.html">Doc Organization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="project-vision.html">Project Vision</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="aspect-oriented-programming.html">Aspect-Oriented Programming</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="todo-roadmap.html">Todo &amp; Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="gitignore-whitelist.html">Gitignore Strategy</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ai-local-library-docs.html">AI Local Library Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="dub-local-remote-paths.html">DUB Local vs Remote Paths</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="local-library-mods.html">Local Library Mods</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="activity-log.html">Activity Log</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#general-knowledge:index.adoc">General Knowledge</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/index.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="publishing/index.html">Software Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/dependency-modeler.html">Dependency Modeler</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/project-recognizer.html">Project Recognizer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/ai-config-interface.html">AI Config Interface</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/repository-browser.html">Repository Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/repository-browser-terminal.html">Repository Browser Terminal</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/repository-tools-registry.html">Repository Tools Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/repository-provider-registry.html">Repository Provider Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/git-viewer.html">Git Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/gitignore-viewer.html">Gitignore Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/text-editor-link-system.html">Text Editor Link System</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/code-execution-recording.html">Code Execution Recording</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/git-repository-manager.html">Git Repository Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/workspace-template-manager.html">Workspace Template Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/secrets-manager.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/ssh-manager.html">SSH Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/iac-discovery.html">IaC Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/components/installation-workflow.html">Installation Workflow</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/features/opening-web-content-from-docs.html">Opening Web Content from Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/features/ai-doc-sources-and-mcp-setup.html">AI Doc Sources and MCP Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/features/better-automatic-ai-routing.html">Automatic AI Model Routing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/features/text-editor-separate-process.html">Text Editor Separate Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/features/local-mod-management.html">Local Mod Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/features/document-preview-navigation.html">Document Preview Navigation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/features/dynamic-agent-preamble.html">Dynamic Agent Preamble</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/reference/definition-files.html">Definition Files (Services and Languages)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="specifications/templates-schema.html">Templates Repository Schema</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/index.html">Secrets Manager</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Overview &amp; design</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/architecture.html">Architecture</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/reference/env-patterns.html">.env Usage Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/reference/provider-tool-profiles.html">Provider and Tool Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/reference/environments.html">Environments (dev / prod / test)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">How-to</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/how-to/copy-to-env.html">Copy Secrets into .env</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/how-to/inject-into-process.html">Injecting Secrets into the Dev Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/how-to/docker-integration.html">Docker and Docker Secrets</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/explanation/standalone-vs-integrated.html">Standalone vs Integrated</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/explanation/encryption-modes.html">Encryption and Plaintext Mode</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/explanation/backend-providers.html">Back-end Providers (Bitwarden and Others)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/explanation/explaining-the-proxy-in-the-gui.html">Explaining the Proxy in the GUI</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/explanation/connecting-to-wsl.html">Connecting to WSL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager/explanation/virtual-environments.html">Virtual Environments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Publishing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="publishing/index.html">Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="publishing/vercel-deployment.html">Vercel Deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="upstream-contributions/dprint-vscode.html">dprint-vscode</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DevCentr</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="index.html">DevCentr</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../home/index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">DevCentr</a></li>
+    <li><a href="changelog.html">Changelog</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/devcentr/edit/main/docs/modules/ROOT/pages/changelog.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Changelog</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This changelog records notable changes to the DevCentr application and its documentation. Entries are organized in reverse chronological order and kept brief. Each entry links to a more detailed changelog article where needed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_27_dynamic_agent_preamble_specification"><a class="anchor" href="#_2026_03_27_dynamic_agent_preamble_specification"></a>2026-03-27 – Dynamic Agent Preamble specification</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Added <a href="specifications/features/dynamic-agent-preamble.html" class="xref page">Dynamic Agent Preamble</a> specification.</p>
+</li>
+<li>
+<p>Defines a preprocessor for RAG-based instruction injection and modular <code>AGENTS.md</code> support to reduce model context overhead and improve relevancy.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-27%20-%20dynamic-agent-preamble.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_21_local_library_mods_and_specification"><a class="anchor" href="#_2026_03_21_local_library_mods_and_specification"></a>2026-03-21 – Local library mods and specification</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Added <a href="local-library-mods.html" class="xref page">Local Library Mods</a> guide explaining how to use forked libraries (DUB, PNPM, Python, Go) without breaking CI/CD.</p>
+</li>
+<li>
+<p>Drafted <a href="specifications/features/local-mod-management.html" class="xref page">Local Mod Management</a> specification for UI-based mod registration and project badges.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-21%20-%20local-library-mods-specs.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_21_automatic_ai_model_routing_specification"><a class="anchor" href="#_2026_03_21_automatic_ai_model_routing_specification"></a>2026-03-21 – Automatic AI model routing specification</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Added <a href="specifications/features/better-automatic-ai-routing.html" class="xref page">Automatic AI Model Routing</a> under Specifications (features): routing profiles, task categories, and vendor-facing proposal for long-running sessions.</p>
+</li>
+<li>
+<p>Fixed Specifications nav xref to <a href="specifications/templates-schema.html" class="xref page">Templates Repository Schema</a> (was <code>pages/templates-schema.adoc</code>).</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-21%20-%20better-automatic-ai-routing-design.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_19_dub_local_vs_remote_path_management"><a class="anchor" href="#_2026_03_19_dub_local_vs_remote_path_management"></a>2026-03-19 – DUB local vs remote path management</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Added <a href="dub-local-remote-paths.html" class="xref page">DUB Local vs Remote Paths</a> documenting how to manage build specifications in <code>dub.json</code> without manually swapping between local and remote paths.</p>
+</li>
+<li>
+<p>Covers <code>dub.selections.json</code>, <code>dub add-local</code>, environment variable overrides, and git submodules for persistent patches.</p>
+</li>
+<li>
+<p>Forked unit-threaded to dlang-supplemental; fixed sub-package DUB warnings; wired in via <code>dub add-local</code>; submitted upstream issue #329 and PR #330.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-19%20-%20dub-local-remote-paths.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-19%20-%20unit-threaded-fork-upstream-contrib.html" class="xref page">unit-threaded fork and upstream contrib</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_19_arsd_official_extern_deprecation_fix"><a class="anchor" href="#_2026_03_19_arsd_official_extern_deprecation_fix"></a>2026-03-19 – arsd-official extern&#169; deprecation fix</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Forked arsd into dev-centr, fixed the <code>in</code> parameter deprecation in <code>nsvg__cmpEdge</code> for arsd-official 10.9.10 (svg.d).</p>
+</li>
+<li>
+<p>Added <code>scripts/patch-arsd-svg-deprecation.ps1</code> to re-apply the patch to the dub cache when needed.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-19%20-%20arsd-extern-in-deprecation-fix.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+<li>
+<p>See <a href="#ROOT:changelog-details/2026-03-19 - arsd-extern-in-deprecation.adoc" class="xref unresolved">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_19_general_knowledge_extraction"><a class="anchor" href="#_2026_03_19_general_knowledge_extraction"></a>2026-03-19 – General Knowledge Extraction</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Extracted all general-reference content from devcentr into a new <strong>general-knowledge</strong> repository (<a href="https://github.com/dev-centr/general-knowledge">dev-centr/general-knowledge</a>).</p>
+</li>
+<li>
+<p>Removed the <code>knowledge-base</code> module from devcentr. DevCentr docs are now product-focused: ROOT, specifications, secrets-manager, publishing, upstream-contributions.</p>
+</li>
+<li>
+<p>General Knowledge holds Diátaxis-organized tutorials, how-tos, reference, and explanations (SSH keys, Git management, Windows EOL, workspace organization, package registries, etc.).</p>
+</li>
+<li>
+<p>Updated all xrefs and app code to use <code>general-knowledge</code> component. Local playbooks use sibling path <code>../general-knowledge</code> (no remote URLs); CI playbooks use the GitHub URL.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-19%20-%20general-knowledge-extraction.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_19_ai_local_library_docs"><a class="anchor" href="#_2026_03_19_ai_local_library_docs"></a>2026-03-19 – AI Local Library Docs</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Added a repo-local workflow for cloning library docs/source into a gitignored folder, plus an obvious local AI manifest file so agents can search exact local references instead of stale model memory.</p>
+</li>
+<li>
+<p>Added setup docs and a refresh script for <code>phobos</code>, <code>dlangui</code>, and <code>SDLang-D</code>.</p>
+</li>
+<li>
+<p>Documented the preferred layered strategy for AI dependency docs: MCP-hosted indexed docs such as Context7 first, repo-local cloned docs second, and web search last. Added a DevCentr feature spec for MCP setup and local fallback automation.</p>
+</li>
+<li>
+<p>Added a Context7 client profile registry and new specs for the global AI Config interface, Context7/skills setup flows, and the integrated repository-browser terminal.</p>
+</li>
+<li>
+<p>Implemented a first working <code>AI Config</code> dialog, a repo-browser <code>Terminal</code> tab, and a small <code>std.logger</code> file logger wrapper to make runtime debugging less blind.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-19%20-%20ai-local-library-docs.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_18_organization_profile_and_gitignore"><a class="anchor" href="#_2026_03_18_organization_profile_and_gitignore"></a>2026-03-18 – Organization Profile and Gitignore</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Organization profile feature in repository browser: when selecting an owner/org in the project tree, the side-panel shows buttons to open public/private profile pages on GitHub/GitLab/Gitea, open profile repos in the browser, and highlight local profile repos in the tree.</p>
+</li>
+<li>
+<p>Provider-specific org profile config in <code>app/src/modules/vcs/profiles.json5</code> (repo names, README paths, URL formats).</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-18%20-%20org-profile-feature.html" class="xref page">Org Profile Feature</a> and <a href="changelog-details/2026-03-18%20-%20gitignore-templates-and-eol.html" class="xref page">Gitignore details</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_18_gitignore_templates_eol_and_templates_schema"><a class="anchor" href="#_2026_03_18_gitignore_templates_eol_and_templates_schema"></a>2026-03-18 – Gitignore Templates, EOL, and Templates Schema</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Added GitHub gitignore (<a href="https://github.com/github/gitignore">github/gitignore</a>) as a template source alongside DevCentr in the Init Repo flow. Users can select source (DevCentr or GitHub) and merge templates from either.</p>
+</li>
+<li>
+<p>Documented GitHub&#8217;s base vs Global vs community layout in <a href="#general-knowledge:reference/gitignore-template-sources.adoc" class="xref unresolved">Gitignore Template Sources</a>. Root = languages/core tech; Global = editors/tools/OS.</p>
+</li>
+<li>
+<p>Added <code>.editorconfig</code> tab and default template to Init Repo (LF with CRLF overrides for <code>.bat</code>, <code>.cmd</code>, <code>.reg</code>). Repo init now writes <code>.gitattributes</code>, <code>.gitignore</code>, and <code>.editorconfig</code>.</p>
+</li>
+<li>
+<p>Updated <a href="#general-knowledge:reference/git-management.adoc" class="xref unresolved">Git Management</a>: clarified <code>core.autocrlf input</code> vs <code>false</code>, when each applies, and EditorConfig step.</p>
+</li>
+<li>
+<p>Added <a href="#general-knowledge:reference/windows-eol-exceptions.adoc" class="xref unresolved">Windows EOL Exceptions</a> for batch, registry, PowerShell, Visual Studio.</p>
+</li>
+<li>
+<p>Defined <a href="specifications/templates-schema.html" class="xref page">Templates Schema</a>: version folders per ecosystem, <code>_base</code> (preference-agnostic), <code>_preferences</code> (team/tool-specific).</p>
+</li>
+<li>
+<p>Per-repo settings: documented <code>gitignore.suppressMissing</code> for suppressing template comparison warnings.</p>
+</li>
+<li>
+<p>Gitignore Viewer implemented: reusable minimap, technology tree, template comparison with DevCentr/GitHub/Local tabs, missing-item strikethrough (red), Suppress button storing in <code>.devcentr.sdl</code>, side-panel integration via hallmark toolbar.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-18%20-%20gitignore-templates-and-eol.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_17_winget_registration_documentation"><a class="anchor" href="#_2026_03_17_winget_registration_documentation"></a>2026-03-17 – Winget Registration Documentation</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Added comprehensive guides for manual and automated Winget app registration, including <code>wingetcreate</code> usage, GitHub PAT requirements, and Windows-runner workarounds for Linux-based CI/CD pipelines.</p>
+</li>
+<li>
+<p>Integrated in-app Winget support module in <code>VersionControlWidget</code>, providing direct links to documentation and local <code>wingetcreate</code> availability checks.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-17%20-%20winget-registration-docs.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_14_ai_providers_changelog_generation_and_repo_hallmarks"><a class="anchor" href="#_2026_03_14_ai_providers_changelog_generation_and_repo_hallmarks"></a>2026-03-14 – AI Providers, Changelog Generation, and Repo Hallmarks</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Added AI provider API key workflows, integrated a git-diff based changelog generator service, and implemented a compound-button hallmark toolbar to access standard repository roots and multiple IDE forks automatically.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-14%20-%20ai-providers-and-repo-hallmarks.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_14_roadmap_extensions_graphrag"><a class="anchor" href="#_2026_03_14_roadmap_extensions_graphrag"></a>2026-03-14 – Roadmap, Extensions &amp; GraphRAG</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Outlined vision and specifications for AI-audited extension registries, local module streaming from Git guest repos, and standalone GraphRAG client support.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-14%20-%20roadmap-extensions-graphrag.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_12_vercel_deployment_and_build_asymmetry_documentation"><a class="anchor" href="#_2026_03_12_vercel_deployment_and_build_asymmetry_documentation"></a>2026-03-12 – Vercel deployment and build asymmetry documentation</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Standardized PNPM 10 and documented the asymmetric build strategy for Vercel monorepo deployments.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-12%20-%20vercel-deployment-asymmetry.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_12_repository_browser_tools_and_diff_stats"><a class="anchor" href="#_2026_03_12_repository_browser_tools_and_diff_stats"></a>2026-03-12 – Repository browser tools and diff stats</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Added specs and initial implementation for repository tools integration, diff-stats-as-dirty indicator, and reorganization/transfer workflows.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-12%20-%20repository-browser-tools-and-diff-stats.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_05_git_management_and_workspace_organization_docs"><a class="anchor" href="#_2026_03_05_git_management_and_workspace_organization_docs"></a>2026-03-05 – Git management and workspace organization docs</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Documented and refined workspace organization schema and Git management guidance.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-03-05%20-%20git-management-and-workspace-org.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_02_15_workspace_organization_and_core_docs"><a class="anchor" href="#_2026_02_15_workspace_organization_and_core_docs"></a>2026-02-15 – Workspace organization and core docs</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Added workspace organization schema and core project/legal docs.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-02-15%20-%20workspace-organization-and-core-docs.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_01_26_diátaxis_and_docs_refactor"><a class="anchor" href="#_2026_01_26_diátaxis_and_docs_refactor"></a>2026-01-26 – Diátaxis and docs refactor</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Reorganized docs to follow the Diátaxis model.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2026-01-26%20-%20diataxis-and-docs-refactor.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2025_12_09_antora_documentation_structure_and_spec_modules"><a class="anchor" href="#_2025_12_09_antora_documentation_structure_and_spec_modules"></a>2025-12-09 – Antora documentation structure and spec modules</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Introduced Antora-based docs structure and initial specification modules.</p>
+</li>
+<li>
+<p>See <a href="changelog-details/2025-12-09%20-%20antora-docs-and-spec-modules.html" class="xref page">Detailed changelog</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../_/js/site.js" data-ui-root-path="../_"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script src="../_/js/site-dark-mode.js"></script>
+  </body>
+</html>

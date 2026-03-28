@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Repository Browser :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/DevCentr/specifications/components/repository-browser.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="DevCentr" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">DevCentr</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Dev Center</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../docs-organization.html">Doc Organization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../project-vision.html">Project Vision</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../aspect-oriented-programming.html">Aspect-Oriented Programming</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../todo-roadmap.html">Todo &amp; Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gitignore-whitelist.html">Gitignore Strategy</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../ai-local-library-docs.html">AI Local Library Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../dub-local-remote-paths.html">DUB Local vs Remote Paths</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../local-library-mods.html">Local Library Mods</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../activity-log.html">Activity Log</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#general-knowledge:index.adoc">General Knowledge</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Software Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="dependency-modeler.html">Dependency Modeler</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="project-recognizer.html">Project Recognizer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ai-config-interface.html">AI Config Interface</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="repository-browser.html">Repository Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-browser-terminal.html">Repository Browser Terminal</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-tools-registry.html">Repository Tools Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-provider-registry.html">Repository Provider Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-viewer.html">Git Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="gitignore-viewer.html">Gitignore Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="text-editor-link-system.html">Text Editor Link System</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="code-execution-recording.html">Code Execution Recording</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-repository-manager.html">Git Repository Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="workspace-template-manager.html">Workspace Template Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ssh-manager.html">SSH Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="iac-discovery.html">IaC Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installation-workflow.html">Installation Workflow</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/opening-web-content-from-docs.html">Opening Web Content from Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/ai-doc-sources-and-mcp-setup.html">AI Doc Sources and MCP Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/better-automatic-ai-routing.html">Automatic AI Model Routing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/text-editor-separate-process.html">Text Editor Separate Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/local-mod-management.html">Local Mod Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/document-preview-navigation.html">Document Preview Navigation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/dynamic-agent-preamble.html">Dynamic Agent Preamble</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/definition-files.html">Definition Files (Services and Languages)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../templates-schema.html">Templates Repository Schema</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Overview &amp; design</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/architecture.html">Architecture</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/env-patterns.html">.env Usage Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/provider-tool-profiles.html">Provider and Tool Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/environments.html">Environments (dev / prod / test)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">How-to</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/copy-to-env.html">Copy Secrets into .env</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/inject-into-process.html">Injecting Secrets into the Dev Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/docker-integration.html">Docker and Docker Secrets</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/standalone-vs-integrated.html">Standalone vs Integrated</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/encryption-modes.html">Encryption and Plaintext Mode</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/backend-providers.html">Back-end Providers (Bitwarden and Others)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/explaining-the-proxy-in-the-gui.html">Explaining the Proxy in the GUI</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/connecting-to-wsl.html">Connecting to WSL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/virtual-environments.html">Virtual Environments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Publishing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/vercel-deployment.html">Vercel Deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/dprint-vscode.html">dprint-vscode</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DevCentr</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">DevCentr</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../home/index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">DevCentr</a></li>
+    <li><a href="repository-browser.html">Repository Browser</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/devcentr/edit/main/docs/modules/specifications/pages/components/repository-browser.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Repository Browser</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The repository browser (or workspace browser) is the UI that lets users navigate their local code hierarchy: hosts, owners (users or organizations), and repositories. It is the place where users choose a repo to open, or an org to manage (e.g. add infrastructure as code).</p>
+</div>
+<div class="paragraph">
+<p>The browser also acts as the launching point for repo-specific tools and external applications (text editors, Git GUIs, terminals, etc). It exposes a tools side-panel which tracks all tools currently attached to the selected repository, regardless of whether DevCentr launched them.</p>
+</div>
+<div class="paragraph">
+<p>It should also host an integrated repository terminal so users can run commands directly against the selected repository without depending on an external editor terminal. See <a href="repository-browser-terminal.html" class="xref page">Repository Browser Terminal</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_model_hosts_owners_repos"><a class="anchor" href="#_model_hosts_owners_repos"></a>Model: hosts, owners, repos</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The browser reflects the workspace organization schema:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Host:</strong> The Git or version-control host (e.g. <code>github.com</code>, <code>gitlab.com</code>). One level under the code root.</p>
+</li>
+<li>
+<p><strong>Owner:</strong> The account that owns the repository. Can be a <strong>user</strong> (personal account) or an <strong>organization</strong>. Path segment under the host (e.g. <code>github.com/amdphreak</code>, <code>github.com/dev-centr</code>).</p>
+</li>
+<li>
+<p><strong>Repository:</strong> A single repo under an owner (e.g. <code>my-project</code>, <code>devcentr</code>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>So <strong>orgs and users are both modeled as “owners”</strong> in the path: <code>$ROOT/&lt;host&gt;/&lt;owner&gt;/&lt;repo&gt;</code>. Whether an owner is an org or a user is not always visible from the path alone; it can be inferred from naming conventions or from the provider API when the app is connected (e.g. GitHub CLI <code>gh api user/memberships/orgs</code> lists orgs; the same path pattern holds for both).</p>
+</div>
+<div class="paragraph">
+<p>When browsing an <strong>owner</strong> node, the UI adapts to whether the owner is a <strong>user</strong> (personal) or an <strong>organization</strong>. For a personal account, the main IaC option is repo-level (add IaC to a repo); optionally the user can create a personal infra repo. For an org, the UI can offer org-level actions (e.g. set up an infrastructure repo for this org). When browsing a <strong>repo</strong> node, the UI offers repo-level actions (e.g. add project technologies or per-project IaC); for personal repos, repo-level IaC is the default suggestion. See <a href="installation-workflow.html" class="xref page">Installation Workflow</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_relation_to_workspace_schema"><a class="anchor" href="#_relation_to_workspace_schema"></a>Relation to workspace schema</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The folder layout is defined in <a href="#general-knowledge:reference/workspace-organization.adoc" class="xref unresolved">Workspace Organization</a>. The repository browser is the visual navigation over that layout (and optionally over remote discovery when connected to a provider). Clones, forks, and org membership rules in that doc determine where repos live and how they are grouped under owners and hosts.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ui_layout_and_zones"><a class="anchor" href="#_ui_layout_and_zones"></a>UI layout and zones</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The repository browser follows a three-column layout:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Left navigation:</strong> Provider and owner filters, plus a hierarchical tree of hosts, owners, and repositories.</p>
+</li>
+<li>
+<p><strong>Center list:</strong> A tabular repository list for the currently selected provider and owner filters.</p>
+</li>
+<li>
+<p><strong>Right tools panel:</strong> A side-panel showing all tools attached to the currently selected repository.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_provider_and_owner_filter_zones"><a class="anchor" href="#_provider_and_owner_filter_zones"></a>Provider and owner filter zones</h3>
+<div class="paragraph">
+<p>Above the repository list, two fast-selection zones allow quick switching in large workspaces:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Provider zone:</strong> A row of selectable providers (e.g. <code>github.com</code>, <code>gitlab.com</code>, <code>local</code>, <code>other</code>). Selecting a provider filters the tree and the repo list to that host.</p>
+</li>
+<li>
+<p><strong>Owner zone:</strong> A row of owners under the selected provider (user accounts and organizations). Selecting an owner filters the tree and repo list to that owner.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These zones are optimized for fast scanning and selection (similar in spirit to Winamp&#8217;s browser). They deliberately interrupt drag-and-drop workflows, which are limited to explicit transfer actions (see below).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_search_bar"><a class="anchor" href="#_search_bar"></a>Search bar</h3>
+<div class="paragraph">
+<p>Directly above the repository list, a search bar filters hosts, owners, and repositories:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Matches against repository name, owner, host, and local path.</p>
+</li>
+<li>
+<p>Filters within the current provider and owner filters (does not change the selected provider or owner).</p>
+</li>
+<li>
+<p>Updates results in real-time as the user types.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_repository_tree"><a class="anchor" href="#_repository_tree"></a>Repository tree</h3>
+<div class="paragraph">
+<p>The left-hand tree follows the <code>$ROOT/&lt;host&gt;/&lt;owner&gt;/&lt;repo&gt;</code> schema:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Host nodes:</strong> Root nodes for each discovered host under <code>$ROOT</code> (e.g. <code>github.com</code>, <code>gitlab.com</code>).</p>
+</li>
+<li>
+<p><strong>Owner nodes:</strong> Accounts under each host, based on local directories and (optionally) provider discovery.</p>
+</li>
+<li>
+<p><strong>Repository nodes:</strong> Leaf nodes for each repository directory under an owner.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When a provider account is connected, the tree can optionally show remote-only owners or repositories that are not present on disk, surfaced via provider APIs. These nodes are marked visually as "remote only" and can be used to trigger cloning or local reorganization workflows.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_repository_list_and_columns"><a class="anchor" href="#_repository_list_and_columns"></a>Repository list and columns</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The central repository list shows repositories for the current provider and owner filters, with columns:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Name:</strong> Repository name.</p>
+</li>
+<li>
+<p><strong>Path:</strong> Local filesystem path under <code>$ROOT</code>.</p>
+</li>
+<li>
+<p><strong>Provider/Owner:</strong> Short label for <code>{host}/{owner}</code> if useful in the current context.</p>
+</li>
+<li>
+<p><strong>Diff stats:</strong> A summary of uncommitted changes.</p>
+</li>
+<li>
+<p><strong>Tools:</strong> Icons for tools currently attached to the repository.</p>
+</li>
+<li>
+<p><strong>Selection marker:</strong> A thin indicator at the far right marking the repository whose tools are shown in the right tools panel.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_diff_stats_dirty_indicator"><a class="anchor" href="#_diff_stats_dirty_indicator"></a>Diff stats (dirty indicator)</h3>
+<div class="paragraph">
+<p>The <strong>Diff stats</strong> column doubles as the dirty indicator for each repository:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>DevCentr runs <code>git status --porcelain=v1</code> to determine whether the working tree differs from <code>HEAD</code>.</p>
+</li>
+<li>
+<p>If clean, the <strong>Diff stats</strong> cell is empty (or shows a faint placeholder such as <code>–</code>); there is no separate dirty column.</p>
+</li>
+<li>
+<p>If dirty, DevCentr runs <code>git diff --numstat</code> and aggregates:</p>
+</li>
+<li>
+<p>[added lines, removed lines, number of changed files]</p>
+<div class="paragraph">
+<p>These are displayed as a compact summary:</p>
+</div>
+</li>
+<li>
+<p><code>+123 / -45 (8 files)</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For binary-only changes (where <code>git diff --numstat</code> prints <code>-</code> for counts), line counts are omitted and only the file count is shown.</p>
+</div>
+<div class="paragraph">
+<p>Diff stats are refreshed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When the repository browser loads.</p>
+</li>
+<li>
+<p>On explicit refresh.</p>
+</li>
+<li>
+<p>When filesystem watchers observe changes under the repository root (with throttling and debouncing so that large workspaces remain responsive).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tools_column_and_right_tools_panel"><a class="anchor" href="#_tools_column_and_right_tools_panel"></a>Tools column and right tools panel</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <strong>Tools</strong> column and the right tools panel integrate with the <a href="git-repository-manager.html" class="xref page">Git Repository Manager</a> and the tools registry to show which tools are actively attached to each repository.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Tools column:</strong> Shows a row of small icons for the most recent attached tools (e.g. VS Code, Cursor, built-in Git viewer, terminals). Icons are not wrapped; extra icons at the right edge may be clipped.</p>
+</li>
+<li>
+<p><strong>Right tools panel:</strong> When a repository row is clicked, the right-hand side-panel shows a full registry of tools attached to that repository. The far-right selection marker in the repo list indicates which repository is currently "active" in the tools panel.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>See <a href="repository-tools-registry.html" class="xref page">Repository Tools Registry</a> for the discovery and tracking model that powers this panel, including automatic registration of external applications based on open file handles.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_context_menus_and_actions"><a class="anchor" href="#_context_menus_and_actions"></a>Context menus and actions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The repository browser exposes context menus on hosts, owners, and repositories:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Host node:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Refresh discovery (local and remote).</p>
+</li>
+<li>
+<p>Open host-level provider docs.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Owner node (user or organization):</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Open in file explorer.</p>
+</li>
+<li>
+<p>Provider-specific settings:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>GitHub settings</code> (when provider is GitHub).</p>
+</li>
+<li>
+<p><code>GitLab settings</code> (when provider is GitLab).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>These entries open the provider settings UI described in <a href="repository-provider-registry.html" class="xref page">Repository Provider Registry</a> and provider profile docs.</p>
+</li>
+<li>
+<p><strong>Organization profile:</strong> When an owner is selected, the side-panel shows an Organization Profile section (for providers that support it: GitHub, GitLab, Gitea). Buttons open the org&#8217;s public and private/member profile pages on the provider, open the profile repos (e.g. <code>.github</code>, <code>.github-private</code>) in the browser, and highlight local copies of those repos in the project tree. Profile repo names and README paths are defined per provider in <code>profiles.json5</code>; see <a href="#general-knowledge:reference/vcs-provider-profiles.adoc" class="xref unresolved">VCS Provider Profiles</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Repository node / row:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Open in file explorer.</p>
+</li>
+<li>
+<p>Open in terminal.</p>
+</li>
+<li>
+<p>Open integrated terminal.</p>
+</li>
+<li>
+<p>Open in text editor (VS Code, Cursor, etc).</p>
+</li>
+<li>
+<p>Open Git viewer (built-in Git viewer or external Git GUIs).</p>
+</li>
+<li>
+<p>Manage IaC (open the Infra page scoped to this repo).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Right-clicking a repository row also offers a <strong>Transfer repository</strong> action when the user drags the repository to a different owner or provider in the tree. This opens a confirmation dialog that shows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The CLI/API operations DevCentr will attempt (e.g. <code>gh api</code> calls for GitHub transfers).</p>
+</li>
+<li>
+<p>Whether the transfer can be fully automated or will fall back to manual steps.</p>
+</li>
+<li>
+<p>Links to provider web UIs where manual transfers must be completed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Transfer operations are coordinated with the <a href="git-repository-manager.html" class="xref page">Git Repository Manager</a> and the local workspace reorganization logic so that remote transfers and local directory moves stay in sync.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/site-dark-mode.js"></script>
+  </body>
+</html>

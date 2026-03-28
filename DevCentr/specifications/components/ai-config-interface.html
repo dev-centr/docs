@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AI Config Interface :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/DevCentr/specifications/components/ai-config-interface.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="DevCentr" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">DevCentr</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Dev Center</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../docs-organization.html">Doc Organization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../project-vision.html">Project Vision</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../aspect-oriented-programming.html">Aspect-Oriented Programming</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../todo-roadmap.html">Todo &amp; Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gitignore-whitelist.html">Gitignore Strategy</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../ai-local-library-docs.html">AI Local Library Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../dub-local-remote-paths.html">DUB Local vs Remote Paths</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../local-library-mods.html">Local Library Mods</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../activity-log.html">Activity Log</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#general-knowledge:index.adoc">General Knowledge</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Software Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="dependency-modeler.html">Dependency Modeler</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="project-recognizer.html">Project Recognizer</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="ai-config-interface.html">AI Config Interface</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-browser.html">Repository Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-browser-terminal.html">Repository Browser Terminal</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-tools-registry.html">Repository Tools Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-provider-registry.html">Repository Provider Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-viewer.html">Git Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="gitignore-viewer.html">Gitignore Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="text-editor-link-system.html">Text Editor Link System</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="code-execution-recording.html">Code Execution Recording</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-repository-manager.html">Git Repository Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="workspace-template-manager.html">Workspace Template Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ssh-manager.html">SSH Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="iac-discovery.html">IaC Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installation-workflow.html">Installation Workflow</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/opening-web-content-from-docs.html">Opening Web Content from Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/ai-doc-sources-and-mcp-setup.html">AI Doc Sources and MCP Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/better-automatic-ai-routing.html">Automatic AI Model Routing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/text-editor-separate-process.html">Text Editor Separate Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/local-mod-management.html">Local Mod Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/document-preview-navigation.html">Document Preview Navigation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/dynamic-agent-preamble.html">Dynamic Agent Preamble</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/definition-files.html">Definition Files (Services and Languages)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../templates-schema.html">Templates Repository Schema</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Overview &amp; design</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/architecture.html">Architecture</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/env-patterns.html">.env Usage Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/provider-tool-profiles.html">Provider and Tool Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/environments.html">Environments (dev / prod / test)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">How-to</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/copy-to-env.html">Copy Secrets into .env</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/inject-into-process.html">Injecting Secrets into the Dev Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/docker-integration.html">Docker and Docker Secrets</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/standalone-vs-integrated.html">Standalone vs Integrated</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/encryption-modes.html">Encryption and Plaintext Mode</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/backend-providers.html">Back-end Providers (Bitwarden and Others)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/explaining-the-proxy-in-the-gui.html">Explaining the Proxy in the GUI</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/connecting-to-wsl.html">Connecting to WSL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/virtual-environments.html">Virtual Environments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Publishing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/vercel-deployment.html">Vercel Deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/dprint-vscode.html">dprint-vscode</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DevCentr</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">DevCentr</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../home/index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">DevCentr</a></li>
+    <li><a href="ai-config-interface.html">AI Config Interface</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/devcentr/edit/main/docs/modules/specifications/pages/components/ai-config-interface.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">AI Config Interface</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>DevCentr should expose a global AI configuration interface as a separate dialog window.</p>
+</div>
+<div class="paragraph">
+<p>This dialog is the main place to configure:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>AI providers and API keys</p>
+</li>
+<li>
+<p>MCP servers</p>
+</li>
+<li>
+<p>Skills</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The primary entry point should live in the editor manager module because many MCP and skills workflows are client-specific to editors and coding agents.</p>
+</div>
+<div class="paragraph">
+<p>The AI module should also link to the same dialog so users can reach it from either direction.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_why_one_interface"><a class="anchor" href="#_why_one_interface"></a>Why one interface</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>MCP servers and skills are both ways of extending what an AI can do.</p>
+</div>
+<div class="paragraph">
+<p>They are not identical, but they belong in the same general setup area. A single AI config dialog avoids scattering setup across multiple obscure settings locations.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_window_layout"><a class="anchor" href="#_window_layout"></a>Window layout</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The AI Config interface opens in its own dialog window.</p>
+</div>
+<div class="paragraph">
+<p>At the top is a rounded bar with rounded button tabs.</p>
+</div>
+<div class="paragraph">
+<p>The initial tabs are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Providers</code></p>
+</li>
+<li>
+<p><code>MCP Setup</code></p>
+</li>
+<li>
+<p><code>Skills</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_providers_tab"><a class="anchor" href="#_providers_tab"></a>Providers tab</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This tab extends the existing AI provider key management.</p>
+</div>
+<div class="paragraph">
+<p>It should show:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Provider list</p>
+</li>
+<li>
+<p>API key status</p>
+</li>
+<li>
+<p>Open provider website</p>
+</li>
+<li>
+<p>Open docs</p>
+</li>
+<li>
+<p>Test connection</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mcp_setup_tab"><a class="anchor" href="#_mcp_setup_tab"></a>MCP Setup tab</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This tab is for configuring Context7 and other MCP-backed docs/tools for supported clients.</p>
+</div>
+<div class="sect2">
+<h3 id="_overall_layout"><a class="anchor" href="#_overall_layout"></a>Overall layout</h3>
+<div class="paragraph">
+<p>The tab uses a three-part workspace plus an overlaid client detail view.</p>
+</div>
+<div class="paragraph">
+<p>Base layer:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Left: scrollable grid of supported apps/clients</p>
+</li>
+<li>
+<p>Top-right utility area: search, filters, source strategy status</p>
+</li>
+<li>
+<p>Bottom utility strip: manual CLI display and command-injection actions</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Client detail overlay after selecting an app:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Left column: title, setup summary, config snippet preview</p>
+</li>
+<li>
+<p>Center narrow column: code editor showing the actual config file to edit</p>
+</li>
+<li>
+<p>Right column: embedded webview showing the Context7 docs section for that app</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_client_list"><a class="anchor" href="#_client_list"></a>Client list</h3>
+<div class="paragraph">
+<p>The client list should be a scrollable grid.</p>
+</div>
+<div class="paragraph">
+<p>Each card should show:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>App name</p>
+</li>
+<li>
+<p>Icon</p>
+</li>
+<li>
+<p>Client type</p>
+</li>
+<li>
+<p>Whether easy setup exists</p>
+</li>
+<li>
+<p>Whether API key prompt is still required</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Supported clients come from the client profile registry in <code>app/src/modules/services/ai_client_profiles.json5</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_client_detail_overlay"><a class="anchor" href="#_client_detail_overlay"></a>Client detail overlay</h3>
+<div class="paragraph">
+<p>When the user clicks an app, open a detail view within the same screen rather than navigating away.</p>
+</div>
+<div class="paragraph">
+<p>The title of the selected app is shown at the top.</p>
+</div>
+<div class="paragraph">
+<p>The right-side webview should load the Context7 section URL for that client, for example:</p>
+</div>
+<div class="paragraph">
+<p><code><a href="https://context7.com/docs/resources/all-clients#gemini-cli" class="bare">https://context7.com/docs/resources/all-clients#gemini-cli</a></code></p>
+</div>
+<div class="paragraph">
+<p>The left-side snippet area should show:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Easy setup command when available</p>
+</li>
+<li>
+<p>Generic/manual setup summary</p>
+</li>
+<li>
+<p>Config file path hints</p>
+</li>
+<li>
+<p>Whether the snippet needs an API key placeholder filled in</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The center editor should show the contents of the file that would be edited.</p>
+</div>
+<div class="paragraph">
+<p>If the file does not exist yet, show the future file buffer with the proposed snippet inserted.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_manual_cli_area"><a class="anchor" href="#_manual_cli_area"></a>Manual CLI area</h3>
+<div class="paragraph">
+<p>Always show the CLI form of the setup when one exists.</p>
+</div>
+<div class="paragraph">
+<p>This is important even when a button can automate the action.</p>
+</div>
+<div class="paragraph">
+<p>The UI should provide:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A read-only command preview</p>
+</li>
+<li>
+<p>A button to inject the command for the user where applicable</p>
+</li>
+<li>
+<p>A button to copy the command</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_easy_setup_handling"><a class="anchor" href="#_easy_setup_handling"></a>Easy setup handling</h3>
+<div class="paragraph">
+<p>For clients with OAuth-backed setup commands such as Cursor, Claude Code, and OpenCode:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Show the easy setup command prominently</p>
+</li>
+<li>
+<p>Offer a button to inject/run it</p>
+</li>
+<li>
+<p>Do not prompt for an API key before showing the command</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For clients that require manual snippet insertion:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Prompt the user for the Context7 API key before writing config</p>
+</li>
+<li>
+<p>Show exactly where the key will go</p>
+</li>
+<li>
+<p>Keep the manual CLI visible even if DevCentr can also write the snippet</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_launch_app_action"><a class="anchor" href="#_launch_app_action"></a>Launch app action</h3>
+<div class="paragraph">
+<p>Each client detail view should have a button to launch the target app if it is installed.</p>
+</div>
+<div class="paragraph">
+<p>This lets the user complete any UI-based setup path inside that app.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_source_and_issue_actions"><a class="anchor" href="#_source_and_issue_actions"></a>Source and issue actions</h3>
+<div class="paragraph">
+<p>The detail view should include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>View source</code> - opens the source page for Context7 docs, for example <code><a href="https://github.com/upstash/context7/blob/master/docs/resources/all-clients.mdx?plain=1" class="bare">https://github.com/upstash/context7/blob/master/docs/resources/all-clients.mdx?plain=1</a></code></p>
+</li>
+<li>
+<p><code>Report issue</code> - opens a Context7 reporting helper window</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The snippets shown in DevCentr should be treated as extracted from:</p>
+</div>
+<div class="paragraph">
+<p><code><a href="https://raw.githubusercontent.com/upstash/context7/refs/heads/master/docs/resources/all-clients.mdx" class="bare">https://raw.githubusercontent.com/upstash/context7/refs/heads/master/docs/resources/all-clients.mdx</a></code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_report_issue_helper"><a class="anchor" href="#_report_issue_helper"></a>Report issue helper</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The reporting helper opens in a new window.</p>
+</div>
+<div class="paragraph">
+<p>It should include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A button that opens Context7 open issues in the user browser:
+<code><a href="https://github.com/upstash/context7/issues?q=is%3Aissue%20state%3Aopen" class="bare">https://github.com/upstash/context7/issues?q=is%3Aissue%20state%3Aopen</a></code></p>
+</li>
+<li>
+<p>A note under that button:
+<code>If you have a bug or an idea, read the contributing guidelines before opening an issue.</code></p>
+</li>
+<li>
+<p>The contributing guidelines link should use text, not a button:
+<code><a href="https://opensource.guide/" class="bare">https://opensource.guide/</a></code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Below that, provide two reporting paths:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open the issue type chooser:
+<code><a href="https://github.com/upstash/context7/issues/new/choose" class="bare">https://github.com/upstash/context7/issues/new/choose</a></code></p>
+</li>
+<li>
+<p>Open a narrow webview with a source line range URL such as:
+<code><a href="https://github.com/upstash/context7/blob/master/docs/resources/all-clients.mdx?plain=1#L10-L20" class="bare">https://github.com/upstash/context7/blob/master/docs/resources/all-clients.mdx?plain=1#L10-L20</a></code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Above the narrow source webview, provide a button to open that same URL in the user browser.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_skills_tab"><a class="anchor" href="#_skills_tab"></a>Skills tab</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Skills tab is for browsing, understanding, and installing AI skills.</p>
+</div>
+<div class="paragraph">
+<p>It should include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A webview for the Context7 skills database:
+<code><a href="https://context7.com/skills/" class="bare">https://context7.com/skills/</a></code></p>
+</li>
+<li>
+<p>A short explanation of what a skill is in DevCentr terminology</p>
+</li>
+<li>
+<p>Links to per-client skills/rules mechanisms when the client supports them</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cursor rules</p>
+</li>
+<li>
+<p>Claude Code plugin/skills</p>
+</li>
+<li>
+<p>OpenCode <code>AGENTS.md</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The skills tab should coexist with the MCP Setup tab even if the wording overlaps. The UI can explain that MCP controls external tools and docs sources, while skills/rules control how the client chooses to use them.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_data_source"><a class="anchor" href="#_data_source"></a>Data source</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The UI should use <code>app/src/modules/services/ai_client_profiles.json5</code> as the source of truth for:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Supported clients</p>
+</li>
+<li>
+<p>Docs URLs</p>
+</li>
+<li>
+<p>Context7 config URLs</p>
+</li>
+<li>
+<p>Launch commands</p>
+</li>
+<li>
+<p>Config file path hints</p>
+</li>
+<li>
+<p>Easy setup commands</p>
+</li>
+<li>
+<p>Manual setup requirements</p>
+</li>
+<li>
+<p>Source and issue URLs</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_relation_to_other_modules"><a class="anchor" href="#_relation_to_other_modules"></a>Relation to other modules</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The editor manager module is the primary entry point.</p>
+</li>
+<li>
+<p>The AI module links into this dialog.</p>
+</li>
+<li>
+<p><a href="../features/ai-doc-sources-and-mcp-setup.html" class="xref page">AI Doc Sources and MCP Setup</a> defines the docs-source priority rules behind this interface.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/site-dark-mode.js"></script>
+  </body>
+</html>

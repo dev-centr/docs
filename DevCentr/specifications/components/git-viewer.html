@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Git Viewer :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/DevCentr/specifications/components/git-viewer.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="DevCentr" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">DevCentr</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Dev Center</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../docs-organization.html">Doc Organization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../project-vision.html">Project Vision</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../aspect-oriented-programming.html">Aspect-Oriented Programming</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../todo-roadmap.html">Todo &amp; Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gitignore-whitelist.html">Gitignore Strategy</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../ai-local-library-docs.html">AI Local Library Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../dub-local-remote-paths.html">DUB Local vs Remote Paths</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../local-library-mods.html">Local Library Mods</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../activity-log.html">Activity Log</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#general-knowledge:index.adoc">General Knowledge</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Software Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="dependency-modeler.html">Dependency Modeler</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="project-recognizer.html">Project Recognizer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ai-config-interface.html">AI Config Interface</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-browser.html">Repository Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-browser-terminal.html">Repository Browser Terminal</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-tools-registry.html">Repository Tools Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-provider-registry.html">Repository Provider Registry</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="git-viewer.html">Git Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="gitignore-viewer.html">Gitignore Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="text-editor-link-system.html">Text Editor Link System</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="code-execution-recording.html">Code Execution Recording</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-repository-manager.html">Git Repository Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="workspace-template-manager.html">Workspace Template Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ssh-manager.html">SSH Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="iac-discovery.html">IaC Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installation-workflow.html">Installation Workflow</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/opening-web-content-from-docs.html">Opening Web Content from Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/ai-doc-sources-and-mcp-setup.html">AI Doc Sources and MCP Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/better-automatic-ai-routing.html">Automatic AI Model Routing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/text-editor-separate-process.html">Text Editor Separate Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/local-mod-management.html">Local Mod Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/document-preview-navigation.html">Document Preview Navigation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/dynamic-agent-preamble.html">Dynamic Agent Preamble</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/definition-files.html">Definition Files (Services and Languages)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../templates-schema.html">Templates Repository Schema</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Overview &amp; design</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/architecture.html">Architecture</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/env-patterns.html">.env Usage Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/provider-tool-profiles.html">Provider and Tool Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/environments.html">Environments (dev / prod / test)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">How-to</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/copy-to-env.html">Copy Secrets into .env</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/inject-into-process.html">Injecting Secrets into the Dev Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/docker-integration.html">Docker and Docker Secrets</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/standalone-vs-integrated.html">Standalone vs Integrated</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/encryption-modes.html">Encryption and Plaintext Mode</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/backend-providers.html">Back-end Providers (Bitwarden and Others)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/explaining-the-proxy-in-the-gui.html">Explaining the Proxy in the GUI</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/connecting-to-wsl.html">Connecting to WSL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/virtual-environments.html">Virtual Environments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Publishing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/vercel-deployment.html">Vercel Deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/dprint-vscode.html">dprint-vscode</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DevCentr</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">DevCentr</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../home/index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">DevCentr</a></li>
+    <li><a href="git-viewer.html">Git Viewer</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/devcentr/edit/main/docs/modules/specifications/pages/components/git-viewer.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Git Viewer</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Git Viewer is DevCentr&#8217;s built-in project browser for exploring Git history. It combines a persistent project tree with a horizontal commit timeline and a replay index for fast seeking.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_goals"><a class="anchor" href="#_goals"></a>Goals</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Show the <strong>shape of work over time</strong>, not just a flat commit list.</p>
+</li>
+<li>
+<p>Provide a <strong>persistent file/folder tree</strong> that can be scrubbed through history.</p>
+</li>
+<li>
+<p>Make it easy to <strong>rewind and fast-forward</strong> the project to any commit.</p>
+</li>
+<li>
+<p>Enable <strong>quick seeking</strong> across long histories via an indexer.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_core_ui_elements"><a class="anchor" href="#_core_ui_elements"></a>Core UI elements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Git Viewer is organized into three main regions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Left:</strong> Persistent project tree (folders and files).</p>
+</li>
+<li>
+<p><strong>Center:</strong> File details (diff view, metadata) for the selected file and commit.</p>
+</li>
+<li>
+<p><strong>Bottom:</strong> Horizontal timeline with a scrubber and zoom controls.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_persistent_project_tree"><a class="anchor" href="#_persistent_project_tree"></a>Persistent project tree</h3>
+<div class="paragraph">
+<p>The left tree shows the project hierarchy:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Always visible while scrubbing through history.</p>
+</li>
+<li>
+<p>Updates node states (color/decoration) as the scrubber moves:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>New files/folders at a given commit are highlighted.</p>
+</li>
+<li>
+<p>Deleted nodes are marked or hidden based on the current view mode.</p>
+</li>
+<li>
+<p>Renames/moves are tracked so users can follow a file across history.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This addresses the common limitation of Git GUIs that only show per-commit file lists without a stable sense of the project structure.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_horizontal_timeline_and_scrubber"><a class="anchor" href="#_horizontal_timeline_and_scrubber"></a>Horizontal timeline and scrubber</h3>
+<div class="paragraph">
+<p>The bottom pane is a <strong>horizontal commit timeline</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>HEAD is on the right and selected by default.</p>
+</li>
+<li>
+<p>Each commit is a <strong>block</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Width represents size (e.g. number of lines or files changed).</p>
+</li>
+<li>
+<p>Color can encode additional signals (e.g. branch, author, or type).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>A <strong>scrubber handle</strong> (playhead) tracks the currently selected commit:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Dragging the scrubber moves the selected commit.</p>
+</li>
+<li>
+<p>Zoom controls adjust the visible time window.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This gives a film-editor-like view of the repository:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dense clusters of large commits stand out visually.</p>
+</li>
+<li>
+<p>Quiet periods are obvious gaps.</p>
+</li>
+<li>
+<p>Users can quickly identify "big moments" in the project&#8217;s history.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_replay_index_and_quick_seek"><a class="anchor" href="#_replay_index_and_quick_seek"></a>Replay index and quick seek</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To support near-instant seeking, the Git Viewer maintains a <strong>replay index</strong> separate from Git&#8217;s internal data structures.</p>
+</div>
+<div class="sect2">
+<h3 id="_index_contents"><a class="anchor" href="#_index_contents"></a>Index contents</h3>
+<div class="paragraph">
+<p>For each commit, the index records:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Commit metadata (hash, parent hashes, author, timestamps, message).</p>
+</li>
+<li>
+<p>Aggregated stats:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Lines added/removed.</p>
+</li>
+<li>
+<p>Files changed.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>A compact representation of tree changes needed to reconstruct snapshots quickly:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>File adds/removes/renames.</p>
+</li>
+<li>
+<p>Directory-level changes.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This allows the viewer to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reconstruct the state of the project tree for any indexed commit.</p>
+</li>
+<li>
+<p>Render the timeline with widths proportional to commit size.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_indexing_behavior"><a class="anchor" href="#_indexing_behavior"></a>Indexing behavior</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>For repositories below a configured size threshold:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Indexing is <strong>enabled by default</strong>.</p>
+</li>
+<li>
+<p>The indexer walks the history in the background.</p>
+</li>
+<li>
+<p>Timeline blocks change outline to <strong>purple</strong> as their commits are indexed.</p>
+</li>
+<li>
+<p>Unindexed commits appear <strong>greyed out</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>For large repositories:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Automatic indexing is <strong>disabled</strong>.</p>
+</li>
+<li>
+<p>The viewer shows a <strong>Set up quick seek</strong> button.</p>
+</li>
+<li>
+<p>Clicking the button opens an explanation dialog that:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Describes the indexing process and benefits.</p>
+</li>
+<li>
+<p>Shows the total number of commits.</p>
+</li>
+<li>
+<p>Warns if indexing may take a long time.</p>
+</li>
+<li>
+<p>Offers a <strong>Start</strong> button.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pause_and_resume"><a class="anchor" href="#_pause_and_resume"></a>Pause and resume</h3>
+<div class="paragraph">
+<p>Indexing is designed to be <strong>interruptible</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Users can press a <strong>Pause</strong> button to temporarily stop indexing.</p>
+</li>
+<li>
+<p>The indexer records its progress (last indexed commit).</p>
+</li>
+<li>
+<p>Users can later hit <strong>Resume</strong> to continue from where it left off.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>While indexing is running:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Seeks inside the currently indexed range are handled via the index for speed.</p>
+</li>
+<li>
+<p>Seeks outside the indexed range either fall back to direct Git commands or are clearly indicated as slower operations.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_git_gui_selection_behavior"><a class="anchor" href="#_git_gui_selection_behavior"></a>Git GUI selection behavior</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When a user chooses <strong>Open Git Viewer</strong> for a repository:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>DevCentr shows installed Git GUIs alongside its own viewer.</p>
+</li>
+<li>
+<p>Only Git GUIs that are <strong>detected as installed</strong> are shown:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Detection is based on known installation paths or presence on PATH.</p>
+</li>
+<li>
+<p>The detection logic is backed by the same tool metadata used in <a href="#general-knowledge:reference/recommended-tools.adoc" class="xref unresolved">Recommended Development Tools</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The dialog includes a link to:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#general-knowledge:reference/git-guis.adoc" class="xref unresolved">Git GUIs and Visual History Browsers</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This ensures:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Users can quickly pick between their existing tools.</p>
+</li>
+<li>
+<p>DevCentr still educates users about broader Git GUI options and trade-offs without cluttering the selection UI with tools that are not installed.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/site-dark-mode.js"></script>
+  </body>
+</html>

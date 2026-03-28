@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>IaC Discovery :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/DevCentr/specifications/components/iac-discovery.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="DevCentr" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">DevCentr</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Dev Center</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../docs-organization.html">Doc Organization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../project-vision.html">Project Vision</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../aspect-oriented-programming.html">Aspect-Oriented Programming</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../todo-roadmap.html">Todo &amp; Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../gitignore-whitelist.html">Gitignore Strategy</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../ai-local-library-docs.html">AI Local Library Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../dub-local-remote-paths.html">DUB Local vs Remote Paths</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../local-library-mods.html">Local Library Mods</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../activity-log.html">Activity Log</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../changelog.html">Changelog</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#general-knowledge:index.adoc">General Knowledge</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Software Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="dependency-modeler.html">Dependency Modeler</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="project-recognizer.html">Project Recognizer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ai-config-interface.html">AI Config Interface</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-browser.html">Repository Browser</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-browser-terminal.html">Repository Browser Terminal</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-tools-registry.html">Repository Tools Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="repository-provider-registry.html">Repository Provider Registry</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-viewer.html">Git Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="gitignore-viewer.html">Gitignore Viewer</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="text-editor-link-system.html">Text Editor Link System</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="code-execution-recording.html">Code Execution Recording</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="git-repository-manager.html">Git Repository Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="workspace-template-manager.html">Workspace Template Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="secrets-manager.html">Secrets Manager</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ssh-manager.html">SSH Manager</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="iac-discovery.html">IaC Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="installation-workflow.html">Installation Workflow</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/opening-web-content-from-docs.html">Opening Web Content from Docs</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/ai-doc-sources-and-mcp-setup.html">AI Doc Sources and MCP Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/better-automatic-ai-routing.html">Automatic AI Model Routing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/text-editor-separate-process.html">Text Editor Separate Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/local-mod-management.html">Local Mod Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/document-preview-navigation.html">Document Preview Navigation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features/dynamic-agent-preamble.html">Dynamic Agent Preamble</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../reference/definition-files.html">Definition Files (Services and Languages)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../templates-schema.html">Templates Repository Schema</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/index.html">Secrets Manager</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Overview &amp; design</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/overview.html">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/architecture.html">Architecture</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/env-patterns.html">.env Usage Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/provider-tool-profiles.html">Provider and Tool Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/reference/environments.html">Environments (dev / prod / test)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">How-to</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/copy-to-env.html">Copy Secrets into .env</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/inject-into-process.html">Injecting Secrets into the Dev Process</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/how-to/docker-integration.html">Docker and Docker Secrets</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/standalone-vs-integrated.html">Standalone vs Integrated</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/encryption-modes.html">Encryption and Plaintext Mode</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/backend-providers.html">Back-end Providers (Bitwarden and Others)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/explaining-the-proxy-in-the-gui.html">Explaining the Proxy in the GUI</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/connecting-to-wsl.html">Connecting to WSL</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../secrets-manager/explanation/virtual-environments.html">Virtual Environments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Software Publishing</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/index.html">Publishing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../publishing/vercel-deployment.html">Vercel Deployment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Upstream Contributions</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/index.html">Upstream Contributions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../upstream-contributions/dprint-vscode.html">dprint-vscode</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DevCentr</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">DevCentr</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../home/index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">DevCentr</a></li>
+    <li><a href="iac-discovery.html">IaC Discovery</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/devcentr/edit/main/docs/modules/specifications/pages/components/iac-discovery.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">IaC Discovery</h1>
+<div class="sect1">
+<h2 id="_purpose"><a class="anchor" href="#_purpose"></a>Purpose</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The IaC Discovery component helps DevCentr find and describe infrastructure‑as‑code (IaC) across your local repositories.</p>
+</div>
+<div class="paragraph">
+<p>It focuses on:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Detecting where OpenTofu, Terraform, and other IaC live in each repository.</p>
+</li>
+<li>
+<p>Grouping those files into <strong>IaC bases</strong> (high‑level entry points for infra).</p>
+</li>
+<li>
+<p>Building a simple dependency map so you can see how modules and configs relate.</p>
+</li>
+<li>
+<p>Exposing this information so the UI can show clickable trees per base.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The goal is to give a clear, honest picture of "where the infra really is" without forcing any one repository layout.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_scope"><a class="anchor" href="#_scope"></a>Scope</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Input:</strong> One or more local repositories (project roots) discovered by DevCentr.</p>
+</li>
+<li>
+<p><strong>Output:</strong> For each repository:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A list of IaC bases.</p>
+</li>
+<li>
+<p>For each base, a list of config files and a dependency tree.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Supported tools (initial):</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenTofu / Terraform (<code><strong>.tf</code>, <code></strong>.tf.json</code>, <code><strong>.tofu</code>, <code></strong>.tofu.json</code>, <code>terragrunt.hcl</code>).</p>
+</li>
+<li>
+<p>Basic hooks for other IaC styles (Pulumi, CloudFormation, Bicep, Ansible) via filename patterns only.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Out of scope for this component:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Talking to cloud APIs.</p>
+</li>
+<li>
+<p>Planning, applying, or destroying infra.</p>
+</li>
+<li>
+<p>Deep parsing of every IaC dialect; the first version relies on file patterns and simple source scanning.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_iac_discovery_works"><a class="anchor" href="#_how_iac_discovery_works"></a>How IaC Discovery Works</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Discover repositories.</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>DevCentr already knows about project roots using the standard folder schema (for example <code>Z:\code\github.com\&lt;owner&gt;\&lt;repo&gt;</code>).</p>
+</li>
+<li>
+<p>For each project root, IaC Discovery is called with the absolute path.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Scan for IaC bases (one level deep).</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>At the repo root and one folder level below, the scanner looks for directories or roots that contain IaC files.</p>
+</li>
+<li>
+<p>A directory or the repo root becomes an <strong>IaC base</strong> if it contains at least one IaC config file.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Guard against submodule duplication.</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If a folder is a Git submodule (it contains a <code>.git</code> file pointing elsewhere), IaC Discovery treats that as its own project and avoids double‑counting it inside the parent.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Build dependency edges.</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>For OpenTofu/Terraform files, a lightweight parser looks for <code>module</code> blocks and the <code>source</code> attribute.</p>
+</li>
+<li>
+<p>Each <code>source</code> reference becomes an edge in the dependency tree for that base.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Return a model.</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The result is a small data model for each repo, listing bases, config files, and dependency edges.</p>
+</li>
+<li>
+<p>The UI can render this as a map of repos, bases, and IaC trees that users can click through.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This design keeps the backend simple while giving enough structure for richer visualizations later.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_iac_repository_patterns"><a class="anchor" href="#_iac_repository_patterns"></a>IaC Repository Patterns</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section explains the main patterns IaC Discovery expects to see. The real world is messy, but these patterns cover most teams.</p>
+</div>
+<div class="sect2">
+<h3 id="_1_centralized_infrastructure_repository"><a class="anchor" href="#_1_centralized_infrastructure_repository"></a>1. Centralized infrastructure repository</h3>
+<div class="paragraph">
+<p>In this pattern, there is <strong>one central infra repo</strong> such as <code>infrastructure/</code> or <code>platform-infra/</code>.</p>
+</div>
+<div class="paragraph">
+<p>Key traits:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Application repos contain little or no IaC.</p>
+</li>
+<li>
+<p>The central repo holds:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Environment folders (for example <code>prod/</code>, <code>staging/</code>, <code>dev/</code>).</p>
+</li>
+<li>
+<p>Reusable modules.</p>
+</li>
+<li>
+<p>State backends, pipelines, and policies.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Why teams choose this:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One <strong>source of truth</strong> for infra.</p>
+</li>
+<li>
+<p>Easier to review and secure, because an infra or platform team owns the repo.</p>
+</li>
+<li>
+<p>Less duplicated state and fewer surprise <code>.tfstate</code> files scattered around.</p>
+</li>
+<li>
+<p>Standards, linters, and policies are easier to enforce in one place.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Impact on IaC Discovery:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The central infra repo will usually show <strong>multiple IaC bases</strong> at its root or under environment folders.</p>
+</li>
+<li>
+<p>Application repos may show <strong>no IaC bases at all</strong>, which is expected and healthy for this pattern.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_iac_inside_each_application_repository"><a class="anchor" href="#_2_iac_inside_each_application_repository"></a>2. IaC inside each application repository</h3>
+<div class="paragraph">
+<p>Here, each application repo carries its own OpenTofu/Terraform configuration, often under a folder like <code>infra/</code> inside the repo.</p>
+</div>
+<div class="paragraph">
+<p>Example layout:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/infra
+  main.tofu
+  variables.tofu
+  backend.tofu</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Why teams choose this:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Infra is tightly tied to the service.</p>
+</li>
+<li>
+<p>App teams can deploy on their own schedule.</p>
+</li>
+<li>
+<p>For a very small team, it feels simple and local.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Downsides:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>State is <strong>fragmented</strong> across many repos.</p>
+</li>
+<li>
+<p>Common patterns such as VPCs, databases, and IAM roles are duplicated or drift apart.</p>
+</li>
+<li>
+<p>Security and consistency are harder to enforce.</p>
+</li>
+<li>
+<p>Refactors cut across many repos at once.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Impact on IaC Discovery:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Most application repos will show <strong>at least one IaC base</strong>, usually at <code>/infra</code> one level under the repo root.</p>
+</li>
+<li>
+<p>Dependency trees will often be shallow (a few modules per app), but spread across many repos.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_hybrid_model"><a class="anchor" href="#_3_hybrid_model"></a>3. Hybrid model</h3>
+<div class="paragraph">
+<p>Many teams evolve to a <strong>hybrid</strong> model:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A central infra repo owns shared building blocks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Networks, VPCs, subnets.</p>
+</li>
+<li>
+<p>Database clusters and shared data stores.</p>
+</li>
+<li>
+<p>Baseline IAM roles and policies.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Application repos carry thin IaC layers:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>App‑specific resources such as a single service or queue.</p>
+</li>
+<li>
+<p>References to outputs from the central infra repo.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This keeps shared infra in one trusted place while still letting app teams describe the pieces that belong only to their service.</p>
+</div>
+<div class="paragraph">
+<p>Impact on IaC Discovery:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The central repo looks like pattern 1.</p>
+</li>
+<li>
+<p>Application repos look like pattern 2, but the IaC bases are smaller and more focused.</p>
+</li>
+<li>
+<p>Dependency trees will often show module references pointing to:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Local modules inside the central repo.</p>
+</li>
+<li>
+<p>Remote modules from registries.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_scoped_discovery"><a class="anchor" href="#_scoped_discovery"></a>Scoped discovery</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When discovery is scoped to a folder or repo (for example the current project), the system models only:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>The current scope</strong> (the repo or folder you chose).</p>
+</li>
+<li>
+<p><strong>Upstream dependencies</strong> of that scope: other repos or bases that the current scope’s IaC references (for example via Terraform <code>module</code> sources that resolve to local paths).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It does <strong>not</strong> model:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Siblings of the current scope branch (other repos or bases at the same level that are not on the dependency path).</p>
+</li>
+<li>
+<p>Parents or grandparents of the current scope (containing repos or org structure above the current root).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Those unrelated scopes are not expanded automatically. Instead, at <strong>each upstream node</strong> in the tree, the UI shows a single <strong>"etc."</strong> or <strong>"Other services"</strong> block. That one block stands for all unrelated scopes at that level: uncles, grand-uncles, siblings, and any other branches you did not follow. So at every level you see one modeled branch (the one you’re on) and one combined placeholder for everything else. The user can click that block to confirm loading more (with a warning that it may take a long time).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_design_assumptions"><a class="anchor" href="#_design_assumptions"></a>Design Assumptions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The IaC Discovery component makes a few practical assumptions to keep scanning fast and predictable:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Depth limit:</strong> IaC config files are normally at the repo root or <strong>one folder level</strong> below it. The scanner only treats those locations as base candidates.</p>
+</li>
+<li>
+<p><strong>Submodules:</strong> If a path is a Git submodule, IaC Discovery does not treat the parent and the submodule as a single base. This avoids counting the same IaC twice.</p>
+</li>
+<li>
+<p><strong>Pattern‑based detection:</strong> The first version uses filename and extension patterns plus simple string scanning, not full parsers for every IaC language.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These assumptions can be relaxed in future versions if real‑world usage shows the need.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api_shape_internal"><a class="anchor" href="#_api_shape_internal"></a>API Shape (internal)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The implementation exposes a small, internal API to other DevCentr components:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Per‑repo scanning</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Input: Absolute repo root path.</p>
+</li>
+<li>
+<p>Output: A struct describing all IaC bases and their dependency edges.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Workspace scanning</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Input: A list of repo roots (for example discovered from the code folder schema).</p>
+</li>
+<li>
+<p>Output: A list of per‑repo IaC summaries, suitable for an overview map.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The UI can then:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Show a list of repos that contain IaC.</p>
+</li>
+<li>
+<p>For each repo, show its bases.</p>
+</li>
+<li>
+<p>When a base is selected, render its IaC dependency tree.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/site-dark-mode.js"></script>
+  </body>
+</html>
