@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>C (C99/C11/C17) Reference :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/general-knowledge/reference/languages/c.html">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="general-knowledge" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../index.html">General Developer Knowledge</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">General Knowledge</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🎓 Tutorials</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#tutorials/onboarding.adoc">Developer Onboarding</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🛠️ How-to Guides</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#how-to/index.adoc">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#how-to/flutter-setup.adoc">Flutter Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#how-to/tailwind-setup.adoc">Tailwind Setup</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#how-to/file-sync.adoc">File Sync</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#how-to/git-ignore-local.adoc">.gitignore.local</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#how-to/git-hooks.adoc">Git Hooks</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#how-to/git-lfs.adoc">Large Files &amp; LFS</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#how-to/git-recovery.adoc">Git Recovery</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#how-to/github-pages-custom-domain.adoc">GitHub Pages Custom Domain</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#how-to/git-release-workflow.adoc">Git Release Workflow</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#how-to/automated-releases.adoc">Automated Releases</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#how-to/winget-registration.adoc">Winget Registration</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#how-to/context7-mcp-setup.adoc">Context7 MCP and Skills Setup</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">📚 Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#reference/index.adoc">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#reference/workspace-organization.adoc">Workspace Organization</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#reference/recommended-tools.adoc">Recommended Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Languages</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="c.html">C Language</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#reference/git-management.adoc">Git Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#reference/github-actions-templates-vs-marketplace.adoc">Actions Templates vs Marketplace</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#reference/git-installation.adoc">Git Installation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#reference/nodejs-env.adoc">Node.js Environment</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#reference/asciidoc-tools.adoc">AsciiDoc Tooling</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#reference/package-registries.adoc">Package Registries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#reference/gitignore-template-sources.adoc">Gitignore Template Sources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#reference/vcs-provider-profiles.adoc">VCS Provider Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#reference/windows-eol-exceptions.adoc">Windows EOL Exceptions</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">🧠 Explanation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#explanation/index.adoc">Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Architecture</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#explanation/architecture/principles.adoc">Core Principles</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#explanation/architecture/google-docs-apps-script.adoc">Apps Script Optimization</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Infrastructure</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#explanation/infrastructure/iac.adoc">Infrastructure as Code (IaC)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#explanation/infrastructure/ssh-keys.adoc">SSH Keys</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#explanation/infrastructure/git-branching.adoc">Branching Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#explanation/infrastructure/git-submodules.adoc">Submodules &amp; Monorepos</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#explanation/infrastructure/pnpm-mechanics.adoc">pnpm Mechanics</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#explanation/infrastructure/self-hosting.adoc">Self-Hosting</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#explanation/infrastructure/windows-testing-on-linux.adoc">Windows Testing on Linux</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#explanation/infrastructure/sync-by-gemini.adoc">Sync: Gemini</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#explanation/infrastructure/sync-grok4.adoc">Sync: Grok4</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Documentation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="#explanation/writing-clear-docs-with-ai.adoc">Writing Clear Docs with AI</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../explanation/literate-programming.html">Literate Programming (LP)</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">General Developer Knowledge</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../DevCentr/index.html">DevCentr</a></div>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../index.html">General Developer Knowledge</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../home/index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">General Developer Knowledge</a></li>
+    <li>📚 Reference</li>
+    <li><a href="#reference/recommended-tools.adoc">Recommended Tools</a></li>
+    <li>Languages</li>
+    <li><a href="c.html">C Language</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/general-knowledge/edit/main/docs/modules/ROOT/pages/reference/languages/c.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">C (C99/C11/C17) Reference</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <strong>C programming language</strong> provides a low-level, high-performance toolkit for systems programming. It is widely used in the Dev-Centr ecosystem for firmware, drivers, and performance-critical core libraries.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In Dev-Centr, we <strong>strongly endorse Literate Programming (LP)</strong> for all C development. The historically opaque and verbose nature of C makes it the perfect candidate for an inverted documentation-first approach.</p>
+</div>
+<div class="paragraph">
+<p>For details, see <a href="../../explanation/literate-programming.html" class="xref page">Literate Programming (LP) Strategy</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_core_principles_for_c_in_dev_centr"><a class="anchor" href="#_core_principles_for_c_in_dev_centr"></a>Core Principles for C in Dev-Centr</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Literate First</strong>: Build your C modules as CentrMark (<code>.cmk</code>) or Markdown/Tangle documents. Explain the architecture <strong>before</strong> the implementation.</p>
+</li>
+<li>
+<p><strong>Explicit Constraints</strong>: Use <code>const</code>, <code>restrict</code>, and <code>static</code> wherever applicable to help the compiler and AI agents understand pointer aliasing and visibility.</p>
+</li>
+<li>
+<p><strong>Memory Safety Patterns</strong>: Use established Dev-Centr patterns for safe memory allocation and bounds checking, even in standard C.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_recommended_literate_systems_for_c"><a class="anchor" href="#_recommended_literate_systems_for_c"></a>Recommended Literate Systems for C</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Native (CentrMark)</strong>: Use <code>::: tangle [file="main.c"]</code> blocks for a unified AST-based development experience.</p>
+</li>
+<li>
+<p><strong>CWEB / noweb</strong>: Use these for traditional batch-processed LP if you require extreme portability.</p>
+</li>
+<li>
+<p><strong>Entangled</strong>: Use Markdown-based LP with real-time syncing if you prefer a standard source-file-first IDE workflow but want synchronous documentation.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_see_also"><a class="anchor" href="#_see_also"></a>See Also</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#tutorials/onboarding.adoc" class="xref unresolved">Developer Onboarding</a></p>
+</li>
+<li>
+<p><a href="#reference/recommended-tools.adoc" class="xref unresolved">Recommended Tools</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/site-dark-mode.js"></script>
+  </body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>pnpm :: Dev-Centr Docs</title>
+    <link rel="canonical" href="https://docs.devcentr.org/home/tools/pnpm.html">
+    <meta name="description" content="pnpm v10+ security changes and ignored build scripts">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../_/css/site.css">
+<link rel="stylesheet" href="../../_/css/site-extra.css">
+<script>
+(function () {
+  const themeKey = 'antora-theme';
+  const savedTheme = localStorage.getItem(themeKey);
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  }
+})();
+</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://docs.devcentr.org">Dev-Centr Docs</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="home" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">Project Portal</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../where-docs-live.html">Where Documentation Lives</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../todo-roadmap.html">Todo &amp; Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../activity-log.html">Activity Log</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="code-d.html">code-d</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dprint.html">dprint</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dlangui.html">dlangui</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="msi-installer-generator.html">MSI Generator</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Project Portal</span>
+    <span class="version"></span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../DevCentr/index.html">DevCentr</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../general-knowledge/index.html">General Developer Knowledge</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../msi-generator/index.html">MSI/MSIX Generator</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../msi-generator/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">Project Portal</a></div>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../templates/index.html">Templates</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../templates/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Project Portal</a></li>
+    <li><a href="pnpm.html">pnpm</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/dev-centr/docs/edit/main/docs/modules/ROOT/pages/tools/pnpm.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">pnpm</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you&#8217;re getting a Node.js project ready with <strong>pnpm v10+</strong>, you&#8217;ll likely encounter a new security policy designed to protect your development environment from malicious scripts. By default, pnpm now blocks dependency lifecycle scripts (like <code>preinstall</code>, <code>postinstall</code>, and <code>prepare</code>) unless they are explicitly authorized.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ignored_build_scripts_warning"><a class="anchor" href="#_ignored_build_scripts_warning"></a>Ignored Build Scripts Warning</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you see a warning like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">╭ Warning ──────────────────────────────────────────────────────────────────╮
+│                                                                           │
+│   Ignored build scripts: esbuild@0.27.0, sharp@0.34.5.                    │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed  │
+│   to run scripts.                                                         │
+│                                                                           │
+╰───────────────────────────────────────────────────────────────────────────╯</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It means pnpm blocked these scripts to prevent potentially malicious code from executing. However, many packages <strong>require</strong> these scripts to function correctly.</p>
+</div>
+<div class="sect2">
+<h3 id="_why_this_matters"><a class="anchor" href="#_why_this_matters"></a>Why This Matters</h3>
+<div class="paragraph">
+<p>Leaving these scripts unapproved can lead to a "ticking time bomb" in your builds:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Native Modules Failing</strong>: Packages like <code>sharp</code>, <code>bcrypt</code>, or <code>sqlite3</code> use scripts to compile C++ code for your specific OS. Without them, you&#8217;ll get "Module not found" or "Shared library missing" errors at runtime.</p>
+</li>
+<li>
+<p><strong>Missing Binaries</strong>: Tools like <code>esbuild</code> or <code>prisma</code> use postinstall scripts to download the correct engine/binary for your architecture. If ignored, the tool may not exist or be an empty shell.</p>
+</li>
+<li>
+<p><strong>Stale Assets</strong>: Some packages (like <code>msw</code>) use scripts to copy worker files to your public directory.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_to_resolve"><a class="anchor" href="#_how_to_resolve"></a>How to Resolve</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Recommended (Interactive)</strong>:
+Run <code>pnpm approve-builds</code> (or <code>pnpm approve-builds -g</code> for global packages).</p>
+</li>
+<li>
+<p><strong>Manual</strong>:
+Add the packages to your <code>package.json</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">"pnpm": {
+  "onlyBuiltDependencies": ["sharp", "esbuild"]
+}</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cicd_environments"><a class="anchor" href="#_cicd_environments"></a>CI/CD Environments</h3>
+<div class="paragraph">
+<p>You should commit the <code>onlyBuiltDependencies</code> change to your <code>package.json</code>. Once committed, your CI/CD will automatically run scripts for these "pre-approved" packages.</p>
+</div>
+<div class="paragraph">
+<p>To ensure your CI fails if a new, unapproved script appears, set this in your <code>.npmrc</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-ini hljs" data-lang="ini">strict-dep-builds=true</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_global_configuration"><a class="anchor" href="#_global_configuration"></a>Global Configuration</h3>
+<div class="paragraph">
+<p>To ensure <code>strict-dep-builds=true</code> is applied automatically for all future projects on your machine, you can set it globally:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">pnpm config set strict-dep-builds true --global</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will cause <code>pnpm install</code> to fail explicitly if any unapproved build scripts are found, forcing a conscious decision instead of silent runtime failures.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_external_references"><a class="anchor" href="#_external_references"></a>External References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Official Docs: <a href="https://pnpm.io/npm-scripts#onlybuiltdependencies" class="bare">https://pnpm.io/npm-scripts#onlybuiltdependencies</a></p>
+</li>
+<li>
+<p>Educational Messaging Proposal: <a href="https://github.com/pnpm/pnpm/pull/11142" class="bare">https://github.com/pnpm/pnpm/pull/11142</a> (Local patch implemented in this ecosystem)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/site-dark-mode.js"></script>
+  </body>
+</html>
