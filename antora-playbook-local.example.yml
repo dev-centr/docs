@@ -37,5 +37,9 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../general-knowledge
+      branches: HEAD
+      start_path: docs
+      worktrees: true
 output:
   dir: ./build/site

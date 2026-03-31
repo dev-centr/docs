@@ -4,7 +4,15 @@ Welcome to the tools section. Here you will find documentation for the various t
 
 Some tools are documented in their own repositories (e.g. MSI Generator); others are documented here (e.g. dprint, dlangui).
 
+== Original Contributions
+These tools are original works developed as part of this ecosystem.
+
+* xref:tools/msi-installer-generator.adoc[MSI Generator]
+
+== Maintained Forks
+These tools are maintained forks of upstream projects, often incorporating local custom patches to improve the developer experience. We intend to contribute the features introduced here to the upstream projects, where possible. `dprint` is the only exception, as they have been jerks.
+
 * xref:tools/code-d.adoc[code-d]
 * xref:tools/dprint.adoc[dprint]
 * xref:tools/dlangui.adoc[dlangui]
-* xref:tools/msi-installer-generator.adoc[MSI Generator]
+* xref:tools/pnpm.adoc[pnpm]

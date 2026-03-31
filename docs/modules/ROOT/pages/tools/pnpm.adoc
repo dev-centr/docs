@@ -1,0 +1,71 @@
+= pnpm
+:description: pnpm v10+ security changes and ignored build scripts
+
+When you're getting a Node.js project ready with **pnpm v10+**, you'll likely encounter a new security policy designed to protect your development environment from malicious scripts. By default, pnpm now blocks dependency lifecycle scripts (like `preinstall`, `postinstall`, and `prepare`) unless they are explicitly authorized.
+
+== Ignored Build Scripts Warning
+
+If you see a warning like this:
+
+[source,console]
+----
+╭ Warning ──────────────────────────────────────────────────────────────────╮
+│                                                                           │
+│   Ignored build scripts: esbuild@0.27.0, sharp@0.34.5.                    │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed  │
+│   to run scripts.                                                         │
+│                                                                           │
+╰───────────────────────────────────────────────────────────────────────────╯
+----
+
+It means pnpm blocked these scripts to prevent potentially malicious code from executing. However, many packages **require** these scripts to function correctly.
+
+=== Why This Matters
+
+Leaving these scripts unapproved can lead to a "ticking time bomb" in your builds:
+
+* **Native Modules Failing**: Packages like `sharp`, `bcrypt`, or `sqlite3` use scripts to compile C++ code for your specific OS. Without them, you'll get "Module not found" or "Shared library missing" errors at runtime.
+* **Missing Binaries**: Tools like `esbuild` or `prisma` use postinstall scripts to download the correct engine/binary for your architecture. If ignored, the tool may not exist or be an empty shell.
+* **Stale Assets**: Some packages (like `msw`) use scripts to copy worker files to your public directory.
+
+=== How to Resolve
+
+1. **Recommended (Interactive)**:
+   Run `pnpm approve-builds` (or `pnpm approve-builds -g` for global packages).
+2. **Manual**:
+   Add the packages to your `package.json`:
++
+[source,json]
+----
+"pnpm": {
+  "onlyBuiltDependencies": ["sharp", "esbuild"]
+}
+----
+
+=== CI/CD Environments
+
+You should commit the `onlyBuiltDependencies` change to your `package.json`. Once committed, your CI/CD will automatically run scripts for these "pre-approved" packages.
+
+To ensure your CI fails if a new, unapproved script appears, set this in your `.npmrc`:
+
+[source,ini]
+----
+strict-dep-builds=true
+----
+
+=== Global Configuration
+
+To ensure `strict-dep-builds=true` is applied automatically for all future projects on your machine, you can set it globally:
+
+[source,console]
+----
+pnpm config set strict-dep-builds true --global
+----
+
+This will cause `pnpm install` to fail explicitly if any unapproved build scripts are found, forcing a conscious decision instead of silent runtime failures.
+
+== External References
+
+* Official Docs: https://pnpm.io/npm-scripts#onlybuiltdependencies
+* Educational Messaging Proposal: https://github.com/pnpm/pnpm/pull/11142 (Local patch implemented in this ecosystem)
+

@@ -5,7 +5,8 @@
 This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/docs[docs] repository, which aggregates content from several repositories:
 
 * **docs** (this repo) — Portal home page, this "Where documentation lives" page, and org-wide xref:todo-roadmap.adoc[Todo & Roadmap] and xref:activity-log.adoc[Activity log]. Also tool overviews (code-d, dprint, dlangui, MSI Generator).
-* **devcentr** — The main Dev Center application docs: project vision, knowledge base, component specifications, Secrets Manager, publishing, upstream contributions. The app repo can also be built standalone (single-repo build) for development.
+* **devcentr** — The main Dev Center application docs: project vision, component specifications, Secrets Manager, publishing, upstream contributions. The app repo can also be built standalone (single-repo build) for development.
+* **general-knowledge** — Shared, product-agnostic developer reference: tutorials, how-tos, reference, and explanations (Diátaxis-organized). Git workflows, EOL strategy, SSH keys, recommended tools, and similar.
 * **templates** — Standardized project templates and usage guides.
 * **msi-installer-generator** — MSI/MSIX generator documentation.
 

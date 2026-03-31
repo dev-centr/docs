@@ -15,6 +15,9 @@ content:
     - url: https://github.com/dev-centr/templates.git
       branches: HEAD
       start_path: docs
+    - url: https://github.com/dev-centr/general-knowledge.git
+      branches: HEAD
+      start_path: docs
     - url: https://github.com/dev-centr/msi-installer-generator.git
       branches: HEAD
       start_path: docs
