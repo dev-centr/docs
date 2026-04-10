@@ -10,7 +10,11 @@ antora-playbook.testing*.yml
 !antora-playbook.testing*.example.yml
 
 # IDEs and editors
-.vscode/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
 .idea/
 *.swp
 *.swo

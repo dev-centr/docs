@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "asciidoctor.asciidoctor-vscode",
+    "dprint.dprint",
+    "biomejs.biome",
+    "redhat.vscode-yaml",
+    "bradlc.vscode-tailwindcss"
+  ]
+}

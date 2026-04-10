@@ -1,0 +1,57 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "[asciidoc]": {
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on"
+  },
+  "asciidoc.preview.attributes": {
+    "toc": "left",
+    "toclevels": 3,
+    "icons": "font",
+    "sectanchors": true,
+    "sectlinks": true,
+    "source-highlighter": "highlight.js"
+  },
+  "powershell.cwd": "Dev Center Docs Playbook",
+  "editor.defaultFormatter": "dprint.dprint",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.markdownlint": "explicit"
+  },
+
+  // IMPORTANT: Language-specific overrides are required to ensure workspace settings
+  // take precedence over any individual User-level language defaults (like Prettier).
+  "[javascript]": { "editor.defaultFormatter": "dprint.dprint" },
+  "[typescript]": { "editor.defaultFormatter": "dprint.dprint" },
+  "[javascriptreact]": { "editor.defaultFormatter": "dprint.dprint" },
+  "[typescriptreact]": { "editor.defaultFormatter": "dprint.dprint" },
+  "[json]": { "editor.defaultFormatter": "dprint.dprint" },
+  "[jsonc]": { "editor.defaultFormatter": "dprint.dprint" },
+  "[code-workspace]": { "editor.defaultFormatter": "dprint.dprint" },
+  "[css]": { "editor.defaultFormatter": "dprint.dprint" },
+  "[graphql]": { "editor.defaultFormatter": "dprint.dprint" },
+
+  "git.autoRepositoryDetection": false,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/.git": true,
+    "**/target": true
+  },
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/build/**": true,
+    "**/dist/**": true,
+    "**/.git/**": true,
+    "**/target/**": true
+  }
+}

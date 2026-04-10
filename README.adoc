@@ -11,7 +11,7 @@ This repository contains the Antora playbook and configuration for the **Dev Cen
 | `antora-playbook.yml` | Production Antora playbook. Uses remote GitHub URLs for all content sources and the published UI bundle. Used by CI/CD.
 | `antora-playbook-local.example.yml` | Committed template for the local dev playbook. Copy to `antora-playbook-local.yml` (gitignored) for local builds.
 | `antora-playbook.testing.example.yml` | Committed template for full local testing (e.g. local UI bundle).
-| `docs.code-workspace` | VS Code workspace file configured for multi-root editing across documentation sources.
+| `.vscode/` | VS Code folder settings and extension recommendations for this playbook repo.
 | `package.json` | Defines dependencies and build scripts.
 |===
 
@@ -82,8 +82,8 @@ The output will be generated in the `build/site` directory (or as configured in 
 
 == Development
 
-This project is best managed using the included VS Code workspace:
+This project is best managed by opening the repository folder in VS Code:
 
-1. Open `docs.code-workspace` in VS Code.
+1. Open this repository folder in VS Code (File → Open Folder).
 2. Ensure the recommended extensions are installed (AsciiDoc, YAML, etc.).
 3. Use the integrated terminal for running builds.
