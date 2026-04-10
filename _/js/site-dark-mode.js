@@ -69,9 +69,110 @@
     updateToggleLabel();
   }
 
+  function detectVcsProvider(repoUrl) {
+    if (!repoUrl) return null;
+    try {
+      const host = new URL(repoUrl).hostname.toLowerCase();
+      if (host === "github.com") return "github";
+      if (host.includes("gitlab")) return "gitlab";
+      if (host === "bitbucket.org") return "bitbucket";
+      if (host.includes("gitea")) return "gitea";
+      if (host === "codeberg.org") return "codeberg";
+      if (host.includes("forgejo")) return "forgejo";
+      if (host.includes("sourcehut") || host.endsWith("sr.ht")) return "sourcehut";
+      return "repo";
+    } catch {
+      return null;
+    }
+  }
+
+  function getRepoUrl() {
+    const meta = document.querySelector('meta[name="antora-repo-url"]');
+    if (meta && meta.content) return meta.content;
+    const editLink = document.querySelector('.navbar-end a[href*="/edit/"], .navbar-end a[href*="/-/edit/"], .navbar-end a[href*="/blob/"]');
+    if (editLink && editLink.href) {
+      try {
+        const u = new URL(editLink.href);
+        const pathParts = u.pathname.split("/").filter(Boolean);
+        if (u.hostname.includes("github") && pathParts.length >= 2) return u.origin + "/" + pathParts.slice(0, 2).join("/");
+        if (u.hostname.includes("gitlab") && pathParts.length >= 2) return u.origin + "/" + pathParts.slice(0, 2).join("/");
+        if (u.hostname.includes("bitbucket") && pathParts.length >= 2) return u.origin + "/" + pathParts.slice(0, 2).join("/");
+        if (pathParts.length >= 2) return u.origin + "/" + pathParts.slice(0, 2).join("/");
+      } catch {}
+    }
+    return null;
+  }
+
+  function getUiBase() {
+    const fromData = document.querySelector("#site-script")?.dataset?.uiRootPath;
+    if (fromData) return fromData;
+    const script = document.currentScript;
+    if (script?.src) {
+      try {
+        const u = new URL(script.src);
+        u.pathname = u.pathname.replace(/\/[^/]*$/, "/");
+        return u.pathname + u.search || ".";
+      } catch (_e) {}
+    }
+    return ".";
+  }
+
+  function buildVcsLogoWidget(repoUrl, provider, base) {
+    const logoFile = provider ? `${provider}.svg` : "repo.svg";
+    const logoUrl = `${base}/img/vcs/${logoFile}`;
+    const wrapper = document.createElement("div");
+    wrapper.className = "navbar-item vcs-repo-logo";
+    const a = document.createElement("a");
+    a.href = repoUrl || "#";
+    a.className = "vcs-repo-link";
+    a.setAttribute("aria-label", repoUrl ? "View repository" : "Repository");
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    const logo = document.createElement("div");
+    logo.className = "vcs-logo";
+    const img = document.createElement("img");
+    img.alt = "";
+    img.width = 24;
+    img.height = 24;
+    img.className = "vcs-logo-img";
+    img.src = logoUrl;
+    img.onerror = function () {
+      this.onerror = null;
+      var dataRoot = document.querySelector("#site-script")?.dataset?.uiRootPath;
+      var fallback = (dataRoot || ".") + "/img/vcs/" + (provider ? provider + ".svg" : "repo.svg");
+      if (fallback !== logoUrl) {
+        this.src = fallback;
+      } else if (!dataRoot) {
+        this.src = "img/vcs/repo.svg";
+      }
+    };
+    logo.appendChild(img);
+    a.appendChild(logo);
+    wrapper.appendChild(a);
+    return wrapper;
+  }
+
+  function replaceDownloadWithVcsLogo() {
+    const repoUrl = getRepoUrl();
+    const provider = repoUrl ? detectVcsProvider(repoUrl) : null;
+    const navbarEnd = document.querySelector(".navbar .navbar-end");
+    if (!navbarEnd) return;
+    const base = getUiBase();
+    const widget = buildVcsLogoWidget(repoUrl, provider, base);
+    const downloadLink = navbarEnd.querySelector('a.button[href="#"], a.button.is-primary');
+    const isDownload = downloadLink && /Download/i.test(downloadLink.textContent || "");
+    if (downloadLink && isDownload) {
+      const toReplace = downloadLink.closest(".control") || downloadLink.closest(".navbar-item") || downloadLink;
+      toReplace.parentNode.replaceChild(widget, toReplace);
+    } else {
+      navbarEnd.appendChild(widget);
+    }
+  }
+
   function init() {
     applyInitialTheme();
     ensureToggleButton();
+    replaceDownloadWithVcsLogo();
   }
 
   if (document.readyState === "loading") {

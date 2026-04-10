@@ -8,6 +8,7 @@
     <meta name="generator" content="Antora 3.1.14">
     <link rel="stylesheet" href="../_/css/site.css">
 <link rel="stylesheet" href="../_/css/site-extra.css">
+<meta name="antora-repo-url" content="https://github.com/dev-centr/templates">
 <script>
 (function () {
   const themeKey = 'antora-theme';
@@ -196,7 +197,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>templates</code> repository provides workspace configurations and boilerplate files for modern development projects. It contains both template files that should be copied to new repositories and active configuration files that can be included in workspace files.</p>
+<p>The <code>templates</code> repository provides workspace configurations and boilerplate files for modern development projects. It contains template files that should be copied to new repositories and active <code>.vscode</code> configuration you can merge into a project root.</p>
 </div>
 </div>
 </div>
@@ -212,7 +213,7 @@
 <p>Root level: Files specific to the templates repository itself</p>
 </li>
 <li>
-<p><code>workspaces/</code>: Contains VS Code workspace templates for different workflows and configurations</p>
+<p><code>workspaces/</code>: Contains VS Code template folders for different workflows and configurations</p>
 </li>
 </ul>
 </div>
@@ -231,7 +232,7 @@
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Each template folder now includes a <code>README.adoc</code> with usage notes, extension lists, and workspace instructions. Open the README directly inside <code>workspaces/{name}</code> when you need a refresher on what a template provides.
+Each template folder now includes a <code>README.adoc</code> with usage notes, extension lists, and merge instructions. Open the README directly inside <code>workspaces/{name}</code> when you need a refresher on what a template provides.
 </td>
 </tr>
 </table>
@@ -259,14 +260,17 @@ Each template folder now includes a <code>README.adoc</code> with usage notes, e
 </div>
 </div>
 <div class="sect2">
-<h3 id="_active_configuration_files_include_in_workspaces"><a class="anchor" href="#_active_configuration_files_include_in_workspaces"></a>Active Configuration Files (Include in Workspaces)</h3>
+<h3 id="_active_configuration_files_copy_into_projects"><a class="anchor" href="#_active_configuration_files_copy_into_projects"></a>Active Configuration Files (Copy into Projects)</h3>
 <div class="paragraph">
-<p>Each template folder also contains active configuration files that can be copied into your project workspace:</p>
+<p>Each template folder also contains a <code>.vscode</code> directory with:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>{template}.code-workspace</code> - Combined settings and extension recommendations</p>
+<p><code>settings.json</code> — editor defaults, excludes, and language-specific formatter overrides</p>
+</li>
+<li>
+<p><code>extensions.json</code> — <code>recommendations</code> and optional <code>unwantedRecommendations</code></p>
 </li>
 </ul>
 </div>
@@ -302,37 +306,31 @@ Each template folder now includes a <code>README.adoc</code> with usage notes, e
 </div>
 </div>
 <div class="sect1">
-<h2 id="_using_templates_in_workspaces"><a class="anchor" href="#_using_templates_in_workspaces"></a>Using Templates in Workspaces</h2>
+<h2 id="_using_templates"><a class="anchor" href="#_using_templates"></a>Using Templates</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To use a template in your project workspace, we recommend copying the relevant blocks from <strong>both</strong> the <code>_common</code> template and your specific tech stack template (e.g., <code>javascript/</code> or <code>next.js/</code>) directly into your project&#8217;s <code>.code-workspace</code> file.</p>
-</div>
-<div class="paragraph">
-<p>Each template folder contains its own <code>.code-workspace</code> file pre-configured with industry-standard settings and extension recommendations.</p>
+<p>To use a template in your project, copy and merge <code>.vscode/settings.json</code> and <code>.vscode/extensions.json</code> from <strong>both</strong> <code>_common/</code> and your stack folder (e.g., <code>javascript/</code> or <code>next.js/</code>) into your repository&#8217;s <code>.vscode/</code> directory.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Open the <code>common.code-workspace</code> file in <code>_common/</code> and copy the <code>"settings"</code> and <code>"extensions"</code> blocks.</p>
+<p>Start from <code>workspaces/_common/.vscode/</code> and merge <code>settings.json</code> and <code>extensions.json</code> into your project.</p>
 </li>
 <li>
-<p>Open the <code>.code-workspace</code> file within your desired tech stack folder (e.g., <code>astro.code-workspace</code>).</p>
-</li>
-<li>
-<p>Merge its <code>"settings"</code> and <code>"extensions"</code> blocks into your project&#8217;s workspace file, being careful to combine rather than overwrite the arrays and objects.</p>
+<p>Merge the same files from your stack folder (e.g., <code>workspaces/astro/.vscode/</code>), combining objects and extension lists rather than overwriting blindly.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Copying these blocks directly into your project ensures a self-contained and fully configured development environment that matches the standards defined in the Dev Center, without the complexity of managing relative folder paths in your workspace definition.</p>
+<p>This keeps a self-contained setup that matches Dev Center standards without relying on relative paths to the templates repo.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_global_workspace"><a class="anchor" href="#_global_workspace"></a>Global Workspace</h2>
+<h2 id="_multi_root_workspaces"><a class="anchor" href="#_multi_root_workspaces"></a>Multi-root workspaces</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <code>workspaces/global.code-workspace</code> file provides an example workspace definition that includes the template repository itself, useful as a starting point for creating your own multi-root workspaces.</p>
+<p>If you edit several repositories in one window, you can still add a local <code>*.code-workspace</code> file with multiple <code>folders</code> entries. Put shared settings in each repo&#8217;s <code>.vscode/settings.json</code> (or use workspace file settings only for truly multi-root keys). The templates repo no longer ships example multi-root workspace files.</p>
 </div>
 </div>
 </div>
@@ -340,10 +338,10 @@ Each template folder now includes a <code>README.adoc</code> with usage notes, e
 <h2 id="_settings_and_extension_recommendations"><a class="anchor" href="#_settings_and_extension_recommendations"></a>Settings and Extension Recommendations</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Important:</strong> The <code>.vscode/settings.json</code> and <code>.vscode/extensions.json</code> files do NOT automatically apply to other repositories when included in a multi-root workspace.</p>
+<p>When you <strong>open a folder</strong>, VS Code loads <code>.vscode/settings.json</code> and <code>.vscode/extensions.json</code> from that folder automatically.</p>
 </div>
 <div class="paragraph">
-<p>To share settings and extension recommendations across repositories, you must embed them directly in your project&#8217;s <code>.code-workspace</code> file. We provide pre-configured <code>.code-workspace</code> files in each template folder that you can copy from.</p>
+<p>For <strong>multi-root</strong> workspaces opened via a <code>.code-workspace</code> file, folder-level <code>.vscode</code> still applies per root; you can add workspace-level settings in the <code>.code-workspace</code> file when multiple roots need the same overrides.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -353,13 +351,7 @@ Each template folder now includes a <code>README.adoc</code> with usage notes, e
 </td>
 <td class="content">
 <div class="paragraph">
-<p><strong>Settings Precedence &amp; Priority:</strong> VS Code settings follow a strict hierarchy of visibility: <strong>User Settings &gt; Workspace Settings (.code-workspace) &gt; Folder Settings (.vscode/settings.json)</strong>.</p>
-</div>
-<div class="paragraph">
-<p>However, <strong>Language-specific settings</strong> (e.g., <code>[json]</code>) always have higher priority than <strong>Global settings</strong> (e.g., <code>editor.defaultFormatter</code>), even if they are defined at a lower-priority scope.</p>
-</div>
-<div class="paragraph">
-<p>For example, if a user has a "User" level language default set for JSON (like Prettier), it will override a "Workspace" level global default (like Biome). To ensure project standards are enforced, we use explicit language-level blocks in our workspace files to provide the necessary specificity to win against personal defaults.</p>
+<p><strong>Settings precedence:</strong> For a single-folder window, <strong>User</strong> settings apply first, then <strong>Folder</strong> (<code>.vscode/settings.json</code>). <strong>Language-specific</strong> blocks (e.g., <code>"[json]"</code>) override generic keys at the same scope, so we use explicit language blocks so team defaults win over personal formatter choices.</p>
 </div>
 </td>
 </tr>
@@ -382,7 +374,7 @@ Each template folder now includes a <code>README.adoc</code> with usage notes, e
 <p>Add a <code>README.adoc</code> explaining the template&#8217;s purpose and contents</p>
 </li>
 <li>
-<p>Add a <code>{workflow}.code-workspace</code> file with the relevant <code>"settings"</code> and <code>"extensions"</code> blocks</p>
+<p>Add <code>.vscode/settings.json</code> and <code>.vscode/extensions.json</code> with the relevant defaults and recommendations</p>
 </li>
 <li>
 <p>Optionally add template files (<code>.gitattributes</code>, <code>.gitignore</code>, etc.) that should be copied to new repos</p>

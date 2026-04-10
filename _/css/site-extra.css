@@ -30,18 +30,26 @@ html.dark-theme .navbar .navbar-link:hover {
   background-color: #1f2125;
 }
 
+/* Topbar nav area matches navbar for consistent strip (like light theme) */
 html.dark-theme .navbar .navbar-menu {
-  background-color: #25262b;
+  background-color: #141517;
   border-color: #373a40;
 }
 
+/* Dropdown panel distinct from navbar so it reads as a menu */
 html.dark-theme .navbar .navbar-dropdown {
   background-color: #25262b;
   border-color: #373a40;
 }
 
+/* Dropdown item hover same as regular navbar item hover */
 html.dark-theme .navbar .navbar-dropdown .navbar-item:hover {
-  background-color: #2c2e33;
+  background-color: #1f2125;
+}
+
+/* Bring dropdown carets closer to the label text (enough gap so caret doesn’t overlap) */
+.navbar .navbar-link {
+  padding-right: 1.5rem;
 }
 
 html.dark-theme .navbar .button,
@@ -59,9 +67,15 @@ html.dark-theme .navbar .button.is-primary:hover {
 html.dark-theme .nav,
 html.dark-theme .nav-panel-menu,
 html.dark-theme .nav-panel-explore,
-html.dark-theme .toolbar,
-html.dark-theme .toc.sidebar {
+html.dark-theme .toolbar {
   background-color: #25262b;
+  border-color: #373a40;
+  color: #c1c2c5;
+}
+
+/* TOC sidebar transparent so it inherits page background (easier to theme) */
+html.dark-theme .toc.sidebar {
+  background-color: transparent;
   border-color: #373a40;
   color: #c1c2c5;
 }
@@ -429,6 +443,69 @@ html.dark-theme .home-link {
 .theme-toggle .theme-icon path,
 .theme-toggle .theme-icon circle {
   fill: none;
+}
+
+/* Hide default Download button until JS replaces it (prevents flash on load) */
+.navbar .navbar-end a.button.is-primary[href="#"] {
+  visibility: hidden;
+}
+
+/* VCS repo logo (replaces nonfunctional Download button) — true 1:1 square, compact */
+.navbar .vcs-repo-logo {
+  padding: 0 0.5rem 0 0;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.navbar .vcs-repo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  color: inherit;
+  opacity: 0.9;
+}
+
+.navbar .vcs-repo-link:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+html.dark-theme .navbar .vcs-repo-link:hover {
+  background-color: #1f2125;
+}
+
+/* Logo: strict 1:1 placeholder; img loads SVG (white icons for dark navbar) */
+.navbar .vcs-logo {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  max-width: 24px;
+  max-height: 24px;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar .vcs-logo-img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
+}
+
+/* Light theme: if you change the navbar to a light top bar, uncomment below so the (white) logo stays visible. */
+html:not(.dark-theme) .navbar .vcs-logo-img {
+  /* filter: invert(1); */
 }
 
 /* Dark mode icon fixes for navigation panels */
