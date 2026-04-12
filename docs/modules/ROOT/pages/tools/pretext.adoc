@@ -1,0 +1,49 @@
+= Pretext
+:navtitle: Pretext
+
+[abstract]
+High-performance multiline text measurement and layout in userland.
+
+`@chenglou/pretext` is a required dependency for all text-enabled projects in the Dev Center ecosystem. It is designed to solve one of the most expensive operations in browser rendering: **layout reflow** caused by measuring text.
+
+== Why Pretext?
+
+Traditionally, measuring text dimensions (e.g., via `getBoundingClientRect` or `offsetHeight`) forces the browser to perform a synchronous layout reflow. In complex applications, this can lead to significant "jank" (stuttering), especially when done inside loops or during animations.
+
+Pretext allows you to calculate line breaks, heights, and text positioning entirely in "userland" JavaScript using pure arithmetic, without ever touching the DOM or triggering a browser reflow.
+
+=== Key Benefits
+
+* **Performance:** Up to 300–600x faster than traditional DOM measurement techniques.
+* **Text Selection:** Native text selection, copy-pasting, and screen readers continue to work perfectly because the text remains in the DOM.
+* **Internationalization:** Supports CJK (Chinese, Japanese, Korean) and bidirectional (Arabic, Hebrew) writing systems.
+
+== Usage
+
+To use Pretext, you first "prepare" the text and then perform the layout calculation.
+
+[source,javascript]
+----
+import { prepare, layout } from '@chenglou/pretext';
+
+// 1. One-time setup (expensive, but cached)
+const font = '16px Inter';
+const handle = prepare('Your multiline text here...', font);
+
+// 2. High-performance layout calculation (hot path)
+const width = 400; // available width
+const lineHeight = 1.5;
+const result = layout(handle, width, lineHeight);
+
+console.log(`Calculated Height: ${result.height}px`);
+----
+
+== Requirements
+
+* **Required Dependency:** All new web projects MUST include `@chenglou/pretext`.
+* **Legacy Migration:** Existing projects are encouraged to replace DOM-based measurement logic with Pretext where performance is a concern.
+
+== Resources
+
+* link:https://github.com/chenglou/pretext[GitHub Repository]
+* link:https://pretextjs.dev[Live Demos]

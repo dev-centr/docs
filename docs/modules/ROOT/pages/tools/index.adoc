@@ -16,3 +16,4 @@ These tools are maintained forks of upstream projects, often incorporating local
 * xref:tools/dprint.adoc[dprint]
 * xref:tools/dlangui.adoc[dlangui]
 * xref:tools/pnpm.adoc[pnpm]
+* xref:tools/pretext.adoc[pretext]

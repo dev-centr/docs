@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "antora": "^3.1.14"
+    "antora": "^3.1.14",
+    "@chenglou/pretext": "^0.0.4"
   },
   "scripts": {
     "build": "antora antora-playbook-local.yml",
