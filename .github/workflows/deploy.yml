@@ -5,12 +5,11 @@ on:
     branches:
       - main
   workflow_dispatch:
-  # Rebuild when a shared extension (e.g. UI bundle) is updated; see antora-deployment.adoc
   repository_dispatch:
     types: [extension-updated]
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -29,24 +28,41 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
+        with:
+          package_json_file: package.json
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Build Antora site
-        run: pnpm exec antora --fetch antora-playbook.yml
-
-      - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v4
+        id: antora
+        uses: antora-supplemental/antora-build-action@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/site
-          publish_branch: gh-pages
-          commit_message: ${{ github.event.head_commit.message }}
+          playbook: antora-playbook.yml
+          output_dir: build/site
+          skip_install: true
+          fetch: true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ${{ steps.antora.outputs.site-path }}
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
