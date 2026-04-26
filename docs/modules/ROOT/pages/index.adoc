@@ -35,3 +35,9 @@ Windows installer (MSI/MSIX) generator for D applications.
 JSON-based configuration and CI/CD integration.
 
 xref:tools/msi-installer-generator.adoc[MSI Generator Docs]
+
+[.card]
+=== Software publishing
+Platform-agnostic notes on code signing, notarization, and release automation.
+
+xref:publishing/code-signing-in-the-release-pipeline.adoc[Code signing in the release pipeline]

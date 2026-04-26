@@ -2,6 +2,8 @@
 * xref:where-docs-live.adoc[Where Documentation Lives]
 * xref:todo-roadmap.adoc[Todo & Roadmap]
 * xref:activity-log.adoc[Activity Log]
+* Software publishing
+** xref:publishing/code-signing-in-the-release-pipeline.adoc[Code signing in the release pipeline]
 * xref:tools/index.adoc[Tools]
 ** xref:tools/code-d.adoc[code-d]
 ** xref:tools/dprint.adoc[dprint]
