@@ -4,6 +4,12 @@
 
 This page records significant documentation and project activity at an org level. New entries are added at the top. For per-repo release history, see each repository's tags and release notes.
 
+== 2026
+
+=== May
+
+* **Architecture — UI-heavy web applications** — New explanation page in the **docs** playbook (`home` component): Bonsai versus Leptos versus vibe.d, client/server split for database and authentication, creative stack interop (Three.js, smooth scroll, Pretext-style text layout), and notes on perceived performance in large integrated mail clients (illustrative case shapes, not vendor internals).
+
 == 2025
 
 === March

@@ -2,6 +2,8 @@
 * xref:where-docs-live.adoc[Where Documentation Lives]
 * xref:todo-roadmap.adoc[Todo & Roadmap]
 * xref:activity-log.adoc[Activity Log]
+* Architecture
+** xref:architecture/ui-heavy-web-apps.adoc[UI-heavy web applications]
 * Software publishing
 ** xref:publishing/code-signing-in-the-release-pipeline.adoc[Code signing in the release pipeline]
 * xref:tools/index.adoc[Tools]
