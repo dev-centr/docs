@@ -6,6 +6,10 @@ This page records significant documentation and project activity at an org level
 
 == 2026
 
+=== June
+
+* **Antora UI branding (docs playbook)** — Dropped the local `header-content.hbs` override; antora-dark-theme v1.0.12+ resolves the header logo via `site.keys.header_logo` and supplemental `img/` assets. Added xref:publishing/antora-ui-branding.adoc[Antora UI branding] under Software publishing.
+
 === May
 
 * **Architecture — UI-heavy web applications** — New explanation page in the **docs** playbook (`home` component): Bonsai versus Leptos versus vibe.d, client/server split for database and authentication, creative stack interop (Three.js, smooth scroll, Pretext-style text layout), and notes on perceived performance in large integrated mail clients (illustrative case shapes, not vendor internals).

@@ -1,0 +1,91 @@
+= Antora UI branding (antora-dark-theme)
+:navtitle: Antora UI branding
+:description: How this site brands header logos and VCS icons using antora-dark-theme site.keys and supplemental assets.
+
+This documentation site uses the link:https://github.com/antora-supplemental/antora-dark-theme[antora-dark-theme] pre-built UI bundle (`ui-bundle.zip`). The bundle ships dark mode, Lunr search chrome, and a debranded doc layout. Site-specific branding is layered on top with a minimal `supplemental-ui` directory and optional playbook `site.keys`.
+
+== UI bundle
+
+The production playbook points at the latest theme release:
+
+[source,yaml]
+----
+ui:
+  bundle:
+    url: https://github.com/antora-supplemental/antora-dark-theme/releases/latest/download/ui-bundle.zip
+    snapshot: true
+  supplemental_files: ./supplemental-ui
+----
+
+No npm install or local UI build is required. CI and local builds both consume the same release asset.
+
+== What stays in supplemental-ui
+
+This repo keeps only files the theme bundle does not provide:
+
+* `CNAME` — custom domain for GitHub Pages (`docs.devcentr.org`), published via `supplemental-ui/ui.yml` `static_files`.
+* Optional branding assets — for example `img/mybrand.svg` when you set `site.keys.header_logo`.
+
+We no longer override `partials/header-content.hbs`. As of antora-dark-theme **v1.0.12**, the bundled header partial reads playbook keys so consumers can swap logos without forking Handlebars templates.
+
+== Header logo (site.keys.header_logo)
+
+Set the header image basename under `img/` in the playbook:
+
+[source,yaml]
+----
+site:
+  title: Dev-Centr Docs
+  keys:
+    header_logo: mybrand.svg
+    site_home_url: https://example.com
+    site_home_label: Example project home
+    header_doc_title: Example Docs
+----
+
+Place the SVG at `supplemental-ui/img/mybrand.svg`, or use a virtual `supplemental_files` entry with `path` and `contents` when you need a single file without a full directory.
+
+The default is `logo.svg` from the theme bundle when `header_logo` is omitted.
+
+== Other site.keys hooks
+
+The theme header and footer also support these optional playbook keys (defaults shown in the theme configuration guide):
+
+[cols="2,3", options="header"]
+|===
+| Key | Purpose
+
+| `site_home_url`
+| URL opened when the header logo is clicked (default: `site.url`).
+
+| `site_home_label`
+| Accessible name for the logo link (default: `Project home`).
+
+| `header_doc_title`
+| Navbar text beside the logo (default: `site.title`).
+
+| `github_profile_url`
+| Fallback VCS host link when the page has no `origin.webUrl` (default: `https://github.com`).
+
+| `footer_note`
+| HTML fragment appended after the base footer line.
+
+| `title_bar_brand` / `title_bar_section`
+| Browser tab suffix and middle segment (see theme `head-title.hbs` partial).
+|===
+
+Full reference: link:https://antora-supplemental.github.io/antora-dark-theme/guide/configuration.html[antora-dark-theme — Configuration].
+
+== VCS provider icons
+
+The theme replaces Antora's nonfunctional Download button with a version-control provider logo that links to the docs repository. Provider detection is automatic (GitHub, GitLab, Bitbucket, Gitea, Codeberg, Forgejo, SourceHut, and others).
+
+To customize a provider icon, add or replace an SVG under `supplemental-ui/img/vcs/<provider>.svg` (for example `github.svg`). Use a square viewBox so the mask scales cleanly in the navbar.
+
+See the theme guide: link:https://antora-supplemental.github.io/antora-dark-theme/guide/vcs-repo-logo.html[VCS Repo Logo].
+
+== Further reading
+
+* link:https://antora-supplemental.github.io/antora-dark-theme/[antora-dark-theme documentation site]
+* link:https://antora-supplemental.github.io/docs/[Antora Supplemental docs] — deployment, playbooks, and multi-repo aggregation
+* xref:where-docs-live.adoc[Where documentation lives] — how this portal aggregates content sources

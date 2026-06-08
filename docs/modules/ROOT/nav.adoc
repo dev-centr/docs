@@ -6,6 +6,7 @@
 ** xref:architecture/ui-heavy-web-apps.adoc[UI-heavy web applications]
 * Software publishing
 ** xref:publishing/code-signing-in-the-release-pipeline.adoc[Code signing in the release pipeline]
+** xref:publishing/antora-ui-branding.adoc[Antora UI branding]
 * xref:tools/index.adoc[Tools]
 ** xref:tools/code-d.adoc[code-d]
 ** xref:tools/dprint.adoc[dprint]

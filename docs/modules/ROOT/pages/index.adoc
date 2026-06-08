@@ -38,6 +38,8 @@ xref:tools/msi-installer-generator.adoc[MSI Generator Docs]
 
 [.card]
 === Software publishing
-Platform-agnostic notes on code signing, notarization, and release automation.
+Platform-agnostic notes on code signing, notarization, and release automation. Antora UI branding for this site.
 
 xref:publishing/code-signing-in-the-release-pipeline.adoc[Code signing in the release pipeline]
+
+xref:publishing/antora-ui-branding.adoc[Antora UI branding]
