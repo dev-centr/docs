@@ -4,6 +4,9 @@ site:
   title: Dev-Centr Docs
   url: https://docs.devcentr.org
   start_page: home::index.adoc
+antora:
+  extensions:
+    - '@antora/lunr-extension'
 content:
   sources:
     - url: https://github.com/dev-centr/docs.git
