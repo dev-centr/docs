@@ -1,0 +1,50 @@
+= Native installer builder roadmap
+
+== Why not web tech for installers
+
+Installers need small binaries, elevated trust boundaries, and predictable Linux targets. Chromium/WebView2 stacks add hundreds of megabytes and fragile GTK/WebKit dependencies. DevCentr targets a **native D stack**: `dlangui` + `vello-d` for the builder UI, and a minimal stub runtime for end users.
+
+== Split architecture
+
+[mermaid]
+----
+flowchart TB
+  subgraph builder [Installer Builder - DlangUI + Vello]
+    UI[Visual designer]
+    Spec[Universal product spec]
+  end
+  subgraph output [Published artifacts]
+    MSI[MSI via msidb-d]
+    MSIX[MSIX ZIP+XML]
+    Stub[Tiny native bootstrap]
+  end
+  UI --> Spec
+  Spec --> MSI
+  Spec --> MSIX
+  Spec --> Stub
+----
+
+* **Builder:** `dlang-supplemental/dlangui` with `vello-windows` and `dlangui-tokens` (solid-ui–aligned semantics from devcentr.org).
+* **Packaging:** link:https://github.com/dev-centr/msi-generator[msi-generator] — JSON spec, cross-platform MSIX today; MSI tables in progress.
+* **MSIX reference:** Microsoft's packaging tooling (Open Packaging Conventions, manifest, capabilities, sparse packages). Map those concepts into the shared spec, not into a WiX-only path.
+
+== MSIX / MSI feature parity (target)
+
+| Capability | MSIX / modern packaging | msi-generator direction |
+|===|===|===
+| Files & folders | AppxManifest + payload | `rootFolder`, `components` |
+| Registry | Manifest extensions / VFS | `registryEntries` in spec |
+| Shortcuts | App Installer / manifest | planned |
+| Signing | SignTool / CI | see code-signing doc |
+| Updates | `.msix` / `.msixbundle` | bundle + version rules |
+| Linux | N/A (use Flatpak/AppImage separately) | future non-MSI channel |
+
+== UI groundwork (in progress)
+
+* `vello-d` — GPU vector backdrop on Windows (`dlangui` configuration `vello-windows`).
+* `dlangui-tokens` — semantic colors from solid-ui / devcentr.org; system light/dark sync planned.
+* `FLUIDSYNC_PLAN.adoc` in dlangui — threaded resize and display-list rendering.
+
+== Publishing discipline
+
+Path/git dependencies in CI until `vello-d` and `dlangui-tokens` are on the DUB registry. Tag and `dub publish` when APIs stabilize.

@@ -10,6 +10,7 @@ This page is the **central** Todo & Roadmap for the Dev-Centr org. It summarizes
 * **Environment navigator** — Model environment hierarchy (Hardware → Hypervisor/OS → VM → Container/App), environment browser, PATH and env var editing.
 * **UI** — DPI-aware / logical pixel support for consistent sizing across high-density displays.
 * **Installation & packaging** — Installer maker integration (Inno Setup, NSIS), MSI generator, cross-repo release workflow.
+* **code-lens (IDE)** — Pedagogical lens switching in editors via link:https://github.com/AMDphreak/code-lens[code-lens]: VS Code webview + AI-generated variants; Zed via LSP/inlays. Feasibility: link:https://github.com/AMDphreak/code-lens/blob/main/docs/editor-integrations.md[editor integrations doc].
 
 == Current priorities (summary)
 
