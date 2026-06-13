@@ -26,7 +26,7 @@ content:
       start_path: docs
 ui:
   bundle:
-    url: https://github.com/antora-supplemental/antora-dark-theme/releases/latest/download/ui-bundle.zip
+    url: https://github.com/antora-supplemental/valentus-theme/releases/download/v1/ui-bundle.zip
     snapshot: true
   supplemental_files: ./supplemental-ui
 output:

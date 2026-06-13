@@ -13,7 +13,7 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
-    - url: ../antora-dark-theme
+    - url: ../valentus-theme
       branches: HEAD
       start_path: docs
       worktrees: true

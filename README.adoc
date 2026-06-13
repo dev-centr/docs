@@ -11,7 +11,7 @@ This repository contains the Antora playbook and configuration for the **Dev Cen
 | `antora-playbook.yml` | Production Antora playbook. Uses remote GitHub URLs for all content sources and the published UI bundle. Used by CI/CD.
 | `antora-playbook-local.example.yml` | Committed template for the local dev playbook. Copy to `antora-playbook-local.yml` (gitignored) for local builds.
 | `antora-playbook.testing.example.yml` | Committed template for full local testing (e.g. local UI bundle).
-| `supplemental-ui/` | Minimal site overlay on the antora-dark-theme UI bundle (custom domain `CNAME`; optional branding SVGs under `img/`). Header logo and navbar text use playbook `site.keys`—no `header-content.hbs` override needed (antora-dark-theme v1.0.12+).
+| `supplemental-ui/` | Minimal site overlay on the valentus-theme UI bundle (custom domain `CNAME`; optional branding SVGs under `img/`). Header logo and navbar text use playbook `site.keys`—no `header-content.hbs` override needed (valentus-theme v1.1.0+).
 | `.vscode/` | VS Code folder settings and extension recommendations for this playbook repo.
 | `package.json` | Defines dependencies and build scripts.
 |===
