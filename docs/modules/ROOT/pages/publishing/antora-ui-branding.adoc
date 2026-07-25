@@ -2,7 +2,7 @@
 :navtitle: Antora UI branding
 :description: How this site brands header logos, teal chrome, and VCS icons using valentus-theme site.keys and supplemental assets.
 
-This documentation site uses the link:https://github.com/antora-supplemental/valentus-theme[valentus-theme] pre-built UI bundle (`ui-bundle.zip`). The bundle ships dark mode, Lunr search chrome, and a debranded doc layout. Site-specific branding is layered on top with a minimal `supplemental-ui` directory and optional playbook `site.keys`.
+This documentation site uses the link:https://github.com/antora-supplemental/valentus-theme[valentus-theme] pre-built UI bundle (`ui-bundle.zip`). As of **2.0.0**, the bundle ships dark mode, Lunr search in a tool band, read-width controls, Plus Jakarta Sans / Source Sans 3 / IBM Plex Mono, and a teal visual redesign. Site-specific branding is a thin `supplemental-ui` layer plus playbook `site.keys`.
 
 Former `antora-dark-theme` consumers should migrate to this bundle URL.
 
@@ -12,14 +12,14 @@ Former `antora-dark-theme` consumers should migrate to this bundle URL.
 ----
 ui:
   bundle:
-    url: https://github.com/antora-supplemental/valentus-theme/releases/download/v1/ui-bundle.zip
+    url: https://github.com/antora-supplemental/valentus-theme/releases/download/v2.0.0/ui-bundle.zip
     snapshot: true
   supplemental_files: ./supplemental-ui
 ----
 
-== DevCentr teal chrome
+== DevCentr accent overlay
 
-Layout stays valentus-theme. Colors match `devcentr.app` (steel neutrals + teal signal):
+Layout, fonts, and default teal chrome stay valentus-theme. `devcentr-brand.css` only remaps `--adt-accent*` tokens to the org palette:
 
 * Light primary: `#178F80`
 * Dark primary: `#2DD4BF`
@@ -27,12 +27,13 @@ Layout stays valentus-theme. Colors match `devcentr.app` (steel neutrals + teal 
 
 Overlay files:
 
-* `supplemental-ui/css/devcentr-brand.css` — light + dark accent overrides (loaded last)
-* `supplemental-ui/partials/head-meta.hbs` — vendored from valentus-theme; loads brand CSS + Space Grotesk
-* `supplemental-ui/partials/header-content.hbs` — vendored header with camelCase `site.keys` lookups
-* `supplemental-ui/img/logo.svg` — orbit mark tuned for the dark teal navbar
+* `supplemental-ui/css/devcentr-brand.css` — accent token overrides (loaded last)
+* `supplemental-ui/partials/head-meta.hbs` — vendored from valentus-theme 2.x, plus the brand stylesheet link
+* `supplemental-ui/img/logo.svg` — orbit mark for the header
 
-When upgrading valentus-theme, re-diff `head-meta.hbs` and `header-content.hbs` against upstream.
+Do **not** override `partials/header-content.hbs` unless you need markup the theme keys cannot express. Upstream already reads camelCased `site.keys` for logo and navbar text.
+
+When upgrading valentus-theme, re-diff `head-meta.hbs` against upstream and keep the brand CSS link after `site-visual.css` / `site-read-width.css`.
 
 == Header logo and navbar text
 
@@ -46,7 +47,7 @@ site:
     header_doc_title: DevCentr Docs
 ----
 
-IMPORTANT: Write playbook `site.keys` in *snake_case*. Antora camelCases them for the UI model (`site_home_url` → `siteHomeUrl`). This site’s `header-content.hbs` override looks up the camelCase names so branding keys apply.
+IMPORTANT: Write playbook `site.keys` in *snake_case*. Antora camelCases them for the UI model (`site_home_url` → `siteHomeUrl`).
 
 Place the logo at `supplemental-ui/img/logo.svg`.
 

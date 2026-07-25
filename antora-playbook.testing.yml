@@ -1,8 +1,8 @@
-# Dev Center docs — CI/production (dev-centr repos only)
-# Standard name: antora-playbook.yml.
-# Local sibling checkouts: antora-playbook-local.yml. Local UI bundle: antora-playbook.testing.yml.
+# Local UI / theme testing — same sibling content as antora-playbook-local.yml,
+# but uses a local valentus-theme UI bundle. Build the theme first, then:
+#   pnpm build:testing
 site:
-  title: Dev-Centr Docs
+  title: Dev Center Docs (Local Test)
   url: https://docs.devcentr.org
   start_page: home::index.adoc
   keys:
@@ -15,24 +15,29 @@ antora:
     - '@antora/lunr-extension'
 content:
   sources:
-    - url: https://github.com/dev-centr/docs.git
+    - url: .
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/devcentr.git
+      worktrees: true
+    - url: ../devcentr
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/templates.git
+      worktrees: true
+    - url: ../templates
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/general-knowledge.git
+      worktrees: true
+    - url: ../general-knowledge
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/msi-installer-generator.git
+      worktrees: true
+    - url: ../msi-generator
       branches: HEAD
       start_path: docs
+      worktrees: true
 ui:
   bundle:
-    url: https://github.com/antora-supplemental/valentus-theme/releases/download/v2.0.0/ui-bundle.zip
+    url: ../valentus-theme/build/ui-bundle.zip
     snapshot: true
   supplemental_files: ./supplemental-ui
 output:
