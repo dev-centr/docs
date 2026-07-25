@@ -8,7 +8,7 @@ site:
     header_logo: logo.svg
     site_home_url: https://devcentr.org
     site_home_label: DevCentr home
-    header_doc_title: Docs
+    header_doc_title: DevCentr Docs
 antora:
   extensions:
     - '@antora/lunr-extension'

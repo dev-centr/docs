@@ -43,7 +43,7 @@ site:
     header_logo: logo.svg
     site_home_url: https://devcentr.org
     site_home_label: DevCentr home
-    header_doc_title: Docs
+    header_doc_title: DevCentr Docs
 ----
 
 IMPORTANT: Write playbook `site.keys` in *snake_case*. Antora camelCases them for the UI model (`site_home_url` → `siteHomeUrl`). This site’s `header-content.hbs` override looks up the camelCase names so branding keys apply.
