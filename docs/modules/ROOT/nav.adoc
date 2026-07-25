@@ -4,6 +4,7 @@
 * xref:activity-log.adoc[Activity Log]
 * Architecture
 ** xref:architecture/ui-heavy-web-apps.adoc[UI-heavy web applications]
+** xref:architecture/subscription-management-platforms.adoc[Subscription management platforms]
 * Software publishing
 ** xref:publishing/code-signing-in-the-release-pipeline.adoc[Code signing in the release pipeline]
 ** xref:publishing/antora-ui-branding.adoc[Antora UI branding]
