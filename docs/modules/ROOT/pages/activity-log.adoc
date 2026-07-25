@@ -8,6 +8,7 @@ This page records significant documentation and project activity at an org level
 
 === July
 
+* **resting-lanczos** — Repo transferred to `dev-centr/resting-lanczos`. Live side-by-side comparison on link:https://devcentr.org/resting-lanczos[devcentr.org/resting-lanczos] (browser bilinear vs Lanczos srcset + transform). Tool overview: xref:tools/resting-lanczos.adoc[resting-lanczos].
 * **Appearance / code fonts** — DevCentr Appearance dialog: Cascadia Mono (default) or JetBrains Mono for terminal and code panels; recommended-tools docs updated.
 * **Nushell as recommended shell** — General-knowledge advocates Nushell as the default cross-platform shell; added Nu vs PowerShell, Nu + AI agents (vs NVIDIA OpenShell), and an NVIDIA OpenShell overview (name collision called out). OpenShellOrg companions: `nu-require`, `nu-emit`, `shell-architecture`.
 * **Architecture — Subscription management platforms** — New explanation page under Architecture: in-app subscription infrastructure (Adapty, RevenueCat, Qonversion, DIY), access levels vs store SKUs, Stripe Customer Portal limits, and web+mobile `customer_user_id` sync. Cross-linked from general-knowledge Explanation → Architecture.

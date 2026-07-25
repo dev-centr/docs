@@ -1,0 +1,23 @@
+= resting-lanczos
+:navtitle: resting-lanczos
+
+[abstract]
+Offline Lanczos3 display tiers + `srcset` / `sizes` + `transform: scale()` — crisp resting images without fighting the browser every animation frame.
+
+== Live comparison demo
+
+Side-by-side on the org site: browser bilinear downscale of a huge master vs resting Lanczos tiers.
+
+* link:https://devcentr.org/resting-lanczos[devcentr.org/resting-lanczos]
+* link:https://github.com/dev-centr/resting-lanczos[github.com/dev-centr/resting-lanczos]
+
+Mipmaps / WebGL sharpen are experimental in the repo and are **not** the default for UI or screenshot cards.
+
+== Canonical pipeline
+
+. Offline: resize masters with **Lanczos3** to display tiers (e.g. 400w + 800w).
+. Markup: `<img srcset sizes>` matching ~1× / 2× CSS width.
+. Motion: `transform: scale()` so layout size stays fixed.
+. Resting resize only: swap via srcset / `ResizeObserver` when **layout** size changes — never Lanczos every frame.
+
+See the repository README and `docs/explanation.md` for the full problem statement and anti-patterns.
