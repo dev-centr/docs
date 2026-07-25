@@ -1,6 +1,6 @@
 = Antora UI branding (valentus-theme)
 :navtitle: Antora UI branding
-:description: How this site brands header logos and VCS icons using valentus-theme site.keys and supplemental assets.
+:description: How this site brands header logos, teal chrome, and VCS icons using valentus-theme site.keys and supplemental assets.
 
 This documentation site uses the link:https://github.com/antora-supplemental/valentus-theme[valentus-theme] pre-built UI bundle (`ui-bundle.zip`). The bundle ships dark mode, Lunr search chrome, and a debranded doc layout. Site-specific branding is layered on top with a minimal `supplemental-ui` directory and optional playbook `site.keys`.
 
@@ -17,21 +17,38 @@ ui:
   supplemental_files: ./supplemental-ui
 ----
 
-== Header logo and navbar text
+== DevCentr teal chrome
 
-We no longer override `partials/header-content.hbs`. The bundled header partial reads playbook keys so consumers can swap logos without forking Handlebars templates.
+Layout stays valentus-theme. Colors match `devcentr.app` (steel neutrals + teal signal):
+
+* Light primary: `#178F80`
+* Dark primary: `#2DD4BF`
+* Logo accents: `#14B8A6` / `#0F766E`
+
+Overlay files:
+
+* `supplemental-ui/css/devcentr-brand.css` — light + dark accent overrides (loaded last)
+* `supplemental-ui/partials/head-meta.hbs` — vendored from valentus-theme; loads brand CSS + Space Grotesk
+* `supplemental-ui/partials/header-content.hbs` — vendored header with camelCase `site.keys` lookups
+* `supplemental-ui/img/logo.svg` — orbit mark tuned for the dark teal navbar
+
+When upgrading valentus-theme, re-diff `head-meta.hbs` and `header-content.hbs` against upstream.
+
+== Header logo and navbar text
 
 [source,yaml]
 ----
 site:
   keys:
-    header_logo: mybrand.svg
-    site_home_url: https://example.com
-    site_home_label: Example project home
-    header_doc_title: Example Docs
+    header_logo: logo.svg
+    site_home_url: https://devcentr.org
+    site_home_label: DevCentr home
+    header_doc_title: Docs
 ----
 
-Place `mybrand.svg` at `supplemental-ui/img/mybrand.svg`.
+IMPORTANT: Write playbook `site.keys` in *snake_case*. Antora camelCases them for the UI model (`site_home_url` → `siteHomeUrl`). This site’s `header-content.hbs` override looks up the camelCase names so branding keys apply.
+
+Place the logo at `supplemental-ui/img/logo.svg`.
 
 == VCS repo logo
 

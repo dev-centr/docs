@@ -4,6 +4,11 @@ site:
   title: Dev-Centr Docs
   url: https://docs.devcentr.org
   start_page: home::index.adoc
+  keys:
+    header_logo: logo.svg
+    site_home_url: https://devcentr.org
+    site_home_label: DevCentr home
+    header_doc_title: Docs
 antora:
   extensions:
     - '@antora/lunr-extension'

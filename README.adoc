@@ -1,4 +1,4 @@
-link:https://docs.devcentr.org[image:https://img.shields.io/badge/site-docs.devcentr.org-0066cc?style=flat[Site]]
+link:https://docs.devcentr.org[image:https://img.shields.io/badge/site-docs.devcentr.org-178F80?style=flat[Site]]
 
 = Dev-Centr Documentation
 
@@ -11,7 +11,7 @@ This repository contains the Antora playbook and configuration for the **Dev Cen
 | `antora-playbook.yml` | Production Antora playbook. Uses remote GitHub URLs for all content sources and the published UI bundle. Used by CI/CD.
 | `antora-playbook-local.example.yml` | Committed template for the local dev playbook. Copy to `antora-playbook-local.yml` (gitignored) for local builds.
 | `antora-playbook.testing.example.yml` | Committed template for full local testing (e.g. local UI bundle).
-| `supplemental-ui/` | Minimal site overlay on the valentus-theme UI bundle (custom domain `CNAME`; optional branding SVGs under `img/`). Header logo and navbar text use playbook `site.keys`—no `header-content.hbs` override needed (valentus-theme v1.1.0+).
+| `supplemental-ui/` | Site overlay on the valentus-theme UI bundle: custom domain `CNAME`, DevCentr teal brand CSS, header logo under `img/`, and a thin `head-meta.hbs` fork that loads the brand stylesheet. Header logo / navbar text also use playbook `site.keys` (valentus-theme v1.1.0+).
 | `.vscode/` | VS Code folder settings and extension recommendations for this playbook repo.
 | `package.json` | Defines dependencies and build scripts.
 |===
@@ -88,3 +88,8 @@ This project is best managed by opening the repository folder in VS Code:
 1. Open this repository folder in VS Code (File → Open Folder).
 2. Ensure the recommended extensions are installed (AsciiDoc, YAML, etc.).
 3. Use the integrated terminal for running builds.
+
+== Related
+
+* link:docs/modules/ROOT/pages/publishing/antora-ui-branding.adoc[Antora UI branding] — teal chrome and logo keys
+* link:https://docs.devcentr.org[Live docs site]
