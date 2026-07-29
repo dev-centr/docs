@@ -8,6 +8,7 @@
 * Software publishing
 ** xref:publishing/code-signing-in-the-release-pipeline.adoc[Code signing in the release pipeline]
 ** xref:publishing/antora-ui-branding.adoc[Antora UI branding]
+** xref:publishing/antora-essential-extensions.adoc[Antora essential extensions]
 * xref:tools/index.adoc[Tools]
 ** xref:tools/code-d.adoc[code-d]
 ** xref:tools/dprint.adoc[dprint]

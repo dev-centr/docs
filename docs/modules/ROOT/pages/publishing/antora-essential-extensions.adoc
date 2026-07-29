@@ -1,0 +1,34 @@
+= Antora essential extensions
+:navtitle: Antora essential extensions
+:description: Extensions that should be treated as required until Antora core absorbs them, with upstream proposal links.
+
+This page lists Antora extensions DevCentr / OpenShellOrg treat as **essential**: behavior so basic that sites should enable it by default, and that we argue belongs in Antora core (usually as an **opt-in** playbook key, not a silent default).
+
+== Essential Extensions / Extensions that should be in core
+
+=== Alias versioned component root → latest start page
+
+*Package:* link:https://github.com/antora-supplemental/antora-alias-component-to-latest[`@antora-supplemental/alias-component-to-latest`]
+
+*Problem:* A component with only numbered versions (`0.2.0`, `1.0`, …) publishes under `/component/0.2.0/`. The bare URL `/component/` 404s. Shared links and naive “open the component” navigation break.
+
+*Behavior:* For each component that has no empty/`version: ~` version, register a versionless alias of `ROOT` `index.adoc` (latest start page) so `/component/` routes to the latest start page. Same algorithm as the official Antora extension use case.
+
+*Playbook:*
+
+[source,yaml]
+----
+antora:
+  extensions:
+    - require: '@antora-supplemental/alias-component-to-latest'
+----
+
+*Upstream:* This should be an opt-in core playbook key (for example `urls.alias_component_to_latest: true`), not a forever copy-paste extension. Antora already documents the snippet; core should own the switch.
+
+*Proposal / discussion:* link:https://gitlab.com/antora/antora/-/issues/291[antora/antora#291] (closed after `#314`; remaining gap is bare `/component/` → latest, not symbolic `latest`/`current`). Comment on that thread rather than opening a duplicate unless maintainers ask for a new issue.
+
+*Official use-case docs:* link:https://docs.antora.org/antora/latest/extend/extension-use-cases/#redirect-from-component-to-latest-version[Redirect from component to latest version]
+
+== Related
+
+* xref:publishing/antora-ui-branding.adoc[Antora UI branding]
