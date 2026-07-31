@@ -1,0 +1,20 @@
+= FixNow
+:navtitle: FixNow
+
+[abstract]
+Pressure-driven issue tracking for high-value, stagnated features — AI value scores, public countdown badges, and resolution audits.
+
+== Canonical documentation
+
+Full guides live in the FixNow Antora component:
+
+* xref:fixnow-dev:ROOT:index.adoc[Introduction]
+* xref:fixnow-dev:ROOT:getting-started.adoc[Getting Started]
+* xref:fixnow-dev:ROOT:ai-evaluation.adoc[AI Evaluation]
+* xref:fixnow-dev:ROOT:api.adoc[API Reference]
+* xref:fixnow-dev:ROOT:security.adoc[Security & Verification]
+
+== Repository
+
+* link:https://github.com/dev-centr/fixnow-dev[github.com/dev-centr/fixnow-dev]
+* link:https://docs.devcentr.org/fixnow-dev/[docs.devcentr.org/fixnow-dev]

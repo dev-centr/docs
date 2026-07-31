@@ -35,6 +35,10 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../fixnow-dev
+      branches: HEAD
+      start_path: docs
+      worktrees: true
 ui:
   bundle:
     url: ../valentus-theme/build/ui-bundle.zip

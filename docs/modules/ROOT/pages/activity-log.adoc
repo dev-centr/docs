@@ -8,6 +8,7 @@ This page records significant documentation and project activity at an org level
 
 === July
 
+* **fixnow-dev** — Repo transferred to `dev-centr/fixnow-dev`. Antora component added (Introduction, Getting Started, AI Evaluation, API, Security) and registered on the hub. xref:fixnow-dev:ROOT:index.adoc[FixNow docs].
 * **valentus-theme 2.0.0** — Playbooks pin `v2.0.0` UI bundle (tool-band search, read-width, Plus Jakarta Sans visual redesign). Dropped the local `header-content.hbs` override; brand CSS is now accent-token-only. See xref:publishing/antora-ui-branding.adoc[Antora UI branding].
 * **resting-lanczos** — Repo transferred to `dev-centr/resting-lanczos`. Live side-by-side comparison on link:https://devcentr.org/resting-lanczos[devcentr.org/resting-lanczos] (browser bilinear vs Lanczos srcset + transform). Tool overview: xref:tools/resting-lanczos.adoc[resting-lanczos].
 * **Appearance / code fonts** — DevCentr Appearance dialog: Cascadia Mono (default) or JetBrains Mono for terminal and code panels; recommended-tools docs updated.

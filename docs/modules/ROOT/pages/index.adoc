@@ -37,6 +37,13 @@ JSON-based configuration and CI/CD integration.
 xref:tools/msi-installer-generator.adoc[MSI Generator Docs]
 
 [.card]
+=== ⏱️ FixNow
+Pressure-driven issue tracking for high-value stagnated features.
+AI value scores, public countdown badges, and resolution audits.
+
+xref:fixnow-dev:ROOT:index.adoc[FixNow Docs]
+
+[.card]
 === Software publishing
 Platform-agnostic notes on code signing, notarization, and release automation. Antora UI branding for this site.
 

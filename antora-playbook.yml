@@ -30,6 +30,9 @@ content:
     - url: https://github.com/dev-centr/msi-installer-generator.git
       branches: HEAD
       start_path: docs
+    - url: https://github.com/dev-centr/fixnow-dev.git
+      branches: HEAD
+      start_path: docs
 ui:
   bundle:
     url: https://github.com/antora-supplemental/valentus-theme/releases/download/v2.0.0/ui-bundle.zip

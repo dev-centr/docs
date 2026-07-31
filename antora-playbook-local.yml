@@ -34,6 +34,10 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../fixnow-dev
+      branches: HEAD
+      start_path: docs
+      worktrees: true
 ui:
   bundle:
     url: https://github.com/antora-supplemental/valentus-theme/releases/download/v2.0.0/ui-bundle.zip
