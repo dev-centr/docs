@@ -31,11 +31,19 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../business-bootstrap
+      branches: HEAD
+      start_path: docs
+      worktrees: true
     - url: ../msi-generator
       branches: HEAD
       start_path: docs
       worktrees: true
     - url: ../fixnow-dev
+      branches: HEAD
+      start_path: docs
+      worktrees: true
+    - url: ../infra-template
       branches: HEAD
       start_path: docs
       worktrees: true

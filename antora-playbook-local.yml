@@ -30,6 +30,10 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../business-bootstrap
+      branches: HEAD
+      start_path: docs
+      worktrees: true
     - url: ../msi-generator
       branches: HEAD
       start_path: docs
@@ -38,9 +42,13 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../infra-template
+      branches: HEAD
+      start_path: docs
+      worktrees: true
 ui:
   bundle:
-    url: https://github.com/antora-supplemental/valentus-theme/releases/download/v2.0.0/ui-bundle.zip
+    url: https://github.com/antora-supplemental/valentus-theme/releases/download/v2/ui-bundle.zip
     snapshot: true
   supplemental_files: ./supplemental-ui
 output:

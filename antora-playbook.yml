@@ -27,6 +27,12 @@ content:
     - url: https://github.com/dev-centr/general-knowledge.git
       branches: HEAD
       start_path: docs
+    - url: https://github.com/dev-centr/business-bootstrap.git
+      branches: HEAD
+      start_path: docs
+    - url: https://github.com/dev-centr/infra-template.git
+      branches: HEAD
+      start_path: docs
     - url: https://github.com/dev-centr/msi-installer-generator.git
       branches: HEAD
       start_path: docs
@@ -35,7 +41,7 @@ content:
       start_path: docs
 ui:
   bundle:
-    url: https://github.com/antora-supplemental/valentus-theme/releases/download/v2.0.0/ui-bundle.zip
+    url: https://github.com/antora-supplemental/valentus-theme/releases/download/v2/ui-bundle.zip
     snapshot: true
   supplemental_files: ./supplemental-ui
 output:
