@@ -2,9 +2,30 @@
 :navtitle: Antora essential extensions
 :description: Extensions that should be treated as required until Antora core absorbs them, with upstream proposal links.
 
-This page lists Antora extensions DevCentr / OpenShellOrg treat as **essential**: behavior so basic that sites should enable it by default, and that we argue belongs in Antora core (usually as an **opt-in** playbook key, not a silent default).
+This page lists Antora extensions DevCentr / OpenShellOrg / antora-supplemental treat as **essential**: behavior so basic that every docs site we ship should enable it, and that we argue belongs closer to Antora core (or at least in every playbook by default).
 
 == Essential Extensions / Extensions that should be in core
+
+=== Site search (`@antora/lunr-extension`)
+
+*Package:* link:https://gitlab.com/antora/antora-lunr-extension[`@antora/lunr-extension`] (official Antora extension)
+
+*Problem:* Without Lunr, the site has no client-side full-text search. Users (and Valentus Search/Ask chrome) expect a working omnibox.
+
+*Behavior:* Indexes published pages at build time and ships a browser search UI. Valentus and related themes assume Lunr (or a wrapper such as `@antora-supplemental/antora-search-chat`) is present.
+
+*Playbook:*
+
+[source,yaml]
+----
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+----
+
+Install the package in the playbook repo (`pnpm add -D @antora/lunr-extension`). Register Lunr **before** any wrapper that depends on it (for example `antora-search-chat`).
+
+*Upstream:* Lunr is already the official search extension. Treat it as mandatory site plumbing for every Antora site we publish—not optional polish.
 
 === Alias versioned component root → latest start page
 
