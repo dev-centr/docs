@@ -1,10 +1,35 @@
-link:https://docs.devcentr.org[image:https://img.shields.io/badge/site-docs.devcentr.org-178F80?style=flat[Site]]
+ifndef::env-github[:icons: font]
+:toc: preamble
+:toclevels: 2
+:sectanchors:
+
+ifndef::env-github[]
+image:https://img.shields.io/github/contributors/dev-centr/docs.svg?style=for-the-badge[Contributors,link=https://github.com/dev-centr/docs/graphs/contributors]
+image:https://img.shields.io/github/forks/dev-centr/docs.svg?style=for-the-badge[Forks,link=https://github.com/dev-centr/docs/network/members]
+image:https://img.shields.io/github/stars/dev-centr/docs.svg?style=for-the-badge[Stars,link=https://github.com/dev-centr/docs/stargazers]
+image:https://img.shields.io/github/issues/dev-centr/docs.svg?style=for-the-badge[Issues,link=https://github.com/dev-centr/docs/issues]
+endif::[]
+
+ifdef::env-github[]
+image:https://img.shields.io/github/contributors/dev-centr/docs.svg?style=for-the-badge[Contributors]
+image:https://img.shields.io/github/forks/dev-centr/docs.svg?style=for-the-badge[Forks]
+image:https://img.shields.io/github/stars/dev-centr/docs.svg?style=for-the-badge[Stars]
+image:https://img.shields.io/github/issues/dev-centr/docs.svg?style=for-the-badge[Issues]
+endif::[]
 
 = Dev-Centr Documentation
 
+Dev-Centr documentation hub. Antora site aggregating dev-centr projects.
+
+link:https://docs.devcentr.org[Explore the docs] ·
+link:https://github.com/dev-centr/docs/issues[Report Bug] ·
+link:https://github.com/dev-centr/docs/issues[Request Feature]
+
+== About The Project
+
 This repository contains the Antora playbook and configuration for the **Dev Center** documentation site. It aggregates content from multiple sources to build a unified documentation portal.
 
-== Project Structure
+=== Project Structure
 
 |===
 | File | Description
@@ -16,7 +41,7 @@ This repository contains the Antora playbook and configuration for the **Dev Cen
 | `package.json` | Defines dependencies and build scripts.
 |===
 
-== Usage
+== Installation
 
 === Prerequisites
 
@@ -26,14 +51,14 @@ This repository contains the Antora playbook and configuration for the **Dev Cen
 | link:https://pnpm.io/[pnpm] | Package manager for install and build scripts
 |===
 
-=== Installation
-
 Install the required dependencies using pnpm:
 
 [source,powershell]
 ----
 pnpm install
 ----
+
+== Usage
 
 === Getting Started (Local Development)
 
@@ -80,7 +105,14 @@ This project is best managed by opening the repository folder in VS Code:
 2. Ensure the recommended extensions are installed (AsciiDoc, YAML, etc.).
 3. Use the integrated terminal for running builds.
 
-== Related
+=== Related
 
 * link:docs/modules/ROOT/pages/publishing/antora-ui-branding.adoc[Antora UI branding] — teal chrome and logo keys
 * link:https://docs.devcentr.org[Live docs site]
+
+== Contact
+
+DevCentr.org — support@devcentr.org
+
+* Project: https://github.com/dev-centr/docs
+* Site: https://docs.devcentr.org
