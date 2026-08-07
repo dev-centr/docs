@@ -8,6 +8,8 @@ This page records significant documentation and project activity at an org level
 
 === August
 
+* **valentus-theme head-meta sync** — Restored font-size FOUC + `site-font-size.css` in the supplemental `head-meta.hbs` overlay (was missing after brand fork). Condensed A/A/A control hides on desktop again and scales doc text on mobile. Playbooks already use rolling `v2`.
+* **valentus-theme product topic** — This repo (and other Valentus playbooks) tagged with GitHub topic `valentus-theme` for dependency rediscovery; convention documented upstream.
 * **DOS naming** — Public category stays Development Orchestration Suite; DevOps framed as one facet of the suite; *Dev OS* as quiet mental model only. Sites + DevCentr vision/capabilities docs updated.
 * **Ibex** — Rebrand of Easy Installer (`ibex` CLI): Install Builder EXtension. winget `DevCentr.Ibex`, Homebrew tap, Scoop. xref:ibex:ROOT:index.adoc[Ibex docs] · xref:tools/ibex.adoc[portal].
 * **Easy Installer CI emit** — `emit-ci` / `ci-runner.sdl` writes GitHub Actions, GitLab, Azure, Jenkins, CircleCI, and Bitbucket workflows plus `CI-INSTALLER.adoc` without a local package build. DevCentr: `--mode=emit-ci` and New Installer CI pipeline menu. xref:ibex:ROOT:howto-emit-ci.adoc[How-to: emit CI].

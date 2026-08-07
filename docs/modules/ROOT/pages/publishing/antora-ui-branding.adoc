@@ -17,6 +17,8 @@ ui:
   supplemental_files: ./supplemental-ui
 ----
 
+This repository carries the GitHub topic `valentus-theme` (product dependency rediscovery). Sites that adopt the same bundle should add that topic too — see the Valentus guide link:https://github.com/antora-supplemental/valentus-theme/blob/main/docs/modules/guide/pages/github-topics.adoc[GitHub Topics^].
+
 == DevCentr accent overlay
 
 Layout, fonts, and default teal chrome stay valentus-theme. `devcentr-brand.css` only remaps `--adt-accent*` tokens to the org palette:
@@ -33,7 +35,7 @@ Overlay files:
 
 Do **not** override `partials/header-content.hbs` unless you need markup the theme keys cannot express. Upstream already reads camelCased `site.keys` for logo and navbar text.
 
-When upgrading valentus-theme, re-diff `head-meta.hbs` against upstream and keep the brand CSS link after `site-visual.css` / `site-read-width.css`.
+When upgrading valentus-theme, re-diff `head-meta.hbs` against upstream and keep the brand CSS link after `site-visual.css` / `site-read-width.css` / `site-font-size.css`. The font-size FOUC script and stylesheet are required for the condensed A/A/A control (desktop hide + doc zoom).
 
 == Header logo and navbar text
 
