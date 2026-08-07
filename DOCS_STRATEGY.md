@@ -38,6 +38,7 @@ Tools that are forks or upstream clones are located in the `.forks` directory to
 | :-------------- | :--------------- | :------------------------------------ |
 | `code-d`        | `.forks/code-d`  | Defined in Portal (Reference)         |
 | `msi-generator` | `msi-generator`  | Component in repo (`docs/antora.yml`) |
+| `easy-installer` | `easy-installer` | Component in repo (`docs/antora.yml`) |
 | `dprint`        | `.forks/dprint`  | Defined in Portal (Reference)         |
 | `dlangui`       | `.forks/dlangui` | Defined in Portal (Reference)         |
 
@@ -55,6 +56,7 @@ Tools that are forks or upstream clones are located in the `.forks` directory to
 | `dev-center`    | `dev-center`    | **Active**   | `antora.yml` created; KB structured. |
 | `code-d`        | N/A             | **External** | Document in `docs/modules/tools`.    |
 | `msi-generator` | `msi-generator` | **Active**   | Verified in playbook.                |
+| `easy-installer` | `easy-installer` | **Active** | Wired August 2026.                   |
 | `dlang.org`     | TBD             | **External** | Link to official docs.               |
 | `antora-*`      | Various         | **Active**   | Verified in playbook.                |
 

@@ -39,6 +39,14 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../easy-installer
+      branches: HEAD
+      start_path: docs
+      worktrees: true
+    - url: ../agentic-email-integration
+      branches: HEAD
+      start_path: docs
+      worktrees: true
     - url: ../fixnow-dev
       branches: HEAD
       start_path: docs

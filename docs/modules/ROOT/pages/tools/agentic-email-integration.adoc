@@ -1,0 +1,17 @@
+= Agentic Email Integration
+:description: Portal stub for the agentic-email-integration Antora component.
+
+Local Gmail integration: Himalaya poller + Cursor agents for drafts and CI. Own-your-inbox — not disposable AgentMail.
+
+Full component docs (once published)::
+xref:agentic-email-integration::index.adoc[Agentic Email Integration]
+
+Repository::
+https://github.com/dev-centr/agentic-email-integration
+
+== Highlights
+
+* Poll owned Gmail via Himalaya CLI
+* Classify CI / developer correspondence
+* Trigger local Cursor SDK agents
+* Draft-only write-back by default

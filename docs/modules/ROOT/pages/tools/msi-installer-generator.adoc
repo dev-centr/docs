@@ -1,18 +1,17 @@
 = MSI Generator Documentation
+:navtitle: MSI Generator
+:description: Portal overview for the MSI/MSIX generator.
 
-This tool generates Windows installers (MSI/MSIX) for D applications.
+The MSI/MSIX Generator produces Windows installer packages from a JSON product spec (and CLI flags for simple MSIX cases). It is written in D and runs on Windows, Linux, and macOS while targeting Windows package formats.
 
-== Overview
+== Component docs
 
-It simplifies the process of creating installers by providing a JSON-based configuration.
+Full Antora component: xref:msi-generator:ROOT:index.adoc[MSI/MSIX Generator]
 
-== Features
+== Repository
 
-* **Cross-platform**: Written in D, can run on Windows, Linux, and macOS (generating Windows installers).
-* **Automated**: Integrate into CI/CD pipelines.
+link:https://github.com/dev-centr/msi-generator[dev-centr/msi-generator] · Releases from link:https://github.com/dev-centr/msi-generator/releases[v0.2.0]
 
-== Usage
+== Used by
 
-See the `README.md` in the link:https://github.com/dev-centr/msi-installer-generator[msi-generator repository] for usage instructions.
-
-
+xref:tools/easy-installer.adoc[Easy Installer] invokes this binary as the `msi` / `msix` plugins.

@@ -6,6 +6,11 @@ This page records significant documentation and project activity at an org level
 
 == 2026
 
+=== August
+
+* **Easy Installer** — New `dev-centr/easy-installer` host: in-place PATH, `installer.kdl` projects, plugin backends (zip/NSIS/Inno/MSI/MSIX/AppImage), and file-manager menus. Antora component wired into the docs hub. xref:easy-installer:ROOT:index.adoc[Easy Installer docs] · xref:tools/easy-installer.adoc[portal].
+* **msi-generator v0.2** — Real OLE2 CFB, uncompressed CAB, and core MSI tables; multi-file MSIX with placeholder assets. xref:msi-generator:ROOT:index.adoc[MSI Generator docs].
+
 === July
 
 * **fixnow-dev** — Repo transferred to `dev-centr/fixnow-dev`. Antora component added (Introduction, Getting Started, AI Evaluation, API, Security) and registered on the hub. xref:fixnow-dev:ROOT:index.adoc[FixNow docs].

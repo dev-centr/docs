@@ -33,7 +33,13 @@ content:
     - url: https://github.com/dev-centr/infra-template.git
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/msi-installer-generator.git
+    - url: https://github.com/dev-centr/msi-generator.git
+      branches: HEAD
+      start_path: docs
+    - url: https://github.com/dev-centr/easy-installer.git
+      branches: HEAD
+      start_path: docs
+    - url: https://github.com/dev-centr/agentic-email-integration.git
       branches: HEAD
       start_path: docs
     - url: https://github.com/dev-centr/fixnow-dev.git

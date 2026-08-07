@@ -7,9 +7,12 @@ Some tools are documented in their own repositories (e.g. MSI Generator); others
 == Original Contributions
 These tools are original works developed as part of this ecosystem.
 
+* xref:tools/easy-installer.adoc[Easy Installer]
 * xref:tools/msi-installer-generator.adoc[MSI Generator]
+* xref:tools/agentic-email-integration.adoc[Agentic Email Integration]
 * xref:tools/fixnow-dev.adoc[FixNow]
 * xref:tools/resting-lanczos.adoc[resting-lanczos]
+* xref:tools/native-installer-roadmap.adoc[Native installer builder roadmap]
 
 == Maintained Forks
 These tools are maintained forks of upstream projects, often incorporating local custom patches to improve the developer experience. We intend to contribute the features introduced here to the upstream projects, where possible. `dprint` is the only exception, as they have been jerks.

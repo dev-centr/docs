@@ -30,14 +30,19 @@ Consistent structure and boilerplate for all repositories.
 xref:templates:ROOT:index.adoc[Usage Guide]
 
 [.card]
-=== 📦 MSI Generator
-Windows installer (MSI/MSIX) generator for D applications.
-JSON-based configuration and CI/CD integration.
+=== Easy Installer
+Installer projects, in-place PATH, and plugin backends (zip, NSIS, Inno, MSI/MSIX).
 
-xref:tools/msi-installer-generator.adoc[MSI Generator Docs]
+xref:tools/easy-installer.adoc[Easy Installer] · xref:easy-installer:ROOT:index.adoc[Component docs]
 
 [.card]
-=== ⏱️ FixNow
+=== MSI Generator
+Windows installer (MSI/MSIX) engine — CFB/CAB tables and MSIX ZIP packaging.
+
+xref:tools/msi-installer-generator.adoc[Portal] · xref:msi-generator:ROOT:index.adoc[Component docs]
+
+[.card]
+=== FixNow
 Pressure-driven issue tracking for high-value stagnated features.
 AI value scores, public countdown badges, and resolution audits.
 
