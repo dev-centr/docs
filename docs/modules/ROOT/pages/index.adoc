@@ -7,7 +7,7 @@ Welcome to the central hub for Dev Center project documentation. Select a reposi
 
 [.card]
 === 🛠️ Dev Center
-Main developer tooling and project management application.
+Main developer tooling and project management application—a Development Orchestration Suite (DOS). DevOps is one facet of the suite.
 Includes: Onboarding, Flutter/Tailwind setup, and Git management guides.
 
 xref:DevCentr:ROOT:index.adoc[Explore Dev Center Docs]

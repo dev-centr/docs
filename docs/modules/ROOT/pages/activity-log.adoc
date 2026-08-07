@@ -8,6 +8,7 @@ This page records significant documentation and project activity at an org level
 
 === August
 
+* **DOS naming** — Public category stays Development Orchestration Suite; DevOps framed as one facet of the suite; *Dev OS* as quiet mental model only. Sites + DevCentr vision/capabilities docs updated.
 * **Ibex** — Rebrand of Easy Installer (`ibex` CLI): Install Builder EXtension. winget `DevCentr.Ibex`, Homebrew tap, Scoop. xref:ibex:ROOT:index.adoc[Ibex docs] · xref:tools/ibex.adoc[portal].
 * **Easy Installer CI emit** — `emit-ci` / `ci-runner.sdl` writes GitHub Actions, GitLab, Azure, Jenkins, CircleCI, and Bitbucket workflows plus `CI-INSTALLER.adoc` without a local package build. DevCentr: `--mode=emit-ci` and New Installer CI pipeline menu. xref:ibex:ROOT:howto-emit-ci.adoc[How-to: emit CI].
 * **Easy Installer** — Host for in-place PATH, `installer.kdl` projects, plugin backends (zip/NSIS/Inno/MSI/MSIX/AppImage), and file-manager menus (now **Ibex**). xref:ibex:ROOT:index.adoc[Ibex docs] · xref:tools/ibex.adoc[portal].
