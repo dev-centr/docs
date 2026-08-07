@@ -1,0 +1,17 @@
+= Issue Tracker
+:description: Portal stub for the issue-tracker Antora component.
+
+Local GitHub issues and comments browser. Syncs issues into SQLite; browse and search with GUI or CLI.
+
+Full component docs::
+xref:issue-tracker::index.adoc[Issue Tracker]
+
+Repository::
+https://github.com/dev-centr/issue-tracker
+
+== Highlights
+
+* Recursive git discovery across a folder of repos
+* Per-repo SQLite under `.issues/`
+* GUI (DlangUI) and CLI for sync, list, and search
+* Library API for embedding sync/query in other D tools

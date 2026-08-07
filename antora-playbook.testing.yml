@@ -47,6 +47,10 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../issue-tracker
+      branches: HEAD
+      start_path: docs
+      worktrees: true
     - url: ../fixnow-dev
       branches: HEAD
       start_path: docs

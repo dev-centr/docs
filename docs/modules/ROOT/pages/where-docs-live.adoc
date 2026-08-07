@@ -12,6 +12,8 @@ This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/
 * **templates** — Standardized project templates and usage guides.
 * **easy-installer** (product **Ibex**) — Install Builder Extension: installer projects, in-place PATH, plugin ABI, shell hooks.
 * **msi-generator** — MSI/MSIX generator documentation (engine used by Ibex plugins).
+* **issue-tracker** — Local GitHub issues browser (GUI/CLI); syncs issues into SQLite for offline browse/search.
+* **agentic-email-integration** — Own-your-inbox Gmail integration (Himalaya + agents).
 * **fixnow-dev** — FixNow pressure-driven issue tracking: AI value scoring, countdown badges, and resolution verification.
 
 Org-wide roadmap and activity log live here in the **docs** repo so they stay in one place across all projects. Repo-specific task lists (e.g. devcentr's root `TODO.adoc`) remain in each repository for day-to-day work; the central xref:todo-roadmap.adoc[Todo & Roadmap] summarizes themes and the xref:activity-log.adoc[Activity log] records notable updates.

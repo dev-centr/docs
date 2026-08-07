@@ -16,6 +16,7 @@
 ** xref:tools/ibex.adoc[Ibex]
 ** xref:tools/msi-installer-generator.adoc[MSI Generator]
 ** xref:tools/agentic-email-integration.adoc[Agentic Email Integration]
+** xref:tools/issue-tracker.adoc[Issue Tracker]
 ** xref:tools/fixnow-dev.adoc[FixNow]
 ** xref:tools/resting-lanczos.adoc[resting-lanczos]
 ** xref:tools/native-installer-roadmap.adoc[Native installer roadmap]
