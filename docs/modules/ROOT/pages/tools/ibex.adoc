@@ -1,0 +1,23 @@
+= Ibex
+:navtitle: Ibex
+:description: Portal overview for Ibex (Install Builder EXtension).
+
+**Ibex** (*Install Builder EXtension*) is the cross-platform host for **installer projects** and **Install in-place (add to PATH)**. It is not a software catalog installer.
+
+* Component docs: xref:ibex:ROOT:index.adoc[Ibex documentation]
+* Repository: link:https://github.com/dev-centr/easy-installer[dev-centr/easy-installer] (binary `ibex`)
+* Install: `winget install DevCentr.Ibex` · `brew tap dev-centr/tap && brew install ibex`
+* Releases: link:https://github.com/dev-centr/easy-installer/releases[v0.2.0+]
+* MSI/MSIX engine: xref:tools/msi-installer-generator.adoc[MSI Generator] / xref:msi-generator:ROOT:index.adoc[component]
+
+== What it is for
+
+* Append a build or tools folder to the user PATH without copying files.
+* Scaffold `installer.kdl` and build via plugins (portable zip, NSIS, Inno, MSI/MSIX, AppImage).
+* Emit CI workflows without a local package build (`ibex emit-ci`).
+* Discover and open optional designer GUIs for backends that have them.
+
+== Related
+
+* xref:tools/native-installer-roadmap.adoc[Native installer builder roadmap]
+* DevCentr Explorer / toolbar actions for the same flows

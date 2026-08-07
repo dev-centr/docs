@@ -8,8 +8,9 @@ This page records significant documentation and project activity at an org level
 
 === August
 
-* **Easy Installer CI emit** — `emit-ci` / `ci-runner.sdl` writes GitHub Actions, GitLab, Azure, Jenkins, CircleCI, and Bitbucket workflows plus `CI-INSTALLER.adoc` without a local package build. DevCentr: `--mode=emit-ci` and New Installer CI pipeline menu. xref:easy-installer:ROOT:howto-emit-ci.adoc[How-to: emit CI].
-* **Easy Installer** — New `dev-centr/easy-installer` host: in-place PATH, `installer.kdl` projects, plugin backends (zip/NSIS/Inno/MSI/MSIX/AppImage), and file-manager menus. Antora component wired into the docs hub. xref:easy-installer:ROOT:index.adoc[Easy Installer docs] · xref:tools/easy-installer.adoc[portal].
+* **Ibex** — Rebrand of Easy Installer (`ibex` CLI): Install Builder EXtension. winget `DevCentr.Ibex`, Homebrew tap, Scoop. xref:ibex:ROOT:index.adoc[Ibex docs] · xref:tools/ibex.adoc[portal].
+* **Easy Installer CI emit** — `emit-ci` / `ci-runner.sdl` writes GitHub Actions, GitLab, Azure, Jenkins, CircleCI, and Bitbucket workflows plus `CI-INSTALLER.adoc` without a local package build. DevCentr: `--mode=emit-ci` and New Installer CI pipeline menu. xref:ibex:ROOT:howto-emit-ci.adoc[How-to: emit CI].
+* **Easy Installer** — Host for in-place PATH, `installer.kdl` projects, plugin backends (zip/NSIS/Inno/MSI/MSIX/AppImage), and file-manager menus (now **Ibex**). xref:ibex:ROOT:index.adoc[Ibex docs] · xref:tools/ibex.adoc[portal].
 * **msi-generator v0.2** — Real OLE2 CFB, uncompressed CAB, and core MSI tables; multi-file MSIX with placeholder assets. xref:msi-generator:ROOT:index.adoc[MSI Generator docs].
 
 === July

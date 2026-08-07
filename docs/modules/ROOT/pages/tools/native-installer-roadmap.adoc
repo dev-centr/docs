@@ -25,8 +25,8 @@ flowchart TB
 ----
 
 * **Builder:** `dlang-supplemental/dlangui` with `vello-windows` and `dlangui-tokens` (solid-ui–aligned semantics from devcentr.org).
-* **Packaging:** link:https://github.com/dev-centr/msi-generator[msi-generator] — JSON/CLI spec, multi-file MSIX with assets, and a real OLE2 CFB + uncompressed CAB + core MSI tables (v0.2). Easy Installer hosts the project UX and plugins on top.
-* **Host UX:** link:https://github.com/dev-centr/easy-installer[easy-installer] — `installer.kdl`, plugin ABI, in-place PATH, file-manager menus.
+* **Host UX:** link:https://github.com/dev-centr/easy-installer[Ibex / easy-installer] — `installer.kdl`, plugin ABI, in-place PATH, file-manager menus (`ibex` CLI).
+* **Packaging:** link:https://github.com/dev-centr/msi-generator[msi-generator] — JSON/CLI spec, multi-file MSIX with assets, and a real OLE2 CFB + uncompressed CAB + core MSI tables (v0.2). Ibex hosts the project UX and plugins on top.
 * **MSIX reference:** Microsoft's packaging tooling (Open Packaging Conventions, manifest, capabilities, sparse packages). Map those concepts into the shared spec, not into a WiX-only path.
 
 == MSIX / MSI feature parity (target)

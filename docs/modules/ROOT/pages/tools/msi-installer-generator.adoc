@@ -14,4 +14,4 @@ link:https://github.com/dev-centr/msi-generator[dev-centr/msi-generator] · Rele
 
 == Used by
 
-xref:tools/easy-installer.adoc[Easy Installer] invokes this binary as the `msi` / `msix` plugins.
+xref:tools/ibex.adoc[Ibex] invokes this binary as the `msi` / `msix` plugins.

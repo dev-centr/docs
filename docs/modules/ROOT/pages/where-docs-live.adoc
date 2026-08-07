@@ -10,8 +10,8 @@ This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/
 * **business-bootstrap** — Founder/ops bootstrap guidance: human vs product email, DMARC, provider decision matrix, org-level Pulumi `infra` pattern (ITIL-shaped service naming).
 * **infra-template** — Reusable Pulumi + Antora skeleton for org `infra` repos.
 * **templates** — Standardized project templates and usage guides.
-* **easy-installer** — Installer project host, in-place PATH, plugin ABI, shell hooks.
-* **msi-generator** — MSI/MSIX generator documentation (engine used by Easy Installer plugins).
+* **easy-installer** (product **Ibex**) — Install Builder Extension: installer projects, in-place PATH, plugin ABI, shell hooks.
+* **msi-generator** — MSI/MSIX generator documentation (engine used by Ibex plugins).
 * **fixnow-dev** — FixNow pressure-driven issue tracking: AI value scoring, countdown badges, and resolution verification.
 
 Org-wide roadmap and activity log live here in the **docs** repo so they stay in one place across all projects. Repo-specific task lists (e.g. devcentr's root `TODO.adoc`) remain in each repository for day-to-day work; the central xref:todo-roadmap.adoc[Todo & Roadmap] summarizes themes and the xref:activity-log.adoc[Activity log] records notable updates.

@@ -13,7 +13,7 @@
 ** xref:tools/code-d.adoc[code-d]
 ** xref:tools/dprint.adoc[dprint]
 ** xref:tools/dlangui.adoc[dlangui]
-** xref:tools/easy-installer.adoc[Easy Installer]
+** xref:tools/ibex.adoc[Ibex]
 ** xref:tools/msi-installer-generator.adoc[MSI Generator]
 ** xref:tools/agentic-email-integration.adoc[Agentic Email Integration]
 ** xref:tools/fixnow-dev.adoc[FixNow]

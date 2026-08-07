@@ -30,10 +30,10 @@ Consistent structure and boilerplate for all repositories.
 xref:templates:ROOT:index.adoc[Usage Guide]
 
 [.card]
-=== Easy Installer
-Installer projects, in-place PATH, and plugin backends (zip, NSIS, Inno, MSI/MSIX).
+=== Ibex
+Install Builder Extension — installer projects, in-place PATH, and plugin backends (zip, NSIS, Inno, MSI/MSIX).
 
-xref:tools/easy-installer.adoc[Easy Installer] · xref:easy-installer:ROOT:index.adoc[Component docs]
+xref:tools/ibex.adoc[Ibex] · xref:ibex:ROOT:index.adoc[Component docs]
 
 [.card]
 === MSI Generator
