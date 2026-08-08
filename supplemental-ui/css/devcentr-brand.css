@@ -7,22 +7,20 @@
  * Dark primary:  #2DD4BF
  * Logo accents:  #14B8A6 / #0F766E
  *
- * TIP pill + card share --adt-admonition-tip (set once to brand accent).
+ * TIP colors stay Antora/Default UI (--tip-color / Valentus --adt-admonition-tip).
+ * Do not remap tip to brand accent.
  */
 
 :root {
   --adt-accent: #178f80;
   --adt-accent-hover: #0f766e;
   --adt-accent-soft: rgba(23, 143, 128, 0.12);
-  /* One tip token for pill + card wash (not Antora grass #41af46) */
-  --adt-admonition-tip: var(--adt-accent);
 }
 
 html.dark-theme {
   --adt-accent: #2dd4bf;
   --adt-accent-hover: #5eead4;
   --adt-accent-soft: rgba(45, 212, 191, 0.12);
-  --adt-admonition-tip: var(--adt-accent);
 }
 
 /*

@@ -9,7 +9,7 @@ This page records significant documentation and project activity at an org level
 === August
 
 * **Rules Manager** — Compose/watch daemon + tray for agent-rules (`dev-centr/rules-manager`); Antora component on the hub. xref:rules-manager::index.adoc[Rules Manager docs] · xref:tools/rules-manager.adoc[portal] · https://docs.devcentr.org/rules-manager/
-* **Admonition TIP brand teal** — DevCentr sets `--adt-admonition-tip` to the brand accent once (pill + card). Tip inline code keeps charcoal/coral with a rounded gray border (not accent-green).
+* **Admonition TIP Antora green** — DevCentr no longer remaps tip to brand teal; TIP pill + card stay on `--tip-color` / `--adt-admonition-tip` (Antora `#41af46`). Tip inline code keeps charcoal/coral with a rounded gray border.
 * **Admonition TIP one green** — TIP pill and card tint both follow `--adt-admonition-tip` (no second emerald on the body). Brand overlay clears stale cell washes; Valentus / antora-dark-mode ship the token wiring.
 * **Admonition TIP card** — TIP/NOTE label now sits *inside* the bordered card (table chrome). Prior overlay/fix only cleared the green wash and left the border on the body.
 * **Theme toggle timing** — Light↔dark animation was uneven: View Transitions (0.28s) raced Valentus `--adt-transition` paint rules (0.2s). Fixed upstream in antora-dark-mode (`html.adt-theme-vt` + `:active-view-transition`); docs brand overlay uses the CSS-only suppress until rolling `v2` updates.
