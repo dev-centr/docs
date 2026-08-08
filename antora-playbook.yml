@@ -42,7 +42,13 @@ content:
     - url: https://github.com/dev-centr/agentic-email-integration.git
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/issue-tracker.git
+    - url: https://github.com/dev-centr/issues-browser.git
+      branches: HEAD
+      start_path: docs
+    - url: https://github.com/dev-centr/agent-rules.git
+      branches: HEAD
+      start_path: docs
+    - url: https://github.com/dev-centr/ver.git
       branches: HEAD
       start_path: docs
     - url: https://github.com/dev-centr/fixnow-dev.git

@@ -1,0 +1,18 @@
+= Issues Browser
+:description: Portal stub for the issues-browser Antora component.
+
+Forge metadata backup: issues, PRs, and discussions into central SQLite archives. Offline browse via GUI/CLI; continuous monitoring with `issuesd` + tray.
+
+Full component docs::
+xref:issues-browser::index.adoc[Issues Browser]
+
+Repository::
+https://github.com/dev-centr/issues-browser
+
+== Highlights
+
+* Central archives under a configurable issues root
+* CLI, DlangUI GUI, daemon, and tray client
+* SDL forge profiles (GitHub implemented; GitLab stub)
+
+NOTE: Formerly named `issue-tracker`. Prefer `issues-browser` for new links.

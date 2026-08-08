@@ -1,0 +1,16 @@
+= Agent Rules
+:description: Portal stub for the agent-rules Antora component.
+
+Forkable modular agent rules with 1-step assembly for local AI coding assistants.
+
+Full component docs::
+xref:agent-rules::index.adoc[Agent Rules]
+
+Repository::
+https://github.com/dev-centr/agent-rules
+
+== Highlights
+
+* Shared `RULES.md` + `general/` + `profiles/` for end-user agents
+* Separate from product automation (`devcentr-agent-rules`)
+* Machine-local memories stay in `$CODE_ROOT/MEMORIES.md`
