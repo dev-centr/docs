@@ -21,43 +21,88 @@ html.dark-theme {
 }
 
 /*
- * Dark-mode admonitions: TIP/NOTE labels live in td.icon above the bordered
- * td.content card. Older site-extra painted every td (green wash on TIP).
- * Fixed upstream in antora-dark-mode ≥ 1.4.1 / valentus-theme ≥ 2.0.6; kept
- * here so docs.devcentr.org is correct even before the rolling v2 bundle updates.
+ * Dark-mode / Valentus admonitions: TIP/NOTE label must sit *inside* the
+ * bordered card. Older CSS bordered only td.content (label floated above) and
+ * site-extra washed every td (green overlay on TIP). Card = table; cells clear.
  */
-html.dark-theme .doc .admonitionblock,
-html.dark-theme .doc .admonitionblock > table,
-html.dark-theme .doc .admonitionblock > table > tbody,
-html.dark-theme .doc .admonitionblock > table > tbody > tr,
-html.dark-theme .doc .admonitionblock td.icon {
-  background: transparent !important;
-  background-color: transparent !important;
-  border-color: transparent !important;
+.doc .admonitionblock > table,
+.doc .admonitionblock > table > tbody,
+.doc .admonitionblock > table > tbody > tr {
+  display: block;
+  width: 100%;
 }
 
-html.dark-theme .doc .admonitionblock.tip > table > tbody > tr > td.content {
+.doc .admonitionblock > table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  background: var(--adt-elevated, #25262b) !important;
+  border: 1px solid var(--adt-border, #373a40) !important;
+  border-left-width: 3px !important;
+  border-radius: var(--adt-radius, 8px) !important;
+}
+
+.doc .admonitionblock td.icon,
+.doc .admonitionblock td.content {
+  display: block !important;
+  width: 100% !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.doc .admonitionblock td.icon {
+  position: static !important;
+  transform: none !important;
+  padding: 0.75rem 1rem 0.35rem !important;
+}
+
+.doc .admonitionblock td.content {
+  padding: 0.25rem 1rem 0.95rem !important;
+  color: var(--adt-ink, inherit) !important;
+}
+
+.doc .admonitionblock.tip > table {
   border-left-color: #059669 !important;
+  background: color-mix(in srgb, #059669 8%, var(--adt-elevated, #25262b)) !important;
+}
+
+.doc .admonitionblock.note > table {
+  border-left-color: #2563eb !important;
+  background: color-mix(in srgb, #2563eb 7%, var(--adt-elevated, #25262b)) !important;
+}
+
+.doc .admonitionblock.important > table {
+  border-left-color: #dc2626 !important;
+  background: color-mix(in srgb, #dc2626 8%, var(--adt-elevated, #25262b)) !important;
+}
+
+.doc .admonitionblock.warning > table {
+  border-left-color: #d97706 !important;
+  background: color-mix(in srgb, #d97706 9%, var(--adt-elevated, #25262b)) !important;
+}
+
+.doc .admonitionblock.caution > table {
+  border-left-color: #be185d !important;
+  background: color-mix(in srgb, #be185d 8%, var(--adt-elevated, #25262b)) !important;
+}
+
+html.dark-theme .doc .admonitionblock.tip > table {
   background: color-mix(in srgb, #059669 12%, var(--adt-elevated, #25262b)) !important;
 }
 
-html.dark-theme .doc .admonitionblock.note > table > tbody > tr > td.content {
-  border-left-color: #2563eb !important;
+html.dark-theme .doc .admonitionblock.note > table {
   background: color-mix(in srgb, #2563eb 12%, var(--adt-elevated, #25262b)) !important;
 }
 
-html.dark-theme .doc .admonitionblock.important > table > tbody > tr > td.content {
-  border-left-color: #dc2626 !important;
+html.dark-theme .doc .admonitionblock.important > table {
   background: color-mix(in srgb, #dc2626 12%, var(--adt-elevated, #25262b)) !important;
 }
 
-html.dark-theme .doc .admonitionblock.warning > table > tbody > tr > td.content {
-  border-left-color: #d97706 !important;
+html.dark-theme .doc .admonitionblock.warning > table {
   background: color-mix(in srgb, #d97706 12%, var(--adt-elevated, #25262b)) !important;
 }
 
-html.dark-theme .doc .admonitionblock.caution > table > tbody > tr > td.content {
-  border-left-color: #be185d !important;
+html.dark-theme .doc .admonitionblock.caution > table {
   background: color-mix(in srgb, #be185d 12%, var(--adt-elevated, #25262b)) !important;
 }
 
