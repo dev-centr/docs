@@ -82,3 +82,19 @@ html.dark-theme .doc .admonitionblock.caution > table > tbody > tr > td.content 
   font-size: 0.9rem;
   line-height: 1.6;
 }
+
+/*
+ * Theme toggle timing (until rolling valentus v2 / antora-dark-mode ships
+ * html.adt-theme-vt). Chromium uses View Transitions at 0.28s while Valentus
+ * chrome keeps permanent --adt-transition paint rules at 0.2s — those regions
+ * finish early. Kill competing transitions for the VT duration only.
+ * Fixed upstream in antora-dark-mode (Unreleased) / valentus after dark-mode:sync.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  html:active-view-transition,
+  html:active-view-transition *,
+  html:active-view-transition *::before,
+  html:active-view-transition *::after {
+    transition: none !important;
+  }
+}
