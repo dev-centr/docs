@@ -1,0 +1,16 @@
+= Ver
+:description: Portal stub for the ver Antora component.
+
+Universal version-control interface — library, CLI, and Qt GUI.
+
+Full component docs::
+xref:ver::index.adoc[Ver]
+
+Repository::
+https://github.com/dev-centr/ver
+
+== Highlights
+
+* One command model across Git, SVN, and Mercurial
+* DUB library + CLI; optional Qt GUI via dqt
+* Multi-OS CI and tagged release artifacts

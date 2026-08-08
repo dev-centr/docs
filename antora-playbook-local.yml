@@ -46,7 +46,15 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
-    - url: ../issue-tracker
+    - url: ../issues-browser
+      branches: HEAD
+      start_path: docs
+      worktrees: true
+    - url: ../agent-rules
+      branches: HEAD
+      start_path: docs
+      worktrees: true
+    - url: ../ver
       branches: HEAD
       start_path: docs
       worktrees: true
