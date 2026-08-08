@@ -67,3 +67,11 @@ Platform-agnostic notes on code signing, notarization, and release automation. A
 xref:publishing/code-signing-in-the-release-pipeline.adoc[Code signing in the release pipeline]
 
 xref:publishing/antora-ui-branding.adoc[Antora UI branding]
+
+[.card]
+=== Software Product Essentials
+Shippable-app ruleset in general-knowledge: About/build info, updates, packaging, diagnostics, plus desktop/web/mobile auxiliary feature templates (Help, updaters, support paths).
+
+xref:general-knowledge::explanation/architecture/software-product-essentials.adoc[Essentials hub]
+
+xref:general-knowledge::explanation/architecture/classes/index.adoc[Desktop / web / mobile]

@@ -8,6 +8,7 @@ This page records significant documentation and project activity at an org level
 
 === August
 
+* **Software Product Essentials — auxiliary templates** — general-knowledge gained desktop/web/mobile auxiliary feature matrices (Help, About, updates, diagnostics, connectivity, privacy) plus macOS/Linux update apply guidance (quit/replace, package timers, AppImage). xref:general-knowledge::explanation/architecture/auxiliary-features.adoc[Auxiliary features] · xref:general-knowledge::explanation/architecture/classes/index.adoc[Delivery classes] · xref:general-knowledge::how-to/unix-auto-updates.adoc[Unix/macOS auto-updates].
 * **Rules Manager** — Compose/watch daemon + tray for agent-rules (`dev-centr/rules-manager`); Antora component on the hub. xref:rules-manager::index.adoc[Rules Manager docs] · xref:tools/rules-manager.adoc[portal] · https://docs.devcentr.org/rules-manager/
 * **Admonition TIP Antora green** — DevCentr no longer remaps tip to brand teal; TIP pill + card stay on `--tip-color` / `--adt-admonition-tip` (Antora `#41af46`). Tip inline code keeps charcoal/coral with a rounded gray border.
 * **Admonition TIP one green** — TIP pill and card tint both follow `--adt-admonition-tip` (no second emerald on the body). Brand overlay clears stale cell washes; Valentus / antora-dark-mode ship the token wiring.
