@@ -6,6 +6,10 @@
  * Light primary: #178F80
  * Dark primary:  #2DD4BF
  * Logo accents:  #14B8A6 / #0F766E
+ *
+ * Tip/note admonition colors are NOT remapped here — Valentus
+ * `--adt-admonition-*` drives both the TIP pill and the card tint.
+ * Override those tokens once if a site needs a different tip green.
  */
 
 :root {
@@ -21,9 +25,9 @@ html.dark-theme {
 }
 
 /*
- * Dark-mode / Valentus admonitions: TIP/NOTE label must sit *inside* the
- * bordered card. Older CSS bordered only td.content (label floated above) and
- * site-extra washed every td (green overlay on TIP). Card = table; cells clear.
+ * Admonition card wrap (until rolling Valentus ≥ 2.0.8 is guaranteed on all
+ * caches): TIP/NOTE label sits inside the bordered table; cells stay clear.
+ * Colors come only from --adt-admonition-* (same tokens as the pills).
  */
 .doc .admonitionblock > table,
 .doc .admonitionblock > table > tbody,
@@ -42,12 +46,17 @@ html.dark-theme {
 }
 
 .doc .admonitionblock td.icon,
-.doc .admonitionblock td.content {
+.doc .admonitionblock td.content,
+html.dark-theme .doc .admonitionblock td.icon,
+html.dark-theme .doc .admonitionblock td.content,
+html.dark-theme .doc .admonitionblock > table > tbody > tr > td.icon,
+html.dark-theme .doc .admonitionblock > table > tbody > tr > td.content {
   display: block !important;
   width: 100% !important;
   background: transparent !important;
   background-color: transparent !important;
   border: none !important;
+  border-left-color: transparent !important;
 }
 
 .doc .admonitionblock td.icon {
@@ -61,49 +70,70 @@ html.dark-theme {
   color: var(--adt-ink, inherit) !important;
 }
 
+/* Pill + card share one token per type */
+.doc .admonitionblock td.icon i.icon-tip {
+  background-color: var(--adt-admonition-tip, #41af46) !important;
+}
+
+.doc .admonitionblock td.icon i.icon-note {
+  background-color: var(--adt-admonition-note, #2563eb) !important;
+}
+
+.doc .admonitionblock td.icon i.icon-important {
+  background-color: var(--adt-admonition-important, #dc2626) !important;
+}
+
+.doc .admonitionblock td.icon i.icon-warning {
+  background-color: var(--adt-admonition-warning, #d97706) !important;
+}
+
+.doc .admonitionblock td.icon i.icon-caution {
+  background-color: var(--adt-admonition-caution, #be185d) !important;
+}
+
 .doc .admonitionblock.tip > table {
-  border-left-color: #41af46 !important;
-  background: color-mix(in srgb, #41af46 8%, var(--adt-elevated, #25262b)) !important;
+  border-left-color: var(--adt-admonition-tip, #41af46) !important;
+  background: color-mix(in srgb, var(--adt-admonition-tip, #41af46) 8%, var(--adt-elevated, #25262b)) !important;
 }
 
 .doc .admonitionblock.note > table {
-  border-left-color: #2563eb !important;
-  background: color-mix(in srgb, #2563eb 7%, var(--adt-elevated, #25262b)) !important;
+  border-left-color: var(--adt-admonition-note, #2563eb) !important;
+  background: color-mix(in srgb, var(--adt-admonition-note, #2563eb) 7%, var(--adt-elevated, #25262b)) !important;
 }
 
 .doc .admonitionblock.important > table {
-  border-left-color: #dc2626 !important;
-  background: color-mix(in srgb, #dc2626 8%, var(--adt-elevated, #25262b)) !important;
+  border-left-color: var(--adt-admonition-important, #dc2626) !important;
+  background: color-mix(in srgb, var(--adt-admonition-important, #dc2626) 8%, var(--adt-elevated, #25262b)) !important;
 }
 
 .doc .admonitionblock.warning > table {
-  border-left-color: #d97706 !important;
-  background: color-mix(in srgb, #d97706 9%, var(--adt-elevated, #25262b)) !important;
+  border-left-color: var(--adt-admonition-warning, #d97706) !important;
+  background: color-mix(in srgb, var(--adt-admonition-warning, #d97706) 9%, var(--adt-elevated, #25262b)) !important;
 }
 
 .doc .admonitionblock.caution > table {
-  border-left-color: #be185d !important;
-  background: color-mix(in srgb, #be185d 8%, var(--adt-elevated, #25262b)) !important;
+  border-left-color: var(--adt-admonition-caution, #be185d) !important;
+  background: color-mix(in srgb, var(--adt-admonition-caution, #be185d) 8%, var(--adt-elevated, #25262b)) !important;
 }
 
 html.dark-theme .doc .admonitionblock.tip > table {
-  background: color-mix(in srgb, #41af46 12%, var(--adt-elevated, #25262b)) !important;
+  background: color-mix(in srgb, var(--adt-admonition-tip, #41af46) 12%, var(--adt-elevated, #25262b)) !important;
 }
 
 html.dark-theme .doc .admonitionblock.note > table {
-  background: color-mix(in srgb, #2563eb 12%, var(--adt-elevated, #25262b)) !important;
+  background: color-mix(in srgb, var(--adt-admonition-note, #2563eb) 12%, var(--adt-elevated, #25262b)) !important;
 }
 
 html.dark-theme .doc .admonitionblock.important > table {
-  background: color-mix(in srgb, #dc2626 12%, var(--adt-elevated, #25262b)) !important;
+  background: color-mix(in srgb, var(--adt-admonition-important, #dc2626) 12%, var(--adt-elevated, #25262b)) !important;
 }
 
 html.dark-theme .doc .admonitionblock.warning > table {
-  background: color-mix(in srgb, #d97706 12%, var(--adt-elevated, #25262b)) !important;
+  background: color-mix(in srgb, var(--adt-admonition-warning, #d97706) 12%, var(--adt-elevated, #25262b)) !important;
 }
 
 html.dark-theme .doc .admonitionblock.caution > table {
-  background: color-mix(in srgb, #be185d 12%, var(--adt-elevated, #25262b)) !important;
+  background: color-mix(in srgb, var(--adt-admonition-caution, #be185d) 12%, var(--adt-elevated, #25262b)) !important;
 }
 
 /* Inline code in admonition td.content is often bare <code> (no <p>); match page chrome */
@@ -143,7 +173,7 @@ html.dark-theme .doc .admonitionblock.caution > table {
  * html.adt-theme-vt). Chromium uses View Transitions at 0.28s while Valentus
  * chrome keeps permanent --adt-transition paint rules at 0.2s — those regions
  * finish early. Kill competing transitions for the VT duration only.
- * Fixed upstream in antora-dark-mode (Unreleased) / valentus after dark-mode:sync.
+ * Fixed upstream in antora-dark-mode / valentus after dark-mode:sync.
  */
 @media (prefers-reduced-motion: no-preference) {
   html:active-view-transition,
