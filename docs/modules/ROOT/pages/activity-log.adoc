@@ -8,6 +8,7 @@ This page records significant documentation and project activity at an org level
 
 === August
 
+* **Rules Manager** — Compose/watch daemon + tray for agent-rules (`dev-centr/rules-manager`); Antora component on the hub. xref:rules-manager::index.adoc[Rules Manager docs] · xref:tools/rules-manager.adoc[portal] · https://docs.devcentr.org/rules-manager/
 * **Admonition TIP card** — TIP/NOTE label now sits *inside* the bordered card (table chrome). Prior overlay/fix only cleared the green wash and left the border on the body. Brand CSS updated; upstream Valentus / antora-dark-mode unreleased.
 * **Theme toggle timing** — Light↔dark animation was uneven: View Transitions (0.28s) raced Valentus `--adt-transition` paint rules (0.2s). Fixed upstream in antora-dark-mode (`html.adt-theme-vt` + `:active-view-transition`); docs brand overlay uses the CSS-only suppress until rolling `v2` updates.
 * **Admonition dark TIP wash** — Earlier fix cleared type-tint wash on the TIP label cell (antora-dark-mode 1.4.1 / valentus-theme 2.0.6); superseded by the card-wrap fix above.

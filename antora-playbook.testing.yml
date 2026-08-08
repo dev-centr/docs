@@ -59,6 +59,10 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../rules-manager
+      branches: HEAD
+      start_path: docs
+      worktrees: true
     - url: ../ver
       branches: HEAD
       start_path: docs

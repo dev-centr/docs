@@ -51,6 +51,9 @@ content:
     - url: https://github.com/dev-centr/agent-rules.git
       branches: HEAD
       start_path: docs
+    - url: https://github.com/dev-centr/rules-manager.git
+      branches: HEAD
+      start_path: docs
     - url: https://github.com/dev-centr/ver.git
       branches: HEAD
       start_path: docs

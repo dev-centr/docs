@@ -18,6 +18,7 @@
 ** xref:tools/switchyard.adoc[Switchyard]
 ** xref:tools/agentic-email-integration.adoc[Agentic Email Integration]
 ** xref:tools/agent-rules.adoc[Agent Rules]
+** xref:tools/rules-manager.adoc[Rules Manager]
 ** xref:tools/ver.adoc[Ver]
 ** xref:tools/issues-browser.adoc[Issues Browser]
 ** xref:tools/repo-drive.adoc[RepoDrive]

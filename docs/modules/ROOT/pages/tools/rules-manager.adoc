@@ -1,0 +1,16 @@
+= Rules Manager
+:description: Portal stub for the rules-manager Antora component.
+
+Compose and watch agent-rules: D `rulesd` daemon + Electron tray UI.
+
+Full component docs::
+xref:rules-manager::index.adoc[Rules Manager]
+
+Repository::
+https://github.com/dev-centr/rules-manager
+
+== Highlights
+
+* Marker compose for global vs machine agent-rules sections
+* File watch + localhost JSON IPC
+* Tray UI across Windows, macOS, and common Linux desktops
