@@ -21,7 +21,7 @@ This repository carries the GitHub topic `valentus-theme` (product dependency re
 
 == DevCentr accent overlay
 
-Layout, fonts, and default teal chrome stay valentus-theme. `devcentr-brand.css` remaps `--adt-accent*` tokens to the org palette. Admonition TIP/NOTE colors stay on Valentus `--adt-admonition-*` (pill and card share one token — do not hardcode a second tip green here):
+Layout, fonts, and default teal chrome stay valentus-theme. `devcentr-brand.css` remaps `--adt-accent*` tokens to the org palette and sets `--adt-admonition-tip: var(--adt-accent)` so the TIP pill and card wash match brand teal (one token — do not hardcode a second tip green):
 
 * Light primary: `#178F80`
 * Dark primary: `#2DD4BF`

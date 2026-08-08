@@ -7,27 +7,27 @@
  * Dark primary:  #2DD4BF
  * Logo accents:  #14B8A6 / #0F766E
  *
- * Tip/note admonition colors are NOT remapped here — Valentus
- * `--adt-admonition-*` drives both the TIP pill and the card tint.
- * Override those tokens once if a site needs a different tip green.
+ * TIP pill + card share --adt-admonition-tip (set once to brand accent).
  */
 
 :root {
   --adt-accent: #178f80;
   --adt-accent-hover: #0f766e;
   --adt-accent-soft: rgba(23, 143, 128, 0.12);
+  /* One tip token for pill + card wash (not Antora grass #41af46) */
+  --adt-admonition-tip: var(--adt-accent);
 }
 
 html.dark-theme {
   --adt-accent: #2dd4bf;
   --adt-accent-hover: #5eead4;
   --adt-accent-soft: rgba(45, 212, 191, 0.12);
+  --adt-admonition-tip: var(--adt-accent);
 }
 
 /*
- * Admonition card wrap (until rolling Valentus ≥ 2.0.8 is guaranteed on all
- * caches): TIP/NOTE label sits inside the bordered table; cells stay clear.
- * Colors come only from --adt-admonition-* (same tokens as the pills).
+ * Admonition card wrap: TIP/NOTE label inside bordered table; cells clear
+ * so a single table tint (from --adt-admonition-*) paints the whole card.
  */
 .doc .admonitionblock > table,
 .doc .admonitionblock > table > tbody,
@@ -50,7 +50,9 @@ html.dark-theme {
 html.dark-theme .doc .admonitionblock td.icon,
 html.dark-theme .doc .admonitionblock td.content,
 html.dark-theme .doc .admonitionblock > table > tbody > tr > td.icon,
-html.dark-theme .doc .admonitionblock > table > tbody > tr > td.content {
+html.dark-theme .doc .admonitionblock > table > tbody > tr > td.content,
+html.dark-theme .doc .admonitionblock.tip > table > tbody > tr > td.icon,
+html.dark-theme .doc .admonitionblock.tip > table > tbody > tr > td.content {
   display: block !important;
   width: 100% !important;
   background: transparent !important;
@@ -70,9 +72,9 @@ html.dark-theme .doc .admonitionblock > table > tbody > tr > td.content {
   color: var(--adt-ink, inherit) !important;
 }
 
-/* Pill + card share one token per type */
+/* Pill tracks the same tokens as the card (Default UI hardcodes otherwise) */
 .doc .admonitionblock td.icon i.icon-tip {
-  background-color: var(--adt-admonition-tip, #41af46) !important;
+  background-color: var(--adt-admonition-tip) !important;
 }
 
 .doc .admonitionblock td.icon i.icon-note {
@@ -92,8 +94,8 @@ html.dark-theme .doc .admonitionblock > table > tbody > tr > td.content {
 }
 
 .doc .admonitionblock.tip > table {
-  border-left-color: var(--adt-admonition-tip, #41af46) !important;
-  background: color-mix(in srgb, var(--adt-admonition-tip, #41af46) 8%, var(--adt-elevated, #25262b)) !important;
+  border-left-color: var(--adt-admonition-tip) !important;
+  background: color-mix(in srgb, var(--adt-admonition-tip) 8%, var(--adt-elevated, #25262b)) !important;
 }
 
 .doc .admonitionblock.note > table {
@@ -117,7 +119,7 @@ html.dark-theme .doc .admonitionblock > table > tbody > tr > td.content {
 }
 
 html.dark-theme .doc .admonitionblock.tip > table {
-  background: color-mix(in srgb, var(--adt-admonition-tip, #41af46) 12%, var(--adt-elevated, #25262b)) !important;
+  background: color-mix(in srgb, var(--adt-admonition-tip) 12%, var(--adt-elevated, #25262b)) !important;
 }
 
 html.dark-theme .doc .admonitionblock.note > table {
@@ -136,11 +138,19 @@ html.dark-theme .doc .admonitionblock.caution > table {
   background: color-mix(in srgb, var(--adt-admonition-caution, #be185d) 12%, var(--adt-elevated, #25262b)) !important;
 }
 
-/* Inline code in admonition td.content is often bare <code> (no <p>); match page chrome */
+/*
+ * Bare <code> in tip bodies often skipped radius. Keep dark-mode charcoal/coral
+ * (not accent teal — that reads as “tip green on the code”).
+ */
 .doc .admonitionblock td.content code {
-  color: var(--adt-ink, inherit) !important;
-  background: var(--adt-accent-soft, rgba(23, 143, 128, 0.12)) !important;
-  border: 1px solid color-mix(in srgb, var(--adt-accent, #178f80) 22%, transparent) !important;
+  border-radius: var(--adt-radius-sm, 0.25rem) !important;
+}
+
+html.dark-theme .doc .admonitionblock td.content code {
+  color: #ff6b6b !important;
+  background: #2c2e33 !important;
+  background-color: #2c2e33 !important;
+  border: 1px solid #404348 !important;
   border-radius: var(--adt-radius-sm, 0.25rem) !important;
   font-size: 0.9em;
   padding: 0.1em 0.35em;
@@ -173,7 +183,6 @@ html.dark-theme .doc .admonitionblock.caution > table {
  * html.adt-theme-vt). Chromium uses View Transitions at 0.28s while Valentus
  * chrome keeps permanent --adt-transition paint rules at 0.2s — those regions
  * finish early. Kill competing transitions for the VT duration only.
- * Fixed upstream in antora-dark-mode / valentus after dark-mode:sync.
  */
 @media (prefers-reduced-motion: no-preference) {
   html:active-view-transition,
