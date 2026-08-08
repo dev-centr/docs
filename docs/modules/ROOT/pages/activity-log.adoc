@@ -8,6 +8,7 @@ This page records significant documentation and project activity at an org level
 
 === August
 
+* **Admonition dark TIP wash** — Fixed dark-mode CSS that painted the TIP/NOTE label cell with the type tint (looked like TIP sat outside the card). antora-dark-mode 1.4.1 / valentus-theme 2.0.6; docs brand overlay until rolling `v2` bundle updates.
 * **RepoDrive** — Standalone forge virtual drive (`dev-centr/repo-drive`): GUI + tray, sparse mount, Ibex installers; wired into Antora hub. xref:repo-drive::index.adoc[RepoDrive docs] · xref:tools/repo-drive.adoc[portal] · https://docs.devcentr.org/repo-drive/
 * **Switchyard** — New Windows file-association switchyard (`dev-centr/switchyard`): snapshot open/icon tracks, planned icon lock; Antora component on the hub. xref:switchyard:ROOT:index.adoc[Switchyard docs] · xref:tools/switchyard.adoc[portal].
 * **valentus-theme head-meta sync** — Restored font-size FOUC + `site-font-size.css` in the supplemental `head-meta.hbs` overlay (was missing after brand fork). Condensed A/A/A control hides on desktop again and scales doc text on mobile. Playbooks already use rolling `v2`.
