@@ -1,0 +1,20 @@
+= RepoDrive
+:description: Portal stub for the repo-drive Antora component.
+
+Standalone virtual drive for forge repositories (GitHub, GitLab, …): sparse on-demand fetch, customizable folder schema, GUI + tray, and bridges to Issues Browser.
+
+Full component docs::
+xref:repo-drive::index.adoc[RepoDrive]
+
+Repository::
+https://github.com/dev-centr/repo-drive
+
+Consumer docs URL::
+https://docs.devcentr.org/repo-drive/
+
+== Highlights
+
+* `repodrive-gui` / `repodrive-tray` — standalone product shell (not a DevCentr desktop panel)
+* WinFsp / macFUSE / libfuse3 mount; deps via Equivalence Engine
+* `meta.repodrive` analytics handle and VCS toolbox for file managers
+* Installers from GitHub Releases (Ibex)

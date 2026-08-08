@@ -57,6 +57,7 @@ Tools that are forks or upstream clones are located in the `.forks` directory to
 | `code-d`        | N/A             | **External** | Document in `docs/modules/tools`.    |
 | `msi-generator` | `msi-generator` | **Active**   | Verified in playbook.                |
 | `easy-installer` | `easy-installer` | **Active** | Wired August 2026.                   |
+| `repo-drive`    | `repo-drive`    | **Active**   | Wired August 2026.                   |
 | `dlang.org`     | TBD             | **External** | Link to official docs.               |
 | `antora-*`      | Various         | **Active**   | Verified in playbook.                |
 

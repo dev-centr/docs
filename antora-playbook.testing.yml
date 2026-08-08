@@ -51,6 +51,10 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../repo-drive
+      branches: HEAD
+      start_path: docs
+      worktrees: true
     - url: ../agent-rules
       branches: HEAD
       start_path: docs

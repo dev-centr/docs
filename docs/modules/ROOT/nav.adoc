@@ -20,6 +20,7 @@
 ** xref:tools/agent-rules.adoc[Agent Rules]
 ** xref:tools/ver.adoc[Ver]
 ** xref:tools/issues-browser.adoc[Issues Browser]
+** xref:tools/repo-drive.adoc[RepoDrive]
 ** xref:tools/issue-tracker.adoc[Issue Tracker (renamed)]
 ** xref:tools/fixnow-dev.adoc[FixNow]
 ** xref:tools/resting-lanczos.adoc[resting-lanczos]

@@ -13,7 +13,8 @@ This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/
 * **easy-installer** (product **Ibex**) — Install Builder Extension: installer projects, in-place PATH, plugin ABI, shell hooks.
 * **msi-generator** — MSI/MSIX generator documentation (engine used by Ibex plugins).
 * **switchyard** — Windows file-association switchyard (snapshot / icon lock / file-router roles).
-* **issue-tracker** — Local GitHub issues browser (GUI/CLI); syncs issues into SQLite for offline browse/search.
+* **issues-browser** — Forge metadata index/backup (GUI/CLI/daemon/tray); integrates with RepoDrive.
+* **repo-drive** — Standalone virtual forge drive (GUI + tray + FUSE/WinFsp); sparse repos, schema, VCS toolbox.
 * **agentic-email-integration** — Own-your-inbox Gmail integration (Himalaya + agents).
 * **fixnow-dev** — FixNow pressure-driven issue tracking: AI value scoring, countdown badges, and resolution verification.
 

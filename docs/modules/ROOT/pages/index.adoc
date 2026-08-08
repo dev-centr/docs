@@ -48,6 +48,12 @@ Windows file-association switchyard — snapshot open/icon tracks, icon lock, fi
 xref:tools/switchyard.adoc[Portal] · xref:switchyard:ROOT:index.adoc[Component docs]
 
 [.card]
+=== RepoDrive
+Standalone virtual drive for forge repos — GUI, tray, sparse FUSE/WinFsp mount, Issues Browser bridge.
+
+xref:tools/repo-drive.adoc[Portal] · xref:repo-drive::index.adoc[Component docs]
+
+[.card]
 === FixNow
 Pressure-driven issue tracking for high-value stagnated features.
 AI value scores, public countdown badges, and resolution audits.

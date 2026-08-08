@@ -45,6 +45,9 @@ content:
     - url: https://github.com/dev-centr/issues-browser.git
       branches: HEAD
       start_path: docs
+    - url: https://github.com/dev-centr/repo-drive.git
+      branches: HEAD
+      start_path: docs
     - url: https://github.com/dev-centr/agent-rules.git
       branches: HEAD
       start_path: docs

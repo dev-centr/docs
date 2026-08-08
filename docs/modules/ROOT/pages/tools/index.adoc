@@ -14,6 +14,7 @@ These tools are original works developed as part of this ecosystem.
 * xref:tools/agent-rules.adoc[Agent Rules]
 * xref:tools/ver.adoc[Ver]
 * xref:tools/issues-browser.adoc[Issues Browser]
+* xref:tools/repo-drive.adoc[RepoDrive]
 * xref:tools/fixnow-dev.adoc[FixNow]
 * xref:tools/resting-lanczos.adoc[resting-lanczos]
 * xref:tools/native-installer-roadmap.adoc[Native installer builder roadmap]
