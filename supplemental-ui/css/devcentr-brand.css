@@ -106,6 +106,16 @@ html.dark-theme .doc .admonitionblock.caution > table {
   background: color-mix(in srgb, #be185d 12%, var(--adt-elevated, #25262b)) !important;
 }
 
+/* Inline code in admonition td.content is often bare <code> (no <p>); match page chrome */
+.doc .admonitionblock td.content code {
+  color: var(--adt-ink, inherit) !important;
+  background: var(--adt-accent-soft, rgba(23, 143, 128, 0.12)) !important;
+  border: 1px solid color-mix(in srgb, var(--adt-accent, #178f80) 22%, transparent) !important;
+  border-radius: var(--adt-radius-sm, 0.25rem) !important;
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+}
+
 .adt-header-logo {
   border-radius: 0.35rem;
 }
