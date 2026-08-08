@@ -42,6 +42,12 @@ Windows installer (MSI/MSIX) engine — CFB/CAB tables and MSIX ZIP packaging.
 xref:tools/msi-installer-generator.adoc[Portal] · xref:msi-generator:ROOT:index.adoc[Component docs]
 
 [.card]
+=== Switchyard
+Windows file-association switchyard — snapshot open/icon tracks, icon lock, file-router roles.
+
+xref:tools/switchyard.adoc[Portal] · xref:switchyard:ROOT:index.adoc[Component docs]
+
+[.card]
 === FixNow
 Pressure-driven issue tracking for high-value stagnated features.
 AI value scores, public countdown badges, and resolution audits.

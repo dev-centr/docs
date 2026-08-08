@@ -15,6 +15,7 @@
 ** xref:tools/dlangui.adoc[dlangui]
 ** xref:tools/ibex.adoc[Ibex]
 ** xref:tools/msi-installer-generator.adoc[MSI Generator]
+** xref:tools/switchyard.adoc[Switchyard]
 ** xref:tools/agentic-email-integration.adoc[Agentic Email Integration]
 ** xref:tools/agent-rules.adoc[Agent Rules]
 ** xref:tools/ver.adoc[Ver]

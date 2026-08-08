@@ -48,7 +48,7 @@ This repository contains the Antora playbook and configuration for the **Dev Cen
 |===
 | File | Description
 | `antora-playbook.yml` | Production Antora playbook. Uses remote GitHub URLs for all content sources and the published UI bundle. Used by CI/CD.
-| `antora-playbook-local.yml` | Local sibling-repo playbook (committed). Expects `../devcentr`, `../templates`, `../general-knowledge`, `../msi-generator`, and `../easy-installer` beside this repo.
+| `antora-playbook-local.yml` | Local sibling-repo playbook (committed). Expects content repos as siblings (see the playbook `sources` list: `../devcentr`, `../switchyard`, `../msi-generator`, …).
 | `antora-playbook.testing.yml` | Same local content sources, but points `ui.bundle` at `../valentus-theme/build/ui-bundle.zip` for theme work.
 | `supplemental-ui/` | Site overlay on the valentus-theme 2.x UI bundle: custom domain `CNAME`, accent-token brand CSS, header logo under `img/`, and a thin `head-meta.hbs` fork that loads the brand stylesheet. Header logo / navbar text use playbook `site.keys`.
 | `.vscode/` | VS Code folder settings and extension recommendations for this playbook repo.
