@@ -8,6 +8,7 @@ This page records significant documentation and project activity at an org level
 
 === August
 
+* **agent-rules, ver, issues-browser** — Registered three Antora components on the hub: xref:tools/agent-rules.adoc[Agent Rules] (modular agent rules assembly), xref:tools/ver.adoc[Ver] (universal VCS library/CLI/GUI), and xref:tools/issues-browser.adoc[Issues Browser] (forge metadata backup; renamed from `issue-tracker`). Playbooks point at `issues-browser`, `agent-rules`, and `ver` repos; xref:tools/issue-tracker.adoc[Issue Tracker] kept as a redirect stub.
 * **valentus-theme head-meta sync** — Restored font-size FOUC + `site-font-size.css` in the supplemental `head-meta.hbs` overlay (was missing after brand fork). Condensed A/A/A control hides on desktop again and scales doc text on mobile. Playbooks already use rolling `v2`.
 * **valentus-theme product topic** — This repo (and other Valentus playbooks) tagged with GitHub topic `valentus-theme` for dependency rediscovery; convention documented upstream.
 * **DOS naming** — Public category stays Development Orchestration Suite; DevOps framed as one facet of the suite; *Dev OS* as quiet mental model only. Sites + DevCentr vision/capabilities docs updated.
