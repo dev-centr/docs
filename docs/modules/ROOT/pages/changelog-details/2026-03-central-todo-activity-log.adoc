@@ -1,0 +1,13 @@
+= 2026-03 — Central Todo & Activity log
+:navtitle: 2026-03
+:page-layout: article
+
+== Summary
+
+Moved org-wide roadmap and activity log into the docs repository for the aggregated site (docs.devcentr.org). Added xref:where-docs-live.adoc[Where documentation lives] to explain cross-repo structure.
+
+== Affected codepaths
+
+* xref:todo-roadmap.adoc[Todo & Roadmap]
+* xref:activity-log.adoc[Activity log]
+* xref:where-docs-live.adoc[Where documentation lives]

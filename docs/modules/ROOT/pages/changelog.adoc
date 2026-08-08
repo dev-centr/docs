@@ -1,0 +1,19 @@
+= Changelog
+:navtitle: Changelog
+:description: Functional changes to the Dev-Centr documentation hub and playbook.
+
+Release history for the **docs** playbook repository. Each entry links to a detail page with context and affected codepaths.
+
+== 2026
+
+* link:changelog-details/2026-08-08-wire-agent-rules-ver-issues-browser.adoc[2026-08-08] — Wire agent-rules, ver, and issues-browser into Antora playbooks and tools hub.
+* link:changelog-details/2026-08-07-valentus-head-meta-sync.adoc[2026-08-07] — Sync valentus head-meta font-size and topic docs.
+* link:changelog-details/2026-08-07-wire-issue-tracker.adoc[2026-08-07] — Wire issue-tracker into hub; note Antora single-site policy.
+* link:changelog-details/2026-07-fixnow-dev-hub.adoc[2026-07] — Register fixnow-dev in the Antora docs hub.
+* link:changelog-details/2026-03-central-todo-activity-log.adoc[2026-03] — Central Todo & Roadmap and Activity log in docs repo.
+
+== 2025
+
+* link:changelog-details/2025-03-lunr-search.adoc[2025-03] — Add Lunr full-text search to the documentation site.
+
+For day-to-day project updates across all repos, see xref:activity-log.adoc[Activity log].

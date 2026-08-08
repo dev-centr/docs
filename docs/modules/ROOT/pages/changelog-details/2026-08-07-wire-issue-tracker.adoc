@@ -1,0 +1,12 @@
+= 2026-08-07 — Wire issue-tracker into hub
+:navtitle: 2026-08-07
+:page-layout: article
+
+== Summary
+
+Initial registration of the issue-tracker Antora component (later renamed to issues-browser). Documented Antora single-site policy for aggregated docs.
+
+== Affected codepaths
+
+* `antora-playbook.yml` content sources
+* `docs/modules/ROOT/pages/tools/issue-tracker.adoc` (superseded by issues-browser stub in August 2026)
