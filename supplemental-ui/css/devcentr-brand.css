@@ -62,8 +62,8 @@ html.dark-theme {
 }
 
 .doc .admonitionblock.tip > table {
-  border-left-color: #059669 !important;
-  background: color-mix(in srgb, #059669 8%, var(--adt-elevated, #25262b)) !important;
+  border-left-color: #41af46 !important;
+  background: color-mix(in srgb, #41af46 8%, var(--adt-elevated, #25262b)) !important;
 }
 
 .doc .admonitionblock.note > table {
@@ -87,7 +87,7 @@ html.dark-theme {
 }
 
 html.dark-theme .doc .admonitionblock.tip > table {
-  background: color-mix(in srgb, #059669 12%, var(--adt-elevated, #25262b)) !important;
+  background: color-mix(in srgb, #41af46 12%, var(--adt-elevated, #25262b)) !important;
 }
 
 html.dark-theme .doc .admonitionblock.note > table {
