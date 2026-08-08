@@ -1,0 +1,12 @@
+= 2026-08-07 — Valentus head-meta sync
+:navtitle: 2026-08-07
+:page-layout: article
+
+== Summary
+
+Restored font-size FOUC prevention and `site-font-size.css` in the supplemental `head-meta.hbs` overlay. Condensed A/A/A control hides on desktop again; doc text scales on mobile.
+
+== Affected codepaths
+
+* `supplemental-ui/partials/head-meta.hbs`
+* Playbooks pin rolling valentus-theme `v2` UI bundle

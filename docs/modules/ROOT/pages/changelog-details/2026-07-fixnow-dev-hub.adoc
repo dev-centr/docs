@@ -1,0 +1,12 @@
+= 2026-07 — Register fixnow-dev in docs hub
+:navtitle: 2026-07
+:page-layout: article
+
+== Summary
+
+Added fixnow-dev as an Antora content source and portal stub. FixNow docs cover pressure-driven issue tracking, AI value scoring, and resolution verification.
+
+== Affected codepaths
+
+* `antora-playbook.yml` — `dev-centr/fixnow-dev` content source
+* xref:tools/fixnow-dev.adoc[FixNow portal stub]

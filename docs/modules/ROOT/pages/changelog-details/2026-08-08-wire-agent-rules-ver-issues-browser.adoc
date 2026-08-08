@@ -1,0 +1,45 @@
+= 2026-08-08 — Wire agent-rules, ver, and issues-browser
+:navtitle: 2026-08-08
+:page-layout: article
+:description: Register three Antora components and portal stubs; rename issue-tracker to issues-browser.
+
+== Summary
+
+The docs hub now aggregates three additional repositories and updates the former issue-tracker integration to the renamed **issues-browser** project.
+
+== Changes
+
+=== Antora playbooks
+
+All three playbooks (`antora-playbook.yml`, `antora-playbook-local.yml`, `antora-playbook.testing.yml`):
+
+* Replaced `issue-tracker` content source with `issues-browser`.
+* Added `agent-rules` and `ver` content sources (`start_path: docs`).
+
+=== Portal pages
+
+New tool stubs under `docs/modules/ROOT/pages/tools/`:
+
+* xref:tools/agent-rules.adoc[Agent Rules] — modular agent rules assembly (`RULES.md`, `general/`, `profiles/`).
+* xref:tools/ver.adoc[Ver] — universal VCS library, CLI, and optional Qt GUI.
+* xref:tools/issues-browser.adoc[Issues Browser] — forge metadata backup with GUI/CLI/daemon/tray.
+
+xref:tools/issue-tracker.adoc[Issue Tracker] is now a redirect stub pointing at Issues Browser.
+
+=== Navigation
+
+* xref:tools/index.adoc[Tools index] lists the three new tools under Original Contributions.
+* Sidebar nav adds Agent Rules, Ver, Issues Browser, and keeps Issue Tracker (renamed) for bookmark compatibility.
+
+== Affected codepaths
+
+* CI production build (`pnpm run build:online` / `.github/workflows/deploy.yml`) fetches component docs from the three new GitHub repos.
+* Local sibling builds expect `../issues-browser`, `../agent-rules`, and `../ver` beside the playbook checkout.
+
+== Component verification
+
+Remote `docs/antora.yml` names match portal xrefs:
+
+* `agent-rules` → `xref:agent-rules::index.adoc`
+* `ver` → `xref:ver::index.adoc`
+* `issues-browser` → `xref:issues-browser::index.adoc`

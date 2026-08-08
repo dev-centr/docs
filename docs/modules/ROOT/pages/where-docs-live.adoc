@@ -12,7 +12,9 @@ This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/
 * **templates** — Standardized project templates and usage guides.
 * **easy-installer** (product **Ibex**) — Install Builder Extension: installer projects, in-place PATH, plugin ABI, shell hooks.
 * **msi-generator** — MSI/MSIX generator documentation (engine used by Ibex plugins).
-* **issue-tracker** — Local GitHub issues browser (GUI/CLI); syncs issues into SQLite for offline browse/search.
+* **issues-browser** — Forge metadata backup (issues, PRs, discussions) into central SQLite archives; GUI/CLI/daemon/tray for offline browse and monitoring. Formerly `issue-tracker`.
+* **agent-rules** — Forkable modular agent rules (`RULES.md`, `general/`, `profiles/`) for local AI coding assistants.
+* **ver** — Universal version-control interface (Git, SVN, Mercurial) — DUB library, CLI, and optional Qt GUI.
 * **agentic-email-integration** — Own-your-inbox Gmail integration (Himalaya + agents).
 * **fixnow-dev** — FixNow pressure-driven issue tracking: AI value scoring, countdown badges, and resolution verification.
 

@@ -12,6 +12,9 @@ ifdef::env-github[]
 <a href="https://github.com/dev-centr/docs/stargazers"><img src="https://img.shields.io/github/stars/dev-centr/docs.svg?style=for-the-badge" alt="Stars"></a>
 <a href="https://github.com/dev-centr/docs/issues"><img src="https://img.shields.io/github/issues/dev-centr/docs.svg?style=for-the-badge" alt="Issues"></a>
 <br />
+<a href="https://docs.devcentr.org"><img src="https://img.shields.io/badge/docs-Dev--Centr-22c55e?style=for-the-badge" alt="Docs"></a>
+<a href="https://github.com/dev-centr/docs/actions/workflows/deploy.yml"><img src="https://github.com/dev-centr/docs/actions/workflows/deploy.yml/badge.svg?style=for-the-badge" alt="Deploy"></a>
+<br />
 <h3 align="center">Dev-Centr Documentation</h3>
 <p align="center">
 Dev-Centr documentation hub. Antora site aggregating dev-centr projects.<br />
@@ -29,6 +32,8 @@ image:https://img.shields.io/github/contributors/dev-centr/docs.svg?style=for-th
 image:https://img.shields.io/github/forks/dev-centr/docs.svg?style=for-the-badge[Forks,link=https://github.com/dev-centr/docs/network/members]
 image:https://img.shields.io/github/stars/dev-centr/docs.svg?style=for-the-badge[Stars,link=https://github.com/dev-centr/docs/stargazers]
 image:https://img.shields.io/github/issues/dev-centr/docs.svg?style=for-the-badge[Issues,link=https://github.com/dev-centr/docs/issues]
+image:https://img.shields.io/badge/docs-Dev--Centr-22c55e?style=for-the-badge[Docs,link=https://docs.devcentr.org]
+image:https://github.com/dev-centr/docs/actions/workflows/deploy.yml/badge.svg?style=for-the-badge[Deploy,link=https://github.com/dev-centr/docs/actions/workflows/deploy.yml]
 
 = Dev-Centr Documentation
 
@@ -48,7 +53,7 @@ This repository contains the Antora playbook and configuration for the **Dev Cen
 |===
 | File | Description
 | `antora-playbook.yml` | Production Antora playbook. Uses remote GitHub URLs for all content sources and the published UI bundle. Used by CI/CD.
-| `antora-playbook-local.yml` | Local sibling-repo playbook (committed). Expects `../devcentr`, `../templates`, `../general-knowledge`, `../msi-generator`, and `../easy-installer` beside this repo.
+| `antora-playbook-local.yml` | Local sibling-repo playbook (committed). Expects sibling checkouts (e.g. `../devcentr`, `../templates`, `../general-knowledge`, `../issues-browser`, `../agent-rules`, `../ver`, `../msi-generator`, `../easy-installer`) beside this repo. See the playbook file for the full list.
 | `antora-playbook.testing.yml` | Same local content sources, but points `ui.bundle` at `../valentus-theme/build/ui-bundle.zip` for theme work.
 | `supplemental-ui/` | Site overlay on the valentus-theme 2.x UI bundle: custom domain `CNAME`, accent-token brand CSS, header logo under `img/`, and a thin `head-meta.hbs` fork that loads the brand stylesheet. Header logo / navbar text use playbook `site.keys`.
 | `.vscode/` | VS Code folder settings and extension recommendations for this playbook repo.

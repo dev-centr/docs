@@ -1,0 +1,12 @@
+= 2025-03 — Lunr full-text search
+:navtitle: 2025-03
+:page-layout: article
+
+== Summary
+
+Enabled client-side full-text search via `@antora/lunr-extension` on all playbooks. Documented as an essential extension in xref:publishing/antora-essential-extensions.adoc[Antora essential extensions].
+
+== Affected codepaths
+
+* `package.json` — `@antora/lunr-extension` dependency
+* `antora-playbook*.yml` — Lunr extension registration
