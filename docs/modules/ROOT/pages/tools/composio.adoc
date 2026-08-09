@@ -1,0 +1,28 @@
+= Composio
+:navtitle: Composio
+:description: Portal stub for Composio—hosted MCP connectors for Gmail, GitHub, Vercel, and other apps.
+
+Hosted MCP connector plane: one Composio OAuth, then managed connections into Gmail, GitHub, Vercel, Slack, and more. Useful when an agent should triage CI mail, open the failing run, fix it, and clear the alert.
+
+Official::
+link:https://composio.dev/[composio.dev] ·
+link:https://connect.composio.dev/api/onboarding/setup[Onboarding setup] ·
+link:https://cursor.com/marketplace/composio[Cursor marketplace plugin]
+
+Dev-Centr docs::
+xref:general-knowledge::how-to/composio-mcp-setup.adoc[Setup how-to] ·
+xref:general-knowledge::explanation/infrastructure/composio-and-mcp-connectors.adoc[Stack explanation] ·
+xref:general-knowledge::explanation/infrastructure/studio-mcp-install-strategies.adoc[Studio install pattern] ·
+xref:general-knowledge::reference/ai-studio-tooling-catalog.adoc[AI studio tooling catalog]
+
+Related (own-your-inbox product)::
+xref:tools/agentic-email-integration.adoc[Agentic Email Integration]
+
+== Highlights
+
+* Streamable HTTP MCP at `https://connect.composio.dev/mcp`
+* Cursor install ladder: marketplace plugin (`/add-plugin`), MCP deeplink, `mcp.json`, local plugin symlink
+* Thin plugin (mcp.json + skills) in front of a hosted meta-tool server
+* Search-then-execute tool routing (do not invent tool slugs)
+* Good fit for **email as CI pager** workflows in Cursor
+* Not a replacement for `gh` / local shells—or for Himalaya-based AEI

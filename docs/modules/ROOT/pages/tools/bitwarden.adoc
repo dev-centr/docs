@@ -1,0 +1,24 @@
+= Bitwarden / Vaultwarden
+:navtitle: Bitwarden / Vaultwarden
+:description: Portal stub for Bitwarden cloud, official self-host, and Vaultwarden as vault backends.
+
+Human vault for API keys and org secrets. Same clients (apps, extension, CLI); choose the **server**: Bitwarden cloud, official Bitwarden self-host, or lightweight **Vaultwarden**.
+
+Official::
+link:https://bitwarden.com/[bitwarden.com] ·
+link:https://bitwarden.com/help/cli/[CLI help] ·
+link:https://github.com/dani-garcia/vaultwarden[dani-garcia/vaultwarden]
+
+Dev-Centr docs::
+xref:business-bootstrap::vault/explanation/bitwarden-and-vaultwarden.adoc[Hosting explanation] ·
+xref:business-bootstrap::vault/index.adoc[Vault] ·
+xref:business-bootstrap::reference/business-resources.adoc[Stack map] ·
+xref:general-knowledge::explanation/infrastructure/secrets-distribution-hub.adoc[Secrets distribution hub] ·
+xref:general-knowledge::how-to/secrets-distribution-cli-mcp.adoc[Distribution how-to]
+
+== Highlights
+
+* Cloud Bitwarden is the lean default for most early orgs
+* Vaultwarden for tiny self-hosted Bitwarden-compatible API
+* Official Bitwarden self-host when SSO / compliance / vendor support matter
+* Pair with `bw` CLI custom fields for distribute-to-hosts workflows

@@ -1,0 +1,21 @@
+= Penpot
+:navtitle: Penpot
+:description: Portal stub for Penpot — open-source design platform for product UI and design systems.
+
+Open-source design collaboration (Figma-class) with an open file format. Self-host or use Penpot cloud; treat the host like other business support systems.
+
+Official::
+link:https://penpot.app/[penpot.app] ·
+link:https://help.penpot.app/[Help center] ·
+link:https://github.com/penpot/penpot[penpot/penpot]
+
+Dev-Centr docs::
+xref:business-bootstrap::design/explanation/penpot.adoc[Explanation] ·
+xref:business-bootstrap::design/index.adoc[Design] ·
+xref:business-bootstrap::reference/business-resources.adoc[Stack map]
+
+== Highlights
+
+* UI, design systems, tokens, and inspect-friendly handoff
+* Open standards (CSS/HTML/SVG/JSON) instead of opaque proprietary files as the only source of truth
+* Does not replace motion toolchain choices (SVG / Lottie / Rive)

@@ -1,0 +1,21 @@
+= Cal.com / Cal.diy
+:navtitle: Cal.com / Cal.diy
+:description: Portal stub for Cal.com hosted scheduling and MIT self-hosted Cal.diy.
+
+Scheduling infrastructure for booking pages, embeds, and later team routing. Prefer hosted **Cal.com** when you want org features and a vendor SLA; use **Cal.diy** when you self-host the MIT community edition.
+
+Official::
+link:https://cal.com/[cal.com] ·
+link:https://www.cal.diy/[cal.diy docs] ·
+link:https://github.com/calcom/cal.diy[calcom/cal.diy]
+
+Dev-Centr docs::
+xref:business-bootstrap::scheduling/explanation/cal-com-and-cal-diy.adoc[Explanation] ·
+xref:business-bootstrap::scheduling/index.adoc[Scheduling] ·
+xref:business-bootstrap::reference/business-resources.adoc[Stack map]
+
+== Highlights
+
+* Hosted Cal.com for teams / orgs / SSO; Cal.diy for self-host without enterprise modules
+* Put public booking hostnames in org `infra` DNS
+* Keep calendar OAuth and webhook secrets in the vault

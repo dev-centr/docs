@@ -28,3 +28,18 @@ These tools are maintained forks of upstream projects, often incorporating local
 * xref:tools/dlangui.adoc[dlangui]
 * xref:tools/pnpm.adoc[pnpm]
 * xref:tools/pretext.adoc[pretext]
+
+== External integrations
+
+Third-party services we document for agent and developer workflows (not Dev-Centr-owned products).
+
+* xref:tools/composio.adoc[Composio] — MCP connectors (Gmail, GitHub, Vercel, …); see also xref:general-knowledge::explanation/infrastructure/studio-mcp-install-strategies.adoc[studio install strategies] and xref:general-knowledge::reference/ai-studio-tooling-catalog.adoc[AI studio tooling catalog]
+
+== Business support systems
+
+Founder/ops stack in Business Bootstrap (capability areas: Email · Scheduling · Design · Vault · Org infra). Portal stubs here for discovery.
+
+* xref:tools/cal-com.adoc[Cal.com / Cal.diy] — scheduling / booking pages
+* xref:tools/penpot.adoc[Penpot] — open-source design platform
+* xref:tools/bitwarden.adoc[Bitwarden / Vaultwarden] — secrets vault hosting
+* Hub: xref:business-bootstrap::index.adoc[Business Bootstrap] · xref:business-bootstrap::reference/business-resources.adoc[Stack map]
