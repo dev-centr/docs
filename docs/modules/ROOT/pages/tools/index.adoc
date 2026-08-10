@@ -16,6 +16,7 @@ These tools are original works developed as part of this ecosystem.
 * xref:tools/ver.adoc[Ver]
 * xref:tools/issues-browser.adoc[Issues Browser]
 * xref:tools/repo-drive.adoc[RepoDrive]
+* xref:tools/connectome-fs.adoc[connectome-fs]
 * xref:tools/fixnow-dev.adoc[FixNow]
 * xref:tools/resting-lanczos.adoc[resting-lanczos]
 * xref:tools/native-installer-roadmap.adoc[Native installer builder roadmap]
@@ -37,9 +38,10 @@ Third-party services we document for agent and developer workflows (not Dev-Cent
 
 == Business support systems
 
-Founder/ops stack in Business Bootstrap (capability areas: Email · Scheduling · Design · Vault · Org infra). Portal stubs here for discovery.
+Founder/ops stack in Business Bootstrap (capability areas: Email · Scheduling · Design · Vault · Chat · Org infra). Portal stubs here for discovery.
 
 * xref:tools/cal-com.adoc[Cal.com / Cal.diy] — scheduling / booking pages
 * xref:tools/penpot.adoc[Penpot] — open-source design platform
 * xref:tools/bitwarden.adoc[Bitwarden / Vaultwarden] — secrets vault hosting
+* xref:tools/mattermost.adoc[Mattermost] — team chat self-host (stage-gated)
 * Hub: xref:business-bootstrap::index.adoc[Business Bootstrap] · xref:business-bootstrap::reference/business-resources.adoc[Stack map]

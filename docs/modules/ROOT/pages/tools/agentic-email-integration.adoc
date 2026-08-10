@@ -15,3 +15,7 @@ https://github.com/dev-centr/agentic-email-integration
 * Classify CI / developer correspondence
 * Trigger local Cursor SDK agents
 * Draft-only write-back by default
+
+== Related
+
+* xref:tools/composio.adoc[Composio] — generic MCP connector plane (including Gmail) for Cursor and CLI agents; complementary, not a replacement for Himalaya-first AEI

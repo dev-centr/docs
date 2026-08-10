@@ -1,0 +1,21 @@
+= connectome-fs
+:navtitle: connectome-fs
+:description: Partner systems org — graph-native filesystem substrate (not a Dev-Centr product component).
+
+GUID-addressed connectome filesystem: hierarchy as a navigation slice, graph as truth. Editions, semantic change units, and adapters live under the **connectome-fs** GitHub organization.
+
+Canonical site / manual::
+https://connectome-fs.github.io/connectome-fs/
+
+Repository::
+https://github.com/connectome-fs/connectome-fs
+
+Dev-Centr practitioner framing (stays here)::
+* xref:general-knowledge::explanation/infrastructure/git-semantic-boundaries.adoc[Git's file-shaped change model]
+* xref:general-knowledge::explanation/infrastructure/git-concurrency-enshittification.adoc[Git concurrency enshittification]
+
+[NOTE]
+====
+connectome-fs is a **partner systems org**, not an Antora component on docs.devcentr.org.
+Charter: substrate + adapters. Dev-Centr keeps orchestration / git practice essays.
+====

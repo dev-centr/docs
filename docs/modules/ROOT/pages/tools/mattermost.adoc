@@ -1,0 +1,21 @@
+= Mattermost
+:navtitle: Mattermost
+:description: Portal stub for self-hosted Mattermost as a business support system (chat, integrations, storage).
+
+Team chat you can self-host when Slack seat cost or data residency outweighs ops. Prefer hosted Slack/Discord/Mattermost Cloud until collaborators and a real VPS justify the stack.
+
+Official::
+link:https://mattermost.com/[mattermost.com] ·
+link:https://docs.mattermost.com/[docs.mattermost.com]
+
+Dev-Centr docs::
+xref:business-bootstrap::chat/explanation/mattermost-self-host.adoc[Explanation] ·
+xref:business-bootstrap::chat/index.adoc[Chat] ·
+xref:business-bootstrap::reference/defaults-by-org-stage.adoc[Defaults by stage] ·
+xref:business-bootstrap::reference/business-resources.adoc[Stack map]
+
+== Highlights
+
+* Self-host on a VPS (Hetzner/DO/Vultr-class) — not shared/cPanel hosting
+* Linear via webhooks or n8n; agents via Composio + Mattermost REST/PATs
+* Offload attachments to Cloudflare R2 or Backblaze B2; CDN for hot media
