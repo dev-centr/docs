@@ -14,3 +14,4 @@ https://github.com/dev-centr/agent-rules
 * Shared `RULES.md` + `general/` + `profiles/` for end-user agents
 * Separate from product automation (`devcentr-agent-rules`)
 * Machine-local memories stay in `$CODE_ROOT/MEMORIES.md`
+* Task curricula (for example news vs blog body copy) belong in **Cursor skills**, not the always-on rules paste — xref:general-knowledge::how-to/bootstrap-cursor-skills.adoc[Bootstrap Cursor skills] · xref:general-knowledge::explanation/infrastructure/vibe-coding-bootstrap.adoc[Vibe coding bootstrap]
