@@ -70,3 +70,7 @@ ui:
   supplemental_files: ./supplemental-ui
 output:
   dir: ./build/site
+
+asciidoc:
+  attributes:
+    stem: latexmath

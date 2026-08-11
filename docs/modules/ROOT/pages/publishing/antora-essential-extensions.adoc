@@ -50,6 +50,23 @@ antora:
 
 *Official use-case docs:* link:https://docs.antora.org/antora/latest/extend/extension-use-cases/#redirect-from-component-to-latest-version[Redirect from component to latest version]
 
+=== Math formulas (KaTeX + AsciiDoc `stem`)
+
+*Problem:* Docs borrow equations from design notes and leave them as raw `$Hash(…)$` or plain text. Sites without a math renderer cannot grow into technical explanation pages without a retrofit.
+
+*Behavior:* Every Antora site enables `stem: latexmath` in the playbook and loads KaTeX auto-render (`site-math.js` / `site-math.css` in Valentus, mirrored into org `supplemental-ui` until the next Valentus UI bundle release). Authors write `stem:[a^2+b^2=c^2]` or `[stem]` blocks. Markdown/Astro sites use `remark-math` + `rehype-katex` (or equivalent) with KaTeX CSS.
+
+*Playbook:*
+
+[source,yaml]
+----
+asciidoc:
+  attributes:
+    stem: latexmath
+----
+
+Load KaTeX even when the current corpus has zero formulas — plumbing, not polish.
+
 == Related
 
 * xref:publishing/antora-ui-branding.adoc[Antora UI branding]
