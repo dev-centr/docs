@@ -113,6 +113,8 @@ Without a shared id, web purchase and mobile install become two anonymous profil
 * Do not expect one merchant portal to list every store’s invoices; unify on **access status** (and optionally a thin “My account” page that lists sources).
 * Keep **tenant membership** (team roles) separate from **paid access** in multi-tenant apps.
 
+Donation-supported products (no paid entitlement) are a different ask: show the fund and the floor on your own site. See xref:business-bootstrap::funding/explanation/donation-ask-ideas.adoc[Donation and monetization ask ideas].
+
 == Further reading
 
 * link:https://adapty.io/docs/[Adapty docs]
