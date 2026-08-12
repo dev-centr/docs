@@ -7,7 +7,7 @@ Identity-aware reverse proxy on an orange-cloud hostname. Use it to privatize **
 GitHub path: Access does not keep a copy of the org roster. At login it asks GitHub (OAuth, then `GET /user/orgs`) and matches an Allow policy on **GitHub organization**. After that it trusts the session cookie. xref:general-knowledge::explanation/infrastructure/access-in-front-of-static-sites.adoc#how-github-org-membership[How that handshake works] · xref:general-knowledge::how-to/cloudflare-access-static-site.adoc[How-to with mock screens].
 
 Setup traps (generic)::
-GitHub OAuth Apps have **no create API** (operator pastes Client ID/secret). Access applications **deny by default** — add the IdP and Allow policy first. A Pages-scoped API token often **403s** on identity providers even when `GET /access/apps` returns 200. xref:general-knowledge::how-to/cloudflare-access-static-site.adoc#access-setup-order[Order of operations] · xref:general-knowledge::explanation/infrastructure/access-in-front-of-static-sites.adoc#what-agents-cannot-automate[What agents cannot automate].
+GitHub OAuth Apps have **no create API** (operator pastes Client ID/secret). After the IdP exists, **Finish setup** in the dashboard (GitHub consent). The API `enterprise-setup` URL can **500** — ignore it. Access applications **deny by default**. A Pages-scoped API token often **403s** on identity providers even when `GET /access/apps` returns 200. xref:general-knowledge::how-to/cloudflare-access-static-site.adoc#finish-github-setup[Finish GitHub setup] · xref:general-knowledge::how-to/cloudflare-access-static-site.adoc#access-setup-order[Order of operations] · xref:general-knowledge::explanation/infrastructure/access-in-front-of-static-sites.adoc#what-agents-cannot-automate[What agents cannot automate].
 
 Official::
 link:https://developers.cloudflare.com/cloudflare-one/[Cloudflare One / Zero Trust] ·
@@ -25,6 +25,7 @@ xref:general-knowledge::how-to/composio-cloudflare-connection.adoc[Composio Clou
 * Standard pattern: private git + CI Direct Upload + Access on **custom domain and** `*.pages.dev`
 * Member “accounts” are GitHub org membership (or an email allowlist), not Cloudflare users
 * GitHub OAuth App is registered in GitHub’s UI (no API); Zero Trust team domain is the OAuth callback host
+* After creating the GitHub IdP, **Finish setup** in the dashboard — the API `enterprise-setup` URL can 500
 * Pages-scoped API tokens are not Access credentials; applications deny by default until an Allow policy exists
 * Free Zero Trust ~50 seats; first Access login consumes a seat
 * Public docs stay on GitHub Pages / a public Pages project — do not put Access on `docs.`
