@@ -21,6 +21,7 @@
 ** xref:tools/switchyard.adoc[Switchyard]
 ** xref:tools/agentic-email-integration.adoc[Agentic Email Integration]
 ** xref:tools/composio.adoc[Composio]
+** xref:tools/cloudflare-access.adoc[Cloudflare Access]
 ** xref:tools/cal-com.adoc[Cal.com / Cal.diy]
 ** xref:tools/penpot.adoc[Penpot]
 ** xref:tools/bitwarden.adoc[Bitwarden / Vaultwarden]

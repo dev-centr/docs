@@ -1,0 +1,23 @@
+= Cloudflare Access
+:navtitle: Cloudflare Access
+:description: Portal stub for Cloudflare Access (Zero Trust) in front of member-only static hostnames.
+
+Identity-aware reverse proxy on an orange-cloud hostname. Use it to privatize **static** member sites (Antora sister hubs, internal runbooks) without rewriting them as apps. Readers sign in with GitHub, Google, or email one-time PIN — not with Cloudflare dashboard accounts.
+
+Official::
+link:https://developers.cloudflare.com/cloudflare-one/[Cloudflare One / Zero Trust] ·
+link:https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/self-hosted-public-app/[Self-hosted applications] ·
+link:https://developers.cloudflare.com/cloudflare-one/integrations/identity-providers/github/[GitHub IdP]
+
+Dev-Centr docs::
+xref:general-knowledge::explanation/infrastructure/access-in-front-of-static-sites.adoc[Why Access in front of static sites] ·
+xref:general-knowledge::how-to/cloudflare-access-static-site.adoc[How-to (IdP, policies, user accounts)] ·
+xref:business-bootstrap::infra/index.adoc[Org infra] ·
+xref:general-knowledge::how-to/composio-cloudflare-connection.adoc[Composio Cloudflare connection]
+
+== Highlights
+
+* Standard pattern: private git + CI Direct Upload + Access on **custom domain and** `*.pages.dev`
+* Member “accounts” are GitHub org membership (or an email allowlist), not Cloudflare users
+* Free Zero Trust ~50 seats; first Access login consumes a seat
+* Public docs stay on GitHub Pages / a public Pages project — do not put Access on `docs.`

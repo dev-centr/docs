@@ -35,6 +35,7 @@ These tools are maintained forks of upstream projects, often incorporating local
 Third-party services we document for agent and developer workflows (not Dev-Centr-owned products).
 
 * xref:tools/composio.adoc[Composio] — MCP connectors (Gmail, GitHub, Vercel, …); see also xref:general-knowledge::explanation/infrastructure/studio-mcp-install-strategies.adoc[studio install strategies] and xref:general-knowledge::reference/ai-studio-tooling-catalog.adoc[AI studio tooling catalog]
+* xref:tools/cloudflare-access.adoc[Cloudflare Access] — member-only static hostnames (Antora sister sites); GitHub org as IdP
 
 == Business support systems
 
