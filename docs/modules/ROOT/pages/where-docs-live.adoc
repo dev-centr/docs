@@ -25,7 +25,7 @@ Org-wide roadmap and activity log live here in the **docs** repo so they stay in
 
 Dev-Centr maintains a **private sister Antora site** for org-member SOPs and internal runbooks — not aggregated into this public hub.
 
-* **URL:** link:https://team.docs.devcentr.org[team.docs.devcentr.org] (Cloudflare Access; xref:general-knowledge::how-to/cloudflare-access-static-site.adoc[how members sign in])
+* **URL:** link:https://team.docs.devcentr.org[team.docs.devcentr.org] (Cloudflare Access; xref:general-knowledge::how-to/cloudflare-access-static-site.adoc[how members sign in] · xref:general-knowledge::explanation/infrastructure/access-in-front-of-static-sites.adoc#how-github-org-membership[how GitHub org membership is checked])
 * **Aggregator:** link:https://github.com/dev-centr/team-docs[`dev-centr/team-docs`] (private repository)
 * **Example SOP:** org agent rules setup (`agent-rules` org layer, junction `AGENTS.md`, Cursor skills)
 

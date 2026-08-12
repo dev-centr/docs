@@ -4,6 +4,8 @@
 
 Identity-aware reverse proxy on an orange-cloud hostname. Use it to privatize **static** member sites (Antora sister hubs, internal runbooks) without rewriting them as apps. Readers sign in with GitHub, Google, or email one-time PIN — not with Cloudflare dashboard accounts.
 
+GitHub path: Access does not keep a copy of the org roster. At login it asks GitHub (OAuth, then `GET /user/orgs`) and matches an Allow policy on **GitHub organization**. After that it trusts the session cookie. xref:general-knowledge::explanation/infrastructure/access-in-front-of-static-sites.adoc#how-github-org-membership[How that handshake works] · xref:general-knowledge::how-to/cloudflare-access-static-site.adoc[How-to with mock screens].
+
 Official::
 link:https://developers.cloudflare.com/cloudflare-one/[Cloudflare One / Zero Trust] ·
 link:https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/self-hosted-public-app/[Self-hosted applications] ·
