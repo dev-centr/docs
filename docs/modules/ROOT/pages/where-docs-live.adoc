@@ -20,3 +20,13 @@ This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/
 * **fixnow-dev** — FixNow pressure-driven issue tracking: AI value scoring, countdown badges, and resolution verification.
 
 Org-wide roadmap and activity log live here in the **docs** repo so they stay in one place across all projects. Repo-specific task lists (e.g. devcentr's root `TODO.adoc`) remain in each repository for day-to-day work; the central xref:todo-roadmap.adoc[Todo & Roadmap] summarizes themes and the xref:activity-log.adoc[Activity log] records notable updates.
+
+== Team documentation (members only)
+
+Dev-Centr maintains a **private sister Antora site** for org-member SOPs and internal runbooks — not aggregated into this public hub.
+
+* **Planned URL:** link:https://team.docs.devcentr.org[team.docs.devcentr.org]
+* **Aggregator:** link:https://github.com/dev-centr/team-docs[`dev-centr/team-docs`] (private repository)
+* **Example SOP:** org agent rules setup (`agent-rules` org layer, junction `AGENTS.md`, Cursor skills)
+
+Public xref:general-knowledge:tutorials/onboarding.adoc[Developer onboarding] links here for team members. Do not copy member-only SOP bodies into public pages.
