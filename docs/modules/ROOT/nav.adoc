@@ -8,6 +8,7 @@
 ** xref:general-knowledge::explanation/architecture/software-product-essentials.adoc[Software Product Essentials]
 ** xref:general-knowledge::explanation/architecture/auxiliary-features.adoc[Auxiliary features]
 ** xref:general-knowledge::explanation/architecture/classes/index.adoc[Desktop / web / mobile templates]
+** xref:general-knowledge::explanation/languages/index.adoc[Language recommendations]
 * Software publishing
 ** xref:publishing/code-signing-in-the-release-pipeline.adoc[Code signing in the release pipeline]
 ** xref:publishing/antora-ui-branding.adoc[Antora UI branding]
