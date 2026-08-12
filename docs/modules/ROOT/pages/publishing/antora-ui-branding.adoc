@@ -37,6 +37,21 @@ Do **not** override `partials/header-content.hbs` unless you need markup the the
 
 When upgrading valentus-theme, re-diff `head-meta.hbs` against upstream and keep the brand CSS link after `site-visual.css` / `site-read-width.css` / `site-font-size.css`. The font-size FOUC script and stylesheet are required for the condensed A/A/A control (desktop hide + doc zoom).
 
+== FOUC paint-hold (interim)
+
+Valentus 2.x ships an interim *paint-hold* in `head-meta.hbs` while Default UI single-pass CSS lands (see link:https://gitlab.com/antora/antora-ui-default/-/merge_requests/207[antora-ui-default!207] and upstream FOUC/stylesheets guidance). The supplemental overlay must stay in sync with that block.
+
+Load order in `supplemental-ui/partials/head-meta.hbs`:
+
+. Inline `html.adt-fouc-pending { visibility: hidden !important; }` plus a script that adds `adt-fouc-pending` on `<html>` *before* stylesheets.
+. All layered CSS links (fonts, `site-doc-layout.css`, `site-visual.css`, read-width, font-size, `devcentr-brand.css`, mermaid, math).
+. Preference boot scripts (dark mode, read-width, font-size) that set `data-*` attrs / `dark-theme` from `localStorage`.
+. A final script that removes `adt-fouc-pending` *after* those scripts run.
+
+Do **not** place the paint-hold release script before the brand or module stylesheets — users would see a flash of unstyled or wrong-accent chrome. Do **not** drop the read-width or font-size FOUC blocks; they are separate from the global paint-hold but must run before the release script.
+
+When valentus-theme updates this partial, copy the upstream paint-hold comment block and release timing, then re-insert the `devcentr-brand.css` link in the stylesheet stack.
+
 == Header logo and navbar text
 
 [source,yaml]
