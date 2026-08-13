@@ -18,6 +18,8 @@ These tools are original works developed as part of this ecosystem.
 * xref:tools/repo-drive.adoc[RepoDrive]
 * xref:tools/connectome-fs.adoc[connectome-fs]
 * xref:tools/fixnow-dev.adoc[FixNow]
+* xref:tools/scriptbook.adoc[Scriptbook]
+* xref:tools/equivalence-engine.adoc[Equivalence Engine]
 * xref:tools/resting-lanczos.adoc[resting-lanczos]
 * xref:tools/native-installer-roadmap.adoc[Native installer builder roadmap]
 

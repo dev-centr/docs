@@ -1,0 +1,13 @@
+= Equivalence Engine
+:description: Portal stub for the Equivalence Engine Antora component.
+
+Catalog lookup (CLI / filesystem intents) and version-path rewrites (`code` domain). Host Awareness bake is CI-time. Runtime PlayTime must not ask this engine what OS it is.
+
+Full component docs::
+xref:equivalence-engine::index.adoc[Equivalence Engine]
+
+Host Awareness::
+xref:equivalence-engine::host-awareness.adoc[Bake vs run]
+
+Repository::
+https://github.com/dev-centr/equivalence-engine

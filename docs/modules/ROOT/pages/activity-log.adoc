@@ -8,6 +8,8 @@ This page records significant documentation and project activity at an org level
 
 === August
 
+* **Abstract playbooks / PlayTime** -- Write intents, not a bash-to-PowerShell blender. Scriptbook + Equivalence Engine wired into this hub. Encyclopedia xref:general-knowledge::explanation/infrastructure/abstract-playbooks.adoc[Abstract playbooks]. Essay: link:https://devcentr.org/news/2026-08-13-intents-not-shell-translation[Intents, not shell translation]. OpenShellOrg cousins on docs.opensh.org. PlayTime stays in `scriptbook` while it is built.
+
 * **AsciiDoc image alts + SVG encoding + mock chrome** — Unquoted alts became HTML width/height; SVG/adoc mojibake and Encoding errors were agent transcode bugs (not Antora). Mocks now use a single fill-only chrome path (breadcrumb no longer struck through). Org skill `fix-docs-encoding` checks/fixes. Hub redeploy required for `_images/`. xref:general-knowledge::how-to/cloudflare-access-static-site.adoc[Access how-to].
 * **Access Finish setup + multi-org consent** — Cloudflare dashboard first, GitHub unlocked in the same browser; Authorize listing other orgs does not widen Access. xref:general-knowledge::how-to/cloudflare-access-static-site.adoc#finish-github-setup[Finish setup] · xref:general-knowledge::how-to/cloudflare-access-static-site.adoc#github-consent-other-orgs[Other orgs] · xref:tools/cloudflare-access.adoc[portal].
 * **Language recommendations** — Small-set suggestions (D, Rust, TypeScript, Julia, Lisp/Haskell) plus reconstructed C/D, C++/D, Julia/D/Java, and D/Rust comparisons (dead Gemini shares). xref:general-knowledge::explanation/languages/index.adoc[Recommendations].

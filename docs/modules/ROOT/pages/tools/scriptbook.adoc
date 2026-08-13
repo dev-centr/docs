@@ -1,0 +1,16 @@
+= Scriptbook
+:description: Portal stub for the Scriptbook / PlayTime Antora component.
+
+Play CentrMark `.cmk` playbooks on a developer machine. **PlayTime** is the engine. **Scriptbook** is the app. Intents, not bash-to-PowerShell translation.
+
+Full component docs::
+xref:scriptbook::index.adoc[Scriptbook]
+
+Illustrated model::
+xref:general-knowledge::explanation/infrastructure/abstract-playbooks.adoc[Abstract playbooks]
+
+Essay::
+link:https://devcentr.org/news/2026-08-13-intents-not-shell-translation[Intents, not shell translation]
+
+Repository::
+https://github.com/dev-centr/scriptbook

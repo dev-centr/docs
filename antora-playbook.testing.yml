@@ -75,6 +75,14 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../scriptbook
+      branches: HEAD
+      start_path: docs
+      worktrees: true
+    - url: ../equivalence-engine
+      branches: HEAD
+      start_path: docs
+      worktrees: true
     - url: ../infra-template
       branches: HEAD
       start_path: docs

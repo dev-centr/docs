@@ -18,6 +18,8 @@ This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/
 * **connectome-fs** (partner org) — Graph-native filesystem substrate; docs live on link:https://connectome-fs.github.io/connectome-fs/[connectome-fs.github.io], not aggregated into this hub. Practitioner cross-links remain in general-knowledge.
 * **agentic-email-integration** — Own-your-inbox Gmail integration (Himalaya + agents). Complementary MCP connectors: xref:tools/composio.adoc[Composio].
 * **fixnow-dev** — FixNow pressure-driven issue tracking: AI value scoring, countdown badges, and resolution verification.
+* **scriptbook** — PlayTime engine + Scriptbook app: play CentrMark `.cmk` playbooks (intents, not shell translation). xref:scriptbook::index.adoc[Scriptbook] · xref:general-knowledge::explanation/infrastructure/abstract-playbooks.adoc[Abstract playbooks].
+* **equivalence-engine** — Catalog lookup and code-domain rewrites. Host Awareness bake is CI-time; runtime PlayTime must not ask it what OS it is. xref:equivalence-engine::index.adoc[Equivalence Engine].
 
 Org-wide roadmap and activity log live here in the **docs** repo so they stay in one place across all projects. Repo-specific task lists (e.g. devcentr's root `TODO.adoc`) remain in each repository for day-to-day work; the central xref:todo-roadmap.adoc[Todo & Roadmap] summarizes themes and the xref:activity-log.adoc[Activity log] records notable updates.
 
