@@ -1,7 +1,7 @@
 = devcentr.org
 :description: Portal stub for the organization marketing site Antora component.
 
-SolidStart landing site for Dev-Centr: news, changelog mirror, help/status, Toolchain Advisor, and bootstrap-org profile selector.
+SolidStart landing site for Dev-Centr: news, changelog mirror, help/status, Toolchain Advisor, and agent skills.
 
 Full component docs::
 xref:devcentr-org::index.adoc[devcentr.org]
@@ -15,5 +15,5 @@ https://devcentr.org
 == Highlights
 
 * Static SolidStart (`ssr: false`, `preset: "static"`) on GitHub Pages
-* Toolchain Advisor SDL from `toolchain-advisor`; bootstrap templates SDL from `agent-rules`
+* Toolchain Advisor SDL from `toolchain-advisor`; agent skills / bootstrap-org SDL from `agent-rules`
 * Antora component aggregated into this hub
