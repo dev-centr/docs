@@ -8,6 +8,8 @@ This page records significant documentation and project activity at an org level
 
 === August
 
+* **Fast org bootstrap** -- GitHub org identity (About, public `.github` profile, site, docs hub) as a Cursor skill, named SDLang profiles (SolidStart static + solid-ui defaults), and a Business Bootstrap tutorial. Capability-area literature (email, vault, chat, infra) is unchanged. xref:business-bootstrap::tutorials/fast-org-bootstrap.adoc[Fast org bootstrap] · skill `bootstrap-org` in `dev-centr/agent-rules`.
+
 * **Abstract playbooks / PlayTime** -- Write intents, not a bash-to-PowerShell blender. Scriptbook + Equivalence Engine wired into this hub. Encyclopedia xref:general-knowledge::explanation/infrastructure/abstract-playbooks.adoc[Abstract playbooks]. Essay: link:https://devcentr.org/news/2026-08-13-intents-not-shell-translation[Intents, not shell translation]. OpenShellOrg cousins on docs.opensh.org. PlayTime stays in `scriptbook` while it is built.
 
 * **AsciiDoc image alts + SVG encoding + mock chrome** — Unquoted alts became HTML width/height; SVG/adoc mojibake and Encoding errors were agent transcode bugs (not Antora). Mocks now use a single fill-only chrome path (breadcrumb no longer struck through). Org skill `fix-docs-encoding` checks/fixes. Hub redeploy required for `_images/`. xref:general-knowledge::how-to/cloudflare-access-static-site.adoc[Access how-to].
