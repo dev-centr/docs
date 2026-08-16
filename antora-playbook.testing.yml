@@ -23,6 +23,10 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../devcentr.org
+      branches: HEAD
+      start_path: docs
+      worktrees: true
     - url: ../templates
       branches: HEAD
       start_path: docs

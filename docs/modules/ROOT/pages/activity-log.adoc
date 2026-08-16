@@ -8,6 +8,8 @@ This page records significant documentation and project activity at an org level
 
 === August
 
+* **devcentr.org on this hub** -- Marketing site Antora component (`devcentr-org`): architecture, news/changelog pipelines, Toolchain Advisor, bootstrap templates. Registered in the playbooks. xref:devcentr-org::index.adoc[devcentr.org] · live link:https://devcentr.org[devcentr.org].
+
 * **Fast org bootstrap** -- GitHub org identity (About, public `.github` profile, site, docs hub) as a Cursor skill, named SDLang profiles (SolidStart static + solid-ui defaults), and a Business Bootstrap tutorial. Capability-area literature (email, vault, chat, infra) is unchanged. xref:business-bootstrap::tutorials/fast-org-bootstrap.adoc[Fast org bootstrap] · skill `bootstrap-org` in `dev-centr/agent-rules`.
 
 * **Abstract playbooks / PlayTime** -- Write intents, not a bash-to-PowerShell blender. Scriptbook + Equivalence Engine wired into this hub. Encyclopedia xref:general-knowledge::explanation/infrastructure/abstract-playbooks.adoc[Abstract playbooks]. Essay: link:https://devcentr.org/news/2026-08-13-intents-not-shell-translation[Intents, not shell translation]. OpenShellOrg cousins on docs.opensh.org. PlayTime stays in `scriptbook` while it is built.

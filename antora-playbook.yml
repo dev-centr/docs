@@ -21,6 +21,9 @@ content:
     - url: https://github.com/dev-centr/devcentr.git
       branches: HEAD
       start_path: docs
+    - url: https://github.com/dev-centr/devcentr.org.git
+      branches: HEAD
+      start_path: docs
     - url: https://github.com/dev-centr/templates.git
       branches: HEAD
       start_path: docs

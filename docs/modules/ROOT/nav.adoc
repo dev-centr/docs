@@ -38,4 +38,5 @@
 ** xref:tools/scriptbook.adoc[Scriptbook]
 ** xref:tools/equivalence-engine.adoc[Equivalence Engine]
 ** xref:tools/resting-lanczos.adoc[resting-lanczos]
+** xref:tools/devcentr-org.adoc[devcentr.org]
 ** xref:tools/native-installer-roadmap.adoc[Native installer roadmap]
