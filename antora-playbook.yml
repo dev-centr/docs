@@ -72,6 +72,9 @@ content:
     - url: https://github.com/dev-centr/equivalence-engine.git
       branches: HEAD
       start_path: docs
+    - url: https://github.com/dev-centr/uniconfig.git
+      branches: HEAD
+      start_path: docs
 ui:
   bundle:
     url: https://github.com/antora-supplemental/valentus-theme/releases/download/v2/ui-bundle.zip

@@ -20,6 +20,7 @@ These tools are original works developed as part of this ecosystem.
 * xref:tools/fixnow-dev.adoc[FixNow]
 * xref:tools/scriptbook.adoc[Scriptbook]
 * xref:tools/equivalence-engine.adoc[Equivalence Engine]
+* xref:tools/uniconfig.adoc[UniConfig Config Panel]
 * xref:tools/resting-lanczos.adoc[resting-lanczos]
 * xref:tools/devcentr-org.adoc[devcentr.org]
 * xref:tools/native-installer-roadmap.adoc[Native installer builder roadmap]

@@ -8,6 +8,8 @@ This page records significant documentation and project activity at an org level
 
 === August
 
+* **UniConfig Config Panel** -- Schema-driven desktop panel for other people's config files (INI, YAML, TOML, SDLang, tfvars). Engine `uniconfig-core`; app `uniconfig`. Wired into this hub. xref:tools/uniconfig.adoc[portal] · xref:uniconfig::index.adoc[component].
+
 * **devcentr.org on this hub** -- Marketing site Antora component (`devcentr-org`): architecture, news/changelog pipelines, Toolchain Advisor, agent skills. Registered in the playbooks. xref:devcentr-org::index.adoc[devcentr.org] · live link:https://devcentr.org[devcentr.org].
 
 * **Fast org bootstrap** -- GitHub org identity (About, public `.github` profile, site, docs hub) as a Cursor skill, named SDLang profiles (SolidStart static + solid-ui defaults), and a Business Bootstrap tutorial. Capability-area literature (email, vault, chat, infra) is unchanged. xref:business-bootstrap::tutorials/fast-org-bootstrap.adoc[Fast org bootstrap] · skill `bootstrap-org` in `dev-centr/agent-rules`.

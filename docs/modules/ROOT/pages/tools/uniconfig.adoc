@@ -1,0 +1,10 @@
+= UniConfig Config Panel
+:navtitle: UniConfig
+:description: Portal overview for UniConfig Config Panel — schema-driven editing of config files.
+
+**UniConfig Config Panel** opens INI, YAML, TOML, SDLang, JSON, and `.tfvars` with the same settings widgets, including fields that are legal but absent.
+
+* Component: xref:uniconfig:ROOT:index.adoc[UniConfig documentation]
+* App repo: link:https://github.com/dev-centr/uniconfig[dev-centr/uniconfig]
+* Engine: link:https://github.com/dev-centr/uniconfig-core[uniconfig-core]
+* Catalog: link:https://devcentr.org/apps/products[Apps / Products]

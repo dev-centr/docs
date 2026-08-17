@@ -87,6 +87,10 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../uniconfig
+      branches: HEAD
+      start_path: docs
+      worktrees: true
     - url: ../infra-template
       branches: HEAD
       start_path: docs
