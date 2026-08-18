@@ -8,6 +8,8 @@ This page records significant documentation and project activity at an org level
 
 === August
 
+* **Fonts / Appearance** — DevCentr can pick and install five OS coding fonts for *this app* (Cascadia Mono default). Project Fontsource lock is later; a Suitcase-style manager is a different product -- recorded, not forgotten. Public spec: link:https://docs.devcentr.org/devcentr/specifications/components/appearance.html[Appearance (code font)]. Member orientation: team-docs *Font lock*.
+
 * **UniConfig Config Panel** -- Schema-driven desktop panel for other people's config files (INI, YAML, TOML, SDLang, tfvars). Engine `uniconfig-core`; app `uniconfig`. Wired into this hub. xref:tools/uniconfig.adoc[portal] · xref:uniconfig::index.adoc[component].
 
 * **devcentr.org on this hub** -- Marketing site Antora component (`devcentr-org`): architecture, news/changelog pipelines, Toolchain Advisor, agent skills. Registered in the playbooks. xref:devcentr-org::index.adoc[devcentr.org] · live link:https://devcentr.org[devcentr.org].

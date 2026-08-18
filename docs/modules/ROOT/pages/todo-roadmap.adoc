@@ -12,6 +12,7 @@ This page is the **central** Todo & Roadmap for the Dev-Centr org. It summarizes
 * **Installation & packaging** — Installer maker integration (Inno Setup, NSIS), MSI generator, cross-repo release workflow.
 * **code-lens (IDE)** — Pedagogical lens switching in editors via link:https://github.com/AMDphreak/code-lens[code-lens]: VS Code webview + AI-generated variants; Zed via LSP/inlays. Feasibility: link:https://github.com/AMDphreak/code-lens/blob/main/docs/editor-integrations.md[editor integrations doc].
 * **AI studio tooling** — Prefer marketplace/MCP install ladders when shipping connectors into Cursor-like studios; see xref:general-knowledge::explanation/infrastructure/studio-mcp-install-strategies.adoc[Studio MCP install strategies] and the xref:general-knowledge::reference/ai-studio-tooling-catalog.adoc[AI studio tooling catalog].
+* **Fonts / Appearance** — DevCentr can pick and install five OS coding fonts for *this app*. Project Fontsource lock and a Suitcase-style manager are later / separate products -- recorded, not forgotten. Public spec: link:https://docs.devcentr.org/devcentr/specifications/components/appearance.html[Appearance (code font)]. Member orientation: team-docs *Font lock*.
 
 == Current priorities (summary)
 
