@@ -90,6 +90,18 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../binary-tailor
+      branches: HEAD
+      start_path: docs
+      worktrees: true
+    - url: ../macho-memload
+      branches: HEAD
+      start_path: docs
+      worktrees: true
+    - url: ../polyglot-debug
+      branches: HEAD
+      start_path: docs
+      worktrees: true
     - url: ../infra-template
       branches: HEAD
       start_path: docs
