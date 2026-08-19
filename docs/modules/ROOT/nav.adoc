@@ -5,6 +5,7 @@
 * Architecture
 ** xref:architecture/ui-heavy-web-apps.adoc[UI-heavy web applications]
 ** xref:architecture/subscription-management-platforms.adoc[Subscription management platforms]
+** xref:general-knowledge::explanation/architecture/graphics-rendering-engines.adoc[Graphics rendering engines]
 ** xref:general-knowledge::explanation/architecture/software-product-essentials.adoc[Software Product Essentials]
 ** xref:general-knowledge::explanation/architecture/auxiliary-features.adoc[Auxiliary features]
 ** xref:general-knowledge::explanation/architecture/classes/index.adoc[Desktop / web / mobile templates]
@@ -18,6 +19,7 @@
 ** xref:tools/dprint.adoc[dprint]
 ** xref:tools/dlangui.adoc[dlangui]
 ** xref:tools/ibex.adoc[Ibex]
+** xref:tools/repolab.adoc[RepoLab]
 ** xref:tools/msi-installer-generator.adoc[MSI Generator]
 ** xref:tools/switchyard.adoc[Switchyard]
 ** xref:tools/agentic-email-integration.adoc[Agentic Email Integration]
@@ -38,6 +40,7 @@
 ** xref:tools/scriptbook.adoc[Scriptbook]
 ** xref:tools/equivalence-engine.adoc[Equivalence Engine]
 ** xref:tools/uniconfig.adoc[UniConfig Config Panel]
+** xref:tools/toolchain-framework.adoc[Toolchain Framework]
 ** xref:tools/resting-lanczos.adoc[resting-lanczos]
 ** xref:tools/devcentr-org.adoc[devcentr.org]
 ** xref:tools/native-installer-roadmap.adoc[Native installer roadmap]

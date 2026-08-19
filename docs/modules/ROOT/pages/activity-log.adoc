@@ -8,7 +8,13 @@ This page records significant documentation and project activity at an org level
 
 === August
 
+* **Graphics rendering engines** — general-knowledge explanation for desktop UI stacks, large-document patterns, and post-Skia pipelines (Graphite, Impeller, Vello). Essay: link:https://devcentr.org/news/2026-08-19-after-skia-where-rendering-is-headed[After Skia: where rendering is headed]. Wired into DevCentr toolchain advisor and docs nav. xref:general-knowledge::explanation/architecture/graphics-rendering-engines.adoc[Explanation].
+
 * **Fonts / Appearance** — DevCentr can pick and install five OS coding fonts for *this app* (Cascadia Mono default). Project Fontsource lock is later; a Suitcase-style manager is a different product -- recorded, not forgotten. Public spec: link:https://docs.devcentr.org/devcentr/specifications/components/appearance.html[Appearance (code font)]. Member orientation: team-docs *Font lock*.
+
+* **Toolchain Framework (TCF)** — Practice kit (schemas, adapters, validators) wired into this hub. CI used to fail because `pnpm/action-setup` duplicated `package.json` `packageManager`. xref:tools/toolchain-framework.adoc[portal] · xref:toolchain-framework::index.adoc[component].
+
+* **RepoLab** — Dev-Centr product under the RepoLabs org (`RepoLab-dev`): one browser frontend for GitHub, other git hosts, and other VCS backends. Product site link:https://repolab.dev[repolab.dev]; docs link:https://docs.repolab.dev[docs.repolab.dev]. xref:tools/repolab.adoc[portal] · link:https://devcentr.org/apps/products[devcentr.org catalog].
 
 * **UniConfig Config Panel** -- Schema-driven desktop panel for other people's config files (INI, YAML, TOML, SDLang, tfvars). Engine `uniconfig-core`; app `uniconfig`. Wired into this hub. xref:tools/uniconfig.adoc[portal] · xref:uniconfig::index.adoc[component].
 
