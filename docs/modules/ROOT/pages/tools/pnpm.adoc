@@ -64,6 +64,10 @@ pnpm config set strict-dep-builds true --global
 
 This will cause `pnpm install` to fail explicitly if any unapproved build scripts are found, forcing a conscious decision instead of silent runtime failures.
 
+== Workspace script routing
+
+For monorepos: where `dev` / `build` script names come from, `--filter` vs `-C`, and running app scripts from the **repo root** without `cd`, see the General Knowledge component: xref:general-knowledge::reference/pnpm-run-routing.adoc[pnpm run routing].
+
 == External References
 
 * Official Docs: https://pnpm.io/npm-scripts#onlybuiltdependencies
