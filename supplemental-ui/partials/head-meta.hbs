@@ -1,5 +1,27 @@
+{{!--
+  HACK (interim paint-hold): hide until layered Valentus CSS + prefs + web fonts.
+  Vendored from valentus-theme 2.0.13+; keep brand/mermaid/math links with the
+  other stylesheets, before the fonts.ready release script.
+--}}
+<style>
+html.adt-fouc-pending { visibility: hidden !important; }
+</style>
+<script>
+document.documentElement.classList.add('adt-fouc-pending')
+</script>
 <link rel="stylesheet" href="{{{uiRootPath}}}/css/site-extra.css">
 <meta name="dm-navbar" content="{{or site.keys.darkModeNavbar 'light'}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-doc-layout.css">
+<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-visual.css">
+<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-read-width.css">
+<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-font-size.css">
+{{!-- DevCentr brand token overlay (after valentus visual CSS) --}}
+<link rel="stylesheet" href="{{{uiRootPath}}}/css/devcentr-brand.css">
+<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-mermaid.css">
+<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-math.css">
 <script>
 (function () {
   const dmNavbar = document.querySelector('meta[name="dm-navbar"]')
@@ -52,17 +74,35 @@
   }
 })()
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-doc-layout.css">
-<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-visual.css">
-<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-read-width.css">
-<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-font-size.css">
-{{!-- DevCentr brand token overlay (after valentus visual CSS) --}}
-<link rel="stylesheet" href="{{{uiRootPath}}}/css/devcentr-brand.css">
-<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-mermaid.css">
-<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-math.css">
+{{!-- Webfont FOUT: kick loads, then release paint-hold (3s timeout if CDN stalls). --}}
+<script>
+(function () {
+  var released = false
+  function release () {
+    if (released) return
+    released = true
+    document.documentElement.classList.remove('adt-fouc-pending')
+  }
+  var fallback = setTimeout(release, 3000)
+  function finish () {
+    clearTimeout(fallback)
+    release()
+  }
+  if (!document.fonts || !document.fonts.load) {
+    finish()
+    return
+  }
+  Promise.all([
+    document.fonts.load('400 1em "Source Sans 3"'),
+    document.fonts.load('600 1em "Source Sans 3"'),
+    document.fonts.load('500 1em "Plus Jakarta Sans"'),
+    document.fonts.load('700 1em "Plus Jakarta Sans"'),
+    document.fonts.load('400 1em "IBM Plex Mono"'),
+  ])
+    .then(function () { return document.fonts.ready })
+    .then(finish, finish)
+})()
+</script>
 {{#if page.origin.webUrl}}
 <meta name="antora-repo-url" content="{{page.origin.webUrl}}">
 {{/if}}
