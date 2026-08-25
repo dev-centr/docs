@@ -1,0 +1,54 @@
+= Antora diagram formats
+:navtitle: Antora diagram formats
+:description: Two build-time diagram formats (Mermaid and PlantUML via Kroki→SVG) plus hand SVG and optional runtime Mermaid fallback.
+
+DevCentr docs hubs support **two primary text-diagram formats**, both preprocessed to **SVG at Antora build time** via link:https://docs.kroki.io/[Kroki] (`asciidoctor-kroki`):
+
+[cols="1,2,2"]
+|===
+| Format | AsciiDoc form | Best for
+
+| Mermaid
+| `[source,mermaid]` or `[mermaid]`
+| Flowcharts, sequence-ish orientation, quick authoring
+
+| PlantUML
+| `[plantuml]` or `[source,plantuml]`
+| Sequence, component, and structured UML-style figures
+|===
+
+Hand-authored SVG under `docs/modules/*/images/` remains first-class for mockups and brand figures (run skill `fix-docs-encoding` after edits).
+
+== Playbook wiring (this hub)
+
+[source,yaml]
+----
+asciidoc:
+  extensions:
+    - asciidoctor-kroki
+  attributes:
+    stem: latexmath
+    kroki-server-url: https://kroki.io
+    kroki-fetch-diagram: true
+----
+
+`kroki-fetch-diagram: true` embeds diagram SVG in the published site so readers do not call Kroki at view time.
+CI needs network access to the Kroki server during `antora` (or point `kroki-server-url` at a self-hosted instance).
+
+Install: `pnpm add -D asciidoctor-kroki` in the playbook repo.
+
+== Runtime Mermaid (optional fallback)
+
+Supplemental `site-mermaid.js` still ships for progressive enhancement and for sites that have not enabled Kroki yet.
+When Kroki converts a block at build time, the listing becomes an image — the runtime helper finds nothing to re-render (no double draw).
+
+== Facto pack (not Valentus core)
+
+Valentus UI stays a **lean theme**.
+Reusable playbook defaults (Valentus + Lunr + stem/math + Kroki diagrams + related essentials) live in the separate compose pack link:https://github.com/antora-supplemental/antora-facto[`antora-supplemental/antora-facto`] — the *de-facto* stack, discovered by pack name like a VS Code extension pack, not forced into the Valentus `v2` rolling tag.
+
+== Related
+
+* xref:publishing/antora-essential-extensions.adoc[Antora essential extensions]
+* xref:publishing/antora-ui-branding.adoc[Antora UI branding]
+* xref:general-knowledge::explanation/internet-architecture/reliability/index.adoc[Internet Reliability] (uses both formats)

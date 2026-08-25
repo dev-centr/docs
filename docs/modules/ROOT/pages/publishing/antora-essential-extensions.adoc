@@ -50,6 +50,16 @@ antora:
 
 *Official use-case docs:* link:https://docs.antora.org/antora/latest/extend/extension-use-cases/#redirect-from-component-to-latest-version[Redirect from component to latest version]
 
+=== Build-time diagrams (Mermaid + PlantUML → SVG)
+
+*Package:* link:https://github.com/ggrossetie/asciidoctor-kroki[`asciidoctor-kroki`] (Kroki)
+
+*Problem:* Runtime-only Mermaid leaves published pages dependent on CDN JS and skips PlantUML. Authors need two stable text-diagram formats that ship as SVG.
+
+*Behavior:* At Antora build time, Mermaid and PlantUML blocks are converted to SVG via Kroki (`kroki-fetch-diagram: true` embeds them so readers do not call Kroki at view time).
+
+*Playbook:* See xref:publishing/antora-diagram-formats.adoc[Antora diagram formats]. Compose with Lunr/math/Valentus via link:https://github.com/antora-supplemental/antora-facto[`antora-facto`] — not by loading extras into Valentus core.
+
 === Math formulas (KaTeX + AsciiDoc `stem`)
 
 *Problem:* Docs borrow equations from design notes and leave them as raw `$Hash(…)$` or plain text. Sites without a math renderer cannot grow into technical explanation pages without a retrofit.

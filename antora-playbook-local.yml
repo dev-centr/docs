@@ -115,5 +115,9 @@ output:
   dir: ./build/site
 
 asciidoc:
+  extensions:
+    - asciidoctor-kroki
   attributes:
     stem: latexmath
+    kroki-server-url: https://kroki.io
+    kroki-fetch-diagram: true
