@@ -106,6 +106,7 @@ output:
 asciidoc:
   extensions:
     - asciidoctor-kroki
+    - '@antora-supplemental/page-context'
   attributes:
     stem: latexmath
     kroki-server-url: https://kroki.io
