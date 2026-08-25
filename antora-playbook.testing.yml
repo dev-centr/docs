@@ -111,3 +111,4 @@ asciidoc:
     stem: latexmath
     kroki-server-url: https://kroki.io
     kroki-fetch-diagram: true
+    page-context-active: ''
