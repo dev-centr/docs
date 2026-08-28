@@ -8,6 +8,7 @@ This page records significant documentation and project activity at an org level
 
 === August
 
+* **valentus-theme FOUC paint-hold** — Synced supplemental `head-meta.hbs` with Valentus interim paint-hold (`adt-fouc-pending`): hide until layered CSS, preference attrs, and web fonts apply; release via `document.fonts.ready` (3s fallback). Brand CSS stays in the stylesheet stack before the release script. xref:publishing/antora-ui-branding.adoc#fouc-paint-hold-interim[Antora UI branding].
 * **Internet Architecture / Internet Reliability** — Peer home-nav group (body in general-knowledge): systems altitude for reference durability and usability of the internet; deep-links HCI *Labels versus wires* + connectome-fs. Build-time Mermaid + PlantUML via Kroki (`asciidoctor-kroki`); how-to xref:publishing/antora-diagram-formats.adoc[Antora diagram formats]. Compose pack scaffold `antora-supplemental/antora-facto` (Valentus stays lean). xref:general-knowledge::explanation/internet-architecture/reliability/index.adoc[Internet Reliability].
 
 * **Graphics rendering engines** — general-knowledge explanation for desktop UI stacks, large-document patterns, and post-Skia pipelines (Graphite, Impeller, Vello). Essay: link:https://devcentr.org/news/2026-08-19-after-skia-where-rendering-is-headed[After Skia: where rendering is headed]. Wired into DevCentr toolchain advisor and docs nav. xref:general-knowledge::explanation/architecture/graphics-rendering-engines.adoc[Explanation].
