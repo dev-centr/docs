@@ -1,0 +1,16 @@
+= Toolchain Framework (TCF)
+:navtitle: Toolchain Framework
+:description: Portal stub for the Toolchain Framework Antora component.
+
+**Toolchain Framework (TCF)** is the practice kit for Toolchain Control Plane compliance: schemas, example adapters, and validators. It is not the pattern -- that stays in general-knowledge.
+
+Full component docs::
+xref:toolchain-framework::index.adoc[Toolchain Framework]
+
+Philosophy::
+xref:general-knowledge:explanation/infrastructure/toolchain-framework.adoc[TCF explanation] ·
+xref:general-knowledge:explanation/infrastructure/toolchain-management.adoc[Toolchain Management Pattern] ·
+xref:general-knowledge:explanation/infrastructure/toolchain-control-plane.adoc[Toolchain Control Plane]
+
+Repository::
+https://github.com/dev-centr/toolchain-framework

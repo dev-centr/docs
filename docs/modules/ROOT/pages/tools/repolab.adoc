@@ -1,0 +1,22 @@
+= RepoLab
+:navtitle: RepoLab
+:description: Dev-Centr product — unified browser frontend for git hosts and other VCS backends.
+
+One UI for GitHub, other git hosting APIs, and non-Git version-control engines. RepoLab is a wrapper and cockpit, not a new VCS engine — adapters sit underneath.
+
+Product site::
+https://repolab.dev
+
+Organization homepage::
+https://repolabs.dev (`RepoLab-dev` on GitHub)
+
+Repository::
+https://github.com/RepoLab-dev/website
+
+Docs hub::
+https://docs.repolab.dev
+
+[NOTE]
+====
+RepoLab is a **Dev-Centr product** shipped under the **RepoLabs** organization (`RepoLab-dev` on GitHub).
+====

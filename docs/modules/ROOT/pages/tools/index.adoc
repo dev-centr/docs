@@ -8,6 +8,7 @@ Some tools are documented in their own repositories (e.g. MSI Generator); others
 These tools are original works developed as part of this ecosystem.
 
 * xref:tools/ibex.adoc[Ibex]
+* xref:tools/repolab.adoc[RepoLab]
 * xref:tools/msi-installer-generator.adoc[MSI Generator]
 * xref:tools/switchyard.adoc[Switchyard]
 * xref:tools/agentic-email-integration.adoc[Agentic Email Integration]
@@ -21,6 +22,7 @@ These tools are original works developed as part of this ecosystem.
 * xref:tools/scriptbook.adoc[Scriptbook]
 * xref:tools/equivalence-engine.adoc[Equivalence Engine]
 * xref:tools/uniconfig.adoc[UniConfig Config Panel]
+* xref:tools/toolchain-framework.adoc[Toolchain Framework]
 * xref:tools/resting-lanczos.adoc[resting-lanczos]
 * xref:tools/devcentr-org.adoc[devcentr.org]
 * xref:tools/native-installer-roadmap.adoc[Native installer builder roadmap]

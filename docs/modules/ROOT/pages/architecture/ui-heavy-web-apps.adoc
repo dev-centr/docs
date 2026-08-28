@@ -78,6 +78,55 @@ These points are **architectural hypotheses**, not claims about proprietary code
 * Treat **ecosystem and AI assistance** as a risk line item for OCaml client work: fewer examples and weaker codegen than for React or Rust web stacks.
 * For **food-truck style** products (live location, favorites, geo notifications, event marketplaces), most risk is in **data, auth, maps, and notifications**—keep the **initial route** lean regardless of UI library.
 
+[[spatial-windows-and-lite-palettes]]
+== Spatial windows and lite palettes
+
+Professional desktop software separates the *model* (canvas, timeline) from *controls about the model* (histogram, curves, transport).
+UI-heavy web apps often collapse both into one SPA viewport—or reimplement windowing inside WebGL (Dear ImGui, custom canvas toolkits) because DOM felt too rigid.
+
+*Spatial web windows* invert that:
+
+* **WASM/WebGPU engine** in the primary viewport (or `OffscreenCanvas` in a worker)
+* **Inspector palettes** as lite DOM windows — Document Picture-in-Picture, chromeless `window.open`, or PWA Window Controls Overlay
+* **SharedWorker hub** — palettes subscribe to state deltas; they are projections, not second apps
+* **Intent routing** — layout follows explicit `displayIntent` (`desktop` | `mobile`), not raw `@media (max-width: …)` so a 250px palette never becomes a hamburger menu on a large monitor
+
+=== When to portal DOM vs canvas GUI
+
+[cols="1,2"]
+|===
+| Situation | Prefer
+
+| Sliders, forms, inspectors, accessibility-critical controls
+| DOM in lite windows portaled from the main bundle
+
+| Pixel-perfect GPU compositing, game loop, million-point scatter
+| Canvas/WebGPU in viewport; avoid duplicating GUI in GPU unless necessary
+
+| Cross-window reactive state
+| `SharedWorker` + `BroadcastChannel`; avoid tight `window.opener` coupling
+|===
+
+=== PWA and platform checklist
+
+* Manifest `display_override: ["window-controls-overlay"]` when the app owns the title region
+* COOP/COEP headers if you need `SharedArrayBuffer` between WASM and DOM palettes
+* Popups only inside user-activation handlers (click) — palette tear-off buttons must be direct gestures
+* Guard layout with `@media (pointer: fine)` and `(any-hover: hover)` alongside intent flags
+* Feature-detect Document PiP; degrade to chromeless popup on unsupported browsers
+
+=== Browser gaps (Desktop-Tooling fork)
+
+Stock Chromium lacks parent-relative always-on-top, workspace window grouping, and reduced background throttling among peer palette windows.
+Track patches in link:https://github.com/Desktop-Tooling/spatial-browser[Desktop-Tooling/spatial-browser].
+Demos can detect `window.spatialBrowser` when running on the fork.
+
+=== HCI Nerdz public face
+
+* Explanation: link:https://hci-nerdz.github.io/docs/hci-nerdz/spatial-web-windows.html[Spatial web windows]
+* Essay: link:https://hci-nerdz.github.io/blog/when-the-browser-flattens-working-memory/[When the browser flattens working memory]
+* Demo: link:https://hci-nerdz.github.io/demos/spatial-web-windows/[Spatial web windows desk]
+
 == See also
 
 * xref:where-docs-live.adoc[Where documentation lives] — how this site aggregates repos.
