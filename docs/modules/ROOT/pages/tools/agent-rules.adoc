@@ -11,7 +11,9 @@ https://github.com/dev-centr/agent-rules
 
 == Highlights
 
-* Shared `RULES.md` + `general/` + `profiles/` for end-user agents
+* Shared `user.md` + `general/` + `profiles/` for end-user agents
 * Separate from product automation (`devcentr-agent-rules`)
-* Machine-local memories stay in `$CODE_ROOT/MEMORIES.md`
+* Machine-local config: `$CODE_ROOT/harness.md` (harness wiring) and `$CODE_ROOT/machine.md` (workstation facts)
+* link:https://docs.devcentr.org/agent-rules/harness-neutral.html[Harness-neutral architecture] — polyglot assistants without baking paths into templates
+* link:https://docs.devcentr.org/agent-rules/agent-harness.html[DevCentr agent harness] — lightweight runtime direction (T3code weight class, dlang-supplemental native core)
 * Task curricula (for example news vs blog body copy) belong in **Cursor skills**, not the always-on rules paste — xref:general-knowledge::how-to/bootstrap-cursor-skills.adoc[Bootstrap Cursor skills] · xref:general-knowledge::explanation/infrastructure/vibe-coding-bootstrap.adoc[Vibe coding bootstrap]
