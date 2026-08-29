@@ -84,9 +84,10 @@ content:
     - url: https://github.com/dev-centr/polyglot-debug.git
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/toolchain-framework.git
-      branches: HEAD
-      start_path: docs
+    # toolchain-framework docs/ has no antora.yml yet (NOTES.adoc only) — omit until component is wired
+    # - url: https://github.com/dev-centr/toolchain-framework.git
+    #   branches: HEAD
+    #   start_path: docs
 ui:
   bundle:
     url: https://github.com/antora-supplemental/valentus-theme/releases/download/v2/ui-bundle.zip
