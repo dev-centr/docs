@@ -9,9 +9,17 @@ site:
     site_home_url: https://devcentr.org
     site_home_label: DevCentr home
     header_doc_title: DevCentr Docs
+urls:
+  html_extension_style: indexify
 antora:
   extensions:
     - '@antora/lunr-extension'
+    - require: '@antora-supplemental/site-nav-tree'
+      order:
+        - home
+        - general-knowledge
+        - business-bootstrap
+        - agent-rules
 content:
   sources:
     - url: .

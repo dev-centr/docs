@@ -4,6 +4,8 @@
 
 This page lists Antora extensions DevCentr / OpenShellOrg / antora-supplemental treat as **essential**: behavior so basic that every docs site we ship should enable it, and that we argue belongs closer to Antora core (or at least in every playbook by default).
 
+Playbook URL style (not an extension): set `urls.html_extension_style: indexify` so published pages use folder paths (`…/email/` for `email/index.adoc`). Canonical links and the sitemap follow that URL. Keep Overview landings as `index.adoc`; do not invent `overview.adoc` just to match the nav word, and do not advertise `index.html` in prose.
+
 == Essential Extensions / Extensions that should be in core
 
 === Site search (`@antora/lunr-extension`)
@@ -26,6 +28,28 @@ antora:
 Install the package in the playbook repo (`pnpm add -D @antora/lunr-extension`). Register Lunr **before** any wrapper that depends on it (for example `antora-search-chat`).
 
 *Upstream:* Lunr is already the official search extension. Treat it as mandatory site plumbing for every Antora site we publish—not optional polish.
+
+=== Site-wide component nav tree (`@antora-supplemental/site-nav-tree`)
+
+*Package:* link:https://github.com/antora-supplemental/site-nav-tree[`@antora-supplemental/site-nav-tree`]
+
+*Problem:* The Default UI (and Valentus tree-only chrome) shows only the **current component's** nav. Other components hide behind a drawer or breadcrumbs. Multi-component hubs make whole sections easy to miss (Org infra vs encyclopedia Infrastructure).
+
+*Behavior:* After Antora builds per-component navigation, wrap `NavigationCatalog#getNavigation` so each page receives a **site-wide forest** (one root per component; existing nav trees as children). Stock `nav-tree` + expand/collapse JS stay — **not** a full navigator replacement.
+
+*Playbook:*
+
+[source,yaml]
+----
+antora:
+  extensions:
+    - require: '@antora-supplemental/site-nav-tree'
+      order: [home, general-knowledge, business-bootstrap]
+----
+
+Valentus: copy the package's `ui/partials/nav-menu.hbs` into hub `supplemental-ui/partials/` to drop the redundant current-component title line.
+
+*Upstream:* Prefer this additive wrap over OpenDevise Navigator until a hub outgrows inlining every component nav into page HTML.
 
 === Alias versioned component root → latest start page
 

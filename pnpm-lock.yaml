@@ -17,16 +17,19 @@ importers:
       '@chenglou/pretext':
         specifier: ^0.0.4
         version: 0.0.4
-      antora:
-        specifier: ^3.1.14
-        version: 3.1.14
       asciidoctor-kroki:
         specifier: ^0.18.1
         version: 0.18.1(@asciidoctor/core@2.2.8)
     devDependencies:
+      '@antora-supplemental/site-nav-tree':
+        specifier: github:antora-supplemental/site-nav-tree#main
+        version: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/fb58975c3226f2e67b40da266f20f0b59ed427ac(@antora/site-generator@3.1.14)
       '@biomejs/biome':
         specifier: ^2.3.11
         version: 2.3.11
+      antora:
+        specifier: ^3.1.14
+        version: 3.1.14
 
 packages:
 
@@ -34,6 +37,13 @@ packages:
     resolution: {tarball: https://codeload.github.com/antora-supplemental/page-context/tar.gz/05f49baabf6eb0ce165ab4d93a295b62472d3b8d}
     version: 0.1.0
     engines: {node: '>=18'}
+
+  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/fb58975c3226f2e67b40da266f20f0b59ed427ac':
+    resolution: {tarball: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/fb58975c3226f2e67b40da266f20f0b59ed427ac}
+    version: 0.1.0
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@antora/site-generator': '>=3.1.0'
 
   '@antora/asciidoc-loader@3.1.14':
     resolution: {integrity: sha512-4xxisnoBFrlLNY6f3xZtyyfgm+tBLsqesTcEStfc8jtXUMYJ4b2DWIzo1vULmxvZ7yY5+Q7YqEvS5o6kIWAG0A==}
@@ -769,6 +779,10 @@ packages:
 snapshots:
 
   '@antora-supplemental/page-context@https://codeload.github.com/antora-supplemental/page-context/tar.gz/05f49baabf6eb0ce165ab4d93a295b62472d3b8d': {}
+
+  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/fb58975c3226f2e67b40da266f20f0b59ed427ac(@antora/site-generator@3.1.14)':
+    dependencies:
+      '@antora/site-generator': 3.1.14
 
   '@antora/asciidoc-loader@3.1.14':
     dependencies:
