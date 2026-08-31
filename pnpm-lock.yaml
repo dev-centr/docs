@@ -23,7 +23,7 @@ importers:
     devDependencies:
       '@antora-supplemental/site-nav-tree':
         specifier: github:antora-supplemental/site-nav-tree#main
-        version: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/32e269cffbd085b47233466aca0f04b28ccb20d9(@antora/site-generator@3.1.14)
+        version: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/0a3d54739db6450b1a4997fb303b268c230dbd31(@antora/site-generator@3.1.14)
       '@biomejs/biome':
         specifier: ^2.3.11
         version: 2.3.11
@@ -38,9 +38,9 @@ packages:
     version: 0.1.0
     engines: {node: '>=18'}
 
-  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/32e269cffbd085b47233466aca0f04b28ccb20d9':
-    resolution: {tarball: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/32e269cffbd085b47233466aca0f04b28ccb20d9}
-    version: 0.2.0
+  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/0a3d54739db6450b1a4997fb303b268c230dbd31':
+    resolution: {tarball: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/0a3d54739db6450b1a4997fb303b268c230dbd31}
+    version: 0.2.1
     engines: {node: '>=18'}
     peerDependencies:
       '@antora/site-generator': '>=3.1.0'
@@ -784,7 +784,7 @@ snapshots:
 
   '@antora-supplemental/page-context@https://codeload.github.com/antora-supplemental/page-context/tar.gz/05f49baabf6eb0ce165ab4d93a295b62472d3b8d': {}
 
-  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/32e269cffbd085b47233466aca0f04b28ccb20d9(@antora/site-generator@3.1.14)':
+  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/0a3d54739db6450b1a4997fb303b268c230dbd31(@antora/site-generator@3.1.14)':
     dependencies:
       '@antora/site-generator': 3.1.14
 
