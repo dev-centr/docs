@@ -4,7 +4,7 @@
 
 This page lists Antora extensions DevCentr / OpenShellOrg / antora-supplemental treat as **essential**: behavior so basic that every docs site we ship should enable it, and that we argue belongs closer to Antora core (or at least in every playbook by default).
 
-Playbook URL style (not an extension): set `urls.html_extension_style: indexify` so published pages use folder paths (`…/email/` for `email/index.adoc`). Canonical links and the sitemap follow that URL. Keep Overview landings as `index.adoc`; do not invent `overview.adoc` just to match the nav word, and do not advertise `index.html` in prose.
+Playbook URL style (not an extension): set `urls.html_extension_style: indexify` so published pages use folder paths (`…/email/` for `email/index.adoc`). Canonical links and the sitemap follow that URL. Section landings stay `index.adoc` with a **linked parent** in nav (link text = H1); do not use `.Section` + Overview, do not invent `overview.adoc`, and do not advertise `index.html` in prose.
 
 == Essential Extensions / Extensions that should be in core
 

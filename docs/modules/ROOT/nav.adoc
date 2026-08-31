@@ -10,8 +10,7 @@
 ** xref:general-knowledge::explanation/architecture/auxiliary-features.adoc[Auxiliary features]
 ** xref:general-knowledge::explanation/architecture/classes/index.adoc[Desktop / web / mobile templates]
 ** xref:general-knowledge::explanation/languages/index.adoc[Language recommendations]
-* Internet Architecture
-** xref:general-knowledge::explanation/internet-architecture/index.adoc[Overview]
+* xref:general-knowledge::explanation/internet-architecture/index.adoc[Internet Architecture]
 ** xref:general-knowledge::explanation/internet-architecture/reliability/index.adoc[Internet Reliability]
 ** xref:general-knowledge::explanation/internet-architecture/reliability/three-altitudes.adoc[Three altitudes]
 ** xref:general-knowledge::explanation/internet-architecture/reliability/reference-reliability.adoc[Reference reliability]
