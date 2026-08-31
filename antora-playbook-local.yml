@@ -15,11 +15,23 @@ antora:
   extensions:
     - '@antora/lunr-extension'
     - require: '@antora-supplemental/site-nav-tree'
+      # Curated forest roots only — wiring a product source ≠ sidebar root.
+      include:
+        - home
+        - general-knowledge
+        - business-bootstrap
+        - agent-rules
+        - DevCentr
+        - templates
+        - devcentr-org
       order:
         - home
         - general-knowledge
         - business-bootstrap
         - agent-rules
+        - DevCentr
+        - templates
+        - devcentr-org
 content:
   sources:
     - url: .

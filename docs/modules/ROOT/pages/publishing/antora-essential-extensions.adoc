@@ -35,7 +35,7 @@ Install the package in the playbook repo (`pnpm add -D @antora/lunr-extension`).
 
 *Problem:* The Default UI (and Valentus tree-only chrome) shows only the **current component's** nav. Other components hide behind a drawer or breadcrumbs. Multi-component hubs make whole sections easy to miss (Org infra vs encyclopedia Infrastructure).
 
-*Behavior:* After Antora builds per-component navigation, wrap `NavigationCatalog#getNavigation` so each page receives a **site-wide forest** (one root per component; existing nav trees as children). Stock `nav-tree` + expand/collapse JS stay — **not** a full navigator replacement.
+*Behavior:* After Antora builds per-component navigation, wrap `NavigationCatalog#getNavigation` so each page receives a **site-wide forest** of **curated** roots (existing nav trees as children). Stock `nav-tree` + expand/collapse JS stay — **not** a full navigator replacement. Prefer an **`include` allowlist**: registering a content source publishes pages/xrefs but does **not** add a sidebar root. Align the breadcrumb component picker with the same curation (`site.keys.site_nav_tree_*`).
 
 *Playbook:*
 
@@ -44,7 +44,8 @@ Install the package in the playbook repo (`pnpm add -D @antora/lunr-extension`).
 antora:
   extensions:
     - require: '@antora-supplemental/site-nav-tree'
-      order: [home, general-knowledge, business-bootstrap]
+      include: [home, general-knowledge, business-bootstrap, agent-rules]
+      order: [home, general-knowledge, business-bootstrap, agent-rules]
 ----
 
 Valentus: copy the package's `ui/partials/nav-menu.hbs` into hub `supplemental-ui/partials/` to drop the redundant current-component title line.

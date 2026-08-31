@@ -23,7 +23,7 @@ importers:
     devDependencies:
       '@antora-supplemental/site-nav-tree':
         specifier: github:antora-supplemental/site-nav-tree#main
-        version: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/fb58975c3226f2e67b40da266f20f0b59ed427ac(@antora/site-generator@3.1.14)
+        version: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/32e269cffbd085b47233466aca0f04b28ccb20d9(@antora/site-generator@3.1.14)
       '@biomejs/biome':
         specifier: ^2.3.11
         version: 2.3.11
@@ -38,9 +38,9 @@ packages:
     version: 0.1.0
     engines: {node: '>=18'}
 
-  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/fb58975c3226f2e67b40da266f20f0b59ed427ac':
-    resolution: {tarball: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/fb58975c3226f2e67b40da266f20f0b59ed427ac}
-    version: 0.1.0
+  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/32e269cffbd085b47233466aca0f04b28ccb20d9':
+    resolution: {tarball: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/32e269cffbd085b47233466aca0f04b28ccb20d9}
+    version: 0.2.0
     engines: {node: '>=18'}
     peerDependencies:
       '@antora/site-generator': '>=3.1.0'
@@ -144,24 +144,28 @@ packages:
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
+    libc: [musl]
 
   '@biomejs/cli-linux-arm64@2.3.11':
     resolution: {integrity: sha512-l4xkGa9E7Uc0/05qU2lMYfN1H+fzzkHgaJoy98wO+b/7Gl78srbCRRgwYSW+BTLixTBrM6Ede5NSBwt7rd/i6g==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
+    libc: [glibc]
 
   '@biomejs/cli-linux-x64-musl@2.3.11':
     resolution: {integrity: sha512-vU7a8wLs5C9yJ4CB8a44r12aXYb8yYgBn+WeyzbMjaCMklzCv1oXr8x+VEyWodgJt9bDmhiaW/I0RHbn7rsNmw==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
+    libc: [musl]
 
   '@biomejs/cli-linux-x64@2.3.11':
     resolution: {integrity: sha512-/1s9V/H3cSe0r0Mv/Z8JryF5x9ywRxywomqZVLHAoa/uN0eY7F8gEngWKNS5vbbN/BsfpCG5yeBT5ENh50Frxg==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
+    libc: [glibc]
 
   '@biomejs/cli-win32-arm64@2.3.11':
     resolution: {integrity: sha512-PZQ6ElCOnkYapSsysiTy0+fYX+agXPlWugh6+eQ6uPKI3vKAqNp6TnMhoM3oY2NltSB89hz59o8xIfOdyhi9Iw==}
@@ -780,7 +784,7 @@ snapshots:
 
   '@antora-supplemental/page-context@https://codeload.github.com/antora-supplemental/page-context/tar.gz/05f49baabf6eb0ce165ab4d93a295b62472d3b8d': {}
 
-  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/fb58975c3226f2e67b40da266f20f0b59ed427ac(@antora/site-generator@3.1.14)':
+  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/32e269cffbd085b47233466aca0f04b28ccb20d9(@antora/site-generator@3.1.14)':
     dependencies:
       '@antora/site-generator': 3.1.14
 
