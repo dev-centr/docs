@@ -70,11 +70,13 @@ Hub companion JS (`supplemental-ui/js/site-nav-tree-current.js`) keeps all depth
 
 *Package:* link:https://github.com/antora-supplemental/nav-typology[`@antora-supplemental/nav-typology`]
 
-*Problem:* Structural nav labels (Diátaxis buckets, component roots) encoded as Unicode emoji render differently on every OS font and cannot share a site color palette.
+*Problem:* Structural nav labels (Diátaxis buckets, spec groupings) encoded as Unicode emoji render differently on every OS font and cannot share a site color palette.
 
 *Behavior:* Enriches navigation at build time and renders a shared SVG sprite in the sidebar via companion `nav-tree` partial + Handlebars helpers. Strips leading structural emoji from nav titles when an icon replaces them. Tags changelog / activity-log entries and hoists them near the top of each nav branch (second slot after the landing link).
 
-*Companion UI:* copy `ui/partials/nav-tree.hbs`, `ui/helpers/*.js`, `ui/css/nav-typology.css`, and `ui/img/nav-typology.svg` from the package into hub `supplemental-ui/`; link `nav-typology.css` in `head-meta.hbs` (same pattern as `site-math.css`).
+*Hub overlay:* site-nav-tree component roots use accent expand chevrons (not the generic `component-root` typology sprite). Optional per-component app logos: `supplemental-ui/helpers/nav-component-logo.js` + `supplemental-ui/img/nav-logos/` (Antora component name → SVG/PNG). Typology icons apply to Diátaxis, spec, and changelog rows deeper in the tree.
+
+*Companion UI:* copy `ui/partials/nav-tree.hbs`, `ui/helpers/*.js`, `ui/css/nav-typology.css`, and `ui/img/nav-typology.svg` from the package into hub `supplemental-ui/`; add hub `nav-component-logo.js`; link `nav-typology.css` in `head-meta.hbs` (same pattern as `site-math.css`).
 
 *Optional Diátaxis plugin:* link:https://github.com/antora-supplemental/nav-typology-diataxis[`@antora-supplemental/nav-typology-diataxis`] — path/title auto-detection for tutorial / how-to / reference / explanation. Omit on non-Diátaxis sites.
 

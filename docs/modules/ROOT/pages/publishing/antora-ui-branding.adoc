@@ -21,12 +21,13 @@ This repository carries the GitHub topic `valentus-theme` (product dependency re
 
 == DevCentr accent overlay
 
-Layout, fonts, and default teal chrome stay valentus-theme. `devcentr-brand.css` remaps `--adt-accent*` tokens to the org palette and tints only *component-root* nav expand/collapse chevrons (`data-depth="0"`) with that accent; nested nav children keep Valentus `--adt-nav-item-toggle` (`--adt-ink-muted` / `--adt-ink` on hover). TIP/NOTE colors stay on Default UI / Valentus admonition tokens (`--tip-color` / `--adt-admonition-tip` — Antora green by default; do not remap tip to brand accent):
+Layout, fonts, and default teal chrome stay valentus-theme. `devcentr-brand.css` remaps `--adt-accent*` tokens to the org palette and tints *component-root* nav expand/collapse chevrons (`data-depth="0"`) with that accent — nested nav children keep Valentus muted ink toggles. Component roots do **not** use the generic `component-root` typology sprite; optional per-app logos come from `nav-component-logo.js` + `supplemental-ui/img/nav-logos/`. Deeper nav rows still use typology icons (Diátaxis, spec groupings, changelog). TIP/NOTE colors stay on Default UI / Valentus admonition tokens (`--tip-color` / `--adt-admonition-tip` — Antora green by default; do not remap tip to brand accent):
 
 * Light primary: `#178F80`
 * Dark primary: `#2DD4BF`
 * Logo accents: `#14B8A6` / `#0F766E`
-* Nav-tree expand chevrons: component roots only → brand accent; nested items → Valentus muted ink (Valentus **2.0.15+** tokens)
+* Nav-tree expand chevrons: component roots only → brand accent (replaces `component-root` typology icon); nested items → Valentus muted ink
+* Optional component logos: `supplemental-ui/helpers/nav-component-logo.js` + `supplemental-ui/img/nav-logos/` (per Antora component name)
 
 Overlay files:
 
