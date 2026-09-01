@@ -40,8 +40,17 @@ function detectDiataxisFromUrl (url) {
   return null
 }
 
+function isComponentRoot (item, options = {}) {
+  if (!item || typeof item !== 'object') return false
+  if (item.navTypology?.id === 'component-root') return true
+  const level = options.hash?.level ?? 0
+  const depth = Number(level) || 0
+  return depth === 0 && item.url && Array.isArray(item.items) && item.items.length > 0
+}
+
 function resolveTypologyId (item, options = {}) {
   if (!item || typeof item !== 'object') return ''
+  if (isComponentRoot(item, options)) return ''
   if (item.navTypology?.id) return item.navTypology.id
 
   const level = options.hash?.level ?? 0
@@ -51,9 +60,7 @@ function resolveTypologyId (item, options = {}) {
   const diataxisTitles = diataxisTitleDetectionEnabled(options)
 
   let id = null
-  if (depth === 0 && item.url && Array.isArray(item.items) && item.items.length) {
-    id = 'component-root'
-  } else if (/\/changelog(\/|$)/.test(url) || /\/activity-log(\/|$)/.test(url) || /^\.?\s*changelog\b/.test(text) || text === 'activity log') {
+  if (/\/changelog(\/|$)/.test(url) || /\/activity-log(\/|$)/.test(url) || /^\.?\s*changelog\b/.test(text) || text === 'activity log') {
     id = 'changelog'
   } else {
     id = detectDiataxisFromUrl(url)

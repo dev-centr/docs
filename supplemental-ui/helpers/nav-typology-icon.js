@@ -1,5 +1,7 @@
 'use strict'
 
+const navComponentLogo = require('./nav-component-logo')
+
 const TYPOLOGIES = {
   'component-root': { id: 'component-root', spriteId: 'icon-component-root', label: 'Component' },
   'spec-component': { id: 'spec-component', spriteId: 'icon-spec-component', label: 'Component spec' },
@@ -40,8 +42,17 @@ function detectDiataxisFromUrl (url) {
   return null
 }
 
+function isComponentRoot (item, options = {}) {
+  if (!item || typeof item !== 'object') return false
+  if (item.navTypology?.id === 'component-root') return true
+  const level = options.hash?.level ?? 0
+  const depth = Number(level) || 0
+  return depth === 0 && item.url && Array.isArray(item.items) && item.items.length > 0
+}
+
 function resolveTypology (item, options = {}) {
   if (!item || typeof item !== 'object') return null
+  if (isComponentRoot(item, options)) return null
   if (item.navTypology?.id) {
     return TYPOLOGIES[item.navTypology.id] || item.navTypology
   }
@@ -53,9 +64,7 @@ function resolveTypology (item, options = {}) {
   const diataxisTitles = diataxisTitleDetectionEnabled(options)
 
   let id = null
-  if (depth === 0 && item.url && Array.isArray(item.items) && item.items.length) {
-    id = 'component-root'
-  } else if (/\/changelog(\/|$)/.test(url) || /\/activity-log(\/|$)/.test(url) || /^\.?\s*changelog\b/.test(text) || text === 'activity log') {
+  if (/\/changelog(\/|$)/.test(url) || /\/activity-log(\/|$)/.test(url) || /^\.?\s*changelog\b/.test(text) || text === 'activity log') {
     id = 'changelog'
   } else {
     id = detectDiataxisFromUrl(url)
@@ -76,6 +85,9 @@ function resolveTypology (item, options = {}) {
 }
 
 module.exports = (item, options = {}) => {
+  if (isComponentRoot(item, options)) {
+    return navComponentLogo(item, options) || ''
+  }
   const meta = resolveTypology(item, options)
   if (!meta) return ''
   const uiRoot = options.data?.root?.uiRootPath || options.data?.root?.siteRootPath || '/_'

@@ -6,9 +6,8 @@
  * Omit entries until a logo asset exists; colored expand chevrons mark component roots.
  */
 const LOGOS = {
-  // home: 'nav-logos/home.svg',
-  // 'general-knowledge': 'nav-logos/general-knowledge.svg',
-  // DevCentr: 'nav-logos/devcentr.svg',
+  DevCentr: 'nav-logos/devcentr.svg',
+  'devcentr-org': 'nav-logos/devcentr-org.svg',
 }
 
 function normalizeUrl (url) {
