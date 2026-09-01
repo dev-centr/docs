@@ -32,6 +32,8 @@ antora:
         - DevCentr
         - templates
         - devcentr-org
+    - require: '@antora-supplemental/nav-typology'
+    - require: '@antora-supplemental/nav-typology-diataxis'
 content:
   sources:
     - url: .

@@ -50,6 +50,8 @@ antora:
 
 Valentus: copy the package's `ui/partials/nav-menu.hbs` into hub `supplemental-ui/partials/` to drop the redundant current-component title line.
 
+Copy `@antora-supplemental/nav-typology` companion UI into hub `supplemental-ui/` (`partials/nav-tree.hbs`, `helpers/nav-typology.js`, `helpers/strip-nav-typology-emoji.js`, `css/nav-typology.css`, `img/nav-typology.svg`) after enabling the extension in the playbook.
+
 ==== Multi-nav files vs `include::` (component modules)
 
 Antora allows multiple `nav:` entries in `antora.yml`. Each file becomes a **separate nav tree** concatenated as **siblings** under the component—not nested under your linked parents.
@@ -62,9 +64,33 @@ image::nav-typology.svg[Nav typology: single tree with includes vs parallel mult
 
 Hub companion JS (`supplemental-ui/js/site-nav-tree-current.js`) keeps all depth-1 branches under an active component root expanded as a guard until legacy components finish migrating. In-doc link crossfade + scroll preservation: `supplemental-ui/js/site-doc-nav.js`.
 
-*Upstream note for `@antora-supplemental/site-nav-tree`:* document this multi-nav concatenation behavior in the extension README (DevCentr hub carries the diagram until upstream merges).
+*Upstream note for `@antora-supplemental/site-nav-tree`:* multi-nav concatenation behavior is documented in the extension README (hub diagram: `nav-typology.svg` above).
 
-*Upstream:* Prefer this additive wrap over OpenDevise Navigator until a hub outgrows inlining every component nav into page HTML.
+=== Nav typology icons (`@antora-supplemental/nav-typology`)
+
+*Package:* link:https://github.com/antora-supplemental/nav-typology[`@antora-supplemental/nav-typology`]
+
+*Problem:* Structural nav labels (Diátaxis buckets, component roots) encoded as Unicode emoji render differently on every OS font and cannot share a site color palette.
+
+*Behavior:* Enriches navigation at build time and renders a shared SVG sprite in the sidebar via companion `nav-tree` partial + Handlebars helpers. Strips leading structural emoji from nav titles when an icon replaces them.
+
+*Companion UI:* copy `ui/partials/nav-tree.hbs`, `ui/helpers/*.js`, `ui/css/nav-typology.css`, and `ui/img/nav-typology.svg` from the package into hub `supplemental-ui/` (same pattern as site-nav-tree `nav-menu.hbs`).
+
+*Optional Diátaxis plugin:* link:https://github.com/antora-supplemental/nav-typology-diataxis[`@antora-supplemental/nav-typology-diataxis`] — path/title auto-detection for tutorial / how-to / reference / explanation. Omit on non-Diátaxis sites.
+
+*Playbook:* register **after** `site-nav-tree`.
+
+[source,yaml]
+----
+antora:
+  extensions:
+    - require: '@antora-supplemental/site-nav-tree'
+      include: [home, general-knowledge]
+    - require: '@antora-supplemental/nav-typology'
+    - require: '@antora-supplemental/nav-typology-diataxis'
+----
+
+*Upstream:* Prefer this over hand-pasting 🎓/🛠️/📚/🧠 in every `nav.adoc`. Expressive emoji stays available for CTAs and prose.
 
 === Alias versioned component root → latest start page
 

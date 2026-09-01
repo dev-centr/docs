@@ -1,0 +1,27 @@
+{{#if navigation.length}}
+<ul class="nav-list">
+  {{#each navigation}}
+  <li class="nav-item{{#if (eq ./url @root.page.url)}} is-current-page{{/if}}{{#if (nav-typology-id this level=(or ../level 0))}} has-nav-typology{{/if}}" data-depth="{{or ../level 0}}" data-nav-typology="{{nav-typology-id this level=(or ../level 0)}}">
+    {{#if ./content}}
+    {{#if ./items.length}}
+    <button class="nav-item-toggle"></button>
+    {{/if}}
+    {{#if ./url}}
+    <a class="nav-link" href="
+      {{~#if (eq ./urlType 'internal')}}{{{relativize ./url}}}
+      {{~else}}{{{./url}}}{{~/if}}">
+      {{{nav-typology-icon this level=(or ../level 0)}}}
+      <span class="nav-text">{{{strip-nav-typology-emoji ./content}}}</span>
+    </a>
+    {{else}}
+    <span class="nav-text">
+      {{{nav-typology-icon this level=(or ../level 0)}}}
+      <span class="nav-typology-label">{{{strip-nav-typology-emoji ./content}}}</span>
+    </span>
+    {{/if}}
+    {{/if}}
+{{> nav-tree navigation=./items level=(increment ../level)}}
+  </li>
+  {{/each}}
+</ul>
+{{/if}}
