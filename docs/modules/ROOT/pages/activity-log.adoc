@@ -1,8 +1,9 @@
 = Activity Log
 :navtitle: Activity Log
 :description: Notable changes and updates across Dev-Centr documentation and projects.
+:keywords: changelog, org-wide changelog, hub activity, activity log, release notes, shipping notes
 
-This page records significant documentation and project activity at an org level. New entries are added at the top. For per-repo release history, see each repository's tags and release notes.
+This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see each component's xref:DevCentr:ROOT:changelog.adoc[Changelog] (and siblings); for release tags, see repository tags and release notes.
 
 == 2026
 
