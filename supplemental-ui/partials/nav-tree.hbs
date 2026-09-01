@@ -10,27 +10,13 @@
     <a class="nav-link" href="
       {{~#if (eq ./urlType 'internal')}}{{{relativize ./url}}}
       {{~else}}{{{./url}}}{{~/if}}">
-      {{{nav-component-logo this}}}
-      {{#if (nav-typology-id this level=(or ../level 0))}}
-      {{#if ./navTypology}}
-      <svg class="nav-typology-icon nav-typology-icon--{{./navTypology.id}}" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><use href="{{{uiRootPath}}}/img/nav-typology.svg#{{./navTypology.spriteId}}"/></svg>
-      {{else}}
       {{{nav-typology-icon this level=(or ../level 0)}}}
-      {{/if}}
-      {{/if}}
-      <span class="nav-text">{{#if (nav-typology-id this level=(or ../level 0))}}{{#if ./navTypology}}{{{./content}}}{{else}}{{{strip-nav-typology-emoji ./content}}}{{/if}}{{else}}{{{./content}}}{{/if}}</span>
+      <span class="nav-text">{{#if ./navTypology}}{{{./content}}}{{else}}{{{strip-nav-typology-emoji ./content}}}{{/if}}</span>
     </a>
     {{else}}
     <span class="nav-text">
-      {{{nav-component-logo this}}}
-      {{#if (nav-typology-id this level=(or ../level 0))}}
-      {{#if ./navTypology}}
-      <svg class="nav-typology-icon nav-typology-icon--{{./navTypology.id}}" width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><use href="{{{uiRootPath}}}/img/nav-typology.svg#{{./navTypology.spriteId}}"/></svg>
-      {{else}}
       {{{nav-typology-icon this level=(or ../level 0)}}}
-      {{/if}}
-      {{/if}}
-      <span class="nav-typology-label">{{#if (nav-typology-id this level=(or ../level 0))}}{{#if ./navTypology}}{{{./content}}}{{else}}{{{strip-nav-typology-emoji ./content}}}{{/if}}{{else}}{{{./content}}}{{/if}}</span>
+      <span class="nav-typology-label">{{#if ./navTypology}}{{{./content}}}{{else}}{{{strip-nav-typology-emoji ./content}}}{{/if}}</span>
     </span>
     {{/if}}
     {{/if}}
