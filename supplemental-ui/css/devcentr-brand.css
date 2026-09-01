@@ -3,9 +3,6 @@
  * Layout/fonts ship in the bundle; this file only nudges accent tokens
  * and logo polish to match devcentr.app / DESIGN.md.
  *
- * Interim layout fix (remove when bundle pins valentus-theme >= 2.0.14):
- * mast dropdown menus extend into the tool band; mast z-index must beat the band.
- *
  * Light primary: #178F80
  * Dark primary:  #2DD4BF
  * Logo accents:  #14B8A6 / #0F766E
@@ -13,9 +10,6 @@
  * TIP colors stay Antora/Default UI (--tip-color / Valentus --adt-admonition-tip).
  * Do not remap tip to brand accent.
  */
-.adt-doc-mast {
-  z-index: 25;
-}
 
 :root {
   --adt-accent: #178f80;
