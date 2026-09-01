@@ -26,6 +26,20 @@ This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/
 
 Org-wide roadmap and activity log live here in the **docs** repo so they stay in one place across all projects. Repo-specific task lists (e.g. devcentr's root `TODO.adoc`) remain in each repository for day-to-day work; the central xref:todo-roadmap.adoc[Todo & Roadmap] summarizes themes and the xref:activity-log.adoc[Activity log] records notable updates.
 
+== Navigation vs component selector
+
+The site uses **two different mechanisms** that are easy to confuse:
+
+[cols="1,2"]
+|===
+| Component dropdown (search scope / breadcrumb kicker) | Built automatically from the Antora **content catalog** — every repo listed in `antora-playbook.yml` with a valid `antora.yml`.
+| Left sidebar tree | Built from each component's own `nav.adoc`. On the **home** component you see xref:ROOT:nav.adoc[home nav] only (portal stubs under *Tools*). Switch to **uniconfig** (or any component) to see that component's full tree (`uniconfig/docs/modules/ROOT/nav.adoc`).
+|===
+
+The **home** tree does not mirror every page in every component. Portal pages under *Tools* (`tools/*.adoc`) are a **third manual list**, duplicated alongside xref:tools/index.adoc[tools/index.adoc] and this page's component inventory. Adding a playbook source updates the dropdown immediately after deploy, but **home nav and tools index must be updated by hand** unless a build extension generates them.
+
+*Future:* an Antora extension should emit Tools nav entries (and optionally `where-docs-live` bullets) from the playbook catalog — title from each component's `antora.yml`, link to `component:ROOT:index.adoc`, portal stub when present. Until then, xref:publishing/antora-essential-extensions.adoc[essential extensions] and Phase 2 in `DOCS_STRATEGY.md` apply.
+
 == Team documentation (members only)
 
 Dev-Centr maintains a **private sister Antora site** for org-member SOPs and internal runbooks — not aggregated into this public hub.

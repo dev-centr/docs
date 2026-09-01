@@ -1,10 +1,15 @@
 = UniConfig Config Panel
 :navtitle: UniConfig
-:description: Portal overview for UniConfig Config Panel — schema-driven editing of config files.
+:description: Portal overview for ConfigUI — schema-driven editing of config files.
 
-**UniConfig Config Panel** opens INI, YAML, TOML, SDLang, JSON, and `.tfvars` with the same settings widgets, including fields that are legal but absent.
+**ConfigUI** (`uniconfig` binary) opens INI, YAML, TOML, SDLang, JSON, and `.tfvars` with shared settings widgets, including fields that are legal but absent.
+
+App developers ship vocabulary in their own repos and register catalogs at runtime — see the component docs.
 
 * Component: xref:uniconfig:ROOT:index.adoc[UniConfig documentation]
+** xref:uniconfig:ROOT:howto-ship-vocabulary.adoc[Ship vocabulary]
+** xref:uniconfig:ROOT:howto-embed-configui.adoc[Embed ConfigUI]
+** xref:uniconfig:ROOT:howto-components.adoc[Engine and components]
 * App repo: link:https://github.com/dev-centr/uniconfig[dev-centr/uniconfig]
 * Engine: link:https://github.com/dev-centr/uniconfig-core[uniconfig-core]
 * Catalog: link:https://devcentr.org/apps/products[Apps / Products]
