@@ -37,7 +37,7 @@ antora:
         - devcentr-org
     - require: '@antora-supplemental/nav-typology'
     - require: '@antora-supplemental/nav-typology-diataxis'
-    - require: ./lib/publish-build-stack.js
+    - '@antora-supplemental/build-stack'
 content:
   sources:
     - url: https://github.com/dev-centr/docs.git

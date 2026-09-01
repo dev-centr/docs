@@ -15,6 +15,7 @@
     "@antora-supplemental/nav-typology": "github:antora-supplemental/nav-typology#main",
     "@antora-supplemental/nav-typology-diataxis": "github:antora-supplemental/nav-typology-diataxis#main",
     "@antora-supplemental/site-nav-tree": "github:antora-supplemental/site-nav-tree#main",
+    "@antora-supplemental/build-stack": "github:antora-supplemental/build-stack#main",
     "@biomejs/biome": "^2.3.11",
     "antora": "^3.1.14"
   }

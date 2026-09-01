@@ -144,6 +144,25 @@ asciidoc:
 
 Load KaTeX even when the current corpus has zero formulas — plumbing, not polish.
 
+=== Build stack footer (`@antora-supplemental/build-stack`)
+
+*Package:* link:https://github.com/antora-supplemental/build-stack[`@antora-supplemental/build-stack`]
+
+*Problem:* Site footers credit the UI theme only. The real stack — Lunr, site-nav-tree, nav-typology, Kroki, page-context — lives in playbook YAML but Antora never exposes `antora.extensions` or `asciidoc.extensions` to Handlebars.
+
+*Behavior:* On `playbookBuilt`, publishes linked HTML to `site.keys.build_stack_antora_html` / `build_stack_asciidoc_html` and infers `ui_bundle_name` / `ui_bundle_url` from `ui.bundle.url`. Copy companion `ui/partials/footer-build-stack.hbs` into hub `supplemental-ui` and `{{> footer-build-stack}}` from `footer-content.hbs`.
+
+*Playbook:*
+
+[source,yaml]
+----
+antora:
+  extensions:
+    - '@antora-supplemental/build-stack'
+----
+
+Registered in link:https://github.com/antora-supplemental/antora-facto[antora-facto] by default.
+
 == Related
 
 * xref:publishing/antora-ui-branding.adoc[Antora UI branding]

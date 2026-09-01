@@ -9,20 +9,12 @@
       <a href="https://github.com/dlang-supplemental">dlang-supplemental</a>
     </p>
   </div>
-  {{#if site.keys.buildStackAntoraHtml}}
-  <div class="footer-related" aria-label="Build extensions">
-    <p class="footer-related-label">Extensions</p>
-    <p class="footer-related-links">
-      Antora: {{{site.keys.buildStackAntoraHtml}}}{{#if site.keys.buildStackAsciidocHtml}}<br/>
-      AsciiDoc: {{{site.keys.buildStackAsciidocHtml}}}{{/if}}
-    </p>
-  </div>
-  {{/if}}
+  {{> footer-build-stack}}
   <p>
     Built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a>{{#if antoraVersion}} <span class="antora-version">({{antoraVersion}})</span>{{/if}}.
     UI:
-    {{#if site.keys.uiBundleName}}
-    <a href="{{site.keys.uiBundleUrl}}" target="_blank" rel="noopener">{{site.keys.uiBundleName}}</a>
+    {{#if site.keys.ui_bundle_name}}
+    <a href="{{site.keys.ui_bundle_url}}" target="_blank" rel="noopener">{{site.keys.ui_bundle_name}}</a>
     {{else}}
     <a href="https://github.com/antora-supplemental/valentus-theme" target="_blank" rel="noopener">valentus-theme</a>
     {{/if}}
