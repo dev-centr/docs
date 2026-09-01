@@ -6,6 +6,10 @@ This page records significant documentation and project activity at an org level
 
 == 2026
 
+=== September
+
+* **2026-09-01 — Breadcrumb mast UX** — Home icon links to site root (not component index). Component picker hidden when site-nav-tree is active (sidebar already lists components). Implicit version kicker shows **Version** / **Default** instead of raw `default`. Theme: valentus-theme unreleased; hub supplemental mirrors the override.
+
 === August
 
 * **2026-08-30 — Site-wide component nav tree** — Hub playbooks enable `@antora-supplemental/site-nav-tree`: every component appears as a root in the sidebar forest; stock `nav-tree` expand/collapse stays (no navigator wipe). Companion Valentus `nav-menu` partial drops the redundant current-component title. xref:publishing/antora-essential-extensions.adoc[Antora essential extensions] · link:https://github.com/antora-supplemental/site-nav-tree[site-nav-tree].
