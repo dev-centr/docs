@@ -74,7 +74,7 @@ Hub companion JS (`supplemental-ui/js/site-nav-tree-current.js`) keeps all depth
 
 *Behavior:* Enriches navigation at build time and renders a shared SVG sprite in the sidebar via companion `nav-tree` partial + Handlebars helpers. Strips leading structural emoji from nav titles when an icon replaces them.
 
-*Companion UI:* copy `ui/partials/nav-tree.hbs`, `ui/helpers/*.js`, `ui/css/nav-typology.css`, and `ui/img/nav-typology.svg` from the package into hub `supplemental-ui/` (same pattern as site-nav-tree `nav-menu.hbs`).
+*Companion UI:* copy `ui/partials/nav-tree.hbs`, `ui/helpers/*.js`, `ui/css/nav-typology.css`, and `ui/img/nav-typology.svg` from the package into hub `supplemental-ui/`; link `nav-typology.css` in `head-meta.hbs` (same pattern as `site-math.css`).
 
 *Optional Diátaxis plugin:* link:https://github.com/antora-supplemental/nav-typology-diataxis[`@antora-supplemental/nav-typology-diataxis`] — path/title auto-detection for tutorial / how-to / reference / explanation. Omit on non-Diátaxis sites.
 
