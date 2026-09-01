@@ -1,6 +1,6 @@
 'use strict'
 
-const { resolveTypologyId } = require('./nav-typology-resolve')
+const { resolveTypologyId: resolveTypologyIdCore } = require('@antora-supplemental/nav-typology/lib/resolve-typology')
 
 const TYPOLOGIES = {
   'component-root': { id: 'component-root', spriteId: 'icon-component-root', label: 'Component' },
@@ -26,25 +26,24 @@ function diataxisEnabled ({ data } = {}) {
   return keys.nav_typology_diataxis === 'true' || keys.nav_typology === 'true'
 }
 
-function resolveId (item, options = {}) {
-  if (!item || typeof item !== 'object') return ''
-
+function isComponentRoot (item, options = {}) {
+  if (!item || typeof item !== 'object') return false
+  if (item.navTypology?.id === 'component-root') return true
   const level = options.hash?.level ?? 0
   const depth = Number(level) || 0
-  const parentTypologyId = options.hash?.parentTypologyId || ''
-  const diataxis = diataxisEnabled(options)
+  return depth === 0 && item.url && Array.isArray(item.items) && item.items.length > 0
+}
 
-  let id = null
-  if (depth === 0 && item.url && Array.isArray(item.items) && item.items.length) {
-    id = 'component-root'
-  } else {
-    id = resolveTypologyId(item, {
-      depth,
-      parentTypologyId,
-      diataxisEnabled: diataxis,
-      skipBuildFallback: false,
-    })
-  }
+function resolveId (item, options = {}) {
+  if (!item || typeof item !== 'object') return ''
+  if (isComponentRoot(item, options)) return ''
+
+  const parentTypologyId = options.hash?.parentTypologyId || ''
+  const id = resolveTypologyIdCore(item, {
+    parentTypologyId,
+    diataxisEnabled: diataxisEnabled(options),
+    skipBuildFallback: false,
+  })
 
   return id && TYPOLOGIES[id] ? id : ''
 }
