@@ -15,16 +15,23 @@
   --adt-accent: #178f80;
   --adt-accent-hover: #0f766e;
   --adt-accent-soft: rgba(23, 143, 128, 0.12);
-  --adt-nav-item-toggle: var(--adt-accent);
-  --adt-nav-item-toggle-hover: var(--adt-accent-hover);
 }
 
 html.dark-theme {
   --adt-accent: #2dd4bf;
   --adt-accent-hover: #5eead4;
   --adt-accent-soft: rgba(45, 212, 191, 0.12);
-  --adt-nav-item-toggle: var(--adt-accent);
-  --adt-nav-item-toggle-hover: var(--adt-accent-hover);
+}
+
+/* Component roots only (site-nav-tree depth 0); nested nav keeps Valentus ink-muted chevrons. */
+nav.nav-menu.nav-tree-only .nav-item[data-depth="0"] > .nav-item-toggle,
+nav.nav-menu.adt-nav-tree-only .nav-item[data-depth="0"] > .nav-item-toggle {
+  color: var(--adt-accent);
+}
+
+nav.nav-menu.nav-tree-only .nav-item[data-depth="0"] > .nav-item-toggle:hover,
+nav.nav-menu.adt-nav-tree-only .nav-item[data-depth="0"] > .nav-item-toggle:hover {
+  color: var(--adt-accent-hover);
 }
 
 /*

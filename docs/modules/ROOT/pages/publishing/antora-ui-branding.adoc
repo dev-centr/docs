@@ -21,12 +21,12 @@ This repository carries the GitHub topic `valentus-theme` (product dependency re
 
 == DevCentr accent overlay
 
-Layout, fonts, and default teal chrome stay valentus-theme. `devcentr-brand.css` remaps `--adt-accent*` tokens to the org palette and sets `--adt-nav-item-toggle*` to the same accent so component-level nav expand/collapse chevrons read as branded (not muted ink). TIP/NOTE colors stay on Default UI / Valentus admonition tokens (`--tip-color` / `--adt-admonition-tip` — Antora green by default; do not remap tip to brand accent):
+Layout, fonts, and default teal chrome stay valentus-theme. `devcentr-brand.css` remaps `--adt-accent*` tokens to the org palette and tints only *component-root* nav expand/collapse chevrons (`data-depth="0"`) with that accent; nested nav children keep Valentus `--adt-nav-item-toggle` (`--adt-ink-muted` / `--adt-ink` on hover). TIP/NOTE colors stay on Default UI / Valentus admonition tokens (`--tip-color` / `--adt-admonition-tip` — Antora green by default; do not remap tip to brand accent):
 
 * Light primary: `#178F80`
 * Dark primary: `#2DD4BF`
 * Logo accents: `#14B8A6` / `#0F766E`
-* Nav-tree expand chevrons: `--adt-nav-item-toggle` / `--adt-nav-item-toggle-hover` → brand accent (Valentus **2.0.15+**)
+* Nav-tree expand chevrons: component roots only → brand accent; nested items → Valentus muted ink (Valentus **2.0.15+** tokens)
 
 Overlay files:
 
