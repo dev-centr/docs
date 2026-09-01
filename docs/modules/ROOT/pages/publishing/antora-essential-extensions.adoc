@@ -50,6 +50,20 @@ antora:
 
 Valentus: copy the package's `ui/partials/nav-menu.hbs` into hub `supplemental-ui/partials/` to drop the redundant current-component title line.
 
+==== Multi-nav files vs `include::` (component modules)
+
+Antora allows multiple `nav:` entries in `antora.yml`. Each file becomes a **separate nav tree** concatenated as **siblings** under the component—not nested under your linked parents.
+
+**Anti-pattern:** list `modules/ROOT/nav.adoc`, `modules/specifications/nav.adoc`, `modules/secrets-manager/nav.adoc`, … in `antora.yml`. The sidebar then shows Secrets Manager `.Overview & design` as if it were DevCentr IA, and clicking a deep spec page can collapse the product overview branch (especially with site-nav-tree).
+
+**Preferred:** one `nav:` entry on ROOT; nest modules with `include::module$nav.adoc[]` under the linked parent (`* xref:secrets-manager:index.adoc[Secrets Manager]`). The included file uses `**` / `***` depth under that parent.
+
+image::nav-typology.svg[Nav typology: single tree with includes vs parallel multi-nav trees,width=760]
+
+Hub companion JS (`supplemental-ui/js/site-nav-tree-current.js`) keeps all depth-1 branches under an active component root expanded as a guard until legacy components finish migrating. In-doc link crossfade + scroll preservation: `supplemental-ui/js/site-doc-nav.js`.
+
+*Upstream note for `@antora-supplemental/site-nav-tree`:* document this multi-nav concatenation behavior in the extension README (DevCentr hub carries the diagram until upstream merges).
+
 *Upstream:* Prefer this additive wrap over OpenDevise Navigator until a hub outgrows inlining every component nav into page HTML.
 
 === Alias versioned component root → latest start page

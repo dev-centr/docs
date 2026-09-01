@@ -1,5 +1,5 @@
 name: home
-title: Project Portal
+title: Home
 version: ~
 nav:
 - modules/ROOT/nav.adoc

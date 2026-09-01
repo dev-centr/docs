@@ -1,35 +1,51 @@
-/**
- * Prefer the deepest is-current-page when site-nav-tree inlines many components.
- * Default UI expands only the first match; a duplicated start-page URL on the
- * component root then leaves children behind an inactive anonymous wrapper.
- */
 ;(function () {
   'use strict'
-  var menu = document.querySelector('.nav-container [data-panel=menu]')
-  if (!menu) return
 
-  var currents = [].slice.call(menu.querySelectorAll('.nav-item.is-current-page'))
-  if (!currents.length) return
+  function siteNavTreeCurrent () {
+    var menu = document.querySelector('.nav-container [data-panel=menu]')
+    if (!menu) return
 
-  currents.sort(function (a, b) {
-    return (parseInt(b.getAttribute('data-depth'), 10) || 0) - (parseInt(a.getAttribute('data-depth'), 10) || 0)
-  })
-  var best = currents[0]
+    var currents = [].slice.call(menu.querySelectorAll('.nav-item.is-current-page'))
+    if (!currents.length) return
 
-  currents.forEach(function (el) {
-    if (el !== best) el.classList.remove('is-current-page')
-  })
+    currents.sort(function (a, b) {
+      return (parseInt(b.getAttribute('data-depth'), 10) || 0) - (parseInt(a.getAttribute('data-depth'), 10) || 0)
+    })
+    var best = currents[0]
 
-  menu.querySelectorAll('.nav-item.is-active, .nav-item.is-current-path').forEach(function (el) {
-    el.classList.remove('is-active', 'is-current-path')
-  })
+    currents.forEach(function (el) {
+      if (el !== best) el.classList.remove('is-current-page')
+    })
 
-  var node = best
-  while (node && !(node.classList && node.classList.contains('nav-menu'))) {
-    if (node.tagName === 'LI' && node.classList.contains('nav-item')) {
-      node.classList.add('is-active', 'is-current-path')
+    menu.querySelectorAll('.nav-item.is-active, .nav-item.is-current-path').forEach(function (el) {
+      el.classList.remove('is-active', 'is-current-path')
+    })
+
+    var node = best
+    while (node && !(node.classList && node.classList.contains('nav-menu'))) {
+      if (node.tagName === 'LI' && node.classList.contains('nav-item')) {
+        node.classList.add('is-active', 'is-current-path')
+      }
+      node = node.parentNode
     }
-    node = node.parentNode
+    best.classList.add('is-active', 'is-current-page')
+
+    var componentRoot = best
+    while (componentRoot) {
+      var depth = parseInt(componentRoot.getAttribute('data-depth'), 10)
+      if (depth === 0) break
+      componentRoot = componentRoot.parentElement
+        ? componentRoot.parentElement.closest('li.nav-item')
+        : null
+    }
+    if (!componentRoot) return
+
+    var branchLists = componentRoot.querySelectorAll(':scope > .nav-list > .nav-item')
+    branchLists.forEach(function (branch) {
+      branch.classList.add('is-active', 'is-current-path')
+    })
   }
-  best.classList.add('is-active', 'is-current-page')
+
+  window.siteNavTreeCurrent = siteNavTreeCurrent
+  siteNavTreeCurrent()
 })()

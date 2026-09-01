@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" role="img" aria-labelledby="title desc">
+  <title id="title">Antora nav typology</title>
+  <desc id="desc">One component should use one nav tree with include directives. Multiple nav files create parallel sibling trees under site-nav-tree roots.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f3f1ec; }
+      .good { fill: #e4efe6; stroke: #1f3a2e; stroke-width: 2; }
+      .bad { fill: #fde8e8; stroke: #7a2e2e; stroke-width: 2; }
+      .neutral { fill: #fff; stroke: #2c3e5a; stroke-width: 2; }
+      .t { font-family: Georgia, "Times New Roman", serif; fill: #1a1a1a; }
+      .s { font-family: "Segoe UI", system-ui, sans-serif; fill: #333; font-size: 12px; }
+      .label { font-family: "Segoe UI", system-ui, sans-serif; fill: #5a5a5a; font-size: 11px; letter-spacing: 0.06em; }
+      .arr { stroke: #2c3e5a; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#2c3e5a"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="760" height="420"/>
+  <text class="label" x="28" y="26">NAV TYPOLOGY</text>
+  <text class="t" x="28" y="52" font-size="20">One component, one tree  includes nest modules</text>
+
+  <rect class="neutral" x="40" y="78" width="300" height="300" rx="8"/>
+  <text class="t" x="56" y="108" font-size="16">Component root (site-nav-tree)</text>
+  <text class="s" x="56" y="132">DevCentr</text>
+  <rect class="good" x="68" y="148" width="244" height="52" rx="4"/>
+  <text class="s" x="80" y="170">* Specifications (linked parent)</text>
+  <text class="s" x="92" y="188">**.Components ’ pages&</text>
+  <rect class="good" x="68" y="212" width="244" height="52" rx="4"/>
+  <text class="s" x="80" y="234">* Secrets Manager (linked parent)</text>
+  <text class="s" x="92" y="252">**.Overview &amp; design ’ pages&</text>
+  <text class="s" x="56" y="290">include::module$nav.adoc[] under parent</text>
+  <text class="s" x="56" y="308">Single antora.yml nav entry</text>
+
+  <rect class="bad" x="400" y="78" width="320" height="300" rx="8"/>
+  <text class="t" x="416" y="108" font-size="16">Anti-pattern: multi-nav files</text>
+  <text class="s" x="416" y="132">nav: [ROOT, specifications, secrets-manager, &]</text>
+  <rect class="bad" x="428" y="148" width="264" height="40" rx="4"/>
+  <text class="s" x="440" y="172">parallel tree A (product pages)</text>
+  <rect class="bad" x="428" y="198" width="264" height="40" rx="4"/>
+  <text class="s" x="440" y="222">parallel tree B (all spec pages flat)</text>
+  <rect class="bad" x="428" y="248" width="264" height="40" rx="4"/>
+  <text class="s" x="440" y="272">parallel tree C (.Overview &amp; design&)</text>
+  <text class="s" x="416" y="318">Sections look like DevCentr IA but belong to Secrets Manager</text>
+  <text class="s" x="416" y="336">Clicking a spec link hides tree A (collapse swap)</text>
+
+  <path class="arr" d="M340 200 H380"/>
+  <text class="s" x="348" y="192">prefer</text>
+</svg>
