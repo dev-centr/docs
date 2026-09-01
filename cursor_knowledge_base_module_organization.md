@@ -1008,28 +1008,28 @@ We follow the **Diátaxis** framework, which organizes documentation by the user
 
 [cols="1,1", frame=none, grid=none]
 |===
-| [.text-center]
+a|[.text-center]
 === 🎓 Tutorials
 **Intent: Learning**
 Focused on acquisition. Follow our step-by-step guides to build basic competence in our systems.
 
 xref:tutorials/onboarding.adoc[🚀 Start Onboarding]
 
-| [.text-center]
+a|[.text-center]
 === 🛠️ How-to Guides
 **Intent: Execution**
 Focused on application. "I have a goal, show me the recipe." Task-oriented guides for real-world problems.
 
 xref:how-to/index.adoc[📂 Browse How-tos]
 
-| [.text-center]
+a|[.text-center]
 === 📚 Reference
 **Intent: Retrieval**
 Focused on facts. Technical specifications, API documentation, and checklists.
 
 xref:reference/index.adoc[📋 View Reference]
 
-| [.text-center]
+a|[.text-center]
 === 🧠 Explanation
 **Intent: Comprehension**
 Focused on understanding. Discursive content that explains the "Why" behind our architecture and philosophy.

@@ -8,6 +8,7 @@ This page records significant documentation and project activity at an org level
 
 === September
 
+* **2026-09-01 — Diátaxis grid table cells (`a|`)** — general-knowledge start page used plain `|` cells so `[.text-center]` and `===` printed literally; fixed to `a|` (commit `b695417`). Hive-wide Antora audit found no other live `.adoc` instances; corrected the same example in the historical `cursor_knowledge_base_module_organization.md` dump so it is not re-copied wrong.
 * **2026-09-01 — Nav-tree expand chevrons** — Valentus **2.0.15+antora.3** adds `--adt-nav-item-toggle` / `--adt-nav-item-toggle-hover`; hub `devcentr-brand.css` maps them to brand accent so component-level arrows contrast with muted nav labels. xref:publishing/antora-ui-branding.adoc[Antora UI branding].
 * **2026-09-01 — Breadcrumb mast UX** — Home icon links to site root (not component index). Component picker hidden when site-nav-tree is active (sidebar already lists components). Implicit version kicker shows **Version** / **Default** instead of raw `default`. Shipped in valentus-theme **2.0.14+antora.3**; hub supplemental keeps curated component list + `in-site-nav-tree` helper. Dropped interim `.adt-doc-mast` z-index override from brand CSS (fixed upstream in 2.0.14).
 
