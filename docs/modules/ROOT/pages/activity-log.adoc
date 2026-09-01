@@ -9,6 +9,8 @@ This page is the org-wide changelog: significant documentation and project activ
 
 === September
 
+* **2026-09-01 — DevCentr Activity Log retired** — Removed duplicate DevCentr component activity log from nav; xref:DevCentr:ROOT:activity-log.adoc[stub] redirects here (org-wide) and xref:DevCentr:ROOT:changelog.adoc[DevCentr Changelog]. xref:where-docs-live.adoc#timelines-activity-log-vs-changelog[Timelines] documents the split.
+* **2026-09-01 — Activity log search keywords** — Home activity log: `:keywords:` for changelog-style Lunr queries; intro clarifies org-wide changelog vs per-component changelogs.
 * **2026-09-01 — Diátaxis nav typology icons (fix)** — Hub supplemental helpers now detect Diátaxis buckets from URL paths unconditionally (`/tutorials/`, `/how-to/`, …), honor build-time `navTypology` when present, and render SVG sprites via helpers so `uiRootPath` resolves correctly (inline `uiRootPath` partial had been emitting broken `/img/…` hrefs). Playbook `site.keys.nav_typology_diataxis` set explicitly.
 * **2026-09-01 — Nav typology label cleanup** — DevCentr nav partials: drop `.Label` dotted lines (rendered as literal `.Features` / `.Reference` in sidebar); use plain unlinked parents + SVG typology icons. Secrets Manager: Overview and Architecture as direct links (no `.Overview & design` wrapper). Hub supplemental: typology helpers tolerate legacy leading-dot labels; strip helper removes nav dot prefix.
 * **2026-09-01 — Changelog nav typology** — `@antora-supplemental/nav-typology` v0.1.2: changelog / activity-log icon + auto-hoist to second slot in each nav branch; hub supplemental UI + DevCentr nav source updated.

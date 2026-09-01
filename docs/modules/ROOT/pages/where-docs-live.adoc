@@ -26,6 +26,23 @@ This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/
 
 Org-wide roadmap and activity log live here in the **docs** repo so they stay in one place across all projects. Repo-specific task lists (e.g. devcentr's root `TODO.adoc`) remain in each repository for day-to-day work; the central xref:todo-roadmap.adoc[Todo & Roadmap] summarizes themes and the xref:activity-log.adoc[Activity log] records notable updates.
 
+== Timelines: activity log vs changelog
+[#timelines-activity-log-vs-changelog]
+
+[cols="1,2",options="header"]
+|===
+| Page | Scope
+
+| xref:activity-log.adoc[Home · Activity Log]
+| Org-wide digest across all hub projects (canonical).
+
+| `{component}/changelog` (e.g. xref:DevCentr:ROOT:changelog.adoc[DevCentr Changelog])
+| Per-component app and docs shipping notes.
+
+| DevCentr `activity-log.adoc`
+| Retired — redirect stub only; do not add entries there.
+|===
+
 == Navigation vs component selector
 
 The site uses **two different mechanisms** that are easy to confuse:
