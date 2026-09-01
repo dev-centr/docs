@@ -1,5 +1,7 @@
 'use strict'
 
+const { resolveTypologyId } = require('./nav-typology-resolve')
+
 const TYPOLOGIES = {
   'component-root': { id: 'component-root', spriteId: 'icon-component-root', label: 'Component' },
   'spec-component': { id: 'spec-component', spriteId: 'icon-spec-component', label: 'Component spec' },
@@ -19,65 +21,32 @@ const TYPOLOGIES = {
   },
 }
 
-function normalizeUrl (url) {
-  if (url == null || url === '') return ''
-  let u = String(url).split(/[?#]/)[0].toLowerCase()
-  u = u.replace(/\/index\.html$/i, '/')
-  if (u.length > 1) u = u.replace(/\/+$/, '') || '/'
-  return u
-}
-
-function diataxisTitleDetectionEnabled ({ data } = {}) {
+function diataxisEnabled ({ data } = {}) {
   const keys = (data && data.root && data.root.site && data.root.site.keys) || {}
   return keys.nav_typology_diataxis === 'true' || keys.nav_typology === 'true'
 }
 
-function detectDiataxisFromUrl (url) {
-  if (/\/tutorials(\/|$)/.test(url)) return 'diataxis-tutorial'
-  if (/\/how-to(\/|$)/.test(url)) return 'diataxis-howto'
-  if (/\/reference(\/|$)/.test(url)) return 'diataxis-reference'
-  if (/\/explanation(\/|$)/.test(url)) return 'diataxis-explanation'
-  return null
-}
-
-function isComponentRoot (item, options = {}) {
-  if (!item || typeof item !== 'object') return false
-  if (item.navTypology?.id === 'component-root') return true
-  const level = options.hash?.level ?? 0
-  const depth = Number(level) || 0
-  return depth === 0 && item.url && Array.isArray(item.items) && item.items.length > 0
-}
-
-function resolveTypologyId (item, options = {}) {
+function resolveId (item, options = {}) {
   if (!item || typeof item !== 'object') return ''
-  if (isComponentRoot(item, options)) return ''
-  if (item.navTypology?.id) return item.navTypology.id
 
   const level = options.hash?.level ?? 0
   const depth = Number(level) || 0
-  const url = normalizeUrl(item.url)
-  const text = String(item.content || '').toLowerCase()
-  const diataxisTitles = diataxisTitleDetectionEnabled(options)
+  const parentTypologyId = options.hash?.parentTypologyId || ''
+  const diataxis = diataxisEnabled(options)
 
   let id = null
-  if (/\/changelog(\/|$)/.test(url) || /\/activity-log(\/|$)/.test(url) || /^\.?\s*changelog\b/.test(text) || text === 'activity log') {
-    id = 'changelog'
+  if (depth === 0 && item.url && Array.isArray(item.items) && item.items.length) {
+    id = 'component-root'
   } else {
-    id = detectDiataxisFromUrl(url)
-    if (!id && diataxisTitles) {
-      if (/^\.?\s*tutorials\b/.test(text)) id = 'diataxis-tutorial'
-      else if (/^\.?\s*how-to/.test(text)) id = 'diataxis-howto'
-      else if (/^\.?\s*reference\b/.test(text)) id = 'diataxis-reference'
-      else if (/^\.?\s*explanation\b/.test(text)) id = 'diataxis-explanation'
-    }
-  }
-
-  if (!id) {
-    if (/^\.?\s*components\b/i.test(text) || /\/components\//.test(url)) id = 'spec-component'
-    else if (/^\.?\s*features\b/i.test(text) || /\/features\//.test(url)) id = 'spec-feature'
+    id = resolveTypologyId(item, {
+      depth,
+      parentTypologyId,
+      diataxisEnabled: diataxis,
+      skipBuildFallback: false,
+    })
   }
 
   return id && TYPOLOGIES[id] ? id : ''
 }
 
-module.exports = (item, options = {}) => resolveTypologyId(item, options)
+module.exports = (item, options = {}) => resolveId(item, options)

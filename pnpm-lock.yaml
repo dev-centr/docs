@@ -23,13 +23,13 @@ importers:
     devDependencies:
       '@antora-supplemental/build-stack':
         specifier: github:antora-supplemental/build-stack#main
-        version: https://codeload.github.com/antora-supplemental/build-stack/tar.gz/6df2084b0d2095bb80209dabbb8dc12973d6c6c7(@antora/site-generator@3.1.14)
+        version: https://codeload.github.com/antora-supplemental/build-stack/tar.gz/84875b509693847d123c066d815af3269dd3054c(@antora/site-generator@3.1.14)
       '@antora-supplemental/nav-typology':
         specifier: github:antora-supplemental/nav-typology#main
-        version: https://codeload.github.com/antora-supplemental/nav-typology/tar.gz/2039884cc08c173aba83ba941dc53d74ca141faa(@antora/site-generator@3.1.14)
+        version: https://codeload.github.com/antora-supplemental/nav-typology/tar.gz/1ac1533b5b5f7c179296a1d8294595707f70075d(@antora/site-generator@3.1.14)
       '@antora-supplemental/nav-typology-diataxis':
         specifier: github:antora-supplemental/nav-typology-diataxis#main
-        version: https://codeload.github.com/antora-supplemental/nav-typology-diataxis/tar.gz/92e0eca1675bafedb19dffe3239b78a80de0d17d(@antora-supplemental/nav-typology@https://codeload.github.com/antora-supplemental/nav-typology/tar.gz/2039884cc08c173aba83ba941dc53d74ca141faa(@antora/site-generator@3.1.14))(@antora/site-generator@3.1.14)
+        version: https://codeload.github.com/antora-supplemental/nav-typology-diataxis/tar.gz/92e0eca1675bafedb19dffe3239b78a80de0d17d(@antora-supplemental/nav-typology@https://codeload.github.com/antora-supplemental/nav-typology/tar.gz/1ac1533b5b5f7c179296a1d8294595707f70075d(@antora/site-generator@3.1.14))(@antora/site-generator@3.1.14)
       '@antora-supplemental/site-nav-tree':
         specifier: github:antora-supplemental/site-nav-tree#main
         version: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/b714c865ee29c1856c30f48e280d438d7291a1f9(@antora/site-generator@3.1.14)
@@ -42,9 +42,9 @@ importers:
 
 packages:
 
-  '@antora-supplemental/build-stack@https://codeload.github.com/antora-supplemental/build-stack/tar.gz/6df2084b0d2095bb80209dabbb8dc12973d6c6c7':
-    resolution: {tarball: https://codeload.github.com/antora-supplemental/build-stack/tar.gz/6df2084b0d2095bb80209dabbb8dc12973d6c6c7}
-    version: 0.1.0
+  '@antora-supplemental/build-stack@https://codeload.github.com/antora-supplemental/build-stack/tar.gz/84875b509693847d123c066d815af3269dd3054c':
+    resolution: {tarball: https://codeload.github.com/antora-supplemental/build-stack/tar.gz/84875b509693847d123c066d815af3269dd3054c}
+    version: 0.1.2
     engines: {node: '>=18'}
     peerDependencies:
       '@antora/site-generator': '>=3.1.0'
@@ -57,9 +57,9 @@ packages:
       '@antora-supplemental/nav-typology': '>=0.1.0'
       '@antora/site-generator': '>=3.1.0'
 
-  '@antora-supplemental/nav-typology@https://codeload.github.com/antora-supplemental/nav-typology/tar.gz/2039884cc08c173aba83ba941dc53d74ca141faa':
-    resolution: {tarball: https://codeload.github.com/antora-supplemental/nav-typology/tar.gz/2039884cc08c173aba83ba941dc53d74ca141faa}
-    version: 0.1.2
+  '@antora-supplemental/nav-typology@https://codeload.github.com/antora-supplemental/nav-typology/tar.gz/1ac1533b5b5f7c179296a1d8294595707f70075d':
+    resolution: {tarball: https://codeload.github.com/antora-supplemental/nav-typology/tar.gz/1ac1533b5b5f7c179296a1d8294595707f70075d}
+    version: 0.1.3
     engines: {node: '>=18'}
     peerDependencies:
       '@antora/site-generator': '>=3.1.0'
@@ -809,16 +809,16 @@ packages:
 
 snapshots:
 
-  '@antora-supplemental/build-stack@https://codeload.github.com/antora-supplemental/build-stack/tar.gz/6df2084b0d2095bb80209dabbb8dc12973d6c6c7(@antora/site-generator@3.1.14)':
+  '@antora-supplemental/build-stack@https://codeload.github.com/antora-supplemental/build-stack/tar.gz/84875b509693847d123c066d815af3269dd3054c(@antora/site-generator@3.1.14)':
     dependencies:
       '@antora/site-generator': 3.1.14
 
-  '@antora-supplemental/nav-typology-diataxis@https://codeload.github.com/antora-supplemental/nav-typology-diataxis/tar.gz/92e0eca1675bafedb19dffe3239b78a80de0d17d(@antora-supplemental/nav-typology@https://codeload.github.com/antora-supplemental/nav-typology/tar.gz/2039884cc08c173aba83ba941dc53d74ca141faa(@antora/site-generator@3.1.14))(@antora/site-generator@3.1.14)':
+  '@antora-supplemental/nav-typology-diataxis@https://codeload.github.com/antora-supplemental/nav-typology-diataxis/tar.gz/92e0eca1675bafedb19dffe3239b78a80de0d17d(@antora-supplemental/nav-typology@https://codeload.github.com/antora-supplemental/nav-typology/tar.gz/1ac1533b5b5f7c179296a1d8294595707f70075d(@antora/site-generator@3.1.14))(@antora/site-generator@3.1.14)':
     dependencies:
-      '@antora-supplemental/nav-typology': https://codeload.github.com/antora-supplemental/nav-typology/tar.gz/2039884cc08c173aba83ba941dc53d74ca141faa(@antora/site-generator@3.1.14)
+      '@antora-supplemental/nav-typology': https://codeload.github.com/antora-supplemental/nav-typology/tar.gz/1ac1533b5b5f7c179296a1d8294595707f70075d(@antora/site-generator@3.1.14)
       '@antora/site-generator': 3.1.14
 
-  '@antora-supplemental/nav-typology@https://codeload.github.com/antora-supplemental/nav-typology/tar.gz/2039884cc08c173aba83ba941dc53d74ca141faa(@antora/site-generator@3.1.14)':
+  '@antora-supplemental/nav-typology@https://codeload.github.com/antora-supplemental/nav-typology/tar.gz/1ac1533b5b5f7c179296a1d8294595707f70075d(@antora/site-generator@3.1.14)':
     dependencies:
       '@antora/site-generator': 3.1.14
 
