@@ -9,6 +9,7 @@ site:
     site_home_url: https://devcentr.org
     site_home_label: DevCentr home
     header_doc_title: DevCentr Docs
+    nav_typology_diataxis: 'true'
 urls:
   html_extension_style: indexify
 antora:
