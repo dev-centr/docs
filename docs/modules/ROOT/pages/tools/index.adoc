@@ -23,7 +23,7 @@ These tools are original works developed as part of this ecosystem.
 * xref:tools/equivalence-engine.adoc[Equivalence Engine]
 * xref:tools/uniconfig.adoc[UniConfig Config Panel]
 * xref:tools/uniprovider.adoc[UniProvider]
-* xref:tools/opr-directory.adoc[OPR Directory] (tentative)
+* xref:tools/opr-directory.adoc[OPR Directory]
 * xref:tools/toolchain-framework.adoc[Toolchain Framework]
 * xref:tools/resting-lanczos.adoc[resting-lanczos]
 * xref:tools/devcentr-org.adoc[devcentr.org]

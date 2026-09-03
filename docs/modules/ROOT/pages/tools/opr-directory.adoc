@@ -1,12 +1,12 @@
 = OPR Directory
 :navtitle: OPR Directory
-:description: Tentative online Open Provider Registry directory — skeleton only.
+:description: Online Open Provider Registry catalog — SolidStart on Netlify/Vercel.
 
-**OPR Directory** is a **tentative** hosted catalog where niche providers could self-register and apps could poll.
-It is **not** implemented yet. OpenAI-compat does not provide this layer.
+**OPR Directory** is the online catalog where niche providers self-register and apps poll.
+Stack: SolidStart SSR, Netlify (default) or Vercel, JSON file or Turso remote.
 
 * Status: link:https://github.com/dev-centr/opr-directory/blob/main/STATUS.adoc[STATUS.adoc]
 * Repo: link:https://github.com/dev-centr/opr-directory[dev-centr/opr-directory]
-* Planned host (unset): `providers.devcentr.org`
+* Planned host: `providers.devcentr.org` (point DNS when the Netlify/Vercel site is live)
 * Local sibling: xref:tools/uniprovider.adoc[UniProvider]
 * Catalog: link:https://devcentr.org/ideas/opr-directory[Apps / OPR Directory]

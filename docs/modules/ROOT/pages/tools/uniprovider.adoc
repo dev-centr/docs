@@ -7,6 +7,6 @@
 * Component: xref:uniprovider:ROOT:index.adoc[UniProvider documentation]
 * Spec: link:https://github.com/dev-centr/uniprovider/blob/main/spec/opr.md[OPR draft]
 * Repo: link:https://github.com/dev-centr/uniprovider[dev-centr/uniprovider]
-* Online directory (tentative): link:https://github.com/dev-centr/opr-directory[opr-directory]
+* Online directory: link:https://github.com/dev-centr/opr-directory[opr-directory] (SolidStart · Netlify/Vercel)
 * Encyclopedia: xref:general-knowledge::explanation/infrastructure/uniprovider.adoc[UniProvider / OPR]
 * Catalog: link:https://devcentr.org/ideas/uniprovider[Apps / UniProvider]
