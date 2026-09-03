@@ -114,6 +114,10 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../uniprovider
+      branches: HEAD
+      start_path: docs
+      worktrees: true
     - url: ../binary-tailor
       branches: HEAD
       start_path: docs

@@ -1,0 +1,12 @@
+= UniProvider
+:navtitle: UniProvider
+:description: Portal overview for local Open Provider Registry reference implementation.
+
+**UniProvider** implements the **Open Provider Registry (OPR)** on the machine: on-disk manifests, transitional well-known probes, and a localhost aggregator.
+
+* Component: xref:uniprovider:ROOT:index.adoc[UniProvider documentation]
+* Spec: link:https://github.com/dev-centr/uniprovider/blob/main/spec/opr.md[OPR draft]
+* Repo: link:https://github.com/dev-centr/uniprovider[dev-centr/uniprovider]
+* Online directory (tentative): link:https://github.com/dev-centr/opr-directory[opr-directory]
+* Encyclopedia: xref:general-knowledge::explanation/infrastructure/uniprovider.adoc[UniProvider / OPR]
+* Catalog: link:https://devcentr.org/ideas/uniprovider[Apps / UniProvider]
