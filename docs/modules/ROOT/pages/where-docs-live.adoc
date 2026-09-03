@@ -15,7 +15,10 @@ This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/
 * **easy-installer** (product **Ibex**) — Install Builder Extension: installer projects, in-place PATH, plugin ABI, shell hooks.
 * **msi-generator** — MSI/MSIX generator documentation (engine used by Ibex plugins).
 * **switchyard** — Windows file-association switchyard (snapshot / icon lock / file-router roles).
-* **issues-browser** — Forge metadata index/backup (GUI/CLI/daemon/tray); integrates with RepoDrive.
+* **issues-browser** — Forge metadata index/backup (GUI/CLI/daemon/tray); integrates with RepoDrive. Formerly `issue-tracker`.
+* **agent-rules** — Modular agent rules assembly (`RULES.md`, `general/`, `profiles/`, skills) for local AI coding assistants. xref:agent-rules::index.adoc[component] · xref:tools/agent-rules.adoc[portal].
+* **rules-manager** — Compose/watch daemon + tray for agent-rules. xref:rules-manager::index.adoc[component] · xref:tools/rules-manager.adoc[portal].
+* **ver** — Universal version-control interface (Git, SVN, Mercurial) — DUB library, CLI, and optional Qt GUI. xref:ver::index.adoc[component] · xref:tools/ver.adoc[portal].
 * **repo-drive** — Standalone virtual forge drive (GUI + tray + FUSE/WinFsp); sparse repos, schema, VCS toolbox.
 * **RepoLab** (Dev-Centr product, RepoLabs org) — Unified browser frontend for git hosts and VCS backends. Site: link:https://repolab.dev[repolab.dev]. Docs: link:https://docs.repolab.dev[docs.repolab.dev]. xref:tools/repolab.adoc[portal].
 * **connectome-fs** (partner org) — Graph-native filesystem substrate; docs live on link:https://connectome-fs.github.io/connectome-fs/[connectome-fs.github.io], not aggregated into this hub. Practitioner cross-links remain in general-knowledge.
