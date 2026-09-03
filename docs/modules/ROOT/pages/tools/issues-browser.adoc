@@ -1,7 +1,7 @@
 = Issues Browser
 :description: Portal stub for the issues-browser Antora component.
 
-Forge metadata backup: issues, PRs, and discussions into central SQLite archives. Offline browse via GUI/CLI; continuous monitoring with `issuesd` + tray.
+Forge metadata backup: issues, PRs, and discussions into central SQLite archives. Offline browse via GUI/CLI; continuous monitoring with `issuesd` + tray. Early wedge toward API-compatible consumer mirrors of forge correspondence (see link:https://docs.devcentr.org/general-knowledge/explanation/internet-architecture/provider-search-and-mirror-backups.html[Provider search and mirror backups]).
 
 Full component docs::
 xref:issues-browser::index.adoc[Issues Browser]
