@@ -1,0 +1,69 @@
+{
+  "$schema": "https://docs.devcentr.org/themed-svg/schemas/themed-svg-manifest-v1.schema.json",
+  "schemaVersion": 1,
+  "namespace": "nav-typology",
+  "source": { "kind": "diagram-generator", "uri": "nav-typology.mmd", "generator": "mermaid" },
+  "tokens": [
+    { "id": "color.canvas", "description": "Diagram canvas" },
+    { "id": "color.surface.primary", "description": "Neutral node" },
+    { "id": "color.surface.success", "description": "Preferred structure" },
+    { "id": "color.surface.danger", "description": "Anti-pattern structure" },
+    { "id": "color.text.primary", "description": "Primary text" },
+    { "id": "color.text.success", "description": "Preferred text" },
+    { "id": "color.text.danger", "description": "Anti-pattern text" },
+    { "id": "color.border.primary", "description": "Neutral borders" },
+    { "id": "color.status.success", "description": "Preferred borders" },
+    { "id": "color.status.danger", "description": "Anti-pattern borders" },
+    { "id": "color.edge", "description": "Navigation relationships" },
+    { "id": "color.edge.label", "description": "Relationship label" }
+  ],
+  "defaultPreset": "light",
+  "presets": {
+    "light": {
+      "color.canvas": "#f3f1ec",
+      "color.surface.primary": "#ffffff",
+      "color.surface.success": "#e4efe6",
+      "color.surface.danger": "#fde8e8",
+      "color.text.primary": "#1a1a1a",
+      "color.text.success": "#10261c",
+      "color.text.danger": "#4c1717",
+      "color.border.primary": "#2c3e5a",
+      "color.status.success": "#1f3a2e",
+      "color.status.danger": "#7a2e2e",
+      "color.edge": "#2c3e5a",
+      "color.edge.label": "#2c3e5a"
+    },
+    "dark": {
+      "color.canvas": "#17191d",
+      "color.surface.primary": "#25282e",
+      "color.surface.success": "#183629",
+      "color.surface.danger": "#471f24",
+      "color.text.primary": "#f5f5f4",
+      "color.text.success": "#d1fae5",
+      "color.text.danger": "#fee2e2",
+      "color.border.primary": "#94a3b8",
+      "color.status.success": "#6ee7b7",
+      "color.status.danger": "#fca5a5",
+      "color.edge": "#cbd5e1",
+      "color.edge.label": "#e2e8f0"
+    }
+  },
+  "bindings": [
+    { "kind": "presentation", "selector": ".background", "attribute": "fill", "token": "color.canvas" },
+    { "kind": "presentation", "selector": ".cluster > rect", "attribute": "fill", "token": "color.canvas" },
+    { "kind": "presentation", "selector": ".neutral rect", "attribute": "fill", "token": "color.surface.primary" },
+    { "kind": "presentation", "selector": ".good rect", "attribute": "fill", "token": "color.surface.success" },
+    { "kind": "presentation", "selector": ".bad rect", "attribute": "fill", "token": "color.surface.danger" },
+    { "kind": "presentation", "selector": ".cluster-label text, .cluster-label tspan, .neutral text, .neutral tspan", "attribute": "fill", "token": "color.text.primary" },
+    { "kind": "presentation", "selector": ".good text, .good tspan", "attribute": "fill", "token": "color.text.success" },
+    { "kind": "presentation", "selector": ".bad text, .bad tspan", "attribute": "fill", "token": "color.text.danger" },
+    { "kind": "presentation", "selector": ".neutral > rect, .cluster > rect", "attribute": "stroke", "token": "color.border.primary" },
+    { "kind": "presentation", "selector": ".good > rect", "attribute": "stroke", "token": "color.status.success" },
+    { "kind": "presentation", "selector": ".bad > rect", "attribute": "stroke", "token": "color.status.danger" },
+    { "kind": "presentation", "selector": ".flowchart-link", "attribute": "stroke", "token": "color.edge" },
+    { "kind": "presentation", "selector": ".marker path, .marker polygon", "attribute": "fill", "token": "color.edge" },
+    { "kind": "presentation", "selector": ".marker path, .marker polygon", "attribute": "stroke", "token": "color.edge" },
+    { "kind": "presentation", "selector": ".edgeLabel text, .edgeLabel tspan", "attribute": "fill", "token": "color.edge.label" }
+  ],
+  "fallback": { "unresolvedToken": "error", "missingTarget": "warn" }
+}

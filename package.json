@@ -8,15 +8,26 @@
   "scripts": {
     "build": "antora antora-playbook-local.yml",
     "build:online": "antora --fetch antora-playbook.yml",
-    "build:testing": "antora antora-playbook.testing.yml"
+    "build:testing": "antora antora-playbook.testing.yml",
+    "diagrams:generate": "node scripts/generate-themed-diagrams.mjs && node scripts/sync-themed-svg-runtime.mjs",
+    "diagrams:check": "node scripts/generate-themed-diagrams.mjs --check && node scripts/sync-themed-svg-runtime.mjs --check",
+    "themed-svg:runtime": "node scripts/sync-themed-svg-runtime.mjs"
   },
   "packageManager": "pnpm@10.28.1+sha512.7d7dbbca9e99447b7c3bf7a73286afaaf6be99251eb9498baefa7d406892f67b879adb3a1d7e687fc4ccc1a388c7175fbaae567a26ab44d1067b54fcb0d6a316",
   "devDependencies": {
+    "@antora-supplemental/build-stack": "github:antora-supplemental/build-stack#main",
     "@antora-supplemental/nav-typology": "github:antora-supplemental/nav-typology#main",
     "@antora-supplemental/nav-typology-diataxis": "github:antora-supplemental/nav-typology-diataxis#main",
     "@antora-supplemental/site-nav-tree": "github:antora-supplemental/site-nav-tree#main",
-    "@antora-supplemental/build-stack": "github:antora-supplemental/build-stack#main",
     "@biomejs/biome": "^2.3.11",
+    "@dev-centr/mermaid-svg-css-vars": "0.1.2",
+    "@dev-centr/themed-svg": "0.1.1",
+    "@mermaid-js/mermaid-cli": "11.17.0",
     "antora": "^3.1.14"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "puppeteer"
+    ]
   }
 }

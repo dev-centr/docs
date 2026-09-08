@@ -1,0 +1,36 @@
+flowchart LR
+  accTitle: Antora nav typology
+  accDescr: One component should use one nav tree with include directives. Multiple nav files create parallel sibling trees under site-nav-tree roots.
+
+  subgraph preferred["Preferred: one component, one nav tree"]
+    direction TB
+    root["Component root (site-nav-tree)<br/>DevCentr"]
+    specs["Specifications (linked parent)<br/>Components / pages"]
+    secrets["Secrets Manager (linked parent)<br/>Overview and design / pages"]
+    guidance["include::module$nav.adoc[] under parent<br/>Single antora.yml nav entry"]
+    root --> specs
+    root --> secrets
+    specs --> guidance
+    secrets --> guidance
+  end
+
+  subgraph antipattern["Anti-pattern: multiple nav files"]
+    direction TB
+    navlist["nav: [ROOT, specifications, secrets-manager, ...]"]
+    treeA["parallel tree A (product pages)"]
+    treeB["parallel tree B (all spec pages flat)"]
+    treeC["parallel tree C (Overview and design)"]
+    result["Sections look like DevCentr IA but belong to Secrets Manager<br/>Clicking a spec link hides tree A (collapse swap)"]
+    navlist --> treeA
+    navlist --> treeB
+    navlist --> treeC
+    treeA --> result
+    treeB --> result
+    treeC --> result
+  end
+
+  preferred -- prefer --> antipattern
+
+  class root,navlist neutral
+  class specs,secrets,guidance good
+  class treeA,treeB,treeC,result bad

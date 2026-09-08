@@ -201,3 +201,25 @@ html.dark-theme .doc .admonitionblock td.content code {
     transition: none !important;
   }
 }
+
+/*
+ * Host-mode diagram palette. The runtime inlines only marked figures, so these
+ * variables cross the former <img> boundary and follow Valentus' manual theme.
+ */
+:root {
+  --themed-svg-nav-typology-color-canvas: var(--adt-canvas, #f3f1ec);
+  --themed-svg-nav-typology-color-surface-primary: var(--adt-elevated, #ffffff);
+  --themed-svg-nav-typology-color-text-primary: var(--adt-ink, #1a1a1a);
+  --themed-svg-nav-typology-color-border-primary: var(--adt-border, #2c3e5a);
+  --themed-svg-nav-typology-color-edge: var(--adt-ink-muted, #2c3e5a);
+  --themed-svg-nav-typology-color-edge-label: var(--adt-ink-muted, #2c3e5a);
+}
+
+html.dark-theme {
+  --themed-svg-nav-typology-color-surface-success: #183629;
+  --themed-svg-nav-typology-color-surface-danger: #471f24;
+  --themed-svg-nav-typology-color-text-success: #d1fae5;
+  --themed-svg-nav-typology-color-text-danger: #fee2e2;
+  --themed-svg-nav-typology-color-status-success: #6ee7b7;
+  --themed-svg-nav-typology-color-status-danger: #fca5a5;
+}
