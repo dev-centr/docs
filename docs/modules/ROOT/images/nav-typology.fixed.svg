@@ -19,29 +19,29 @@
   </defs>
   <rect class="bg" width="760" height="420"/>
   <text class="label" x="28" y="26">NAV TYPOLOGY</text>
-  <text class="t" x="28" y="52" font-size="20">One component, one tree - includes nest modules</text>
+  <text class="t" x="28" y="52" font-size="20">One component, one tree -- includes nest modules</text>
 
   <rect class="neutral" x="40" y="78" width="300" height="300" rx="8"/>
   <text class="t" x="56" y="108" font-size="16">Component root (site-nav-tree)</text>
   <text class="s" x="56" y="132">DevCentr</text>
   <rect class="good" x="68" y="148" width="244" height="52" rx="4"/>
   <text class="s" x="80" y="170">* Specifications (linked parent)</text>
-  <text class="s" x="92" y="188">** Components - pages</text>
+  <text class="s" x="92" y="188">** Components -&gt; pages</text>
   <rect class="good" x="68" y="212" width="244" height="52" rx="4"/>
   <text class="s" x="80" y="234">* Secrets Manager (linked parent)</text>
-  <text class="s" x="92" y="252">** Overview &amp; design - pages</text>
+  <text class="s" x="92" y="252">** Overview &amp; design -&gt; pages</text>
   <text class="s" x="56" y="290">include::module$nav.adoc[] under parent</text>
   <text class="s" x="56" y="308">Single antora.yml nav entry</text>
 
   <rect class="bad" x="400" y="78" width="320" height="300" rx="8"/>
   <text class="t" x="416" y="108" font-size="16">Anti-pattern: multi-nav files</text>
-  <text class="s" x="416" y="132">nav: [ROOT, specifications, secrets-manager, &amp;]</text>
+  <text class="s" x="416" y="132">nav: [ROOT, specifications, secrets-manager, ...]</text>
   <rect class="bad" x="428" y="148" width="264" height="40" rx="4"/>
   <text class="s" x="440" y="172">parallel tree A (product pages)</text>
   <rect class="bad" x="428" y="198" width="264" height="40" rx="4"/>
   <text class="s" x="440" y="222">parallel tree B (all spec pages flat)</text>
   <rect class="bad" x="428" y="248" width="264" height="40" rx="4"/>
-  <text class="s" x="440" y="272">parallel tree C (.Overview &amp; design&amp;)</text>
+  <text class="s" x="440" y="272">parallel tree C (Overview &amp; design)</text>
   <text class="s" x="416" y="318">Sections look like DevCentr IA but belong to Secrets Manager</text>
   <text class="s" x="416" y="336">Clicking a spec link hides tree A (collapse swap)</text>
 
