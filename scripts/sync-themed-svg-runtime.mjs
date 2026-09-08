@@ -1,5 +1,4 @@
-import { readFile } from 'node:fs/promises'
-import { copyFile, mkdir } from 'node:fs/promises'
+import { copyFile, mkdir, readFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 
 const source = resolve('node_modules/@dev-centr/themed-svg/browser/themed-svg-element.js')
