@@ -2,3 +2,4 @@
 # See https://docs.antora.org/antora/latest/playbook/ui-supplemental-files/#static-files
 static_files:
   - CNAME
+  - robots.txt
