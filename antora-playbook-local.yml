@@ -50,6 +50,10 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../themed-svg-studio
+      branches: HEAD
+      start_path: docs
+      worktrees: true
     - url: ../templates
       branches: HEAD
       start_path: docs
