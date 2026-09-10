@@ -205,8 +205,35 @@ html.dark-theme .doc .admonitionblock td.content code {
 /*
  * Host-mode diagram palette. The runtime inlines only marked figures, so these
  * variables cross the former <img> boundary and follow Valentus' manual theme.
+ * Namespace `diagram` is the default for general-knowledge (and most) figures;
+ * `nav-typology` is the docs-hub sample under publishing/.
  */
 :root {
+  --themed-svg-diagram-color-canvas: var(--adt-canvas, #f3f1ec);
+  --themed-svg-diagram-color-surface-primary: var(--adt-elevated, #ffffff);
+  --themed-svg-diagram-color-surface-secondary: color-mix(
+    in srgb,
+    var(--adt-accent, #178f80) 14%,
+    var(--adt-elevated, #ffffff)
+  );
+  --themed-svg-diagram-color-text-primary: var(--adt-ink, #1a1a1a);
+  --themed-svg-diagram-color-border-primary: var(--adt-border, #2c2c2c);
+  --themed-svg-diagram-color-edge: var(--adt-ink-muted, #2c2c2c);
+  --themed-svg-diagram-color-accent-primary: var(--adt-accent, #178f80);
+  --themed-svg-diagram-color-accent-on-primary: #f7f3e8;
+  --themed-svg-diagram-color-status-warning: color-mix(
+    in srgb,
+    var(--adt-admonition-warning, #d97706) 14%,
+    var(--adt-elevated, #ffffff)
+  );
+  --themed-svg-diagram-color-status-warning-border: var(--adt-admonition-warning, #d97706);
+  --themed-svg-diagram-color-status-danger: color-mix(
+    in srgb,
+    var(--adt-admonition-important, #dc2626) 14%,
+    var(--adt-elevated, #ffffff)
+  );
+  --themed-svg-diagram-color-status-danger-border: var(--adt-admonition-important, #dc2626);
+
   --themed-svg-nav-typology-color-canvas: var(--adt-canvas, #f3f1ec);
   --themed-svg-nav-typology-color-surface-primary: var(--adt-elevated, #ffffff);
   --themed-svg-nav-typology-color-text-primary: var(--adt-ink, #1a1a1a);
@@ -216,6 +243,12 @@ html.dark-theme .doc .admonitionblock td.content code {
 }
 
 html.dark-theme {
+  --themed-svg-diagram-color-accent-on-primary: #071512;
+  --themed-svg-diagram-color-status-warning: #4a3e24;
+  --themed-svg-diagram-color-status-warning-border: #d5b866;
+  --themed-svg-diagram-color-status-danger: #542d2d;
+  --themed-svg-diagram-color-status-danger-border: #e99a9a;
+
   --themed-svg-nav-typology-color-surface-success: #183629;
   --themed-svg-nav-typology-color-surface-danger: #471f24;
   --themed-svg-nav-typology-color-text-success: #d1fae5;
