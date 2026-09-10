@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@antora-supplemental/page-context": "github:antora-supplemental/page-context#v0.6.0",
+    "@antora-supplemental/page-context": "github:antora-supplemental/page-context#v0.6.1",
     "@antora/lunr-extension": "^1.0.0-alpha.13",
     "@chenglou/pretext": "^0.0.4",
     "asciidoctor-kroki": "^0.18.1"
@@ -18,7 +18,7 @@
     "@antora-supplemental/build-stack": "github:antora-supplemental/build-stack#main",
     "@antora-supplemental/nav-typology": "github:antora-supplemental/nav-typology#main",
     "@antora-supplemental/nav-typology-diataxis": "github:antora-supplemental/nav-typology-diataxis#main",
-    "@antora-supplemental/page-edit": "github:antora-supplemental/page-edit#v0.2.0",
+    "@antora-supplemental/page-edit": "github:antora-supplemental/page-edit#v0.2.1",
     "@antora-supplemental/site-nav-tree": "github:antora-supplemental/site-nav-tree#main",
     "@biomejs/biome": "^2.3.11",
     "@dev-centr/mermaid-svg-css-vars": "0.1.3",
