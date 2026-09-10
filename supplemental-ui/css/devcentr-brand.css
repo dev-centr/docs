@@ -240,6 +240,47 @@ html.dark-theme .doc .admonitionblock td.content code {
   --themed-svg-nav-typology-color-border-primary: var(--adt-border, #2c3e5a);
   --themed-svg-nav-typology-color-edge: var(--adt-ink-muted, #2c3e5a);
   --themed-svg-nav-typology-color-edge-label: var(--adt-ink-muted, #2c3e5a);
+
+  /* agent-rules component diagrams */
+  --themed-svg-rules-geography-color-canvas: var(--adt-canvas, #f8fafc);
+  --themed-svg-rules-geography-color-surface-primary: var(--adt-elevated, #ffffff);
+  --themed-svg-rules-geography-color-surface-shared: #e8f0ea;
+  --themed-svg-rules-geography-color-surface-personal: #f3ebe3;
+  --themed-svg-rules-geography-color-surface-machine: #e8eef4;
+  --themed-svg-rules-geography-color-surface-warning: #fff7ed;
+  --themed-svg-rules-geography-color-text-primary: var(--adt-ink, #0f172a);
+  --themed-svg-rules-geography-color-border-primary: var(--adt-border, #475569);
+  --themed-svg-rules-geography-color-edge: var(--adt-ink-muted, #475569);
+  --themed-svg-rules-geography-color-edge-label: var(--adt-ink-muted, #334155);
+
+  --themed-svg-agent-cli-auth-color-canvas: var(--adt-canvas, #f8fafc);
+  --themed-svg-agent-cli-auth-color-surface-operator: #e2e8f0;
+  --themed-svg-agent-cli-auth-color-surface-store: #dbeafe;
+  --themed-svg-agent-cli-auth-color-surface-entry: #dcfce7;
+  --themed-svg-agent-cli-auth-color-surface-cli: #fef3c7;
+  --themed-svg-agent-cli-auth-color-surface-stamps: var(--adt-elevated, #ffffff);
+  --themed-svg-agent-cli-auth-color-text-primary: var(--adt-ink, #0f172a);
+  --themed-svg-agent-cli-auth-color-border-primary: var(--adt-border, #475569);
+  --themed-svg-agent-cli-auth-color-edge: var(--adt-ink-muted, #334155);
+
+  /* uniconfig component diagrams */
+  --themed-svg-uniconfig-layers-color-canvas: var(--adt-canvas, #f4f1eb);
+  --themed-svg-uniconfig-layers-color-surface-panel: #ece8e1;
+  --themed-svg-uniconfig-layers-color-surface-meaning: #2c4f4b;
+  --themed-svg-uniconfig-layers-color-surface-storage: #1c1c1e;
+  --themed-svg-uniconfig-layers-color-text-primary: var(--adt-ink, #1c1c1e);
+  --themed-svg-uniconfig-layers-color-text-inverse: #ece8e1;
+  --themed-svg-uniconfig-layers-color-border-primary: var(--adt-border, #1c1c1e);
+  --themed-svg-uniconfig-layers-color-edge: #4b7f7a;
+
+  --themed-svg-uniconfig-schema-minus-instance-color-canvas: var(--adt-canvas, #f4f1eb);
+  --themed-svg-uniconfig-schema-minus-instance-color-surface-instance: var(--adt-elevated, #ffffff);
+  --themed-svg-uniconfig-schema-minus-instance-color-surface-panel: #ece8e1;
+  --themed-svg-uniconfig-schema-minus-instance-color-text-primary: var(--adt-ink, #1c1c1e);
+  --themed-svg-uniconfig-schema-minus-instance-color-text-muted: #4a4742;
+  --themed-svg-uniconfig-schema-minus-instance-color-border-primary: var(--adt-border, #1c1c1e);
+  --themed-svg-uniconfig-schema-minus-instance-color-edge: #4b7f7a;
+  --themed-svg-uniconfig-schema-minus-instance-color-edge-label: var(--adt-canvas, #f4f1eb);
 }
 
 html.dark-theme {
@@ -255,4 +296,44 @@ html.dark-theme {
   --themed-svg-nav-typology-color-text-danger: #fee2e2;
   --themed-svg-nav-typology-color-status-success: #6ee7b7;
   --themed-svg-nav-typology-color-status-danger: #fca5a5;
+
+  /* agent-rules + uniconfig (component diagrams on this hub) */
+  --themed-svg-rules-geography-color-canvas: var(--adt-canvas, #111827);
+  --themed-svg-rules-geography-color-surface-primary: var(--adt-elevated, #1f2937);
+  --themed-svg-rules-geography-color-surface-shared: #17352b;
+  --themed-svg-rules-geography-color-surface-personal: #422c24;
+  --themed-svg-rules-geography-color-surface-machine: #172f4d;
+  --themed-svg-rules-geography-color-surface-warning: #431f14;
+  --themed-svg-rules-geography-color-text-primary: var(--adt-ink, #f8fafc);
+  --themed-svg-rules-geography-color-border-primary: var(--adt-border, #94a3b8);
+  --themed-svg-rules-geography-color-edge: var(--adt-ink-muted, #cbd5e1);
+  --themed-svg-rules-geography-color-edge-label: var(--adt-ink, #e2e8f0);
+
+  --themed-svg-agent-cli-auth-color-canvas: var(--adt-canvas, #0f172a);
+  --themed-svg-agent-cli-auth-color-surface-operator: #334155;
+  --themed-svg-agent-cli-auth-color-surface-store: #17375e;
+  --themed-svg-agent-cli-auth-color-surface-entry: #17452d;
+  --themed-svg-agent-cli-auth-color-surface-cli: #4b3513;
+  --themed-svg-agent-cli-auth-color-surface-stamps: var(--adt-elevated, #1e293b);
+  --themed-svg-agent-cli-auth-color-text-primary: var(--adt-ink, #f8fafc);
+  --themed-svg-agent-cli-auth-color-border-primary: var(--adt-border, #94a3b8);
+  --themed-svg-agent-cli-auth-color-edge: var(--adt-ink-muted, #cbd5e1);
+
+  --themed-svg-uniconfig-layers-color-canvas: var(--adt-canvas, #111315);
+  --themed-svg-uniconfig-layers-color-surface-panel: #292b2e;
+  --themed-svg-uniconfig-layers-color-surface-meaning: #315d57;
+  --themed-svg-uniconfig-layers-color-surface-storage: #08090a;
+  --themed-svg-uniconfig-layers-color-text-primary: var(--adt-ink, #f2eee7);
+  --themed-svg-uniconfig-layers-color-text-inverse: #f2eee7;
+  --themed-svg-uniconfig-layers-color-border-primary: var(--adt-border, #c8c3bb);
+  --themed-svg-uniconfig-layers-color-edge: #78aaa4;
+
+  --themed-svg-uniconfig-schema-minus-instance-color-canvas: var(--adt-canvas, #111315);
+  --themed-svg-uniconfig-schema-minus-instance-color-surface-instance: #202225;
+  --themed-svg-uniconfig-schema-minus-instance-color-surface-panel: #292b2e;
+  --themed-svg-uniconfig-schema-minus-instance-color-text-primary: var(--adt-ink, #f2eee7);
+  --themed-svg-uniconfig-schema-minus-instance-color-text-muted: #d0cbc3;
+  --themed-svg-uniconfig-schema-minus-instance-color-border-primary: var(--adt-border, #c8c3bb);
+  --themed-svg-uniconfig-schema-minus-instance-color-edge: #78aaa4;
+  --themed-svg-uniconfig-schema-minus-instance-color-edge-label: var(--adt-canvas, #111315);
 }
