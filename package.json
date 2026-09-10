@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@antora-supplemental/page-context": "github:antora-supplemental/page-context#v0.6.1",
+    "@antora-supplemental/page-context": "github:antora-supplemental/page-context#v0.6.3",
     "@antora/lunr-extension": "^1.0.0-alpha.13",
     "@chenglou/pretext": "^0.0.4",
     "asciidoctor-kroki": "^0.18.1"

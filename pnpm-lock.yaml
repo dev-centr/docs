@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@antora-supplemental/page-context':
-        specifier: github:antora-supplemental/page-context#v0.6.1
-        version: https://codeload.github.com/antora-supplemental/page-context/tar.gz/2d06d0eff10faf5c809ce935e5c3f0ae3bca10a1(@antora/site-generator@3.1.14)
+        specifier: github:antora-supplemental/page-context#v0.6.3
+        version: https://codeload.github.com/antora-supplemental/page-context/tar.gz/c8bb76328441151699bfc2bfb80a56e2d20a8811(@antora/site-generator@3.1.14)
       '@antora/lunr-extension':
         specifier: ^1.0.0-alpha.13
         version: 1.0.0-alpha.13
@@ -79,9 +79,9 @@ packages:
     peerDependencies:
       '@antora/site-generator': '>=3.1.0'
 
-  '@antora-supplemental/page-context@https://codeload.github.com/antora-supplemental/page-context/tar.gz/2d06d0eff10faf5c809ce935e5c3f0ae3bca10a1':
-    resolution: {tarball: https://codeload.github.com/antora-supplemental/page-context/tar.gz/2d06d0eff10faf5c809ce935e5c3f0ae3bca10a1}
-    version: 0.6.1
+  '@antora-supplemental/page-context@https://codeload.github.com/antora-supplemental/page-context/tar.gz/c8bb76328441151699bfc2bfb80a56e2d20a8811':
+    resolution: {tarball: https://codeload.github.com/antora-supplemental/page-context/tar.gz/c8bb76328441151699bfc2bfb80a56e2d20a8811}
+    version: 0.6.3
     engines: {node: '>=18'}
     peerDependencies:
       '@antora/site-generator': '>=3.1.0'
@@ -1693,7 +1693,7 @@ snapshots:
     dependencies:
       '@antora/site-generator': 3.1.14
 
-  '@antora-supplemental/page-context@https://codeload.github.com/antora-supplemental/page-context/tar.gz/2d06d0eff10faf5c809ce935e5c3f0ae3bca10a1(@antora/site-generator@3.1.14)':
+  '@antora-supplemental/page-context@https://codeload.github.com/antora-supplemental/page-context/tar.gz/c8bb76328441151699bfc2bfb80a56e2d20a8811(@antora/site-generator@3.1.14)':
     optionalDependencies:
       '@antora/site-generator': 3.1.14
 
