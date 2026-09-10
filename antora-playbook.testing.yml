@@ -36,6 +36,7 @@ antora:
     - require: '@antora-supplemental/nav-typology'
     - require: '@antora-supplemental/nav-typology-diataxis'
     - '@antora-supplemental/build-stack'
+    - '@antora-supplemental/page-edit'
 content:
   sources:
     - url: .
