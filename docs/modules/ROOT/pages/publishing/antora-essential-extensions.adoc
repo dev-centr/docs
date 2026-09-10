@@ -63,7 +63,7 @@ Antora allows multiple `nav:` entries in `antora.yml`. Each file becomes a **sep
 [.themed-svg]
 image::nav-typology.svg[Nav typology: single tree with includes vs parallel multi-nav trees,width=760]
 
-Hub companion JS (`supplemental-ui/js/site-nav-tree-current.js`) keeps all depth-1 branches under an active component root expanded as a guard until legacy components finish migrating. In-doc link crossfade + scroll preservation: `supplemental-ui/js/site-doc-nav.js`.
+Hub companion JS (`supplemental-ui/js/site-nav-tree-current.js`) prefers the deepest `is-current-page`, expands only that ancestry (`is-current-path`), and restores other open trees from `sessionStorage` across navigations. In-doc link crossfade + scroll preservation: `supplemental-ui/js/site-doc-nav.js`.
 
 *Upstream note for `@antora-supplemental/site-nav-tree`:* multi-nav concatenation behavior is documented in the extension README (hub diagram: `nav-typology.svg` above).
 
