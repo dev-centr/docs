@@ -1,5 +1,9 @@
 = Changelog
 
+== 2026-09-10 -- Dark-mode Mermaid diagram box fills
+
+* Bumped `@dev-centr/themed-svg` to **0.2.3** and regenerated themed diagrams / vendor runtime so node fills follow host dark mode (no light boxes under light text).
+
 == 2026-09-10 -- Publish robots.txt with sitemap
 
 * Antora `site.robots` now emits `/robots.txt` with an absolute `Sitemap:` line for `https://docs.devcentr.org`.

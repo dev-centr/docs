@@ -35,7 +35,7 @@ importers:
         version: https://codeload.github.com/antora-supplemental/page-edit/tar.gz/81ef53e02c3bb7809ba866ca9f000a61067aceb9(@antora/site-generator@3.1.14)
       '@antora-supplemental/site-nav-tree':
         specifier: github:antora-supplemental/site-nav-tree#main
-        version: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/b714c865ee29c1856c30f48e280d438d7291a1f9(@antora/site-generator@3.1.14)
+        version: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/678c4d0c3dc59e52261ed6ae0d3c8eaa73e1780d(@antora/site-generator@3.1.14)
       '@biomejs/biome':
         specifier: ^2.3.11
         version: 2.3.11
@@ -43,8 +43,8 @@ importers:
         specifier: 0.1.3
         version: 0.1.3
       '@dev-centr/themed-svg':
-        specifier: 0.2.2
-        version: 0.2.2
+        specifier: 0.2.3
+        version: 0.2.3
       '@mermaid-js/mermaid-cli':
         specifier: 11.17.0
         version: 11.17.0(puppeteer@25.10.0)(tailwindcss@4.3.3)
@@ -96,9 +96,9 @@ packages:
     peerDependencies:
       '@antora/site-generator': '>=3.1.0'
 
-  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/b714c865ee29c1856c30f48e280d438d7291a1f9':
-    resolution: {tarball: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/b714c865ee29c1856c30f48e280d438d7291a1f9}
-    version: 0.2.2
+  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/678c4d0c3dc59e52261ed6ae0d3c8eaa73e1780d':
+    resolution: {tarball: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/678c4d0c3dc59e52261ed6ae0d3c8eaa73e1780d}
+    version: 0.3.0
     engines: {node: '>=18'}
     peerDependencies:
       '@antora/site-generator': '>=3.1.0'
@@ -247,8 +247,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  '@dev-centr/themed-svg@0.2.2':
-    resolution: {integrity: sha512-X8TVtKPtgOIR8idQdB74s0TH/OSFISRnbphECOGWErrX3Qq3Pn0pvlCv+xwtljdlG6xBBE+D/46sboOYZuoWqQ==}
+  '@dev-centr/themed-svg@0.2.3':
+    resolution: {integrity: sha512-mEd90oVCPTj3Bj8wSQ9gKgJdHiM6JDbGYlVyM5sm0RZJYkwStDk8bM0RQ/fq0P4263nN96qHxlk0zPYrMs0E3Q==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -1701,7 +1701,7 @@ snapshots:
     dependencies:
       '@antora/site-generator': 3.1.14
 
-  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/b714c865ee29c1856c30f48e280d438d7291a1f9(@antora/site-generator@3.1.14)':
+  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/678c4d0c3dc59e52261ed6ae0d3c8eaa73e1780d(@antora/site-generator@3.1.14)':
     dependencies:
       '@antora/site-generator': 3.1.14
 
@@ -1906,9 +1906,9 @@ snapshots:
 
   '@dev-centr/mermaid-svg-css-vars@0.1.3':
     dependencies:
-      '@dev-centr/themed-svg': 0.2.2
+      '@dev-centr/themed-svg': 0.2.3
 
-  '@dev-centr/themed-svg@0.2.2':
+  '@dev-centr/themed-svg@0.2.3':
     dependencies:
       '@xmldom/xmldom': 0.8.15
       color-name: 2.1.1
