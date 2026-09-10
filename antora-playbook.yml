@@ -4,6 +4,10 @@
 site:
   title: Dev-Centr Docs
   url: https://docs.devcentr.org
+  robots: |
+    User-agent: *
+    Allow: /
+    Sitemap: https://docs.devcentr.org/sitemap.xml
   start_page: home::index.adoc
   keys:
     header_logo: logo.svg

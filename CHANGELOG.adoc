@@ -1,0 +1,5 @@
+= Changelog
+
+== 2026-09-10 -- Publish robots.txt with sitemap
+
+* Antora `site.robots` now emits `/robots.txt` with an absolute `Sitemap:` line for `https://docs.devcentr.org`.

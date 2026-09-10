@@ -138,3 +138,8 @@ DevCentr.org — support@devcentr.org
 * Site: https://docs.devcentr.org
 
 link:#readme-top[back to top]
+
+== Changelog
+
+See link:CHANGELOG.adoc[Changelog].
+
