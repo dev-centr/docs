@@ -1,5 +1,9 @@
 = Changelog
 
+== 2026-09-10 -- page-context 0.6.6 author spacing
+
+* Pin `@antora-supplemental/page-context` to `v0.6.6` so the linked name, circular avatar, and `via \{product}` stay separated in the lead byline and footer author cells.
+
 == 2026-09-10 -- Dark-mode Mermaid diagram box fills
 
 * Bumped `@dev-centr/themed-svg` to **0.2.3** and regenerated themed diagrams / vendor runtime so node fills follow host dark mode (no light boxes under light text).
