@@ -18,6 +18,7 @@ DevCentr docs hubs support **two primary text-diagram formats**, both preprocess
 |===
 
 Hand-authored SVG under `docs/modules/*/images/` remains first-class for mockups and brand figures (run skill `fix-docs-encoding` after edits).
+For figures that must track the site dark-mode toggle, prefer the Themed SVG pipeline (Mermaid source + `[.themed-svg]` image block) over raw Kroki embeds — Kroki output is a fixed-color `<img>` and does not inherit host theme CSS.
 
 == Playbook wiring (this hub)
 
