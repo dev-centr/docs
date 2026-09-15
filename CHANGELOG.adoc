@@ -1,5 +1,9 @@
 = Changelog
 
+== 2026-09-15 -- Restore breadcrumb trail separators
+
+* Hub `breadcrumbs.hbs` again emits Valentus `/` separator nodes between trail crumbs (and uses `adt-bc-trail-crumbs`), matching HCI Nerdz / stock Valentus mast.
+
 == 2026-09-14 -- page-edit 0.2.3 DOCTYPE fix
 
 * Pin `@antora-supplemental/page-edit` to `v0.2.3` so View | Edit is not prepended before the HTML DOCTYPE.

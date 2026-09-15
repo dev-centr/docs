@@ -1,6 +1,7 @@
 {{!
   Hub breadcrumbs: hide component picker when site-nav-tree is active (components
   live in the sidebar forest). Version kicker + trail unchanged.
+  Trail separators are real "/" text nodes (Valentus mast) so the path stays copyable.
 }}
 <nav class="breadcrumbs adt-breadcrumbs" aria-label="Breadcrumb: component, version, and page path">
   <ul>
@@ -30,10 +31,10 @@
             {{/each}}
           </ul>
         </div>
-        <span class="adt-bc-sep" aria-hidden="true">|</span>
+        <span class="adt-bc-cluster-gap" aria-hidden="true"> </span>
         {{/unless}}
         <div class="adt-bc-menu adt-bc-menu-version">
-          <button type="button" class="adt-bc-kicker" data-adt-toggle="adt-bc-ver" aria-haspopup="listbox" aria-expanded="false" aria-label="Select documentation version">
+          <button type="button" class="adt-bc-kicker adt-bc-kicker--version" data-adt-toggle="adt-bc-ver" aria-haspopup="listbox" aria-expanded="false" aria-label="Select documentation version">
             <span class="adt-bc-kicker-version">{{adt-version-label @root.page.componentVersion fallback="Version"}}</span>
           </button>
           {{#if @root.page.versions}}
@@ -55,8 +56,9 @@
         </div>
       </div>
     </li>
-    {{#if page.breadcrumbs}}
-    {{#each page.breadcrumbs}}
+    {{#with (adt-bc-trail-crumbs page.breadcrumbs)}}
+    {{#each this}}
+    <li class="adt-breadcrumb-sep" aria-hidden="true">/</li>
     <li class="adt-breadcrumb-trail{{#if @last}} adt-breadcrumb-trail--current{{/if}}">
     {{~#if (and ./url (eq ./urlType 'internal'))~}}
     <a class="adt-breadcrumb-trail-link" href="{{{relativize ./url}}}">{{{./content}}}</a>
@@ -65,7 +67,6 @@
     {{~/if~}}
     </li>
     {{/each}}
-    {{/if}}
-  {{> edit-breadcrumb}}
+    {{/with}}
   </ul>
 </nav>
