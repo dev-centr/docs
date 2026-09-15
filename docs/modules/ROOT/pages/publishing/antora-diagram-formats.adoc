@@ -18,7 +18,27 @@ DevCentr docs hubs support **two primary text-diagram formats**, both preprocess
 |===
 
 Hand-authored SVG under `docs/modules/*/images/` remains first-class for mockups and brand figures (run skill `fix-docs-encoding` after edits).
-For figures that must track the site dark-mode toggle, prefer the Themed SVG pipeline (Mermaid source + `[.themed-svg]` image block) over raw Kroki embeds — Kroki output is a fixed-color `<img>` and does not inherit host theme CSS.
+
+== Theme-aware figures (Themed SVG)
+
+Raw Kroki embeds are fixed-color `<img>` assets: page CSS and `html.dark-theme` do **not** reach inside them.
+For figures that must track the site dark-mode toggle, post-process renderer SVG in CI:
+
+[cols="1,2,2"]
+|===
+| Source | Adapter | Contract
+
+| Mermaid (`.mmd` / `mmdc`)
+| link:https://github.com/dev-centr/mermaid-svg-css-vars[`@dev-centr/mermaid-svg-css-vars`]
+| link:https://github.com/dev-centr/themed-svg[Themed SVG] adaptive + host
+
+| PlantUML (`.puml` / Kroki)
+| link:https://github.com/dev-centr/plantuml-svg-css-vars[`@dev-centr/plantuml-svg-css-vars`]
+| same
+|===
+
+Serve with a `[.themed-svg]` image role so the hub runtime can inline the host SVG.
+These adapters are general-purpose packages in **dev-centr**; Antora importance is compose/recommend (see link:https://github.com/antora-supplemental/antora-facto[antora-facto]), not forks into antora-supplemental.
 
 == Playbook wiring (this hub)
 
