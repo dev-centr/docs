@@ -47,12 +47,12 @@
             {{#if @root.page.versions}}
             {{#each @root.page.versions}}
             <li role="none" class="adt-bc-menu-item">
-              <a href="{{{relativize ./url}}}" class="adt-bc-version-pill{{#if (eq ./version @root.page.version)}} is-current{{/if}}{{#if ./missing}} is-missing{{/if}}"{{#if (eq ./version @root.page.version)}} aria-current="page"{{/if}}>{{adt-version-label this fallback="Default"}}</a>
+              <a href="{{{relativize ./url}}}" class="adt-bc-version-pill{{#if (eq ./version @root.page.version)}} is-current{{/if}}{{#if ./missing}} is-missing{{/if}}"{{#if (eq ./version @root.page.version)}} aria-current="page"{{/if}}>{{adt-version-label this}}</a>
             </li>
             {{/each}}
             {{else if @root.page.componentVersion}}
             <li role="none" class="adt-bc-menu-item">
-              <a href="{{{relativize @root.page.componentVersion.url}}}" class="adt-bc-version-pill is-current" aria-current="page">{{adt-version-label @root.page.componentVersion fallback="Default"}}</a>
+              <a href="{{{relativize @root.page.componentVersion.url}}}" class="adt-bc-version-pill is-current" aria-current="page">{{adt-version-label @root.page.componentVersion}}</a>
             </li>
             {{/if}}
           </ul>
