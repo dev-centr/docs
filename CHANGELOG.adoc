@@ -2,7 +2,7 @@
 
 == 2026-09-15 -- Restore breadcrumb trail separators
 
-* Hub `breadcrumbs.hbs` again emits Valentus `/` separator nodes between trail crumbs (and uses `adt-bc-trail-crumbs`), matching HCI Nerdz / stock Valentus mast.
+* Hub `breadcrumbs.hbs` again emits Valentus `/` separator nodes between trail crumbs (via `adt-bc-trail-crumbs`), and keeps the component kicker visible with site-nav-tree (curated picker only) so the mast matches HCI Nerdz / stock Valentus.
 
 == 2026-09-14 -- page-edit 0.2.3 DOCTYPE fix
 
