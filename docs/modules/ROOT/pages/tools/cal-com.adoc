@@ -12,7 +12,7 @@ link:https://github.com/calcom/cal.diy[calcom/cal.diy]
 Dev-Centr docs::
 xref:business-bootstrap::scheduling/explanation/cal-com-and-cal-diy.adoc[Explanation] ·
 xref:business-bootstrap::scheduling/index.adoc[Scheduling] ·
-xref:business-bootstrap::reference/business-resources.adoc[Stack map]
+xref:business-bootstrap::software-stack.adoc[Software stack]
 
 == Highlights
 

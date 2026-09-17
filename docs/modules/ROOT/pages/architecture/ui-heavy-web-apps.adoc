@@ -130,5 +130,5 @@ Demos can detect `window.spatialBrowser` when running on the fork.
 == See also
 
 * xref:where-docs-live.adoc[Where documentation lives] — how this site aggregates repos.
-* xref:general-knowledge:explanation/architecture/graphics-rendering-engines.adoc[Graphics rendering engines] — desktop UI stacks, large-document behavior, post-Skia pipelines.
+* xref:general-knowledge::explanation/architecture/graphics-rendering-engines.adoc[Graphics rendering engines] — desktop UI stacks, large-document behavior, post-Skia pipelines.
 * link:https://docs.devcentr.org/general-knowledge/latest/explanation/[General knowledge — Explanation] — broader Diátaxis-style notes (when those pages are present in the playbook).

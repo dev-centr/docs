@@ -9,7 +9,7 @@ This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/
 * **devcentr** — The main Dev Center application docs: project vision, component specifications, Secrets Manager, publishing, upstream contributions. The app repo can also be built standalone (single-repo build) for development.
 * **devcentr.org** — Marketing site docs (SolidStart shell, news/changelog pipelines, Toolchain Advisor, agent skills): xref:devcentr-org::index.adoc[devcentr.org]. Live site: link:https://devcentr.org[devcentr.org].
 * **general-knowledge** — Shared, product-agnostic developer reference: tutorials, how-tos, reference, and explanations (Diátaxis-organized). Includes xref:general-knowledge::explanation/architecture/software-product-essentials.adoc[Software Product Essentials] and xref:general-knowledge::explanation/architecture/classes/index.adoc[desktop / web / mobile auxiliary templates]. Peer group **Internet Architecture** (systems altitude): xref:general-knowledge::explanation/internet-architecture/reliability/index.adoc[Internet Reliability] — reference durability and usability of the internet, with deep links to HCI *Labels versus wires* and connectome-fs (not buried under product SPE Architecture). xref:general-knowledge::explanation/languages/index.adoc[Language recommendations] (D, Rust, TypeScript, Julia; comparisons that used to live on Gemini shares). Git workflows, EOL strategy, SSH keys, recommended tools, xref:general-knowledge::reference/ai-studio-tooling-catalog.adoc[AI studio tooling catalog], xref:general-knowledge::how-to/composio-mcp-setup.adoc[Composio MCP setup], xref:general-knowledge::explanation/infrastructure/studio-mcp-install-strategies.adoc[studio MCP install strategies], and similar.
-* **business-bootstrap** — Support-systems hub by capability area (Email, Scheduling, Design, Vault, Chat, Funding, Org infra) for **organizations** (not profit-only): xref:business-bootstrap::reference/business-resources.adoc[stack map], xref:business-bootstrap::reference/defaults-by-org-stage.adoc[defaults by stage], Cal.com/Cal.diy, Penpot, Bitwarden/Vaultwarden, Mattermost self-host, xref:business-bootstrap::funding/explanation/oss-funding-landscape.adoc[OSS funding landscape], xref:business-bootstrap::funding/explanation/donation-ask-ideas.adoc[donation ask ideas] (canonical guide on link:https://nonprofit-resources.org/guides/donate-page-as-a-ledger[Nonprofit Resources]), human vs product email, DMARC, Pulumi `infra` pattern.
+* **business-bootstrap** — Support-systems hub by capability area (Email, Scheduling, Design, Vault, Chat, Funding, Org infra) for **organizations** (not profit-only): xref:business-bootstrap::software-stack.adoc[stack map], xref:business-bootstrap::defaults-by-org-stage.adoc[defaults by stage], Cal.com/Cal.diy, Penpot, Bitwarden/Vaultwarden, Mattermost self-host, xref:business-bootstrap::funding/explanation/oss-funding-landscape.adoc[OSS funding landscape], xref:business-bootstrap::funding/explanation/donation-ask-ideas.adoc[donation ask ideas] (canonical guide on link:https://nonprofit-resources.org/guides/donate-page-as-a-ledger[Nonprofit Resources]), human vs product email, DMARC, Pulumi `infra` pattern.
 * **infra-template** — Reusable Pulumi + Antora skeleton for org `infra` repos.
 * **templates** — Standardized project templates and usage guides.
 * **easy-installer** (product **Ibex**) — Install Builder Extension: installer projects, in-place PATH, plugin ABI, shell hooks.
@@ -39,7 +39,7 @@ Org-wide roadmap and activity log live here in the **docs** repo so they stay in
 | xref:activity-log.adoc[Home · Activity Log]
 | Org-wide digest across all hub projects (canonical).
 
-| `{component}/changelog` (e.g. xref:DevCentr:ROOT:changelog.adoc[DevCentr Changelog])
+| `\{component}/changelog` (e.g. xref:DevCentr:ROOT:changelog.adoc[DevCentr Changelog])
 | Per-component app and docs shipping notes.
 
 | DevCentr `activity-log.adoc`
@@ -53,7 +53,7 @@ The site uses **two different mechanisms** that are easy to confuse:
 [cols="1,2"]
 |===
 | Component dropdown (search scope / breadcrumb kicker) | Built automatically from the Antora **content catalog** — every repo listed in `antora-playbook.yml` with a valid `antora.yml`.
-| Left sidebar tree | Built from each component's own `nav.adoc`. On the **home** component you see xref:ROOT:nav.adoc[home nav] only (portal stubs under *Tools*). Switch to **uniconfig** (or any component) to see that component's full tree (`uniconfig/docs/modules/ROOT/nav.adoc`).
+| Left sidebar tree | Built from each component's own `nav.adoc`. On the **home** component you see the home `nav.adoc` only (portal stubs under *Tools*). Switch to **uniconfig** (or any component) to see that component's full tree (`uniconfig/docs/modules/ROOT/nav.adoc`).
 |===
 
 The **home** tree does not mirror every page in every component. Portal pages under *Tools* (`tools/*.adoc`) are a **third manual list**, duplicated alongside xref:tools/index.adoc[tools/index.adoc] and this page's component inventory. Adding a playbook source updates the dropdown immediately after deploy, but **home nav and tools index must be updated by hand** unless a build extension generates them.
@@ -68,4 +68,4 @@ Dev-Centr maintains a **private sister Antora site** for org-member SOPs and int
 * **Aggregator:** link:https://github.com/dev-centr/team-docs[`dev-centr/team-docs`] (private repository)
 * **Example SOP:** org agent rules setup (`agent-rules` org layer, junction `AGENTS.md`, Cursor skills)
 
-Public xref:general-knowledge:tutorials/onboarding.adoc[Developer onboarding] links here for team members. Do not copy member-only SOP bodies into public pages.
+Public xref:general-knowledge::tutorials/onboarding.adoc[Developer onboarding] links here for team members. Do not copy member-only SOP bodies into public pages.

@@ -8,9 +8,9 @@ Full component docs::
 xref:toolchain-framework::index.adoc[Toolchain Framework]
 
 Philosophy::
-xref:general-knowledge:explanation/infrastructure/toolchain-framework.adoc[TCF explanation] ·
-xref:general-knowledge:explanation/infrastructure/toolchain-management.adoc[Toolchain Management Pattern] ·
-xref:general-knowledge:explanation/infrastructure/toolchain-control-plane.adoc[Toolchain Control Plane]
+xref:general-knowledge::explanation/infrastructure/toolchain-framework.adoc[TCF explanation] ·
+xref:general-knowledge::explanation/infrastructure/toolchain-management.adoc[Toolchain Management Pattern] ·
+xref:general-knowledge::explanation/infrastructure/toolchain-control-plane.adoc[Toolchain Control Plane]
 
 Repository::
 https://github.com/dev-centr/toolchain-framework

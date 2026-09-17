@@ -12,7 +12,7 @@ link:https://github.com/dani-garcia/vaultwarden[dani-garcia/vaultwarden]
 Dev-Centr docs::
 xref:business-bootstrap::vault/explanation/bitwarden-and-vaultwarden.adoc[Hosting explanation] ·
 xref:business-bootstrap::vault/index.adoc[Vault] ·
-xref:business-bootstrap::reference/business-resources.adoc[Stack map] ·
+xref:business-bootstrap::software-stack.adoc[Software stack] ·
 xref:general-knowledge::explanation/infrastructure/secrets-distribution-hub.adoc[Secrets distribution hub] ·
 xref:general-knowledge::how-to/secrets-distribution-cli-mcp.adoc[Distribution how-to]
 

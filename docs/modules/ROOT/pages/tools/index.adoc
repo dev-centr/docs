@@ -54,4 +54,4 @@ Founder/ops stack in Business Bootstrap (capability areas: Email · Scheduling �
 * xref:tools/penpot.adoc[Penpot] — open-source design platform
 * xref:tools/bitwarden.adoc[Bitwarden / Vaultwarden] — secrets vault hosting
 * xref:tools/mattermost.adoc[Mattermost] — team chat self-host (stage-gated)
-* Hub: xref:business-bootstrap::index.adoc[Business Bootstrap] · xref:business-bootstrap::reference/business-resources.adoc[Stack map]
+* Hub: xref:business-bootstrap::index.adoc[Business Bootstrap] · xref:business-bootstrap::software-stack.adoc[Software stack]
