@@ -75,7 +75,7 @@ content:
     - url: https://github.com/dev-centr/msi-generator.git
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/easy-installer.git
+    - url: https://github.com/dev-centr/ibex-install-builder.git
       branches: HEAD
       start_path: docs
     - url: https://github.com/dev-centr/agentic-email-integration.git

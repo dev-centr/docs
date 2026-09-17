@@ -70,7 +70,7 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
-    - url: ../easy-installer
+    - url: ../ibex-install-builder
       branches: HEAD
       start_path: docs
       worktrees: true
