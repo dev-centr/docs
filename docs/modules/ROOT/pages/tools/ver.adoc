@@ -4,7 +4,7 @@
 Universal version-control interface — library, CLI, and Qt GUI.
 
 Full component docs::
-xref:ver::index.adoc[Ver]
+xref:tools:ver:index.adoc[Ver]
 
 Repository::
 https://github.com/dev-centr/ver

@@ -8,13 +8,13 @@ Pressure-driven issue tracking for high-value, stagnated features — AI value s
 
 Full guides live in the FixNow Antora component:
 
-* xref:fixnow-dev:ROOT:index.adoc[Introduction]
-* xref:fixnow-dev:ROOT:getting-started.adoc[Getting Started]
-* xref:fixnow-dev:ROOT:ai-evaluation.adoc[AI Evaluation]
-* xref:fixnow-dev:ROOT:api.adoc[API Reference]
-* xref:fixnow-dev:ROOT:security.adoc[Security & Verification]
+* xref:tools:fixnow-dev:index.adoc[Introduction]
+* xref:tools:fixnow-dev:getting-started.adoc[Getting Started]
+* xref:tools:fixnow-dev:ai-evaluation.adoc[AI Evaluation]
+* xref:tools:fixnow-dev:api.adoc[API Reference]
+* xref:tools:fixnow-dev:security.adoc[Security & Verification]
 
 == Repository
 
 * link:https://github.com/dev-centr/fixnow-dev[github.com/dev-centr/fixnow-dev]
-* link:https://docs.devcentr.org/fixnow-dev/[docs.devcentr.org/fixnow-dev]
+* link:https://docs.devcentr.org/tools/fixnow-dev/[docs.devcentr.org/fixnow-dev]

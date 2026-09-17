@@ -21,13 +21,17 @@ These tools are original works developed as part of this ecosystem.
 * xref:tools/fixnow-dev.adoc[FixNow]
 * xref:tools/scriptbook.adoc[Scriptbook]
 * xref:tools/equivalence-engine.adoc[Equivalence Engine]
+* xref:tools/equivalence-engine-action.adoc[Equivalence Engine Action]
+* xref:tools/libequivalence.adoc[libequivalence]
+* xref:tools/equivalence-rules-code.adoc[Equivalence Rules: Code]
+* xref:tools/equivalence-rules-filesystem.adoc[Equivalence Rules: Filesystem]
 * xref:tools/uniconfig.adoc[UniConfig Config Panel]
 * xref:tools/uniprovider.adoc[UniProvider]
 * xref:tools/opr-directory.adoc[OPR Directory]
 * xref:tools/toolchain-framework.adoc[Toolchain Framework]
 * xref:tools/resting-lanczos.adoc[resting-lanczos]
 * xref:tools/devcentr-org.adoc[devcentr.org]
-* xref:themed-svg-studio::index.adoc[Themed SVG Studio]
+* xref:tools:themed-svg-studio:index.adoc[Themed SVG Studio]
 * xref:tools/native-installer-roadmap.adoc[Native installer builder roadmap]
 
 == Maintained Forks

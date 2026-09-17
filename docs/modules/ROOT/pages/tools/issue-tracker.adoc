@@ -3,7 +3,7 @@
 
 This project was renamed to **Issues Browser**.
 
-See xref:tools/issues-browser.adoc[Issues Browser] and xref:issues-browser::index.adoc[component docs].
+See xref:tools/issues-browser.adoc[Issues Browser] and xref:tools:issues-browser:index.adoc[component docs].
 
 Repository::
 https://github.com/dev-centr/issues-browser

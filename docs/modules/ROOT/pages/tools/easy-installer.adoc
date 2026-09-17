@@ -4,4 +4,4 @@
 
 **Easy Installer** was renamed to **Ibex** (*Install Builder EXtension*).
 
-See xref:tools/ibex.adoc[Ibex] and xref:ibex:ROOT:index.adoc[component docs].
+See xref:tools/ibex.adoc[Ibex] and xref:tools:ibex:index.adoc[component docs].

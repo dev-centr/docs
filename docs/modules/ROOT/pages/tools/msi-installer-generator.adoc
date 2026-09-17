@@ -6,7 +6,7 @@ The MSI/MSIX Generator produces Windows installer packages from a JSON product s
 
 == Component docs
 
-Full Antora component: xref:msi-generator:ROOT:index.adoc[MSI/MSIX Generator]
+Full Antora component: xref:tools:msi-generator:index.adoc[MSI/MSIX Generator]
 
 == Repository
 

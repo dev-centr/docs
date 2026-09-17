@@ -28,17 +28,17 @@ antora:
         - general-knowledge
         - business-bootstrap
         - agent-rules
-        - platforms
-        - tools
+        - DevCentr
         - templates
+        - devcentr-org
       order:
         - home
         - general-knowledge
         - business-bootstrap
         - agent-rules
-        - platforms
-        - tools
+        - DevCentr
         - templates
+        - devcentr-org
     - require: '@antora-supplemental/nav-typology'
     - require: '@antora-supplemental/nav-typology-diataxis'
     - '@antora-supplemental/build-stack'
@@ -48,34 +48,34 @@ antora:
       path: keywords
 content:
   sources:
-    - url: https://github.com/dev-centr/docs.git
+    - url: .
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/devcentr.git
+    - url: ../siblings/DevCentr
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/devcentr.org.git
+    - url: ../siblings/devcentr.org
       branches: HEAD
       start_path: docs
     - url: https://github.com/dev-centr/themed-svg-studio.git
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/templates.git
+    - url: ../siblings/templates
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/general-knowledge.git
+    - url: ../siblings/general-knowledge
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/business-bootstrap.git
+    - url: ../siblings/business-bootstrap
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/infra-template.git
+    - url: ../siblings/infra-template
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/msi-generator.git
+    - url: ../siblings/msi-generator
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/ibex-install-builder.git
+    - url: ../siblings/ibex-install-builder
       branches: HEAD
       start_path: docs
     - url: https://github.com/dev-centr/agentic-email-integration.git
@@ -84,10 +84,10 @@ content:
     - url: https://github.com/dev-centr/issues-browser.git
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/repo-drive.git
+    - url: ../siblings/repo-drive
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/agent-rules.git
+    - url: ../siblings/agent-rules
       branches: HEAD
       start_path: docs
     - url: https://github.com/dev-centr/rules-manager.git
@@ -102,40 +102,28 @@ content:
     - url: https://github.com/dev-centr/switchyard.git
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/scriptbook.git
+    - url: ../siblings/scriptbook
       branches: HEAD
       start_path: docs
     - url: https://github.com/dev-centr/equivalence-engine.git
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/equivalence-engine-action.git
-      branches: HEAD
-      start_path: docs
-    - url: https://github.com/dev-centr/libequivalence.git
-      branches: HEAD
-      start_path: docs
-    - url: https://github.com/dev-centr/equivalence-rules-code.git
-      branches: HEAD
-      start_path: docs
-    - url: https://github.com/dev-centr/equivalence-rules-filesystem.git
-      branches: HEAD
-      start_path: docs
-    - url: https://github.com/dev-centr/uniconfig.git
+    - url: ../siblings/uniconfig
       branches: HEAD
       start_path: docs
     - url: https://github.com/dev-centr/uniprovider.git
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/binary-tailor.git
+    - url: ../siblings/binary-tailor
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/macho-memload.git
+    - url: ../siblings/macho-memload
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/polyglot-debug.git
+    - url: ../siblings/polyglot-debug
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/toolchain-framework.git
+    - url: ../siblings/toolchain-framework
       branches: HEAD
       start_path: docs
 ui:

@@ -4,7 +4,7 @@
 
 **UniProvider** implements the **Open Provider Registry (OPR)** on the machine: on-disk manifests, transitional well-known probes, and a localhost aggregator.
 
-* Component: xref:uniprovider:ROOT:index.adoc[UniProvider documentation]
+* Component: xref:tools:uniprovider:index.adoc[UniProvider documentation]
 * Spec: link:https://github.com/dev-centr/uniprovider/blob/main/spec/opr.md[OPR draft]
 * Repo: link:https://github.com/dev-centr/uniprovider[dev-centr/uniprovider]
 * Online directory: link:https://github.com/dev-centr/opr-directory[opr-directory] (SolidStart · Netlify/Vercel)

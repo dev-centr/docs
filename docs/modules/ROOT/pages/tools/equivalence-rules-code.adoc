@@ -1,0 +1,10 @@
+= Equivalence Rules: Code
+:description: Portal stub for Equivalence Rules: Code.
+
+Official code-migration rulesets for Equivalence Engine.
+
+Full component docs::
+xref:tools:equivalence-rules-code:index.adoc[Equivalence Rules: Code]
+
+Repository::
+https://github.com/dev-centr/equivalence-rules-code

@@ -4,7 +4,7 @@
 Play CentrMark `.cmk` playbooks on a developer machine. **PlayTime** is the engine. **Scriptbook** is the app. Intents, not bash-to-PowerShell translation.
 
 Full component docs::
-xref:scriptbook::index.adoc[Scriptbook]
+xref:tools:scriptbook:index.adoc[Scriptbook]
 
 Illustrated model::
 xref:general-knowledge::explanation/infrastructure/abstract-playbooks.adoc[Abstract playbooks]

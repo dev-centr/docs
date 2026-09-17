@@ -4,7 +4,7 @@
 Local Gmail integration: Himalaya poller + Cursor agents for drafts and CI. Own-your-inbox — not disposable AgentMail.
 
 Full component docs (once published)::
-xref:agentic-email-integration::index.adoc[Agentic Email Integration]
+xref:tools:agentic-email-integration:index.adoc[Agentic Email Integration]
 
 Repository::
 https://github.com/dev-centr/agentic-email-integration

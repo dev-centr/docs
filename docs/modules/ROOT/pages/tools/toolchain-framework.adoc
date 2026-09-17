@@ -5,7 +5,7 @@
 **Toolchain Framework (TCF)** is the practice kit for Toolchain Control Plane compliance: schemas, example adapters, and validators. It is not the pattern -- that stays in general-knowledge.
 
 Full component docs::
-xref:toolchain-framework::index.adoc[Toolchain Framework]
+xref:tools:toolchain-framework:index.adoc[Toolchain Framework]
 
 Philosophy::
 xref:general-knowledge::explanation/infrastructure/toolchain-framework.adoc[TCF explanation] ·

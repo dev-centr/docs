@@ -1,0 +1,10 @@
+= Equivalence Engine Action
+:description: Portal stub for Equivalence Engine Action.
+
+GitHub Action that runs Equivalence Engine adaptations in CI.
+
+Full component docs::
+xref:tools:equivalence-engine-action:index.adoc[Equivalence Engine Action]
+
+Repository::
+https://github.com/dev-centr/equivalence-engine-action

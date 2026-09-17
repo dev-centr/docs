@@ -22,17 +22,17 @@ antora:
         - general-knowledge
         - business-bootstrap
         - agent-rules
-        - DevCentr
+        - platforms
+        - tools
         - templates
-        - devcentr-org
       order:
         - home
         - general-knowledge
         - business-bootstrap
         - agent-rules
-        - DevCentr
+        - platforms
+        - tools
         - templates
-        - devcentr-org
     - require: '@antora-supplemental/nav-typology'
     - require: '@antora-supplemental/nav-typology-diataxis'
     - '@antora-supplemental/build-stack'
@@ -115,6 +115,22 @@ content:
       start_path: docs
       worktrees: true
     - url: ../equivalence-engine
+      branches: HEAD
+      start_path: docs
+      worktrees: true
+    - url: ../equivalence-engine-action
+      branches: HEAD
+      start_path: docs
+      worktrees: true
+    - url: ../libequivalence
+      branches: HEAD
+      start_path: docs
+      worktrees: true
+    - url: ../equivalence-rules-code
+      branches: HEAD
+      start_path: docs
+      worktrees: true
+    - url: ../equivalence-rules-filesystem
       branches: HEAD
       start_path: docs
       worktrees: true

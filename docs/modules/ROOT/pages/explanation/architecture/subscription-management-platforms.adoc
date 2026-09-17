@@ -5,7 +5,7 @@
 Thin SaaS products and mobile apps often need the same answer on every surface: **does this customer currently have paid access?**
 That problem is usually called **subscription management**, **in-app subscription infrastructure**, or (in vendor APIs) **entitlements** / **access levels** — not a separate product category branded “entitlement layer.”
 
-This page is architecture advice for web and hybrid teams. It complements xref:architecture/ui-heavy-web-apps.adoc[UI-heavy web applications].
+This page is architecture advice for web and hybrid teams. It complements xref:explanation/architecture/ui-heavy-web-apps.adoc[UI-heavy web applications].
 
 == The problem Stripe alone does not solve
 

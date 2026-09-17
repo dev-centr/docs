@@ -4,13 +4,13 @@
 Standalone virtual drive for forge repositories (GitHub, GitLab, …): sparse on-demand fetch, customizable folder schema, GUI + tray, and bridges to Issues Browser.
 
 Full component docs::
-xref:repo-drive::index.adoc[RepoDrive]
+xref:tools:repo-drive:index.adoc[RepoDrive]
 
 Repository::
 https://github.com/dev-centr/repo-drive
 
 Consumer docs URL::
-https://docs.devcentr.org/repo-drive/
+https://docs.devcentr.org/tools/repo-drive/
 
 == Highlights
 

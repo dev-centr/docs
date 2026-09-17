@@ -4,7 +4,7 @@
 SolidStart landing site for Dev-Centr: news, changelog mirror, help/status, Toolchain Advisor, and agent skills.
 
 Full component docs::
-xref:devcentr-org::index.adoc[devcentr.org]
+xref:platforms:devcentr-org:index.adoc[devcentr.org]
 
 Repository::
 https://github.com/dev-centr/devcentr.org

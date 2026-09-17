@@ -4,7 +4,7 @@
 Windows file-association switchyard: snapshot, diff, icon lock, and room to grow into smarter file routing.
 
 Full component docs::
-xref:switchyard:ROOT:index.adoc[Switchyard]
+xref:tools:switchyard:index.adoc[Switchyard]
 
 Repository::
 https://github.com/dev-centr/switchyard

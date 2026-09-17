@@ -1,0 +1,10 @@
+= Equivalence Rules: Filesystem
+:description: Portal stub for Equivalence Rules: Filesystem.
+
+Filesystem intent mappings across operating systems for Equivalence Engine.
+
+Full component docs::
+xref:tools:equivalence-rules-filesystem:index.adoc[Equivalence Rules: Filesystem]
+
+Repository::
+https://github.com/dev-centr/equivalence-rules-filesystem
