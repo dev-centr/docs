@@ -1,4 +1,4 @@
-# Local UI / theme testing — same sibling content as antora-playbook-local.yml,
+﻿# Local UI / theme testing — same sibling content as antora-playbook-local.yml,
 # but uses a local valentus-theme UI bundle. Build the theme first, then:
 #   pnpm build:testing
 site:
@@ -71,6 +71,10 @@ content:
       start_path: docs
       worktrees: true
     - url: ../ibex-install-builder
+      branches: HEAD
+      start_path: docs
+      worktrees: true
+    - url: ../install-coordinator
       branches: HEAD
       start_path: docs
       worktrees: true
