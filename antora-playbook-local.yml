@@ -1,4 +1,4 @@
-# Local build — sibling content sources under ../ (same layout as this org checkout)
+﻿# Local build — sibling content sources under ../ (same layout as this org checkout)
 # Run: pnpm build
 site:
   title: Dev Center Docs (Local)
@@ -75,6 +75,10 @@ content:
       start_path: docs
       worktrees: true
     - url: ../ibex-install-builder
+      branches: HEAD
+      start_path: docs
+      worktrees: true
+    - url: ../install-coordinator
       branches: HEAD
       start_path: docs
       worktrees: true

@@ -1,4 +1,4 @@
-# Dev Center docs — CI/production (dev-centr repos only)
+﻿# Dev Center docs — CI/production (dev-centr repos only)
 # Standard name: antora-playbook.yml.
 # Local sibling checkouts: antora-playbook-local.yml. Local UI bundle: antora-playbook.testing.yml.
 site:
@@ -76,6 +76,9 @@ content:
       branches: HEAD
       start_path: docs
     - url: https://github.com/dev-centr/ibex-install-builder.git
+      branches: HEAD
+      start_path: docs
+    - url: https://github.com/dev-centr/install-coordinator.git
       branches: HEAD
       start_path: docs
     - url: https://github.com/dev-centr/agentic-email-integration.git
