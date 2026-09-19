@@ -34,6 +34,17 @@ Overlay files:
 * `supplemental-ui/css/devcentr-brand.css` — accent token overrides (loaded last)
 * `supplemental-ui/partials/head-meta.hbs` — vendored from valentus-theme 2.x, plus the brand stylesheet link
 * `supplemental-ui/img/logo.svg` — orbit mark for the header
+* `supplemental-ui/js/adt-table-scroll.js` — wraps bare `.tableblock` tables for horizontal scroll (loaded from `footer-content.hbs`)
+
+[#wide-asciidoc-tables]
+== Wide AsciiDoc tables
+
+Wide attribute tables and matrix layouts must stay inside the article column. Browsers cannot apply `overflow-x: auto` reliably on `<table>` alone, so the hub uses a scroll *wrapper* (Antora community guidance):
+
+* **CSS** (`devcentr-brand.css`): `.tablecontainer` and `.adt-table-scroll` are block-level with `max-width: 100%` and `overflow-x: auto`. Article flex children use `min-width: 0` so the pane can shrink. Cell `code` and long tokens use `overflow-wrap: anywhere`; listing blocks get the same horizontal scroll treatment.
+* **JS** (`adt-table-scroll.js`): On `DOMContentLoaded`, each bare `.doc table.tableblock` not already inside `.tablecontainer`, `.adt-table-scroll`, `.admonitionblock`, or `.colist` is wrapped in `<div class="adt-table-scroll" role="region" tabindex="0">` with an `aria-label` from the table caption (or `Scrollable table`).
+
+Admonition and column-list tables are excluded so TIP/NOTE card chrome and colists keep their layout.
 
 Do **not** override `partials/header-content.hbs` unless you need markup the theme keys cannot express. Upstream already reads camelCased `site.keys` for logo and navbar text.
 
