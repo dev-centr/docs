@@ -1,5 +1,9 @@
 = Changelog
 
+== 2026-09-19 -- Wide AsciiDoc table scroll in article pane
+
+* `supplemental-ui/js/adt-table-scroll.js` wraps bare `.tableblock` tables; `devcentr-brand.css` scrolls `.adt-table-scroll` / `.tablecontainer` and constrains article flex width so wide tables no longer spill past the read column.
+
 == 2026-09-10 -- page-context 0.6.6 author spacing
 
 * Pin `@antora-supplemental/page-context` to `v0.6.6` so the linked name, circular avatar, and `via \{product}` stay separated in the lead byline and footer author cells.

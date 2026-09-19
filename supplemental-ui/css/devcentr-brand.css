@@ -1,4 +1,4 @@
-﻿/*
+/*
  * DevCentr brand overlay for valentus-theme 2.x.
  * Layout/fonts ship in the bundle; this file only nudges accent tokens
  * and logo polish to match devcentr.app / DESIGN.md.
@@ -149,7 +149,7 @@ html.dark-theme .doc .admonitionblock.caution > table {
 
 /*
  * Bare <code> in tip bodies often skipped radius. Keep dark-mode charcoal/coral
- * (not accent teal â€” that reads as â€œtip green on the codeâ€).
+ * (not accent teal — that reads as “tip green on the code”).
  */
 .doc .admonitionblock td.content code {
   border-radius: var(--adt-radius-sm, 0.25rem) !important;
@@ -190,7 +190,7 @@ html.dark-theme .doc .admonitionblock td.content code {
 /*
  * Theme toggle timing (until rolling valentus v2 / antora-dark-mode ships
  * html.adt-theme-vt). Chromium uses View Transitions at 0.28s while Valentus
- * chrome keeps permanent --adt-transition paint rules at 0.2s â€” those regions
+ * chrome keeps permanent --adt-transition paint rules at 0.2s — those regions
  * finish early. Kill competing transitions for the VT duration only.
  */
 @media (prefers-reduced-motion: no-preference) {
