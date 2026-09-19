@@ -101,8 +101,13 @@
     navigate(a.href, true)
   })
 
-  window.addEventListener('popstate', function (ev) {
-    if (!ev.state || !ev.state.docNav) return
+  window.addEventListener('popstate', function () {
+    // Initial /home/ entry often has null state; still must swap article content.
     navigate(window.location.href, false)
   })
+
+  // Stamp the landing page so a later Back to it is distinguishable and reloadable.
+  if (!history.state || !history.state.docNav) {
+    history.replaceState({ docNav: true }, '', window.location.href)
+  }
 })()

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="DevCentr">
+  <title>DevCentr</title>
+  <defs>
+    <linearGradient id="hub" x1="96" y1="96" x2="416" y2="416" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#14B8A6"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+  </defs>
+  <!-- Transparent canvas; solid mark for GitHub avatar cropping -->
+  <rect width="512" height="512" fill="none"/>
+  <!-- Outer orbit -->
+  <circle cx="256" cy="256" r="198" fill="none" stroke="#0F766E" stroke-width="18" stroke-dasharray="42 28" opacity="0.9"/>
+  <!-- Mid orbit -->
+  <circle cx="256" cy="256" r="138" fill="none" stroke="#14B8A6" stroke-width="14" stroke-dasharray="56 36" stroke-linecap="round"/>
+  <!-- Inner orbit -->
+  <circle cx="256" cy="256" r="82" fill="none" stroke="#0F766E" stroke-width="10" opacity="0.85"/>
+  <!-- Hub: square rotated = center of gravity -->
+  <g transform="translate(256 256) rotate(45)">
+    <rect x="-36" y="-36" width="72" height="72" rx="10" fill="url(#hub)"/>
+  </g>
+  <!-- Satellite nodes -->
+  <circle cx="256" cy="58" r="16" fill="#14B8A6"/>
+  <circle cx="430" cy="340" r="14" fill="#0F766E"/>
+  <circle cx="82" cy="340" r="14" fill="#0F766E"/>
+</svg>

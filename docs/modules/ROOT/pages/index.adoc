@@ -1,77 +1,118 @@
-= The Dev Center Portal
+= DevCentr portal
+:description: Central hub for DevCentr project documentation.
 
-Welcome to the central hub for Dev Center project documentation. Select a repository below to explore its guides and reference materials.
+Welcome to the documentation hub for DevCentr projects. Pick a tile to open guides and reference material.
 
-[.cards]
-== Featured Project
-
-[.card]
-=== 🛠️ Dev Center
-Main developer tooling and project management application—a Development Orchestration Suite (DOS). DevOps is one facet of the suite.
-Includes: Onboarding, Flutter/Tailwind setup, and Git management guides.
-
-xref:platforms:devcentr:index.adoc[Explore Dev Center Docs]
+== Featured
 
 [.cards]
-== Other Projects
+--
+[.tile]
+====
+[.title]
+image:devcentr-logo.svg[DevCentr,48,48] DevCentr
 
-[.card]
-=== 📄 Docs Playbook
+Main developer tooling and project management app - a Development Orchestration Suite (DOS). DevOps is one facet of the suite.
+Includes: onboarding, Flutter/Tailwind setup, and Git management guides.
+
+xref:platforms:devcentr:index.adoc[Explore DevCentr docs]
+====
+--
+
+== Projects
+
+[.cards]
+--
+[.tile]
+====
+[.title]
+Docs playbook
+
 Configuration and playbook for this documentation site.
 Org-wide xref:todo-roadmap.adoc[Todo & Roadmap] and xref:activity-log.adoc[Activity log]. xref:where-docs-live.adoc[Where documentation lives].
 
 xref:home:ROOT:index.adoc[You are here]
+====
 
-[.card]
-=== 📋 Templates
+[.tile]
+====
+[.title]
+Templates
+
 Standardized code-workspace templates for new projects.
 Consistent structure and boilerplate for all repositories.
 
-xref:templates:ROOT:index.adoc[Usage Guide]
+xref:templates:ROOT:index.adoc[Usage guide]
+====
 
-[.card]
-=== Ibex
-Install Builder Extension — installer projects, in-place PATH, and plugin backends (zip, NSIS, Inno, MSI/MSIX).
+[.tile]
+====
+[.title]
+Ibex
 
-xref:tools/ibex.adoc[Ibex] · xref:tools:ibex:index.adoc[Component docs]
+Install Builder Extension - installer projects, in-place PATH, and plugin backends (zip, NSIS, Inno, MSI/MSIX).
 
-[.card]
-=== MSI Generator
-Windows installer (MSI/MSIX) engine — CFB/CAB tables and MSIX ZIP packaging.
+xref:tools/ibex.adoc[Ibex] | xref:tools:ibex:index.adoc[Component docs]
+====
 
-xref:tools/msi-installer-generator.adoc[Portal] · xref:tools:msi-generator:index.adoc[Component docs]
+[.tile]
+====
+[.title]
+MSI Generator
 
-[.card]
-=== Switchyard
-Windows file-association switchyard — snapshot open/icon tracks, icon lock, file-router roles.
+Windows installer (MSI/MSIX) engine - CFB/CAB tables and MSIX ZIP packaging.
 
-xref:tools/switchyard.adoc[Portal] · xref:tools:switchyard:index.adoc[Component docs]
+xref:tools/msi-installer-generator.adoc[Portal] | xref:tools:msi-generator:index.adoc[Component docs]
+====
 
-[.card]
-=== RepoDrive
-Standalone virtual drive for forge repos — GUI, tray, sparse FUSE/WinFsp mount, Issues Browser bridge.
+[.tile]
+====
+[.title]
+Switchyard
 
-xref:tools/repo-drive.adoc[Portal] · xref:tools:repo-drive:index.adoc[Component docs]
+Windows file-association switchyard - snapshot open/icon tracks, icon lock, file-router roles.
 
-[.card]
-=== FixNow
+xref:tools/switchyard.adoc[Portal] | xref:tools:switchyard:index.adoc[Component docs]
+====
+
+[.tile]
+====
+[.title]
+RepoDrive
+
+Standalone virtual drive for forge repos - GUI, tray, sparse FUSE/WinFsp mount, Issues Browser bridge.
+
+xref:tools/repo-drive.adoc[Portal] | xref:tools:repo-drive:index.adoc[Component docs]
+====
+
+[.tile]
+====
+[.title]
+FixNow
+
 Pressure-driven issue tracking for high-value stagnated features.
 AI value scores, public countdown badges, and resolution audits.
 
-xref:tools:fixnow-dev:index.adoc[FixNow Docs]
+xref:tools:fixnow-dev:index.adoc[FixNow docs]
+====
 
-[.card]
-=== Software publishing
+[.tile]
+====
+[.title]
+Software publishing
+
 Platform-agnostic notes on code signing, notarization, and release automation. Antora UI branding for this site.
 
-xref:publishing/code-signing-in-the-release-pipeline.adoc[Code signing in the release pipeline]
+xref:publishing/code-signing-in-the-release-pipeline.adoc[Code signing] | xref:publishing/antora-ui-branding.adoc[UI branding]
+====
 
-xref:publishing/antora-ui-branding.adoc[Antora UI branding]
+[.tile]
+====
+[.title]
+Software Product Essentials
 
-[.card]
-=== Software Product Essentials
 Shippable-app ruleset in general-knowledge: About/build info, updates, packaging, diagnostics, plus desktop/web/mobile auxiliary feature templates (Help, updaters, support paths).
 
-xref:general-knowledge::explanation/architecture/software-product-essentials.adoc[Essentials hub]
-
-xref:general-knowledge::explanation/architecture/classes/index.adoc[Desktop / web / mobile]
+xref:general-knowledge::explanation/architecture/software-product-essentials.adoc[Essentials hub] | xref:general-knowledge::explanation/architecture/classes/index.adoc[Desktop / web / mobile]
+====
+--

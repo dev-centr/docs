@@ -1,7 +1,7 @@
-﻿# Local build — sibling content sources under ../ (same layout as this org checkout)
+# Local build — sibling content sources under ../ (same layout as this org checkout)
 # Run: pnpm build
 site:
-  title: Dev Center Docs (Local)
+  title: DevCentr Docs (Local)
   url: https://docs.devcentr.org
   start_page: home::index.adoc
   keys:

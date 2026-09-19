@@ -1,8 +1,8 @@
-﻿# Local UI / theme testing — same sibling content as antora-playbook-local.yml,
+# Local UI / theme testing — same sibling content as antora-playbook-local.yml,
 # but uses a local valentus-theme UI bundle. Build the theme first, then:
 #   pnpm build:testing
 site:
-  title: Dev Center Docs (Local Test)
+  title: DevCentr Docs (Local Test)
   url: https://docs.devcentr.org
   start_page: home::index.adoc
   keys:

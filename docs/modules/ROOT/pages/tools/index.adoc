@@ -1,6 +1,6 @@
 = Constituent Tools
 
-Welcome to the tools section. Here you will find documentation for the various tools and repositories that make up the Dev Center ecosystem.
+Welcome to the tools section. Here you will find documentation for the various tools and repositories that make up the DevCentr ecosystem.
 
 Some tools are documented in their own repositories (e.g. MSI Generator); others are documented here (e.g. dprint, dlangui).
 

@@ -1,4 +1,4 @@
-﻿# Dev Center docs — CI/production (dev-centr repos only)
+# DevCentr Docs — CI/production (dev-centr repos only)
 # Standard name: antora-playbook.yml.
 # Local sibling checkouts: antora-playbook-local.yml. Local UI bundle: antora-playbook.testing.yml.
 site:
