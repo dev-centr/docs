@@ -1,6 +1,9 @@
 /**
  * In-doc navigation: crossfade article pane, preserve viewport scroll.
  * Intercepts same-origin content links inside the main column only.
+ *
+ * Also swaps the doc mast (component/version kickers + breadcrumb trail).
+ * Without that, soft nav leaves a stale path from the previous page.
  */
 ;(function () {
   'use strict'
@@ -39,10 +42,64 @@
     return doc.querySelector('.nav-container [data-panel=menu]')
   }
 
+  function extractMast (doc) {
+    return doc.querySelector('.adt-doc-mast-center') || doc.querySelector('nav.breadcrumbs')
+  }
+
   function runNavFixups () {
     if (typeof window.siteNavTreeCurrent === 'function') {
       window.siteNavTreeCurrent()
     }
+  }
+
+  /**
+   * Re-bind mast kickers after innerHTML swap. Mirrors Valentus
+   * site-adt-accordion.js but only for newly inserted toggles (data-adt-bound).
+   * Document-level outside-click close from the original init still applies.
+   */
+  function bindBreadcrumbDropdowns (scope) {
+    if (!scope) return
+    ;[].forEach.call(scope.querySelectorAll('.adt-bc-dropdown'), function (el) {
+      el.addEventListener('click', function (e) {
+        e.stopPropagation()
+      })
+    })
+    ;[].forEach.call(scope.querySelectorAll('[data-adt-toggle]'), function (button) {
+      if (button.getAttribute('data-adt-bound')) return
+      button.setAttribute('data-adt-bound', '1')
+      var id = button.getAttribute('data-adt-toggle')
+      if (!id) return
+      var list = document.getElementById(id)
+      if (!list) return
+      button.addEventListener('click', function (e) {
+        e.preventDefault()
+        e.stopPropagation()
+        var isHidden = list.hasAttribute('hidden')
+        ;[].forEach.call(document.querySelectorAll('.adt-bc-dropdown'), function (dd) {
+          if (dd === list) return
+          dd.setAttribute('hidden', 'hidden')
+        })
+        ;[].forEach.call(document.querySelectorAll('[data-adt-toggle]'), function (b) {
+          b.setAttribute('aria-expanded', 'false')
+        })
+        if (isHidden) {
+          list.removeAttribute('hidden')
+          button.setAttribute('aria-expanded', 'true')
+        } else {
+          list.setAttribute('hidden', 'hidden')
+          button.setAttribute('aria-expanded', 'false')
+        }
+      })
+    })
+  }
+
+  function swapMast (freshMast) {
+    if (!freshMast) return
+    var host =
+      document.querySelector('.adt-doc-mast-center') || document.querySelector('nav.breadcrumbs')
+    if (!host) return
+    host.innerHTML = freshMast.innerHTML
+    bindBreadcrumbDropdowns(host)
   }
 
   function swapNav (freshNav) {
@@ -82,6 +139,7 @@
       })
       .then(function (html) {
         var doc = new DOMParser().parseFromString(html, 'text/html')
+        swapMast(extractMast(doc))
         swapNav(extractNav(doc))
         swapArticle(extractArticle(doc), doc, url, push)
       })
