@@ -72,7 +72,7 @@ Switchyard
 
 Windows file-association switchyard - snapshot open/icon tracks, icon lock, file-router roles.
 
-xref:tools/switchyard.adoc[Portal] | xref:tools:switchyard:index.adoc[Component docs]
+xref:tools:switchyard:index.adoc[Switchyard docs]
 ====
 
 [.tile]
