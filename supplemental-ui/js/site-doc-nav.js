@@ -2,8 +2,13 @@
  * In-doc navigation: crossfade article pane, preserve viewport scroll.
  * Intercepts same-origin content links inside the main column only.
  *
- * Also swaps the doc mast (component/version kickers + breadcrumb trail).
- * Without that, soft nav leaves a stale path from the previous page.
+ * Same Antora component: soft-swap article, side nav, and doc mast
+ * (kickers + breadcrumb trail). Cross-component links do a full load —
+ * chrome (nav tree, mast, toolbar) differs enough that partial morphs
+ * go stale.
+ *
+ * pushState runs before DOM swaps so relative hrefs in fetched HTML
+ * resolve against the destination URL.
  */
 ;(function () {
   'use strict'
@@ -16,13 +21,38 @@
     document.querySelector('article.doc')
   if (!root || !articleHost) return
 
-  function sameSite (url) {
+  function pageUrl (url) {
+    return new URL(url, window.location.href)
+  }
+
+  function sameOrigin (url) {
     try {
-      var u = new URL(url, window.location.href)
-      return u.origin === window.location.origin && u.pathname !== window.location.pathname
+      return pageUrl(url).origin === window.location.origin
     } catch (e) {
       return false
     }
+  }
+
+  function samePath (url) {
+    try {
+      return pageUrl(url).pathname === window.location.pathname
+    } catch (e) {
+      return false
+    }
+  }
+
+  /** First path segment is the Antora component name in this hub. */
+  function componentName (url) {
+    try {
+      var parts = pageUrl(url).pathname.split('/').filter(Boolean)
+      return parts[0] || ''
+    } catch (e) {
+      return ''
+    }
+  }
+
+  function sameComponent (url) {
+    return componentName(url) === componentName(window.location.href)
   }
 
   function extractArticle (doc) {
@@ -53,10 +83,28 @@
   }
 
   /**
-   * Re-bind mast kickers after innerHTML swap. Mirrors Valentus
-   * site-adt-accordion.js but only for newly inserted toggles (data-adt-bound).
-   * Document-level outside-click close from the original init still applies.
+   * Make href/src absolute against the destination page before insert.
+   * Fetched HTML uses relatives that would otherwise resolve against the
+   * pre-navigation URL if pushState were delayed.
    */
+  function absolutize (rootEl, destHref) {
+    if (!rootEl) return
+    var base = pageUrl(destHref)
+    ;['href', 'src'].forEach(function (attr) {
+      ;[].forEach.call(rootEl.querySelectorAll('[' + attr + ']'), function (el) {
+        var raw = el.getAttribute(attr)
+        if (!raw || raw.charAt(0) === '#' || raw.indexOf('mailto:') === 0 || raw.indexOf('javascript:') === 0) {
+          return
+        }
+        try {
+          el.setAttribute(attr, new URL(raw, base).href)
+        } catch (e) {
+          /* leave as-is */
+        }
+      })
+    })
+  }
+
   function bindBreadcrumbDropdowns (scope) {
     if (!scope) return
     ;[].forEach.call(scope.querySelectorAll('.adt-bc-dropdown'), function (el) {
@@ -93,58 +141,71 @@
     })
   }
 
-  function swapMast (freshMast) {
-    if (!freshMast) return
-    var host =
-      document.querySelector('.adt-doc-mast-center') || document.querySelector('nav.breadcrumbs')
-    if (!host) return
-    host.innerHTML = freshMast.innerHTML
-    bindBreadcrumbDropdowns(host)
+  function swapMast (freshMast, destHref) {
+    var host = document.querySelector('.adt-doc-mast-center')
+    if (!host) host = document.querySelector('nav.breadcrumbs')
+    if (!host || !freshMast) return
+    var node = document.importNode(freshMast, true)
+    absolutize(node, destHref)
+    host.replaceWith(node)
+    bindBreadcrumbDropdowns(node)
   }
 
-  function swapNav (freshNav) {
+  function swapNav (freshNav, destHref) {
     if (!freshNav) return
     var panel = document.querySelector('.nav-container [data-panel=menu]')
     if (!panel) return
-    panel.innerHTML = freshNav.innerHTML
+    var node = document.importNode(freshNav, true)
+    absolutize(node, destHref)
+    panel.innerHTML = ''
+    while (node.firstChild) panel.appendChild(node.firstChild)
     runNavFixups()
   }
 
-  function swapArticle (freshArticle, doc, url, push) {
+  function swapArticle (freshArticle, destHref) {
     if (!freshArticle) {
-      window.location.href = url
+      window.location.href = destHref
       return
     }
     var scrollY = window.scrollY
+    var node = document.importNode(freshArticle, true)
+    absolutize(node, destHref)
     articleHost.style.transition = 'opacity ' + FADE_MS + 'ms ease'
     articleHost.style.opacity = '0'
     window.setTimeout(function () {
-      articleHost.innerHTML = freshArticle.innerHTML
-      if (push) history.pushState({ docNav: true }, '', url)
-      document.title = extractTitle(doc)
+      articleHost.innerHTML = ''
+      while (node.firstChild) articleHost.appendChild(node.firstChild)
       articleHost.style.opacity = '1'
       window.scrollTo(0, scrollY)
       window.setTimeout(function () {
         articleHost.style.transition = ''
       }, FADE_MS)
-      document.dispatchEvent(new CustomEvent('doc-nav:loaded'))
+      document.dispatchEvent(new CustomEvent('doc-nav:loaded', { detail: { url: destHref } }))
     }, FADE_MS)
   }
 
   function navigate (url, push) {
-    fetch(url, { credentials: 'same-origin' })
+    var dest = pageUrl(url).href
+    fetch(dest, { credentials: 'same-origin' })
       .then(function (res) {
         if (!res.ok) throw new Error('fetch failed')
         return res.text()
       })
       .then(function (html) {
         var doc = new DOMParser().parseFromString(html, 'text/html')
-        swapMast(extractMast(doc))
-        swapNav(extractNav(doc))
-        swapArticle(extractArticle(doc), doc, url, push)
+        var freshMast = extractMast(doc)
+        var freshNav = extractNav(doc)
+        var freshArticle = extractArticle(doc)
+        if (!freshArticle) throw new Error('no article')
+        // Destination URL first so injected relative links resolve correctly.
+        if (push) history.pushState({ docNav: true }, '', dest)
+        document.title = extractTitle(doc)
+        swapMast(freshMast, dest)
+        swapNav(freshNav, dest)
+        swapArticle(freshArticle, dest)
       })
       .catch(function () {
-        window.location.href = url
+        window.location.href = dest
       })
   }
 
@@ -154,17 +215,17 @@
     if (a.closest('.nav-container')) return
     var href = a.getAttribute('href')
     if (!href || href.charAt(0) === '#') return
-    if (!sameSite(a.href)) return
+    if (!sameOrigin(a.href) || samePath(a.href)) return
+    // Different Antora component: let the browser do a full document load.
+    if (!sameComponent(a.href)) return
     ev.preventDefault()
     navigate(a.href, true)
   })
 
   window.addEventListener('popstate', function () {
-    // Initial /home/ entry often has null state; still must swap article content.
     navigate(window.location.href, false)
   })
 
-  // Stamp the landing page so a later Back to it is distinguishable and reloadable.
   if (!history.state || !history.state.docNav) {
     history.replaceState({ docNav: true }, '', window.location.href)
   }
