@@ -1,5 +1,11 @@
 = Changelog
 
+== 2026-09-25 -- Nav icon inheritance, scroll decoupling, footer middot
+
+* SoftNav: same-component nav-tree clicks soft-navigate; content column/window scrolls to top on load while left-rail scroll is preserved (and restored after nav panel swap).
+* Vendor `@antora-supplemental/site-nav-tree` 0.4.1 companion JS (`site-nav-tree:scroll-y` sessionStorage) so full cross-component navigations also keep nav scroll.
+* Pick up `@antora-supplemental/nav-typology` 0.1.6 so Diataxis How-to icons inherit on cross-component leaves (Bitwarden CLI / gcloud CLI under general-knowledge).
+* Footer related-projects separators: replace double-encoded UTF-8 middle dots with `&middot;` (fixes `A·` mojibake).
 == 2026-09-25 -- Platforms hub IA + SoftNav expand keys + Source-only lead
 
 * Platforms: shared component start page is `/platforms/` hub; DevCentr + devcentr.org titled nav trees as platform children; removed missing sibling nav paths footgun.
