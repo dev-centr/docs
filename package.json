@@ -9,6 +9,8 @@
     "build": "antora antora-playbook-local.yml",
     "build:online": "antora --fetch antora-playbook.yml",
     "build:testing": "antora antora-playbook.testing.yml",
+    "kroki:up": "docker compose -f docker-compose.kroki.yml up -d",
+    "kroki:down": "docker compose -f docker-compose.kroki.yml down",
     "diagrams:generate": "node scripts/generate-themed-diagrams.mjs && node scripts/sync-themed-svg-runtime.mjs",
     "diagrams:check": "node scripts/generate-themed-diagrams.mjs --check && node scripts/sync-themed-svg-runtime.mjs --check",
     "themed-svg:runtime": "node scripts/sync-themed-svg-runtime.mjs"

@@ -80,12 +80,15 @@ link:#readme-top[back to top]
 
 === Getting Started (Local Development)
 
-Clone the content repos as siblings of this playbook repo (see `antora-playbook-local.yml`), then:
+Clone the content repos as siblings of this playbook repo (see `antora-playbook-local.yml`), start local Kroki (Mermaid companion), then build:
 
 [source,powershell]
 ----
+pnpm kroki:up
 pnpm build
 ----
+
+Local and CI Antora playbooks share `kroki-server-url: http://127.0.0.1:8000` (see `docker-compose.kroki.yml` and `.github/workflows/deploy.yml`).
 
 === Testing Local Plugins / UI
 
@@ -98,10 +101,11 @@ pnpm build:testing
 
 === Production / CI Build
 
-To build with remote sources (as CI does):
+To build with remote sources (same Kroki URL as local; start Kroki first, or rely on CI service containers):
 
 [source,powershell]
 ----
+pnpm kroki:up
 pnpm run build:online
 ----
 
@@ -110,6 +114,7 @@ The output will be generated in the `build/site` directory (or as configured in 
 |===
 | Command | Purpose
 | `pnpm install` | Install dependencies
+| `pnpm kroki:up` / `pnpm kroki:down` | Start/stop local Kroki+Mermaid (`docker-compose.kroki.yml`)
 | `pnpm build` | Build site with local playbook (`antora-playbook-local.yml`)
 | `pnpm build:testing` | Build with testing playbook (e.g. local UI bundle)
 | `pnpm run build:online` | Build with remote sources (production/CI)

@@ -144,7 +144,9 @@ asciidoc:
     - '@antora-supplemental/page-context'
   attributes:
     stem: latexmath
-    kroki-server-url: https://kroki.io
+    # Self-hosted gateway+mermaid (CI services or: pnpm kroki:up)
+    # Override to public if needed: --attribute kroki-server-url=https://kroki.io
+    kroki-server-url: http://127.0.0.1:8000
     kroki-fetch-diagram: true
     page-context-active: ''
     page-context-keyword-base: '/home/keywords'

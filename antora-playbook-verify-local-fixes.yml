@@ -1,4 +1,4 @@
-﻿# Dev Center docs — CI/production (dev-centr repos only)
+# Dev Center docs — CI/production (dev-centr repos only)
 # Standard name: antora-playbook.yml.
 # Local sibling checkouts: antora-playbook-local.yml. Local UI bundle: antora-playbook.testing.yml.
 site:
@@ -144,7 +144,7 @@ asciidoc:
     - '@antora-supplemental/page-context'
   attributes:
     stem: latexmath
-    kroki-server-url: https://kroki.io
+    kroki-server-url: http://127.0.0.1:8000
     kroki-fetch-diagram: true
     page-context-active: ''
     page-context-keyword-base: '/home/keywords'

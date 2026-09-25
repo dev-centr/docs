@@ -49,14 +49,37 @@ asciidoc:
     - asciidoctor-kroki
   attributes:
     stem: latexmath
-    kroki-server-url: https://kroki.io
+    kroki-server-url: http://127.0.0.1:8000
     kroki-fetch-diagram: true
 ----
 
 `kroki-fetch-diagram: true` embeds diagram SVG in the published site so readers do not call Kroki at view time.
-CI needs network access to the Kroki server during `antora` (or point `kroki-server-url` at a self-hosted instance).
+**Local and CI playbooks share this Kroki URL** so Mermaid/PlantUML render through the same self-hosted gateway (public `https://kroki.io` Mermaid can return **500** intermittently; `asciidoctor-kroki` then WARN-skips the block).
 
 Install: `pnpm add -D asciidoctor-kroki` in the playbook repo.
+
+== Self-hosted Kroki (local + CI)
+
+Local sibling builds and GitHub Actions both use `yuzutech/kroki` + `yuzutech/kroki-mermaid` on `http://127.0.0.1:8000`.
+
+Local:
+
+[source,shell]
+----
+pnpm kroki:up
+pnpm build
+pnpm kroki:down
+----
+
+That starts `docker-compose.kroki.yml`. Mermaid is a **companion** service — the gateway alone answers **503** for `/mermaid/*`.
+CI (`.github/workflows/deploy.yml`) starts the same images as job `services` and waits for health before `antora`.
+
+To force the public server on a one-off build:
+
+[source,shell]
+----
+pnpm antora --attribute kroki-server-url=https://kroki.io antora-playbook-local.yml
+----
 
 == Runtime Mermaid (optional fallback)
 

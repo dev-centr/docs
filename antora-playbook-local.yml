@@ -180,7 +180,9 @@ asciidoc:
     - '@antora-supplemental/page-context'
   attributes:
     stem: latexmath
-    kroki-server-url: https://kroki.io
+    # Local gateway+mermaid: docker compose -f docker-compose.kroki.yml up -d
+    # Override to public if needed: antora --attribute kroki-server-url=https://kroki.io antora-playbook-local.yml
+    kroki-server-url: http://127.0.0.1:8000
     kroki-fetch-diagram: true
     page-context-active: ''
     page-context-keyword-base: '/home/keywords'

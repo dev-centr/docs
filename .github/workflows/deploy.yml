@@ -41,6 +41,25 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Start Kroki (same compose as local)
+        run: docker compose -f docker-compose.kroki.yml up -d
+
+      - name: Wait for Kroki
+        run: |
+          for i in $(seq 1 60); do
+            if curl -sf http://127.0.0.1:8000/health >/dev/null \
+              && curl -sf -X POST http://127.0.0.1:8000/mermaid/svg \
+                   -H 'Content-Type: text/plain' \
+                   --data 'graph TD; A-->B' >/dev/null; then
+              echo "Kroki + Mermaid are up"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Kroki/Mermaid failed to become healthy" >&2
+          docker compose -f docker-compose.kroki.yml logs || true
+          exit 1
+
       - name: Build Antora site
         id: antora
         uses: antora-supplemental/antora-build-action@v2
