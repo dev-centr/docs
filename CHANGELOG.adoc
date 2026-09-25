@@ -1,5 +1,12 @@
 = Changelog
 
+== 2026-09-25 -- Platforms hub IA + SoftNav expand keys + Source-only lead
+
+* Platforms: shared component start page is `/platforms/` hub; DevCentr + devcentr.org titled nav trees as platform children; removed missing sibling nav paths footgun.
+* Home nav: drop untitled Architecture section (pages kept; GK already xrefs them).
+* Vendor `@antora-supplemental/site-nav-tree` 0.4.0 companion JS (pathname expand keys + Home/Changelog hard-sort); SoftNav rebind no longer looks like inject/remove.
+* Pin `@antora-supplemental/page-context` to `v0.6.7` for shrink-wrapped Source-only lead tables on component homes.
+
 == 2026-09-15 -- page-edit 0.2.4 component-home Source
 
 * Pin `@antora-supplemental/page-edit` to `v0.2.4` so Antora component start pages get the Source | View | Edit row (empty lead shells no longer false-positive on page-context CSS).
