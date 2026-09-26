@@ -1,5 +1,10 @@
 = Changelog
 
+== 2026-09-26 - One owner for mermaid/lightbox UI (extensions inject)
+
+* Removed hub `supplemental-ui` mirrors of mermaid-client + diagram-lightbox JS/CSS/partials; playbooks no longer set `injectAssets: false` (shipped in `b43c8d2` with the cite-sweep commit).
+* Extensions inject chrome once. Head/footer still include `{{> mermaid-client-*}}` / `{{> diagram-lightbox-*}}` (partials come from the packages).
+* Bump `mermaid-client` + `diagram-lightbox` pin to `antora-diagram-engines@dbdca59` (duplicate UI inject WARNs again instead of quiet debug skip).
 == 2026-09-26 -- Independent nav vs article column scroll
 
 * Fix left-rail / article scroll coupling: Valentus `site-doc-layout` stretched `.nav` to document height with `overflow-y:visible` on `.nav-panel-menu`, so window scroll moved both columns. Supplemental `site-nav-column-scroll.css` restores a sticky viewport-height nav column and makes `[data-panel=menu]` the vertical scrollport (matches SoftNav / `site-nav-tree:scroll-y` restore).
