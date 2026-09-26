@@ -126,7 +126,7 @@ antora:
 
 *Behavior:* At Antora build time, Mermaid and PlantUML blocks are converted to SVG via Kroki (`kroki-fetch-diagram: true` embeds them so readers do not call Kroki at view time).
 
-*Playbook:* See xref:publishing/antora-diagram-formats.adoc[Antora diagram formats]. Compose with Lunr/math/Valentus via link:https://github.com/antora-supplemental/antora-facto[`antora-facto`] — not by loading extras into Valentus core.
+*Playbook:* See xref:publishing/antora-diagram-formats.adoc[Antora diagram formats]. Compose with Lunr/math/Valentus via link:https://github.com/antora-supplemental/facto-stack[`facto-stack`] — not by loading extras into Valentus core.
 
 === Math formulas (KaTeX + AsciiDoc `stem`)
 
@@ -162,7 +162,7 @@ antora:
     - '@antora-supplemental/build-stack'
 ----
 
-Registered in link:https://github.com/antora-supplemental/antora-facto[antora-facto] by default.
+Registered in link:https://github.com/antora-supplemental/facto-stack[facto-stack] by default.
 
 == Related
 

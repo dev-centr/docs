@@ -123,7 +123,7 @@ Example: `WARN themed-svg dark-mode text: .../agent-cli-auth-flow.svg: root #my-
 Borrow from light:: Set the dark preset value equal to light for intentional light islands, or list token ids in `borrowFromLight` (stripped before the transformer). If a surface/canvas borrows light, nested text for that region should also borrow — do not force dark text recoloring inside a light-stable island. The WARN skips light-stable figures and still flags adapted dark backgrounds that left light-mode text behind.
 ****
 
-These adapters are general-purpose packages in **dev-centr**; Antora importance is compose/recommend (see link:https://github.com/antora-supplemental/antora-facto[antora-facto]), not forks into antora-supplemental.
+These adapters are general-purpose packages in **dev-centr**; Antora importance is compose/recommend (see link:https://antora-supplemental.org/facto-stack/[facto-stack]; GitHub: link:https://github.com/antora-supplemental/facto-stack[antora-supplemental/facto-stack]), not forks into antora-supplemental.
 
 == Option B — Ship client render engines (Mermaid first)
 
@@ -222,11 +222,11 @@ UX name: **lightbox**. Package id: link:https://github.com/antora-supplemental/a
 This hub requires the package in the playbook and includes `{{> diagram-lightbox-styles}}` / `{{> diagram-lightbox-scripts}}` (assets injected into the UI catalog).
 Opt out of a single figure with role/class `no-diagram-zoom` when needed.
 
-== Facto pack (not Valentus core)
+== facto-stack pack (not Valentus core)
 
 Valentus UI stays a **lean theme**.
-Reusable playbook defaults (Valentus + Lunr + stem/math + Kroki diagrams + related essentials) live in the separate compose pack link:https://github.com/antora-supplemental/antora-facto[`antora-supplemental/antora-facto`] — the *de-facto* stack, discovered by pack name like a VS Code extension pack, not forced into the Valentus `v2` rolling tag.
-Client Mermaid + diagram lightbox (`diagram-lightbox`) are **supported supplemental options** on top of Facto, not Valentus core.
+Reusable playbook defaults (Valentus + Lunr + stem/math + Kroki diagrams + related essentials) live in the separate compose pack link:https://github.com/antora-supplemental/facto-stack[`antora-supplemental/facto-stack`] — the *facto-stack* compose pack, discovered by pack name like a VS Code extension pack, not forced into the Valentus `v2` rolling tag.
+Client Mermaid + diagram lightbox (`diagram-lightbox`) are **supported supplemental options** on top of facto-stack, not Valentus core.
 
 == Related
 

@@ -1,5 +1,9 @@
 = Changelog
 
+== 2026-09-26 - Retarget facto-stack references
+
+* Retargeted hub guidance, activity logs, and publishing docs to the facto-stack product name and current repository/site links.
+
 == 2026-09-25 - Fix injectAssets false for mermaid-client / diagram-lightbox
 
 * Bump `@antora-supplemental/mermaid-client` + `diagram-lightbox` pin to `antora-diagram-engines@f5c293c` so `register({ config })` keeps `length === 1` (and this-binding) and Antora honors playbook `injectAssets: false` (stops Duplicate UI file WARNs against hub `supplemental-ui` mirrors).
