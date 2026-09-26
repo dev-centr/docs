@@ -1,4 +1,4 @@
-﻿= Activity Log
+= Activity Log
 :navtitle: Activity Log
 :description: Notable changes and updates across Dev-Centr documentation and projects.
 :keywords: changelog, org-wide changelog, hub activity, activity log, release notes, shipping notes
