@@ -1,5 +1,11 @@
 = Changelog
 
+== 2026-09-26 - Forest nav Overview naming
+
+* Home `nav.adoc`: start-page label **Overview** (was Home) — component title remains **Home**.
+* `tools-docs` relies on site-nav-tree **0.5.0** Overview synthesis for `/tools/` (no ROOT nav file; avoids multi-nav anonymous wrapper).
+* Activity log entry records the forest-wide convention.
+
 == 2026-09-26 - Themed SVG dark-text WARN rollup
 
 * `lib/verify-themed-svg-dark-mode.js`: emit **one rollup WARN** with the issue count; move per-file dark-text advice to **info** (not WARN) so default Antora logs stay readable while fix agents still see an actionable WARN.

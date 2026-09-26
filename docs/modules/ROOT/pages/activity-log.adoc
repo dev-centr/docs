@@ -5,6 +5,12 @@
 
 This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see each component's xref:platforms:devcentr:changelog.adoc[Changelog] (and siblings); for release tags, see repository tags and release notes.
 
+== 2026-09-26 -- Forest nav Overview naming
+
+* Prefer **Overview** over **Home** / component-titled start-page nav duplicates under site-nav-tree forest roots (`Home > Overview`, `General Knowledge > Overview`, `Business Bootstrap > Overview`, …).
+* Hub dependency `@antora-supplemental/site-nav-tree` **0.5.0**: unwrap emits Overview; synthesizes Overview when missing (Platforms, Tools, Templates parity).
+* Content nav: Home, Business Bootstrap, General Knowledge, Templates; Platforms module landings (DevCentr / devcentr.org) Home → Overview. Page H1s stay descriptive; Home *component* title unchanged.
+
 == 2026-09-26 -- Themed SVG dark-text rollup + content fix
 
 * Hub checker: one rollup WARN + per-file info.
