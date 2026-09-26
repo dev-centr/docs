@@ -1,5 +1,10 @@
 = Changelog
 
+== 2026-09-26 -- Independent nav vs article column scroll
+
+* Fix left-rail / article scroll coupling: Valentus `site-doc-layout` stretched `.nav` to document height with `overflow-y:visible` on `.nav-panel-menu`, so window scroll moved both columns. Supplemental `site-nav-column-scroll.css` restores a sticky viewport-height nav column and makes `[data-panel=menu]` the vertical scrollport (matches SoftNav / `site-nav-tree:scroll-y` restore).
+* Wire the stylesheet after Valentus layout CSS in `head-meta.hbs`.
+
 == 2026-09-26 - Retarget facto-stack references
 
 * Retargeted hub guidance, activity logs, and publishing docs to the facto-stack product name and current repository/site links.
