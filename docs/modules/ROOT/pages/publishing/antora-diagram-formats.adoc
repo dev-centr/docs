@@ -44,6 +44,7 @@ Serve with a `[.themed-svg]` image role so the hub runtime can inline the host S
 Adaptive Themed SVG fallbacks must rewrite Mermaid's hardcoded `#my-svg { fill }` and `.label { color }` to `color.text.primary` (see component `diagrams:generate` checks).
 The hub playbook loads `lib/verify-themed-svg-dark-mode.js`, which **WARN**s at Antora `contentClassified` when an adaptive SVG still has those hardcoded colors under `prefers-color-scheme: dark`.
 Example: `WARN themed-svg dark-mode text: .../agent-cli-auth-flow.svg: root #my-svg fill is a hardcoded color (not color.text.primary var); <text> inherits it in dark mode`
+Borrow from light:: Set the dark preset value equal to light for intentional light islands, or list token ids in `borrowFromLight` (stripped before the transformer). If a surface/canvas borrows light, nested text for that region should also borrow — do not force dark text recoloring inside a light-stable island. The WARN skips light-stable figures and still flags adapted dark backgrounds that left light-mode text behind.
 ****
 
 These adapters are general-purpose packages in **dev-centr**; Antora importance is compose/recommend (see link:https://github.com/antora-supplemental/antora-facto[antora-facto]), not forks into antora-supplemental.

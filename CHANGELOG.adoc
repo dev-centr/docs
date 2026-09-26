@@ -2,7 +2,7 @@
 
 == 2026-09-25 - Themed SVG dark-text WARN on Antora build
 
-* Added `lib/verify-themed-svg-dark-mode.js` and registered it in the playbooks: at `contentClassified`, WARN when adaptive Themed SVG images still hardcode Mermaid root `#my-svg` fill / `.label` color under `prefers-color-scheme: dark`.
+* Added `lib/verify-themed-svg-dark-mode.js` and registered it in the playbooks: at `contentClassified`, WARN when adaptive Themed SVG images still hardcode Mermaid root `#my-svg` fill / `.label` color under `prefers-color-scheme: dark`. Borrow-from-light / parent -> child policy: equal light/dark token values (or `borrowFromLight`) mark stable light islands so nested text is not forced to flip; WARN still fires when a darker adapted surface keeps light-mode text.
 * Documented the check on the Antora diagram formats page.
 
 == 2026-09-25 -- Nav icon inheritance, scroll decoupling, footer middot
