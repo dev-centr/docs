@@ -38,6 +38,14 @@ For figures that must track the site dark-mode toggle, post-process renderer SVG
 |===
 
 Serve with a `[.themed-svg]` image role so the hub runtime can inline the host SVG.
+
+.Dark-text completeness (build WARN)
+****
+Adaptive Themed SVG fallbacks must rewrite Mermaid's hardcoded `#my-svg { fill }` and `.label { color }` to `color.text.primary` (see component `diagrams:generate` checks).
+The hub playbook loads `lib/verify-themed-svg-dark-mode.js`, which **WARN**s at Antora `contentClassified` when an adaptive SVG still has those hardcoded colors under `prefers-color-scheme: dark`.
+Example: `WARN themed-svg dark-mode text: .../agent-cli-auth-flow.svg: root #my-svg fill is a hardcoded color (not color.text.primary var); <text> inherits it in dark mode`
+****
+
 These adapters are general-purpose packages in **dev-centr**; Antora importance is compose/recommend (see link:https://github.com/antora-supplemental/antora-facto[antora-facto]), not forks into antora-supplemental.
 
 == Playbook wiring (this hub)
