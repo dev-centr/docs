@@ -18,8 +18,8 @@
   "packageManager": "pnpm@10.28.1+sha512.7d7dbbca9e99447b7c3bf7a73286afaaf6be99251eb9498baefa7d406892f67b879adb3a1d7e687fc4ccc1a388c7175fbaae567a26ab44d1067b54fcb0d6a316",
   "devDependencies": {
     "@antora-supplemental/build-stack": "github:antora-supplemental/build-stack#main",
-    "@antora-supplemental/diagram-lightbox": "github:antora-supplemental/antora-diagram-engines#f5c293c0478cd36207166bccc78c077535502a0f&path:packages/diagram-lightbox",
-    "@antora-supplemental/mermaid-client": "github:antora-supplemental/antora-diagram-engines#f5c293c0478cd36207166bccc78c077535502a0f&path:packages/mermaid-client",
+    "@antora-supplemental/diagram-lightbox": "github:antora-supplemental/antora-diagram-engines#dbdca5920074ef1559bdd263f874270292df9558&path:packages/diagram-lightbox",
+    "@antora-supplemental/mermaid-client": "github:antora-supplemental/antora-diagram-engines#dbdca5920074ef1559bdd263f874270292df9558&path:packages/mermaid-client",
     "@antora-supplemental/nav-typology": "github:antora-supplemental/nav-typology#main",
     "@antora-supplemental/nav-typology-diataxis": "github:antora-supplemental/nav-typology-diataxis#main",
     "@antora-supplemental/page-edit": "github:antora-supplemental/page-edit#v0.2.4",
