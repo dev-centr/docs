@@ -89,15 +89,13 @@
     min-height: 0 !important;
     height: auto !important;
     max-height: none !important;
-    overflow-x: auto !important;
+    overflow-x: hidden !important;
     overflow-y: visible !important;
   }
 }
 
-/* Hide nav tree until expand/current restore runs (cuts open-path flash). */
-html:not([data-snt-nav-ready]) .nav-container [data-panel=menu] nav.nav-menu {
-  visibility: hidden;
-}
-html[data-snt-nav-ready] .nav-container [data-panel=menu] nav.nav-menu {
-  visibility: visible;
-}
+/* SoftNav seamlessness: do NOT blank the tree with visibility:hidden.
+ * Prior data-snt-nav-ready hide caused a flash on every soft navigation
+ * (worse than DeepWiki). site-nav-tree 0.5.3 + SoftNav 0.2.0 patch currents
+ * in place instead.
+ */
