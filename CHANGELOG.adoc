@@ -1,5 +1,9 @@
 = Changelog
 
+== 2026-09-25 - Fix injectAssets false for mermaid-client / diagram-lightbox
+
+* Bump `@antora-supplemental/mermaid-client` + `diagram-lightbox` pin to `antora-diagram-engines@f5c293c` so `register({ config })` keeps `length === 1` (and this-binding) and Antora honors playbook `injectAssets: false` (stops Duplicate UI file WARNs against hub `supplemental-ui` mirrors).
+
 == 2026-09-25 - Mermaid client + diagram lightbox packages
 
 * Require `@antora-supplemental/mermaid-client/antora` + `@antora-supplemental/diagram-lightbox` (pinned `antora-diagram-engines@981eb29`) on all hub playbooks; attrs `mermaid-client` / `mermaid-client-mode: client` so Mermaid uses the CDN client path (PlantUML stays on `asciidoctor-kroki`).
