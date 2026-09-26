@@ -45,8 +45,10 @@ antora:
       component: home
       path: keywords
     - require: '@antora-supplemental/mermaid-client/antora'
-      # CDN default; extensions inject chrome once (do not mirror into supplemental-ui)
+      # CDN default; injectAssets false — hub supplemental-ui owns chrome (package Asciidoctor still runs)
+      injectAssets: false
     - require: '@antora-supplemental/diagram-lightbox'
+      injectAssets: false
 content:
   sources:
     - url: .
