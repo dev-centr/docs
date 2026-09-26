@@ -5,6 +5,10 @@
 
 This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see each component's xref:platforms:devcentr:changelog.adoc[Changelog] (and siblings); for release tags, see repository tags and release notes.
 
+== 2026-09-26 -- Themed SVG dark-text rollup + content fix
+
+* Hub checker: one rollup WARN + per-file info.
+* Content: adaptive SVG #my-svg / .label -> `color.text.primary` vars; `access-mock-*` marked borrow-from-light; playtime sets synced across scriptbook / equivalence-engine / devcentr / general-knowledge.
 == 2026
 
 === September

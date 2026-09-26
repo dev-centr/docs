@@ -1,5 +1,10 @@
 = Changelog
 
+== 2026-09-26 - Themed SVG dark-text WARN rollup
+
+* `lib/verify-themed-svg-dark-mode.js`: emit **one rollup WARN** with the issue count; move per-file dark-text advice to **info** (not WARN) so default Antora logs stay readable while fix agents still see an actionable WARN.
+* Documented the rollup on `publishing/antora-diagram-formats.adoc`.
+
 == 2026-09-26 - One owner for mermaid/lightbox UI (extensions inject)
 
 * Removed hub `supplemental-ui` mirrors of mermaid-client + diagram-lightbox JS/CSS/partials; playbooks no longer set `injectAssets: false` (durable in `72e9ed6` after `b43c8d2` cite-sweep collision + mistaken `85c0684` restore).
