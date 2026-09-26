@@ -1,5 +1,14 @@
 = Changelog
 
+== 2026-09-26 - Section Overview selectable + nav scroll/TOC/flash
+
+* Bump `@antora-supplemental/site-nav-tree` **0.5.2**: promote linked section parents with children to unlinked section + **Overview** child (fixes Overview collapsing into Email/Software stack when URLs collided).
+* SoftNav: same-path nav-link clicks still mark the clicked leaf current (Overview vs parent).
+* Left nav scroll: strengthen `site-nav-column-scroll.css` — sticky + viewport `max-height`/`height`, panel-only vertical scrollport, `overscroll-behavior: contain`, defeat Valentus stretch/`overflow-y:visible` on the panel.
+* Nav open-path flash: hide tree until `data-snt-nav-ready` after expand/current restore (SoftNav before clears the flag).
+* Right TOC: `site-toc-main-article.js` keeps Contents chrome; heading-light pages get a **Main article** placeholder linking to the page title.
+* Deferred: BB graft under GK → Tutorials (Ryan deciding); BB stays a forest root.
+
 == 2026-09-26 - Forest nav IA: Overview peers, Tools flatten, BB Software stack
 
 * Bump `@antora-supplemental/site-nav-tree` **0.5.1**: flatten multi-anonymous Tools module navs; recursively unwrap Overview parents that wrapped sibling articles.

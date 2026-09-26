@@ -5,6 +5,12 @@
 
 This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see each component's xref:platforms:devcentr:changelog.adoc[Changelog] (and siblings); for release tags, see repository tags and release notes.
 
+
+== 2026-09-26 - BB section Overview + nav chrome
+
+* Business Bootstrap: Software stack → Overview, Defaults by stage, Email/… with Overview leaves; site-nav-tree 0.5.2 promote rewrite; SoftNav same-path selection.
+* Hub UI: independent nav scroll strengthen, TOC Main article placeholder, nav-ready flash guard.
+* Deferred: BB under GK Tutorials graft.
 == 2026
 
 === September

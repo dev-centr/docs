@@ -1,41 +1,41 @@
 /*
  * Independent column scroll for Valentus 2.x on the DevCentr docs hub.
  *
- * Root cause: site-doc-layout stretches .nav to the full article height
- * (position:static; height:auto) and later sets .nav-panel-menu {
- * overflow-y:visible }, moving the only overflow to nav.nav-menu. When the
- * column is as tall as the page, neither panel nor menu gets a vertical
- * scrollport - window/body scroll moves nav + article together.
+ * Root cause (still after 11d35d6): site-doc-layout
+ *   (1) align-self:stretch + height:auto on .nav so the rail grows with the article
+ *   (2) overflow-y:visible on .nav-panel-menu and overflow-y:auto on nav.nav-menu
+ *       so the tree (not the SoftNav scroll key) is the scrollport — or neither is
+ *   (3) overscroll-behavior:auto !important chains wheel to the page
+ * A fixed height of (100vh - navbar) on a column that starts *below* the tool band
+ * also hangs past the fold, so page scroll was required to reach the tree bottom.
  *
- * site-extra.css already tried sticky + viewport height, but (1) it loads
- * before site-doc-layout so static wins, and (2) --navbar-height /
- * --nav-height--desktop are often undefined in the Default UI site.css
- * this hub ships (hardcoded 3.5rem instead), so height:var(...) is invalid.
- *
- * SoftNav + site-nav-tree-current.js persist scrollTop on
- * .nav-container [data-panel=menu] (.nav-panel-menu). That element must be
- * the vertical scrollport for site-nav-tree:scroll-y restore to work.
- *
- * Content continues to use the window/document scrollport (Valentus design).
+ * Fix: sticky + max-height = remaining viewport under sticky top; panel
+ * [data-panel=menu] is the only vertical scrollport (SoftNav scroll-y key);
+ * contain overscroll; tree grows with content (horizontal edge-fade only).
  */
 :root {
-  /* Match .adt-site-navbar min-height / Default UI navbar; fall back if unset. */
   --adt-nav-sticky-top: var(--navbar-height, 3.5rem);
-  --adt-nav-sticky-height: var(
-    --nav-height--desktop,
-    calc(100vh - var(--adt-nav-sticky-top))
-  );
+  --adt-nav-sticky-max: calc(100vh - var(--adt-nav-sticky-top));
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --adt-nav-sticky-max: calc(100dvh - var(--adt-nav-sticky-top));
+  }
 }
 
 @media screen and (min-width: 1024px) {
-  /* Sticky peer column: viewport-tall, not document-tall. */
+  .body.adt-body {
+    align-items: flex-start !important;
+  }
+
   .body.adt-body > .nav-container,
   .nav-container {
     align-self: flex-start !important;
     position: sticky !important;
     top: var(--adt-nav-sticky-top) !important;
-    height: var(--adt-nav-sticky-height) !important;
-    max-height: var(--adt-nav-sticky-height) !important;
+    max-height: var(--adt-nav-sticky-max) !important;
+    height: var(--adt-nav-sticky-max) !important;
     min-height: 0 !important;
     overflow: hidden !important;
   }
@@ -63,7 +63,7 @@
 
   /*
    * Vertical scrollport = [data-panel=menu] (JS restore key).
-   * Contain overscroll so wheel on the rail does not drive the article.
+   * Defeat Valentus overflow-y:visible + overscroll chaining.
    */
   body.adt-body .nav .nav-panel-menu,
   .nav-container .nav-panel-menu,
@@ -79,10 +79,6 @@
     -ms-scroll-chaining: none !important;
   }
 
-  /*
-   * Tree grows with content (panel scrolls vertically). Keep overflow-x:auto
-   * so Valentus edge-fade horizontal scroll still engages on long labels.
-   */
   body.adt-body .nav nav.nav-menu.nav-tree-only,
   body.adt-body .nav nav.nav-menu.adt-nav-tree-only,
   .nav-container nav.nav-menu.nav-tree-only,
@@ -96,4 +92,12 @@
     overflow-x: auto !important;
     overflow-y: visible !important;
   }
+}
+
+/* Hide nav tree until expand/current restore runs (cuts open-path flash). */
+html:not([data-snt-nav-ready]) .nav-container [data-panel=menu] nav.nav-menu {
+  visibility: hidden;
+}
+html[data-snt-nav-ready] .nav-container [data-panel=menu] nav.nav-menu {
+  visibility: visible;
 }

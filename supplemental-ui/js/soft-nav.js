@@ -331,12 +331,32 @@
     document.querySelector('article.doc')
   if (!root || !articleHost) return
 
+  function markNavCurrentFromLink (a) {
+    var li = a && a.closest && a.closest('li.nav-item')
+    var menu = document.querySelector('.nav-container [data-panel=menu]')
+    if (!li || !menu) return
+    menu.querySelectorAll('.nav-item.is-current-page').forEach(function (el) {
+      el.classList.remove('is-current-page')
+    })
+    li.classList.add('is-current-page')
+    if (typeof window.siteNavTreeCurrent === 'function') window.siteNavTreeCurrent()
+  }
+
   root.addEventListener('click', function (ev) {
     var a = ev.target.closest('a')
     if (!a || a.target === '_blank' || a.hasAttribute('download')) return
     var href = a.getAttribute('href')
     if (!href || href.charAt(0) === '#') return
-    if (!sameOrigin(a.href) || samePath(a.href)) return
+    // Same URL as current page (Overview leaf vs former linked parent): SoftNav
+    // would no-op, but we still must select the clicked nav leaf.
+    if (sameOrigin(a.href) && samePath(a.href)) {
+      if (a.classList.contains('nav-link') && a.closest('.nav-container')) {
+        ev.preventDefault()
+        markNavCurrentFromLink(a)
+      }
+      return
+    }
+    if (!sameOrigin(a.href)) return
     // SoftNav only within the same Antora component. Cross-component nav links
     // fall through to a full load; companion JS restores left-rail scroll.
     if (!sameComponent(a.href)) {
