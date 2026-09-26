@@ -1,5 +1,12 @@
 = Changelog
 
+== 2026-09-26 - Nav scroll performance A/B (typology icons)
+
+* Published Home explanation `publishing/nav-scroll-performance-ab.adoc` with CDP/Puppeteer A/B metrics (icons ON/OFF, SoftNav listeners, expand-all paint, HCI control).
+* Hub helper `nav-typology-icon`: temporary lab kill-switch `site.keys.nav_typology_icons: 'false'` (production default remains icons on).
+* Lab harnesses: `scripts/nav-scroll-ab-bench.mjs`, `scripts/nav-scroll-cost-bench.mjs`; screenshots under `docs/modules/ROOT/images/nav-scroll-ab/`.
+* Verdict: visible SVG/`use` icons costly when many expanded; default-path scroll gap vs HCI dominated by forest DOM size; SoftNav scroll persist and horizontal overflow weak/rejected as primary causes.
+
 == 2026-09-26 - Section Overview selectable + nav scroll/TOC/flash
 
 * Bump `@antora-supplemental/site-nav-tree` **0.5.2**: promote linked section parents with children to unlinked section + **Overview** child (fixes Overview collapsing into Email/Software stack when URLs collided).

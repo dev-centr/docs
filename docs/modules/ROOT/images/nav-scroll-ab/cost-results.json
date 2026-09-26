@@ -1,0 +1,1462 @@
+{
+  "generatedAt": "2026-09-26T09:36:16.632Z",
+  "results": [
+    {
+      "label": "cost-A-icons",
+      "url": "http://127.0.0.1:52082/tools/agent-rules/",
+      "variant": "A",
+      "micro": {
+        "iconCount": 246,
+        "itemCount": 360,
+        "iconLayoutMs40": 3.9,
+        "allNavLayoutMs20": 3.4,
+        "styleInvalidationMs80": 0.8,
+        "scrollPersistMs400": 1.5,
+        "queryIconsMs200": 2.1,
+        "flexRowMs10": 23.7,
+        "useResolveMs40": 1.6,
+        "nodes": 1963
+      },
+      "wheel": {
+        "wheelEvents": 94
+      },
+      "trace": {
+        "selected": {
+          "RunTask": {
+            "count": 6426,
+            "ms": 2658.815
+          },
+          "FunctionCall": {
+            "count": 179,
+            "ms": 5.098
+          },
+          "EvaluateScript": {
+            "count": 1,
+            "ms": 0.672
+          },
+          "EventDispatch": {
+            "count": 171,
+            "ms": 8.274
+          },
+          "Layerize": {
+            "count": 276,
+            "ms": 9.777
+          },
+          "PrePaint": {
+            "count": 370,
+            "ms": 3.544
+          },
+          "Commit": {
+            "count": 362,
+            "ms": 18.114
+          },
+          "HitTest": {
+            "count": 98,
+            "ms": 5.972
+          },
+          "ScrollLayer": {
+            "count": 38,
+            "ms": 1.05
+          },
+          "GPUTask": {
+            "count": 43,
+            "ms": 35.101
+          },
+          "RasterTask": {
+            "count": 38,
+            "ms": 5.221
+          }
+        },
+        "topDuration": [
+          {
+            "name": "RunTask",
+            "ms": 2658.815,
+            "count": 6426
+          },
+          {
+            "name": "GPUTask",
+            "ms": 35.101,
+            "count": 43
+          },
+          {
+            "name": "Commit",
+            "ms": 18.114,
+            "count": 362
+          },
+          {
+            "name": "Layerize",
+            "ms": 9.777,
+            "count": 276
+          },
+          {
+            "name": "EventDispatch",
+            "ms": 8.274,
+            "count": 171
+          },
+          {
+            "name": "HitTest",
+            "ms": 5.972,
+            "count": 98
+          },
+          {
+            "name": "RasterTask",
+            "ms": 5.221,
+            "count": 38
+          },
+          {
+            "name": "FunctionCall",
+            "ms": 5.098,
+            "count": 179
+          },
+          {
+            "name": "PrePaint",
+            "ms": 3.544,
+            "count": 370
+          },
+          {
+            "name": "IntersectionObserverController::computeIntersections",
+            "ms": 1.442,
+            "count": 552
+          },
+          {
+            "name": "ScrollLayer",
+            "ms": 1.05,
+            "count": 38
+          },
+          {
+            "name": "TimerFire",
+            "ms": 0.966,
+            "count": 9
+          },
+          {
+            "name": "UpdateLayer",
+            "ms": 0.73,
+            "count": 348
+          },
+          {
+            "name": "EvaluateScript",
+            "ms": 0.672,
+            "count": 1
+          },
+          {
+            "name": "RunMicrotasks",
+            "ms": 0.207,
+            "count": 7
+          }
+        ],
+        "eventCount": 15834
+      },
+      "metrics": {
+        "Nodes": 6316,
+        "JSEventListeners": 136,
+        "JSHeapUsedSize": 27637656,
+        "LayoutCount": 0,
+        "RecalcStyleCount": 0,
+        "LayoutDurationMs": 0,
+        "RecalcStyleDurationMs": 0,
+        "ScriptDurationMs": 0,
+        "TaskDurationMs": 0.018
+      }
+    },
+    {
+      "label": "cost-B-remove-svg",
+      "url": "http://127.0.0.1:52082/tools/agent-rules/",
+      "variant": "B-remove-svg",
+      "micro": {
+        "iconCount": 0,
+        "itemCount": 360,
+        "iconLayoutMs40": 0.1,
+        "allNavLayoutMs20": 4.9,
+        "styleInvalidationMs80": 0.6,
+        "scrollPersistMs400": 2.8,
+        "queryIconsMs200": 2.3,
+        "flexRowMs10": 40.7,
+        "useResolveMs40": 0.1,
+        "nodes": 1471
+      },
+      "wheel": {
+        "wheelEvents": 94
+      },
+      "trace": {
+        "selected": {
+          "RunTask": {
+            "count": 5973,
+            "ms": 2636.925
+          },
+          "FunctionCall": {
+            "count": 179,
+            "ms": 5.509
+          },
+          "EvaluateScript": {
+            "count": 1,
+            "ms": 0.888
+          },
+          "EventDispatch": {
+            "count": 171,
+            "ms": 9.059
+          },
+          "Layerize": {
+            "count": 273,
+            "ms": 8.761
+          },
+          "PrePaint": {
+            "count": 367,
+            "ms": 3.881
+          },
+          "Commit": {
+            "count": 356,
+            "ms": 19.312
+          },
+          "HitTest": {
+            "count": 98,
+            "ms": 6.588
+          },
+          "ScrollLayer": {
+            "count": 38,
+            "ms": 0.991
+          },
+          "GPUTask": {
+            "count": 43,
+            "ms": 29.002
+          },
+          "RasterTask": {
+            "count": 38,
+            "ms": 5.557
+          }
+        },
+        "topDuration": [
+          {
+            "name": "RunTask",
+            "ms": 2636.925,
+            "count": 5973
+          },
+          {
+            "name": "GPUTask",
+            "ms": 29.002,
+            "count": 43
+          },
+          {
+            "name": "Commit",
+            "ms": 19.312,
+            "count": 356
+          },
+          {
+            "name": "EventDispatch",
+            "ms": 9.059,
+            "count": 171
+          },
+          {
+            "name": "Layerize",
+            "ms": 8.761,
+            "count": 273
+          },
+          {
+            "name": "HitTest",
+            "ms": 6.588,
+            "count": 98
+          },
+          {
+            "name": "RasterTask",
+            "ms": 5.557,
+            "count": 38
+          },
+          {
+            "name": "FunctionCall",
+            "ms": 5.509,
+            "count": 179
+          },
+          {
+            "name": "PrePaint",
+            "ms": 3.881,
+            "count": 367
+          },
+          {
+            "name": "IntersectionObserverController::computeIntersections",
+            "ms": 1.691,
+            "count": 546
+          },
+          {
+            "name": "TimerFire",
+            "ms": 1.058,
+            "count": 9
+          },
+          {
+            "name": "ScrollLayer",
+            "ms": 0.991,
+            "count": 38
+          },
+          {
+            "name": "EvaluateScript",
+            "ms": 0.888,
+            "count": 1
+          },
+          {
+            "name": "UpdateLayer",
+            "ms": 0.477,
+            "count": 326
+          },
+          {
+            "name": "RunMicrotasks",
+            "ms": 0.234,
+            "count": 7
+          }
+        ],
+        "eventCount": 15209
+      },
+      "metrics": {
+        "Nodes": 6335,
+        "JSEventListeners": 136,
+        "JSHeapUsedSize": 26974340,
+        "LayoutCount": 0,
+        "RecalcStyleCount": 0,
+        "LayoutDurationMs": 0,
+        "RecalcStyleDurationMs": 0,
+        "ScriptDurationMs": 0,
+        "TaskDurationMs": 0.02
+      }
+    },
+    {
+      "label": "cost-C-hide-svg",
+      "url": "http://127.0.0.1:52082/tools/agent-rules/",
+      "variant": "C-hide-svg",
+      "micro": {
+        "iconCount": 246,
+        "itemCount": 360,
+        "iconLayoutMs40": 5.1,
+        "allNavLayoutMs20": 6.4,
+        "styleInvalidationMs80": 1.4,
+        "scrollPersistMs400": 3.1,
+        "queryIconsMs200": 2.6,
+        "flexRowMs10": 36.3,
+        "useResolveMs40": 2.5,
+        "nodes": 1964
+      },
+      "wheel": {
+        "wheelEvents": 96
+      },
+      "trace": {
+        "selected": {
+          "RunTask": {
+            "count": 6064,
+            "ms": 2682.382
+          },
+          "FunctionCall": {
+            "count": 181,
+            "ms": 6.233
+          },
+          "EvaluateScript": {
+            "count": 1,
+            "ms": 0.729
+          },
+          "EventDispatch": {
+            "count": 173,
+            "ms": 9.879
+          },
+          "Layerize": {
+            "count": 278,
+            "ms": 9.599
+          },
+          "PrePaint": {
+            "count": 374,
+            "ms": 4.325
+          },
+          "Commit": {
+            "count": 361,
+            "ms": 21.237
+          },
+          "HitTest": {
+            "count": 100,
+            "ms": 7.367
+          },
+          "ScrollLayer": {
+            "count": 38,
+            "ms": 1.212
+          },
+          "GPUTask": {
+            "count": 49,
+            "ms": 32.689
+          },
+          "RasterTask": {
+            "count": 38,
+            "ms": 6.202
+          }
+        },
+        "topDuration": [
+          {
+            "name": "RunTask",
+            "ms": 2682.382,
+            "count": 6064
+          },
+          {
+            "name": "GPUTask",
+            "ms": 32.689,
+            "count": 49
+          },
+          {
+            "name": "Commit",
+            "ms": 21.237,
+            "count": 361
+          },
+          {
+            "name": "EventDispatch",
+            "ms": 9.879,
+            "count": 173
+          },
+          {
+            "name": "Layerize",
+            "ms": 9.599,
+            "count": 278
+          },
+          {
+            "name": "HitTest",
+            "ms": 7.367,
+            "count": 100
+          },
+          {
+            "name": "FunctionCall",
+            "ms": 6.233,
+            "count": 181
+          },
+          {
+            "name": "RasterTask",
+            "ms": 6.202,
+            "count": 38
+          },
+          {
+            "name": "PrePaint",
+            "ms": 4.325,
+            "count": 374
+          },
+          {
+            "name": "IntersectionObserverController::computeIntersections",
+            "ms": 2.105,
+            "count": 556
+          },
+          {
+            "name": "TimerFire",
+            "ms": 1.335,
+            "count": 9
+          },
+          {
+            "name": "ScrollLayer",
+            "ms": 1.212,
+            "count": 38
+          },
+          {
+            "name": "EvaluateScript",
+            "ms": 0.729,
+            "count": 1
+          },
+          {
+            "name": "UpdateLayer",
+            "ms": 0.465,
+            "count": 326
+          },
+          {
+            "name": "RunMicrotasks",
+            "ms": 0.234,
+            "count": 7
+          }
+        ],
+        "eventCount": 15418
+      },
+      "metrics": {
+        "Nodes": 6337,
+        "JSEventListeners": 138,
+        "JSHeapUsedSize": 27558284,
+        "LayoutCount": 0,
+        "RecalcStyleCount": 0,
+        "LayoutDurationMs": 0,
+        "RecalcStyleDurationMs": 0,
+        "ScriptDurationMs": 0,
+        "TaskDurationMs": 0.019
+      }
+    },
+    {
+      "label": "cost-D-no-scroll-persist",
+      "url": "http://127.0.0.1:52082/tools/agent-rules/",
+      "variant": "D-no-scroll-persist",
+      "micro": {
+        "iconCount": 246,
+        "itemCount": 360,
+        "iconLayoutMs40": 6.5,
+        "allNavLayoutMs20": 6.2,
+        "styleInvalidationMs80": 1.2,
+        "scrollPersistMs400": 0.7,
+        "queryIconsMs200": 3,
+        "flexRowMs10": 40.3,
+        "useResolveMs40": 2.9,
+        "nodes": 1963
+      },
+      "wheel": {
+        "wheelEvents": 88
+      },
+      "trace": {
+        "selected": {
+          "RunTask": {
+            "count": 5765,
+            "ms": 2601.92
+          },
+          "FunctionCall": {
+            "count": 136,
+            "ms": 5.266
+          },
+          "EvaluateScript": {
+            "count": 1,
+            "ms": 0.924
+          },
+          "EventDispatch": {
+            "count": 165,
+            "ms": 8.6
+          },
+          "Layerize": {
+            "count": 259,
+            "ms": 11.79
+          },
+          "PrePaint": {
+            "count": 347,
+            "ms": 3.911
+          },
+          "Commit": {
+            "count": 342,
+            "ms": 20.033
+          },
+          "HitTest": {
+            "count": 92,
+            "ms": 6.953
+          },
+          "ScrollLayer": {
+            "count": 38,
+            "ms": 1.151
+          },
+          "GPUTask": {
+            "count": 43,
+            "ms": 32.352
+          },
+          "RasterTask": {
+            "count": 38,
+            "ms": 5.512
+          }
+        },
+        "topDuration": [
+          {
+            "name": "RunTask",
+            "ms": 2601.92,
+            "count": 5765
+          },
+          {
+            "name": "GPUTask",
+            "ms": 32.352,
+            "count": 43
+          },
+          {
+            "name": "Commit",
+            "ms": 20.033,
+            "count": 342
+          },
+          {
+            "name": "Layerize",
+            "ms": 11.79,
+            "count": 259
+          },
+          {
+            "name": "EventDispatch",
+            "ms": 8.6,
+            "count": 165
+          },
+          {
+            "name": "HitTest",
+            "ms": 6.953,
+            "count": 92
+          },
+          {
+            "name": "RasterTask",
+            "ms": 5.512,
+            "count": 38
+          },
+          {
+            "name": "FunctionCall",
+            "ms": 5.266,
+            "count": 136
+          },
+          {
+            "name": "PrePaint",
+            "ms": 3.911,
+            "count": 347
+          },
+          {
+            "name": "IntersectionObserverController::computeIntersections",
+            "ms": 1.706,
+            "count": 518
+          },
+          {
+            "name": "ScrollLayer",
+            "ms": 1.151,
+            "count": 38
+          },
+          {
+            "name": "TimerFire",
+            "ms": 1.01,
+            "count": 10
+          },
+          {
+            "name": "EvaluateScript",
+            "ms": 0.924,
+            "count": 1
+          },
+          {
+            "name": "UpdateLayer",
+            "ms": 0.782,
+            "count": 326
+          },
+          {
+            "name": "RunMicrotasks",
+            "ms": 0.36,
+            "count": 7
+          }
+        ],
+        "eventCount": 14557
+      },
+      "metrics": {
+        "Nodes": 11955,
+        "JSEventListeners": 136,
+        "JSHeapUsedSize": 27655820,
+        "LayoutCount": 0,
+        "RecalcStyleCount": 0,
+        "LayoutDurationMs": 0,
+        "RecalcStyleDurationMs": 0,
+        "ScriptDurationMs": 0,
+        "TaskDurationMs": 0.023
+      }
+    },
+    {
+      "label": "cost-E-expand-all",
+      "url": "http://127.0.0.1:52082/tools/agent-rules/",
+      "variant": "E-expand-all",
+      "micro": {
+        "iconCount": 246,
+        "itemCount": 360,
+        "iconLayoutMs40": 17.5,
+        "allNavLayoutMs20": 12.9,
+        "styleInvalidationMs80": 0.5,
+        "scrollPersistMs400": 2.8,
+        "queryIconsMs200": 2.5,
+        "flexRowMs10": 25,
+        "useResolveMs40": 2.3,
+        "nodes": 1963
+      },
+      "wheel": {
+        "wheelEvents": 92
+      },
+      "trace": {
+        "selected": {
+          "RunTask": {
+            "count": 7846,
+            "ms": 3219.499
+          },
+          "FunctionCall": {
+            "count": 294,
+            "ms": 9.8
+          },
+          "EvaluateScript": {
+            "count": 1,
+            "ms": 1.15
+          },
+          "EventDispatch": {
+            "count": 274,
+            "ms": 14.969
+          },
+          "Paint": {
+            "count": 45,
+            "ms": 99.455
+          },
+          "PaintImage": {
+            "count": 14,
+            "ms": 0.685
+          },
+          "Layerize": {
+            "count": 305,
+            "ms": 123.195
+          },
+          "PrePaint": {
+            "count": 411,
+            "ms": 7.509
+          },
+          "Commit": {
+            "count": 495,
+            "ms": 52.032
+          },
+          "HitTest": {
+            "count": 96,
+            "ms": 55.779
+          },
+          "ScrollLayer": {
+            "count": 91,
+            "ms": 2.891
+          },
+          "GPUTask": {
+            "count": 97,
+            "ms": 144.326
+          },
+          "RasterTask": {
+            "count": 92,
+            "ms": 19.038
+          }
+        },
+        "topDuration": [
+          {
+            "name": "RunTask",
+            "ms": 3219.499,
+            "count": 7846
+          },
+          {
+            "name": "GPUTask",
+            "ms": 144.326,
+            "count": 97
+          },
+          {
+            "name": "Layerize",
+            "ms": 123.195,
+            "count": 305
+          },
+          {
+            "name": "Paint",
+            "ms": 99.455,
+            "count": 45
+          },
+          {
+            "name": "HitTest",
+            "ms": 55.779,
+            "count": 96
+          },
+          {
+            "name": "Commit",
+            "ms": 52.032,
+            "count": 495
+          },
+          {
+            "name": "RasterTask",
+            "ms": 19.038,
+            "count": 92
+          },
+          {
+            "name": "UpdateLayer",
+            "ms": 16.777,
+            "count": 750
+          },
+          {
+            "name": "EventDispatch",
+            "ms": 14.969,
+            "count": 274
+          },
+          {
+            "name": "FunctionCall",
+            "ms": 9.8,
+            "count": 294
+          },
+          {
+            "name": "PrePaint",
+            "ms": 7.509,
+            "count": 411
+          },
+          {
+            "name": "IntersectionObserverController::computeIntersections",
+            "ms": 3.411,
+            "count": 611
+          },
+          {
+            "name": "ScrollLayer",
+            "ms": 2.891,
+            "count": 91
+          },
+          {
+            "name": "TimerFire",
+            "ms": 2.591,
+            "count": 20
+          },
+          {
+            "name": "EvaluateScript",
+            "ms": 1.15,
+            "count": 1
+          }
+        ],
+        "eventCount": 20106
+      },
+      "metrics": {
+        "Nodes": 6728,
+        "JSEventListeners": 136,
+        "JSHeapUsedSize": 27554928,
+        "LayoutCount": 0,
+        "RecalcStyleCount": 0,
+        "LayoutDurationMs": 0,
+        "RecalcStyleDurationMs": 0,
+        "ScriptDurationMs": 0,
+        "TaskDurationMs": 0.02
+      }
+    },
+    {
+      "label": "cost-E-expand-all-no-svg",
+      "url": "http://127.0.0.1:52082/tools/agent-rules/",
+      "variant": "E-expand-all-no-svg",
+      "micro": {
+        "iconCount": 0,
+        "itemCount": 360,
+        "iconLayoutMs40": 0.1,
+        "allNavLayoutMs20": 9.3,
+        "styleInvalidationMs80": 0.9,
+        "scrollPersistMs400": 2.7,
+        "queryIconsMs200": 2.8,
+        "flexRowMs10": 19.5,
+        "useResolveMs40": 0.1,
+        "nodes": 1471
+      },
+      "wheel": {
+        "wheelEvents": 92
+      },
+      "trace": {
+        "selected": {
+          "RunTask": {
+            "count": 7581,
+            "ms": 2943.611
+          },
+          "FunctionCall": {
+            "count": 293,
+            "ms": 8.383
+          },
+          "EvaluateScript": {
+            "count": 1,
+            "ms": 0.889
+          },
+          "EventDispatch": {
+            "count": 274,
+            "ms": 12.667
+          },
+          "UpdateLayoutTree": {
+            "count": 2,
+            "ms": 0.568
+          },
+          "Paint": {
+            "count": 45,
+            "ms": 35.873
+          },
+          "PaintImage": {
+            "count": 14,
+            "ms": 0.453
+          },
+          "Layerize": {
+            "count": 304,
+            "ms": 38.037
+          },
+          "PrePaint": {
+            "count": 410,
+            "ms": 6.779
+          },
+          "Commit": {
+            "count": 493,
+            "ms": 29.29
+          },
+          "HitTest": {
+            "count": 96,
+            "ms": 46.638
+          },
+          "ScheduleStyleRecalculation": {
+            "count": 2,
+            "ms": 0
+          },
+          "ScrollLayer": {
+            "count": 91,
+            "ms": 2.363
+          },
+          "GPUTask": {
+            "count": 103,
+            "ms": 101.655
+          },
+          "RasterTask": {
+            "count": 92,
+            "ms": 14.147
+          }
+        },
+        "topDuration": [
+          {
+            "name": "RunTask",
+            "ms": 2943.611,
+            "count": 7581
+          },
+          {
+            "name": "GPUTask",
+            "ms": 101.655,
+            "count": 103
+          },
+          {
+            "name": "HitTest",
+            "ms": 46.638,
+            "count": 96
+          },
+          {
+            "name": "Layerize",
+            "ms": 38.037,
+            "count": 304
+          },
+          {
+            "name": "Paint",
+            "ms": 35.873,
+            "count": 45
+          },
+          {
+            "name": "Commit",
+            "ms": 29.29,
+            "count": 493
+          },
+          {
+            "name": "RasterTask",
+            "ms": 14.147,
+            "count": 92
+          },
+          {
+            "name": "EventDispatch",
+            "ms": 12.667,
+            "count": 274
+          },
+          {
+            "name": "FunctionCall",
+            "ms": 8.383,
+            "count": 293
+          },
+          {
+            "name": "PrePaint",
+            "ms": 6.779,
+            "count": 410
+          },
+          {
+            "name": "UpdateLayer",
+            "ms": 2.861,
+            "count": 758
+          },
+          {
+            "name": "ScrollLayer",
+            "ms": 2.363,
+            "count": 91
+          },
+          {
+            "name": "IntersectionObserverController::computeIntersections",
+            "ms": 2.236,
+            "count": 608
+          },
+          {
+            "name": "TimerFire",
+            "ms": 2.209,
+            "count": 19
+          },
+          {
+            "name": "EvaluateScript",
+            "ms": 0.889,
+            "count": 1
+          }
+        ],
+        "eventCount": 19767
+      },
+      "metrics": {
+        "Nodes": 6741,
+        "JSEventListeners": 136,
+        "JSHeapUsedSize": 26987760,
+        "LayoutCount": 0,
+        "RecalcStyleCount": 0,
+        "LayoutDurationMs": 0,
+        "RecalcStyleDurationMs": 0,
+        "ScriptDurationMs": 0,
+        "TaskDurationMs": 0.015
+      }
+    },
+    {
+      "label": "cost-F-overflow-x",
+      "url": "http://127.0.0.1:52082/tools/agent-rules/",
+      "variant": "F-overflow-x",
+      "micro": {
+        "iconCount": 246,
+        "itemCount": 360,
+        "iconLayoutMs40": 6.8,
+        "allNavLayoutMs20": 5.8,
+        "styleInvalidationMs80": 1.3,
+        "scrollPersistMs400": 3,
+        "queryIconsMs200": 2.6,
+        "flexRowMs10": 42,
+        "useResolveMs40": 2.8,
+        "nodes": 1964
+      },
+      "wheel": {
+        "wheelEvents": 92
+      },
+      "trace": {
+        "selected": {
+          "RunTask": {
+            "count": 5834,
+            "ms": 2734.596
+          },
+          "FunctionCall": {
+            "count": 177,
+            "ms": 6.983
+          },
+          "EvaluateScript": {
+            "count": 1,
+            "ms": 1.065
+          },
+          "EventDispatch": {
+            "count": 169,
+            "ms": 11.917
+          },
+          "Layerize": {
+            "count": 268,
+            "ms": 14.393
+          },
+          "PrePaint": {
+            "count": 360,
+            "ms": 5.502
+          },
+          "Commit": {
+            "count": 351,
+            "ms": 25.691
+          },
+          "HitTest": {
+            "count": 96,
+            "ms": 8.977
+          },
+          "ScrollLayer": {
+            "count": 38,
+            "ms": 1.311
+          },
+          "GPUTask": {
+            "count": 38,
+            "ms": 38.644
+          },
+          "RasterTask": {
+            "count": 38,
+            "ms": 6.976
+          }
+        },
+        "topDuration": [
+          {
+            "name": "RunTask",
+            "ms": 2734.596,
+            "count": 5834
+          },
+          {
+            "name": "GPUTask",
+            "ms": 38.644,
+            "count": 38
+          },
+          {
+            "name": "Commit",
+            "ms": 25.691,
+            "count": 351
+          },
+          {
+            "name": "Layerize",
+            "ms": 14.393,
+            "count": 268
+          },
+          {
+            "name": "EventDispatch",
+            "ms": 11.917,
+            "count": 169
+          },
+          {
+            "name": "HitTest",
+            "ms": 8.977,
+            "count": 96
+          },
+          {
+            "name": "FunctionCall",
+            "ms": 6.983,
+            "count": 177
+          },
+          {
+            "name": "RasterTask",
+            "ms": 6.976,
+            "count": 38
+          },
+          {
+            "name": "PrePaint",
+            "ms": 5.502,
+            "count": 360
+          },
+          {
+            "name": "TimerFire",
+            "ms": 1.379,
+            "count": 9
+          },
+          {
+            "name": "ScrollLayer",
+            "ms": 1.311,
+            "count": 38
+          },
+          {
+            "name": "EvaluateScript",
+            "ms": 1.065,
+            "count": 1
+          },
+          {
+            "name": "IntersectionObserverController::computeIntersections",
+            "ms": 0.957,
+            "count": 536
+          },
+          {
+            "name": "UpdateLayer",
+            "ms": 0.916,
+            "count": 326
+          },
+          {
+            "name": "RunMicrotasks",
+            "ms": 0.32,
+            "count": 7
+          }
+        ],
+        "eventCount": 14931
+      },
+      "metrics": {
+        "Nodes": 6420,
+        "JSEventListeners": 138,
+        "JSHeapUsedSize": 27552200,
+        "LayoutCount": 0,
+        "RecalcStyleCount": 0,
+        "LayoutDurationMs": 0,
+        "RecalcStyleDurationMs": 0,
+        "ScriptDurationMs": 0,
+        "TaskDurationMs": 0.023
+      }
+    },
+    {
+      "label": "cost-live-A",
+      "url": "https://docs.devcentr.org/tools/agent-rules/",
+      "variant": "A",
+      "micro": {
+        "iconCount": 246,
+        "itemCount": 360,
+        "iconLayoutMs40": 7.1,
+        "allNavLayoutMs20": 6.3,
+        "styleInvalidationMs80": 1.6,
+        "scrollPersistMs400": 2.5,
+        "queryIconsMs200": 2.5,
+        "flexRowMs10": 41.1,
+        "useResolveMs40": 2.9,
+        "nodes": 1963
+      },
+      "wheel": {
+        "wheelEvents": 92
+      },
+      "trace": {
+        "selected": {
+          "RunTask": {
+            "count": 5883,
+            "ms": 2678.348
+          },
+          "FunctionCall": {
+            "count": 177,
+            "ms": 6.573
+          },
+          "EvaluateScript": {
+            "count": 1,
+            "ms": 1.244
+          },
+          "EventDispatch": {
+            "count": 169,
+            "ms": 10.572
+          },
+          "Layerize": {
+            "count": 271,
+            "ms": 12.249
+          },
+          "PrePaint": {
+            "count": 363,
+            "ms": 4.668
+          },
+          "Commit": {
+            "count": 356,
+            "ms": 23.869
+          },
+          "HitTest": {
+            "count": 96,
+            "ms": 8.487
+          },
+          "ScrollLayer": {
+            "count": 38,
+            "ms": 1.213
+          },
+          "GPUTask": {
+            "count": 49,
+            "ms": 37.041
+          },
+          "RasterTask": {
+            "count": 38,
+            "ms": 6.411
+          }
+        },
+        "topDuration": [
+          {
+            "name": "RunTask",
+            "ms": 2678.348,
+            "count": 5883
+          },
+          {
+            "name": "GPUTask",
+            "ms": 37.041,
+            "count": 49
+          },
+          {
+            "name": "Commit",
+            "ms": 23.869,
+            "count": 356
+          },
+          {
+            "name": "Layerize",
+            "ms": 12.249,
+            "count": 271
+          },
+          {
+            "name": "EventDispatch",
+            "ms": 10.572,
+            "count": 169
+          },
+          {
+            "name": "HitTest",
+            "ms": 8.487,
+            "count": 96
+          },
+          {
+            "name": "FunctionCall",
+            "ms": 6.573,
+            "count": 177
+          },
+          {
+            "name": "RasterTask",
+            "ms": 6.411,
+            "count": 38
+          },
+          {
+            "name": "PrePaint",
+            "ms": 4.668,
+            "count": 363
+          },
+          {
+            "name": "IntersectionObserverController::computeIntersections",
+            "ms": 1.827,
+            "count": 542
+          },
+          {
+            "name": "TimerFire",
+            "ms": 1.383,
+            "count": 9
+          },
+          {
+            "name": "EvaluateScript",
+            "ms": 1.244,
+            "count": 1
+          },
+          {
+            "name": "ScrollLayer",
+            "ms": 1.213,
+            "count": 38
+          },
+          {
+            "name": "UpdateLayer",
+            "ms": 0.839,
+            "count": 326
+          },
+          {
+            "name": "RunMicrotasks",
+            "ms": 0.388,
+            "count": 7
+          }
+        ],
+        "eventCount": 15106
+      },
+      "metrics": {
+        "Nodes": 6316,
+        "JSEventListeners": 136,
+        "JSHeapUsedSize": 27646204,
+        "LayoutCount": 0,
+        "RecalcStyleCount": 0,
+        "LayoutDurationMs": 0,
+        "RecalcStyleDurationMs": 0,
+        "ScriptDurationMs": 0,
+        "TaskDurationMs": 0.02
+      }
+    },
+    {
+      "label": "cost-hci",
+      "url": "https://hci-nerdz.github.io/docs/hci-nerdz/index.html",
+      "variant": "A",
+      "micro": {
+        "iconCount": 0,
+        "itemCount": 38,
+        "iconLayoutMs40": 0.1,
+        "allNavLayoutMs20": 0.7,
+        "styleInvalidationMs80": 1.3,
+        "scrollPersistMs400": 3,
+        "queryIconsMs200": 0.4,
+        "flexRowMs10": 2.7,
+        "useResolveMs40": 0.1,
+        "nodes": 365
+      },
+      "wheel": {
+        "wheelEvents": 98
+      },
+      "trace": {
+        "selected": {
+          "RunTask": {
+            "count": 6312,
+            "ms": 2562.142
+          },
+          "FunctionCall": {
+            "count": 16,
+            "ms": 6.499
+          },
+          "EvaluateScript": {
+            "count": 1,
+            "ms": 1.126
+          },
+          "EventDispatch": {
+            "count": 16,
+            "ms": 6.923
+          },
+          "UpdateLayoutTree": {
+            "count": 86,
+            "ms": 22.386
+          },
+          "Layout": {
+            "count": 6,
+            "ms": 1.72
+          },
+          "Paint": {
+            "count": 205,
+            "ms": 29.938
+          },
+          "PaintImage": {
+            "count": 3,
+            "ms": 0.138
+          },
+          "Layerize": {
+            "count": 200,
+            "ms": 7.551
+          },
+          "PrePaint": {
+            "count": 203,
+            "ms": 7.281
+          },
+          "Commit": {
+            "count": 362,
+            "ms": 14.536
+          },
+          "HitTest": {
+            "count": 4,
+            "ms": 0.277
+          },
+          "ScheduleStyleRecalculation": {
+            "count": 86,
+            "ms": 0
+          },
+          "ScrollLayer": {
+            "count": 8,
+            "ms": 0.354
+          },
+          "GPUTask": {
+            "count": 101,
+            "ms": 105.336
+          },
+          "RasterTask": {
+            "count": 113,
+            "ms": 7.334
+          }
+        },
+        "topDuration": [
+          {
+            "name": "RunTask",
+            "ms": 2562.142,
+            "count": 6312
+          },
+          {
+            "name": "GPUTask",
+            "ms": 105.336,
+            "count": 101
+          },
+          {
+            "name": "Paint",
+            "ms": 29.938,
+            "count": 205
+          },
+          {
+            "name": "UpdateLayoutTree",
+            "ms": 22.386,
+            "count": 86
+          },
+          {
+            "name": "Commit",
+            "ms": 14.536,
+            "count": 362
+          },
+          {
+            "name": "Layerize",
+            "ms": 7.551,
+            "count": 200
+          },
+          {
+            "name": "RasterTask",
+            "ms": 7.334,
+            "count": 113
+          },
+          {
+            "name": "PrePaint",
+            "ms": 7.281,
+            "count": 203
+          },
+          {
+            "name": "EventDispatch",
+            "ms": 6.923,
+            "count": 16
+          },
+          {
+            "name": "FunctionCall",
+            "ms": 6.499,
+            "count": 16
+          },
+          {
+            "name": "Layout",
+            "ms": 1.72,
+            "count": 6
+          },
+          {
+            "name": "IntersectionObserverController::computeIntersections",
+            "ms": 1.404,
+            "count": 400
+          },
+          {
+            "name": "EvaluateScript",
+            "ms": 1.126,
+            "count": 1
+          },
+          {
+            "name": "UpdateLayer",
+            "ms": 0.799,
+            "count": 486
+          },
+          {
+            "name": "RunMicrotasks",
+            "ms": 0.367,
+            "count": 14
+          }
+        ],
+        "eventCount": 15477
+      },
+      "metrics": {
+        "Nodes": 1146,
+        "JSEventListeners": 57,
+        "JSHeapUsedSize": 7590624,
+        "LayoutCount": 0,
+        "RecalcStyleCount": 0,
+        "LayoutDurationMs": 0,
+        "RecalcStyleDurationMs": 0,
+        "ScriptDurationMs": 0,
+        "TaskDurationMs": 0.027
+      }
+    }
+  ]
+}

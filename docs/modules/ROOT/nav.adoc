@@ -7,4 +7,5 @@
 ** xref:publishing/antora-ui-branding.adoc[Antora UI branding]
 ** xref:publishing/antora-essential-extensions.adoc[Antora essential extensions]
 ** xref:publishing/antora-diagram-formats.adoc[Antora diagram formats]
+** xref:publishing/nav-scroll-performance-ab.adoc[Nav scroll performance A/B]
 * xref:tools/index.adoc[Tools]

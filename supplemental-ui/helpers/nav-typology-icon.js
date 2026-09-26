@@ -52,8 +52,19 @@ function componentRootIconsEnabled (options = {}) {
   return siteKeys(options).nav_typology_component_root_icons === 'true'
 }
 
+/**
+ * Icons on by default when Diataxis typology is enabled.
+ * Temporary A/B kill-switch: site.keys.nav_typology_icons === 'false'
+ */
+function typologyIconsEnabled (options = {}) {
+  const keys = siteKeys(options)
+  if (keys.nav_typology_icons === 'false') return false
+  return true
+}
+
 function shouldRenderIcon (meta, options = {}) {
   if (!meta) return false
+  if (!typologyIconsEnabled(options)) return false
   if (meta.id === 'component-root') return componentRootIconsEnabled(options)
   return DEFAULT_ICON_IDS.has(meta.id)
 }
@@ -95,3 +106,4 @@ module.exports = (item, options = {}) => {
 module.exports.resolveTypology = resolveTypology
 module.exports.shouldRenderIcon = shouldRenderIcon
 module.exports.componentRootIconsEnabled = componentRootIconsEnabled
+module.exports.typologyIconsEnabled = typologyIconsEnabled

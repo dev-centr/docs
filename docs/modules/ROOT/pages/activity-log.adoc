@@ -6,6 +6,11 @@
 This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see each component's xref:platforms:devcentr:changelog.adoc[Changelog] (and siblings); for release tags, see repository tags and release notes.
 
 
+== 2026-09-26 - Nav scroll performance A/B
+
+* Measured typology SVG icons vs SoftNav/forest depth on tip `7d69041` + live Pages vs HCI control; article xref:publishing/nav-scroll-performance-ab.adoc[Nav scroll performance A/B].
+* Icons stay on; optional `nav_typology_icons: false` lab key only.
+
 == 2026-09-26 - BB section Overview + nav chrome
 
 * Business Bootstrap: Software stack → Overview, Defaults by stage, Email/… with Overview leaves; site-nav-tree 0.5.2 promote rewrite; SoftNav same-path selection.

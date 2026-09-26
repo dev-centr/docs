@@ -1,0 +1,275 @@
+= Nav tree scroll performance A/B (typology icons)
+:navtitle: Nav scroll performance A/B
+:description: Measured A/B investigation of DevCentr left-nav scroll smoothness — typology SVG icons, SoftNav listeners, forest depth vs HCI control — with CDP/Puppeteer metrics and recommendations.
+:keywords: nav performance, typology icons, SoftNav, scroll jank, site-nav-tree, CDP, Puppeteer A/B
+:page-nav-typology: diataxis-explanation
+
+This page records a **numeric** A/B investigation of left-rail scroll smoothness on the DevCentr docs hub (tip `7d69041`, nav-typology solids / SoftNav seamlessness), comparing typology icons ON vs OFF and several cheap variants against the shallower HCI-Nerdz control site.
+
+== Verdict (short)
+
+* **Typology `<svg><use>` icons are a real paint cost when many are visible** (expand-all: Paint **~99 ms** with icons vs **~36 ms** without; Layerize **~123 ms** vs **~38 ms**).
+* **On a normal deep Tools page only ~19 of 246 icons are visible**; the other ~227 sit in collapsed ancestors. In that default shape, icon removal trims scroll TaskDuration only modestly (**~98 ms → ~77 ms** in headless CDP) and does **not** close the gap to HCI.
+* **The dominant HCI gap is forest size / DOM**, not icons alone: DevCentr ~**360** `nav-item`s / ~**1963** DOM nodes / **45** nested `ul.nav-list` vs HCI ~**38** items / ~**361** nodes / **8** lists.
+* **SoftNav + debounced `sessionStorage` scroll persist is weak as a scroll-jank cause** at these sizes.
+* **Nested horizontal overflow is already defeated** (`overflow-x: hidden` on the SoftNav rail); forcing `overflow-x: auto` did not recreate a clear headless regression.
+* **Production icons stay ON.** Hub helper gains a temporary kill-switch `site.keys.nav_typology_icons: 'false'` for rebuild A/B; no permanent icon removal shipped.
+
+== Method
+
+=== What was measured
+
+[cols="1,3"]
+|===
+| Surface | Detail
+
+| Local tip build
+| Existing Antora output under `build/site` (hub tip `7d69041`). Served on `127.0.0.1` static HTTP.
+
+| Live Pages
+| `https://docs.devcentr.org/tools/agent-rules/` — same typology icon count as local (**246** `<use>` / **492** `nav-typology-icon` class hits in HTML). SoftNav + `site-nav-column-scroll.css` present; nav flash hide (`visibility:hidden` / blank tree) **not** present (tip seamlessness already live).
+
+| HCI control
+| `https://hci-nerdz.github.io/docs/hci-nerdz/index.html` — older shallower zero-typology layout.
+
+| Browser
+| Chrome  via Puppeteer **25** headless on Ryan's Windows machine (`CHROME` system install). Not a substitute for interactive GPU scrolling on a laptop panel — treated as **directional lab numbers**.
+
+| Harness
+| `scripts/nav-scroll-ab-bench.mjs` (rAF `scrollTop` + CDP `Performance.getMetrics` deltas) and `scripts/nav-scroll-cost-bench.mjs` (wheel `Input.dispatchMouseEvent` under CDP **Tracing** + forced layout/style microbenches). Artifacts: `build/nav-scroll-ab/`.
+|===
+
+=== Variants
+
+[cols="1,3"]
+|===
+| Id | Mutation
+
+| **A** icons ON
+| As built (`<svg class="nav-typology-icon"><use href="…nav-typology.svg#…">`).
+
+| **B** icons removed
+| Runtime `querySelectorAll('svg.nav-typology-icon').forEach(remove)` — approximates `site.keys.nav_typology_icons: 'false'`.
+
+| **C** `display:none`
+| Icons remain in DOM; not painted.
+
+| **C2** CSS marks
+| Remove SVG; inject small `::before` color squares on typed rows.
+
+| **D** SoftNav/scroll persist off
+| Clone scroll panel (drop listeners); stub `siteNavTreeSaveScroll` / SoftNav; block `site-nav-tree:*` `sessionStorage` writes.
+
+| **E** expand-all
+| Every `li.nav-item` gets `is-active` (max visible icons / tallest scrollport).
+
+| **E−svg** expand-all, no SVG
+| Expand-all then remove icons.
+
+| **F** force `overflow-x: auto`
+| Re-introduce nested horizontal scrollport + nowrap labels.
+
+| **G** strip filter/shadow on nav chrome
+| `box-shadow`/`filter`/`backdrop-filter` none on nav descendants.
+|===
+
+Test page for DevCentr: deep Tools / Agent Rules (`/tools/agent-rules/`) with the full forest rail.
+
+== Structural counts (load)
+
+[cols="2,1,1,1,1,1,1"]
+|===
+| Page | nav-items | typology SVG | visible SVG | collapsed SVG | DOM nodes (page) | nested `ul.nav-list`
+
+| Local Tools/agent-rules **A**
+| 360 | 246 | 19 | 227 | 1963 | 45
+
+| Local **B** (icons removed)
+| 360 | 0 | 0 | 0 | 1471 | 45
+
+| Local home **A** (mostly collapsed)
+| 360 | 246 | 2 | 244 | 1977 | 45
+
+| Live Tools/agent-rules **A**
+| 360 | 246 | 19 | 227 | 1963 | 45
+
+| HCI control
+| 38 | 0 | 0 | 0 | 361 | 8
+|===
+
+Removing icons drops **~492** DOM nodes (`svg` + `use` each), matching the HTML class/`use` counts on tip and live.
+
+image::nav-scroll-ab/a-icons-on.png[Local A — icons on (path expanded),width=420]
+image::nav-scroll-ab/b-icons-removed.png[Local B — icons removed,width=420]
+image::nav-scroll-ab/e-expand-all.png[Local E — expand all (246 visible icons),width=420]
+image::nav-scroll-ab/hci-control.png[HCI control rail,width=420]
+
+== Metrics tables
+
+=== Scroll window (headless rAF, ~2 s, 64 px steps)
+
+Headless frame pacing pinned near the display cadence (**~144 FPS**, p95 ~**7 ms**) for every variant — **not** a useful jank discriminator. Prefer CDP **TaskDuration** / **ScriptDuration** deltas during that window and the tracing table below.
+
+[cols="2,1,1,1,1"]
+|===
+| Variant | TaskDuration ms | ScriptDuration ms | SVG tot/vis | DOM nodes
+
+| Local A icons ON
+| 98.5 | 9.2 | 246/19 | 1963
+
+| Local B icons removed
+| 77.5 | 7.9 | 0/0 | 1471
+
+| Local C display:none
+| 83.6 | 8.1 | 246/0 | 1964
+
+| Local C2 CSS marks
+| 94.6 | 8.8 | 0/0 | 1472
+
+| Local D SoftNav/scroll off
+| 89.4 | 8.7 | 246/19 | 1963
+
+| Local E expand-all
+| **158.0** | 9.0 | 246/246 | 1963
+
+| Local E2 collapse non-path
+| 94.8 | 9.0 | 246/19 | 1963
+
+| Local F overflow-x auto
+| 80.1 | 7.8 | 246/19 | 1964
+
+| Local G no shadow/filter
+| 87.8 | 8.6 | 246/19 | 1964
+
+| Local home A (no rail scroll room)
+| 52.1 | 1.1 | 246/2 | 1977
+
+| Live A
+| 80.4 | 8.0 | 246/19 | 1963
+
+| Live B icons removed
+| 82.6 | 8.0 | 0/0 | 1471
+
+| HCI control
+| **48.0** | 1.1 | 0/0 | 361
+|===
+
+=== Tracing during wheel scroll (expand stress)
+
+When the whole forest is open, typology SVGs dominate paint/layerize:
+
+[cols="2,1,1,1,1"]
+|===
+| Variant | Paint ms | Layerize ms | GPUTask ms | iconLayout×40 ms
+
+| E expand-all + icons
+| **99.5** | **123.2** | **144.3** | 17.5
+
+| E expand-all, icons removed
+| **35.9** | **38.0** | **101.7** | 0.1
+
+| A default path (19 visible)
+| ~0 in selected timeline slice | Layerize ~9.8 | GPUTask ~35 | 3.9
+
+| B default path, icons removed
+| ~0 | Layerize ~8.8 | GPUTask ~29 | 0.1
+
+| HCI
+| 29.9 (many small paints) | 7.6 | 105.3 | 0.1
+|===
+
+Forced flex `getComputedStyle` on every nav row (×10): DevCentr **~24–42 ms** vs HCI **~2.7 ms** — another forest-size signal independent of icons.
+
+Debounced scroll `sessionStorage` writes (×400 microbench): **~0.7–3 ms** total — cheap relative to paint when expanded.
+
+== Theory scorecard
+
+[cols="2,1,3"]
+|===
+| Theory | Verdict | Evidence
+
+| Scroll lag from **number of visible and/or hidden SVGs** (`<svg><use>` per typed row)
+| **Supported (visible)** / **weak (hidden-only)**
+| Expand-all Paint/Layerize ~**2.8× / 3.2×** with icons. Default path: only **19** visible; TaskDuration **98 → 77** when removed. Hidden SVGs still cost **~492 DOM nodes**.
+
+| Custom JS (SoftNav, scroll restore, site-nav-tree) slows middle-button / rail scroll
+| **Weak**
+| Disabling persist/listeners: TaskDuration **89** vs **98**. Persist microbench tiny. SoftNav is about navigation swaps, not continuous wheel cost.
+
+| Nested **horizontal scroll** in nav causes jank
+| **Rejected** (current CSS) / **historical**
+| Measured `overflow-x: **hidden**` on the SoftNav panel. `nav-typology.css` + `site-nav-column-scroll.css` already clip; forcing `overflow-x: auto` did not raise TaskDuration in this harness.
+
+| Deep forest / many nodes vs HCI shallower zero-SVG layout
+| **Supported (primary)**
+| 360 vs 38 items; 1963 vs 361 nodes; flex-row style reads ~10×; HCI TaskDuration ~48 vs DevCentr ~80–98 even after icon removal.
+
+| SoftNav flash / nav wipe
+| **Already fixed on tip; live matches**
+| No `visibility:hidden` blanking in tip/live HTML/CSS comments document seamlessness. Live ships SoftNav + column-scroll CSS with the same icon counts as local tip.
+
+| Page-change slowness vs DeepWiki
+| **Out of scope** (not timed here)
+| Scroll-focused run. SoftNav `transition: 'none'` already aims at DeepWiki-like swaps; measure separately if still perceived slow.
+
+| DOM / nested `<ul>` thrash without icons
+| **Supported**
+| B still has 360 items / 45 lists; TaskDuration remains ~77 vs HCI 48.
+
+| `overflow` + sticky column compositing
+| **Weak / needed for correctness**
+| Sticky + panel scrollport is the intentional fix for coupled page scroll; not singled out as jank vs HCI in these traces.
+
+| Scroll listener / `sessionStorage` on scroll
+| **Weak**
+| Debounced 100 ms; microbench negligible; D variant small delta.
+
+| `filter` / `box-shadow` on toggles / current-page
+| **Weak**
+| G variant TaskDuration 88 vs 98; brand CSS already avoids heavy nav shadows for tiles elsewhere.
+
+| Font/icon flex layout per row
+| **Supported as forest amplifier**
+| Every row is `display:flex` with gap; ×10 style reads 24–42 ms on DevCentr vs 2.7 ms HCI.
+
+| CSS `::before` / mask marks vs `<svg><use>` vs no icons
+| **CSS marks ≈ no-icon DOM when collapsed; SVG hurts when expanded**
+| C2 TaskDuration ~95 (noise vs A). Expand stress: SVG paint is the clear loser vs no icons.
+|===
+
+== Recommendations
+
+. **Keep typology icons in production** for the default collapsed/path-expanded forest — the UX win is large; the default-path scroll delta is modest.
+. Prefer **lazy / visible-only icons** if expand-all (or readers who open many roots) feels janky:
+  ** emit SVG only for `is-active` ancestry + visible rows, or
+  ** swap to CSS-only marks for off-screen / collapsed subtrees, or
+  ** keep a single sprite but avoid per-row `<use>` until expand (JS enhance).
+. Treat **forest depth / node count** as the main HCI gap: curation (`site-nav-tree` include allowlist), fewer anonymous wrappers, and avoiding “expand everything” are higher leverage than deleting icons.
+. Keep **horizontal overflow clipped**; do not reintroduce nested `overflow-x: auto` on the SoftNav rail.
+. Leave SoftNav + scroll restore on; optimize only if profiling shows listener time on real GPU wheels (not seen as primary here).
+. Hub A/B rebuild flag (temporary):
+
+[source,yaml]
+----
+site:
+  keys:
+    nav_typology_diataxis: 'true'
+    # temporary lab kill-switch — omit or any value other than 'false' keeps icons
+    nav_typology_icons: 'false'
+----
+
+Implemented in `supplemental-ui/helpers/nav-typology-icon.js` (`typologyIconsEnabled`). Default remains icons **on**.
+
+== Limits (honest)
+
+* Headless Chrome rAF scroll hit a **~144 FPS ceiling**; it under-reports interactive middle-button / trackpad jank on real GPUs.
+* Runtime DOM removal approximates a rebuild with `nav_typology_icons: 'false'` but is not identical to a clean Antora pass (listener identity, SoftNav region wiring).
+* Tracing `Layout` counters were often **0** in selected categories while Paint/Layerize/GPUTask still moved — read the paint/layerize columns for expand stress.
+* Live Pages matched tip icon counts for this run; if Pages lags a future tip, re-check before blaming icons.
+
+== Related
+
+* xref:publishing/antora-ui-branding.adoc[Antora UI branding] — Valentus supplemental chrome, typology accent notes.
+* xref:publishing/antora-essential-extensions.adoc[Antora essential extensions] — `site-nav-tree` forest curation.
+* Lab scripts: `scripts/nav-scroll-ab-bench.mjs`, `scripts/nav-scroll-cost-bench.mjs`.
+* Raw JSON (repo images copy): `nav-scroll-ab/results.json`, `nav-scroll-ab/cost-results.json`.
