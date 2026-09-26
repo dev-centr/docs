@@ -396,3 +396,25 @@ html[data-theme="dark"] {
   vertical-align: middle;
   margin-right: 0.4rem;
 }
+
+/*
+ * Config Key Sanitation status labels (general-knowledge explanation table).
+ * Maps to Valentus admonition tokens so light/dark stay readable.
+ */
+.doc .cks-status {
+  font-family: var(--monospace-font-family, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
+  font-weight: 600;
+  font-size: 0.95em;
+}
+.doc .cks-status-active {
+  color: var(--adt-admonition-tip, #059669);
+}
+.doc .cks-status-deprecated {
+  color: var(--adt-admonition-warning, #d97706);
+}
+.doc .cks-status-expired {
+  color: var(--adt-admonition-important, #dc2626);
+}
+.doc .cks-status-unknown {
+  color: var(--adt-admonition-note, #2563eb);
+}
