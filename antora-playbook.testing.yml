@@ -21,7 +21,6 @@ antora:
         - home
         - general-knowledge
         - business-bootstrap
-        - agent-rules
         - DevCentr
         - templates
         - devcentr-org
@@ -29,7 +28,6 @@ antora:
         - home
         - general-knowledge
         - business-bootstrap
-        - agent-rules
         - DevCentr
         - templates
         - devcentr-org
@@ -45,6 +43,10 @@ content:
     - url: .
       branches: HEAD
       start_path: docs
+      worktrees: true
+    - url: .
+      branches: HEAD
+      start_path: tools-docs
       worktrees: true
     - url: ../devcentr
       branches: HEAD

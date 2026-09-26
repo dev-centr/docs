@@ -1,0 +1,70 @@
+= Tools
+:description: Dev-Centr tools documented in this hub — installers, agent tooling, equivalence, config UI, and related products.
+:page-context-surface: component-home
+:keywords: tools, DevCentr, documentation hub, Ibex, Switchyard, agent-rules, UniConfig
+
+This component is the **Tools** documentation hub. Each product below is its own subtree in the sidebar (modules contributed by product repos). Portal stubs for forks, external integrations, and discovery still live under xref:home::tools/index.adoc[Home → Tools].
+
+== Products (component docs)
+
+[cols="1,2",options="header"]
+|===
+| Tool | What it is
+
+| xref:agent-rules:index.adoc[Agent Rules]
+| Forkable modular agent rules and skills for local AI coding assistants.
+
+| xref:rules-manager:index.adoc[Rules Manager]
+| Compose/watch daemon + tray for agent-rules.
+
+| xref:ibex:index.adoc[Ibex]
+| Install Builder EXtension — in-place PATH, installer projects, CI emit.
+
+| xref:msi-generator:index.adoc[MSI Generator]
+| MSI / MSIX packaging tooling.
+
+| xref:switchyard:index.adoc[Switchyard]
+| Windows file-association switchyard (open/icon/thumbnail tracks).
+
+| xref:repo-drive:index.adoc[RepoDrive]
+| Forge virtual drive (GUI + tray, sparse mount).
+
+| xref:issues-browser:index.adoc[Issues Browser]
+| Cross-forge issues browser.
+
+| xref:ver:index.adoc[Ver]
+| Universal version-control interface (Git, SVN, Mercurial).
+
+| xref:fixnow-dev:index.adoc[FixNow]
+| AI-assisted fix evaluation and workflows.
+
+| xref:scriptbook:index.adoc[Scriptbook]
+| PlayTime engine + Scriptbook app for CentrMark playbooks.
+
+| xref:equivalence-engine:index.adoc[Equivalence Engine]
+| Catalog lookup and code-domain rewrites.
+
+| xref:uniconfig:index.adoc[UniConfig]
+| Schema-driven desktop config panel.
+
+| xref:toolchain-framework:index.adoc[Toolchain Framework]
+| Practice kit: schemas, adapters, validators.
+
+| xref:themed-svg-studio:index.adoc[Themed SVG Studio]
+| Adaptive diagram authoring for Antora hubs.
+
+| xref:agentic-email-integration:index.adoc[Agentic Email Integration]
+| Own-your-inbox Gmail integration (Himalaya + agents).
+|===
+
+Additional modules (install-coordinator, libequivalence, equivalence-rules-*, infra-template, binary-tailor, and others) appear in the Tools sidebar when their repos are wired into the playbook.
+
+== Portal-only / external
+
+Forks, third-party integrations, and Business Bootstrap discovery stubs remain on the Home portal: xref:home::tools/index.adoc[Constituent Tools]. Business Bootstrap **tool recommendations** stay under xref:business-bootstrap::index.adoc[Business Bootstrap] — not this forest.
+
+== Start here
+
+* xref:agent-rules:index.adoc[Agent Rules]
+* xref:ibex:index.adoc[Ibex]
+* xref:home::activity-log.adoc[Org-wide activity log] (Home)

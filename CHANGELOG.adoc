@@ -1,5 +1,12 @@
 = Changelog
 
+== 2026-09-25 - Home to Tools migration; Agent Rules under Tools
+
+* Added hub `tools-docs` Antora source (`name: tools`, `ROOT:index.adoc`) so `/tools/` is the Tools forest start page (same pattern as Platforms `/platforms/`).
+* Removed `agent-rules` from site-nav-tree `include` / `order` in all playbooks; content source remains. Agent Rules docs publish as `tools:agent-rules`.
+* Home `nav.adoc`: drop nested Tools children; keep portal `tools/index.adoc` and stub pages for forks/external discovery.
+* Portal stub and inventory xrefs point at `tools:agent-rules:*`.
+
 == 2026-09-25 -- Diagram engines doc + zoom/lightbox
 
 * Document Option A (Kroki/Themed SVG bake), Option B (client Mermaid), and hybrid per-diagram how-to on `publishing/antora-diagram-formats.adoc` (borrow-from-light WARN unchanged).
