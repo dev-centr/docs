@@ -1,5 +1,13 @@
 = Changelog
 
+== 2026-09-25 - Mermaid client + diagram lightbox packages
+
+* Require `@antora-supplemental/mermaid-client/antora` + `@antora-supplemental/diagram-lightbox` (pinned `antora-diagram-engines@981eb29`) on all hub playbooks; attrs `mermaid-client` / `mermaid-client-mode: client` so Mermaid uses the CDN client path (PlantUML stays on `asciidoctor-kroki`).
+* Asciidoctor tree-processor converts `[source,mermaid]` to client hosts before Kroki bake — no dual SVG.
+* Head/footer use `{{> mermaid-client-*}}` / `{{> diagram-lightbox-*}}` partials; chrome assets mirrored from the packages into `supplemental-ui` (`injectAssets: false` to avoid double-load). Replaced hub-vendored `site-diagram-zoom.*` with `site-diagram-lightbox.*`.
+* Docs: `publishing/antora-diagram-formats.adoc` + `AGENTS.md` (lightbox UX name; Themed SVG still live/unmaintained).
+
+
 == 2026-09-25 - Home to Tools migration; Agent Rules under Tools
 
 * Added hub `tools-docs` Antora source (`name: tools`, `ROOT:index.adoc`) so `/tools/` is the Tools forest start page (same pattern as Platforms `/platforms/`).

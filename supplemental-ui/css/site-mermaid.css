@@ -10,7 +10,9 @@ div.mermaid {
 }
 
 html.dark-theme .adt-mermaid,
-html.dark-theme div.mermaid {
+html.dark-theme div.mermaid,
+html[data-theme='dark'] .adt-mermaid,
+html[data-theme='dark'] div.mermaid {
   background: color-mix(in srgb, var(--adt-accent, #2dd4bf) 10%, transparent);
   border-color: color-mix(in srgb, var(--adt-accent, #2dd4bf) 28%, transparent);
 }
