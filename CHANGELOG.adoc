@@ -1,5 +1,11 @@
 = Changelog
 
+== 2026-09-25 -- Diagram engines doc + zoom/lightbox
+
+* Document Option A (Kroki/Themed SVG bake), Option B (client Mermaid), and hybrid per-diagram how-to on `publishing/antora-diagram-formats.adoc` (borrow-from-light WARN unchanged).
+* Vendor chassis `diagram-zoom` into `supplemental-ui` (in-article zoom + pan/zoom lightbox); wire CSS/JS in head/footer.
+* Teach `site-mermaid.js` to collect `[.mermaid-client]` / `pre.mermaid` listings so Kroki can keep baking PlantUML while selected Mermaid stays client-rendered.
+
 == 2026-09-25 - Themed SVG dark-text WARN on Antora build
 
 * Added `lib/verify-themed-svg-dark-mode.js` and registered it in the playbooks: at `contentClassified`, WARN when adaptive Themed SVG images still hardcode Mermaid root `#my-svg` fill / `.label` color under `prefers-color-scheme: dark`. Borrow-from-light / parent -> child policy: equal light/dark token values (or `borrowFromLight`) mark stable light islands so nested text is not forced to flip; WARN still fires when a darker adapted surface keeps light-mode text.

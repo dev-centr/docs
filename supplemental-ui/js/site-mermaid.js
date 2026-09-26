@@ -18,16 +18,29 @@
 
   function collectTargets() {
     const nodes = []
+    const seen = new Set()
+    function add(block, text) {
+      if (!block || seen.has(block)) return
+      seen.add(block)
+      nodes.push({ block, text })
+    }
     document.querySelectorAll('code.language-mermaid, code[data-lang="mermaid"]').forEach((code) => {
-      const block = code.closest('.listingblock') || code.parentElement
-      if (block) nodes.push({ block, text: code.textContent || '' })
+      add(code.closest('.listingblock') || code.parentElement, code.textContent || '')
+    })
+    // Hybrid: Kroki ignores [source,text]; keep Mermaid source for client render.
+    document.querySelectorAll('.listingblock.mermaid-client, .listingblock.adt-mermaid-client').forEach((block) => {
+      const pre = block.querySelector('pre')
+      add(block, (pre && pre.textContent) || block.textContent || '')
+    })
+    document.querySelectorAll('pre.mermaid, .mermaid-source').forEach((pre) => {
+      if (pre.closest('.adt-mermaid')) return
+      add(pre.closest('.listingblock') || pre, pre.textContent || '')
     })
     document.querySelectorAll('.listingblock > .content > pre').forEach((pre) => {
       if (pre.querySelector('code.language-mermaid, code[data-lang="mermaid"]')) return
       const text = pre.textContent || ''
       if (!looksLikeMermaid(text)) return
-      const block = pre.closest('.listingblock')
-      if (block) nodes.push({ block, text })
+      add(pre.closest('.listingblock'), text)
     })
     return nodes
   }
