@@ -32,6 +32,9 @@ antora:
         - templates
         - devcentr-org
     - require: '@antora-supplemental/nav-typology'
+      # BB capability URLs use /how-to|tutorials|.../ as tree folders, not Diataxis buckets.
+      diataxisUrlExcludePrefixes:
+        - /business-bootstrap/
     - require: '@antora-supplemental/nav-typology-diataxis'
     - '@antora-supplemental/build-stack'
     - '@antora-supplemental/page-edit'
@@ -46,10 +49,6 @@ content:
     - url: .
       branches: HEAD
       start_path: docs
-      worktrees: true
-    - url: .
-      branches: HEAD
-      start_path: tools-docs
       worktrees: true
     - url: ../devcentr
       branches: HEAD
@@ -135,6 +134,11 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: .
+      branches: HEAD
+      start_path: tools-docs
+      worktrees: true
+
 ui:
   bundle:
     url: ../valentus-theme/build/ui-bundle.zip

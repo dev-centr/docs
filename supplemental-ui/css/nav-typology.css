@@ -1,4 +1,5 @@
 :root {
+  --typology-component-root: #178f80;
   --typology-spec-component: #2563eb;
   --typology-spec-feature: #7c3aed;
   --typology-diataxis-tutorial: #2563eb;
@@ -6,11 +7,12 @@
   --typology-diataxis-reference: #7c3aed;
   --typology-diataxis-explanation: #d97706;
   --typology-changelog: #c2410c;
+  --typology-overview: #0f766e;
   --nav-typology-icon-size: 0.85em;
-  --nav-scroll-fade-width: 1.25rem;
 }
 
 html.dark-theme {
+  --typology-component-root: #2dd4bf;
   --typology-spec-component: #60a5fa;
   --typology-spec-feature: #a78bfa;
   --typology-diataxis-tutorial: #60a5fa;
@@ -18,21 +20,12 @@ html.dark-theme {
   --typology-diataxis-reference: #a78bfa;
   --typology-diataxis-explanation: #fbbf24;
   --typology-changelog: #fb923c;
+  --typology-overview: #2dd4bf;
 }
 
 nav.nav-menu.nav-tree-only,
 nav.nav-menu.adt-nav-tree-only {
   overflow-x: auto;
-  -webkit-mask-image: linear-gradient(
-    to right,
-    black calc(100% - var(--nav-scroll-fade-width)),
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    black calc(100% - var(--nav-scroll-fade-width)),
-    transparent 100%
-  );
 }
 
 nav.nav-menu.nav-tree-only .nav-item > .nav-link,
@@ -76,6 +69,7 @@ nav.nav-menu.adt-nav-tree-only .nav-item > .nav-text > .nav-typology-label {
   white-space: nowrap;
 }
 
+.nav-typology-icon--component-root { color: var(--typology-component-root); }
 .nav-typology-icon--spec-component { color: var(--typology-spec-component); }
 .nav-typology-icon--spec-feature { color: var(--typology-spec-feature); }
 .nav-typology-icon--diataxis-tutorial { color: var(--typology-diataxis-tutorial); }
@@ -83,6 +77,7 @@ nav.nav-menu.adt-nav-tree-only .nav-item > .nav-text > .nav-typology-label {
 .nav-typology-icon--diataxis-reference { color: var(--typology-diataxis-reference); }
 .nav-typology-icon--diataxis-explanation { color: var(--typology-diataxis-explanation); }
 .nav-typology-icon--changelog { color: var(--typology-changelog); font-weight: 600; }
+.nav-typology-icon--overview { color: var(--typology-overview); }
 
 nav.nav-menu.nav-tree-only .nav-item[data-nav-typology="changelog"] > .nav-link,
 nav.nav-menu.adt-nav-tree-only .nav-item[data-nav-typology="changelog"] > .nav-link,

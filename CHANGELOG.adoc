@@ -1,5 +1,11 @@
 = Changelog
 
+== 2026-09-26 - Forest nav IA: Overview peers, Tools flatten, BB Software stack
+
+* Bump `@antora-supplemental/site-nav-tree` **0.5.1**: flatten multi-anonymous Tools module navs; recursively unwrap Overview parents that wrapped sibling articles.
+* Bump `@antora-supplemental/nav-typology` **0.1.7**: Overview icon; `diataxisUrlExcludePrefixes` for Business Bootstrap; explicit `:page-nav-typology:` page-attr path.
+* Playbooks: exclude `/business-bootstrap/` from Diataxis URL heuristics. Companion `nav-typology.svg` / CSS synced (Overview sprite).
+* Content: Business Bootstrap categories under Software stack; platforms `devcentr.org` Overview is a sibling leaf (not a wrapper).
 == 2026-09-26 - Forest nav Overview naming
 
 * Home `nav.adoc`: start-page label **Overview** (was Home) — component title remains **Home**.

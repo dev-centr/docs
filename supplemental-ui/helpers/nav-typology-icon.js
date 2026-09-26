@@ -19,26 +19,11 @@ const TYPOLOGIES = {
     spriteId: 'icon-changelog',
     label: 'Changelog',
   },
-}
-
-/** @see nav-component-logo.js — inlined here; Antora requireFromString cannot resolve sibling helpers. */
-const COMPONENT_LOGOS = {
-  DevCentr: 'nav-logos/devcentr.svg',
-  'devcentr-org': 'nav-logos/devcentr-org.svg',
-}
-
-function normalizeUrl (url) {
-  if (url == null || url === '') return ''
-  let u = String(url).split(/[?#]/)[0]
-  u = u.replace(/\/index\.html$/i, '/')
-  if (u.length > 1) u = u.replace(/\/+$/, '') || '/'
-  return u
-}
-
-function componentNameFromUrl (url) {
-  const path = normalizeUrl(url)
-  if (!path || path === '/') return ''
-  return path.replace(/^\/+/, '').split('/')[0] || ''
+  overview: {
+    id: 'overview',
+    spriteId: 'icon-overview',
+    label: 'Overview',
+  },
 }
 
 function diataxisEnabled ({ data } = {}) {
@@ -46,42 +31,30 @@ function diataxisEnabled ({ data } = {}) {
   return keys.nav_typology_diataxis === 'true' || keys.nav_typology === 'true'
 }
 
-function isComponentRoot (item, options = {}) {
-  if (!item || typeof item !== 'object') return false
-  if (item.navTypology?.id === 'component-root') return true
-  const level = options.hash?.level ?? 0
-  const depth = Number(level) || 0
-  return depth === 0 && item.url && Array.isArray(item.items) && item.items.length > 0
-}
-
-function componentLogoMarkup (item, options = {}) {
-  const name = componentNameFromUrl(item.url)
-  const file = name && COMPONENT_LOGOS[name]
-  if (!file) return ''
-  const uiRoot = options.data?.root?.uiRootPath || options.data?.root?.siteRootPath || '/_'
-  return (
-    `<img class="nav-component-logo" src="${uiRoot}/img/${file}" width="12" height="12" alt="" aria-hidden="true">`
-  )
-}
-
 function resolveTypology (item, options = {}) {
   if (!item || typeof item !== 'object') return null
-  if (isComponentRoot(item, options)) return null
 
+  const level = options.hash?.level ?? 0
+  const depth = Number(level) || 0
   const parentTypologyId = options.hash?.parentTypologyId || ''
-  const id = resolveTypologyIdCore(item, {
-    parentTypologyId,
-    diataxisEnabled: diataxisEnabled(options),
-    skipBuildFallback: false,
-  })
+  const diataxis = diataxisEnabled(options)
+
+  let id = null
+  if (depth === 0 && item.url && Array.isArray(item.items) && item.items.length) {
+    id = 'component-root'
+  } else {
+    id = resolveTypologyIdCore(item, {
+      depth,
+      parentTypologyId,
+      diataxisEnabled: diataxis,
+      skipBuildFallback: false,
+    })
+  }
 
   return id && TYPOLOGIES[id] ? TYPOLOGIES[id] : null
 }
 
 module.exports = (item, options = {}) => {
-  if (isComponentRoot(item, options)) {
-    return componentLogoMarkup(item, options) || ''
-  }
   const meta = resolveTypology(item, options)
   if (!meta) return ''
   const uiRoot = options.data?.root?.uiRootPath || options.data?.root?.siteRootPath || '/_'

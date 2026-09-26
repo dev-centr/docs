@@ -19,6 +19,11 @@ const TYPOLOGIES = {
     spriteId: 'icon-changelog',
     label: 'Changelog',
   },
+  overview: {
+    id: 'overview',
+    spriteId: 'icon-overview',
+    label: 'Overview',
+  },
 }
 
 function diataxisEnabled ({ data } = {}) {
@@ -26,26 +31,30 @@ function diataxisEnabled ({ data } = {}) {
   return keys.nav_typology_diataxis === 'true' || keys.nav_typology === 'true'
 }
 
-function isComponentRoot (item, options = {}) {
-  if (!item || typeof item !== 'object') return false
-  if (item.navTypology?.id === 'component-root') return true
+function resolveTypology (item, options = {}) {
+  if (!item || typeof item !== 'object') return null
+
   const level = options.hash?.level ?? 0
   const depth = Number(level) || 0
-  return depth === 0 && item.url && Array.isArray(item.items) && item.items.length > 0
-}
-
-function resolveId (item, options = {}) {
-  if (!item || typeof item !== 'object') return ''
-  if (isComponentRoot(item, options)) return ''
-
   const parentTypologyId = options.hash?.parentTypologyId || ''
-  const id = resolveTypologyIdCore(item, {
-    parentTypologyId,
-    diataxisEnabled: diataxisEnabled(options),
-    skipBuildFallback: false,
-  })
+  const diataxis = diataxisEnabled(options)
 
-  return id && TYPOLOGIES[id] ? id : ''
+  let id = null
+  if (depth === 0 && item.url && Array.isArray(item.items) && item.items.length) {
+    id = 'component-root'
+  } else {
+    id = resolveTypologyIdCore(item, {
+      depth,
+      parentTypologyId,
+      diataxisEnabled: diataxis,
+      skipBuildFallback: false,
+    })
+  }
+
+  return id && TYPOLOGIES[id] ? TYPOLOGIES[id] : null
 }
 
-module.exports = (item, options = {}) => resolveId(item, options)
+module.exports = (item, options = {}) => {
+  const meta = resolveTypology(item, options)
+  return meta ? meta.id : ''
+}

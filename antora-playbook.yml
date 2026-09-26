@@ -38,6 +38,9 @@ antora:
         - tools
         - templates
     - require: '@antora-supplemental/nav-typology'
+      # BB capability URLs use /how-to|tutorials|.../ as tree folders, not Diataxis buckets.
+      diataxisUrlExcludePrefixes:
+        - /business-bootstrap/
     - require: '@antora-supplemental/nav-typology-diataxis'
     - '@antora-supplemental/build-stack'
     - ./lib/verify-themed-svg-dark-mode.js
@@ -54,9 +57,6 @@ content:
       branches: HEAD
       start_path: docs
 
-    - url: https://github.com/dev-centr/docs.git
-      branches: HEAD
-      start_path: tools-docs
     - url: https://github.com/dev-centr/devcentr.git
       branches: HEAD
       start_path: docs
@@ -147,6 +147,10 @@ content:
     - url: https://github.com/dev-centr/toolchain-framework.git
       branches: HEAD
       start_path: docs
+    - url: https://github.com/dev-centr/docs.git
+      branches: HEAD
+      start_path: tools-docs
+
 ui:
   bundle:
     url: https://github.com/antora-supplemental/valentus-theme/releases/download/v2/ui-bundle.zip

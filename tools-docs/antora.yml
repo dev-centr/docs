@@ -2,3 +2,32 @@ name: tools
 title: Tools
 version: ~
 start_page: ROOT:index.adoc
+# Last-wins Object.assign among tools sources: keep tools-docs last in playbooks.
+# List every module nav path so Antora registers nav files from product origins.
+nav:
+- modules/ROOT/nav.adoc
+- modules/agent-rules/nav.adoc
+- modules/rules-manager/nav.adoc
+- modules/ibex/nav.adoc
+- modules/msi-generator/nav.adoc
+- modules/install-coordinator/nav.adoc
+- modules/switchyard/nav.adoc
+- modules/repo-drive/nav.adoc
+- modules/issues-browser/nav.adoc
+- modules/ver/nav.adoc
+- modules/fixnow-dev/nav.adoc
+- modules/scriptbook/nav.adoc
+- modules/equivalence-engine/nav.adoc
+- modules/equivalence-engine-action/nav.adoc
+- modules/libequivalence/nav.adoc
+- modules/equivalence-rules-code/nav.adoc
+- modules/equivalence-rules-filesystem/nav.adoc
+- modules/uniconfig/nav.adoc
+- modules/uniprovider/nav.adoc
+- modules/binary-tailor/nav.adoc
+- modules/macho-memload/nav.adoc
+- modules/polyglot-debug/nav.adoc
+- modules/toolchain-framework/nav.adoc
+- modules/themed-svg-studio/nav.adoc
+- modules/agentic-email-integration/nav.adoc
+- modules/infra-template/nav.adoc
