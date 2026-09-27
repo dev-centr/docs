@@ -1,5 +1,11 @@
 = Changelog
 
+== 2026-09-27 - Themed SVG dark-text WARN: per-item plain language
+
+* Revert the broken rollup path in `lib/verify-themed-svg-dark-mode.js` (one WARN + `info` advice that default Antora logs never showed).
+* Emit **one WARN per finding** again, reworded in plain language (no SVG fill / CSS-var jargon in the WARN line).
+* Document on `publishing/antora-diagram-formats.adoc`; add `test/verify-themed-svg-dark-mode.test.js` (`pnpm test` / `npm test`).
+
 == 2026-09-26 - Nav scroll performance A/B (typology icons)
 
 * Published Home explanation `publishing/nav-scroll-performance-ab.adoc` with CDP/Puppeteer A/B metrics (icons ON/OFF, SoftNav listeners, expand-all paint, HCI control).

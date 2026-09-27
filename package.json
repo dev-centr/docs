@@ -18,7 +18,9 @@
     "maint:nav-drift": "nav-drift --root ./docs --require-in-nav --out ./build/nav-drift",
     "maint:stale": "stale-page --root ./docs --days 365 --out ./build/stale-page",
     "maint:pins": "playbook-pin-auditor --root . --playbook antora-playbook.yml",
-    "maint:deep-links": "deep-link-contracts --config deep-link-contracts.yml --site-dir ./build/site"
+    "maint:deep-links": "deep-link-contracts --config deep-link-contracts.yml --site-dir ./build/site",
+    "test": "node --test test/*.test.js",
+    "test:dark-text": "node --test test/verify-themed-svg-dark-mode.test.js"
   },
   "packageManager": "pnpm@10.28.1+sha512.7d7dbbca9e99447b7c3bf7a73286afaaf6be99251eb9498baefa7d406892f67b879adb3a1d7e687fc4ccc1a388c7175fbaae567a26ab44d1067b54fcb0d6a316",
   "devDependencies": {

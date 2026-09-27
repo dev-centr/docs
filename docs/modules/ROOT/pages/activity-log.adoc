@@ -5,6 +5,10 @@
 
 This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see each component's xref:platforms:devcentr:changelog.adoc[Changelog] (and siblings); for release tags, see repository tags and release notes.
 
+== 2026-09-27 - Themed SVG dark-text WARNs (per picture, plain language)
+
+* Hub checker again WARNs once per dark-text finding (no rollup + hidden info advice).
+* Messages use plain language, e.g. `Dark-mode picture X still has dark text that will be hard to read.`
 
 == 2026-09-26 - Nav scroll performance A/B
 

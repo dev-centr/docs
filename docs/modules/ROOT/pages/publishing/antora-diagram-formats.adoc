@@ -117,15 +117,10 @@ Serve with a `[.themed-svg]` image role so the hub runtime can inline the host S
 
 .Dark-text completeness (build WARN)
 ****
-Adaptive Themed SVG fallbacks must rewrite Mermaid's hardcoded `#my-svg { fill }` and `.label { color }` to `color.text.primary` (see component `diagrams:generate` / `diagrams:build` checks).
-The hub playbook loads `lib/verify-themed-svg-dark-mode.js`, which at Antora `contentClassified` emits **one rollup WARN** when any adaptive SVG still has those gaps under `prefers-color-scheme: dark`, plus **per-file detail at info** (not WARN) so humans are not flooded.
-Example rollup: `WARN themed-svg-dark-text: N themed-SVG dark-mode text issue(s) -- see advice below (or antora-diagram-formats); fix agents scanning warn/error should treat this as actionable.`
-Borrow from light:: Set the dark preset value equal to light for intentional light islands (for example `access-mock-*` UI mocks), or list token ids in `borrowFromLight` (stripped before the transformer). If a surface/canvas borrows light, nested text for that region should also borrow -- do not force dark text recoloring inside a light-stable island. The check skips light-stable figures and still flags adapted dark backgrounds that left light-mode text behind.
-****
-Adaptive Themed SVG fallbacks must rewrite Mermaid's hardcoded `#my-svg { fill }` and `.label { color }` to `color.text.primary` (see component `diagrams:generate` checks).
-The hub playbook loads `lib/verify-themed-svg-dark-mode.js`, which **WARN**s at Antora `contentClassified` when an adaptive SVG still has those hardcoded colors under `prefers-color-scheme: dark`.
-Example: `WARN themed-svg dark-mode text: .../agent-cli-auth-flow.svg: root #my-svg fill is a hardcoded color (not color.text.primary var); <text> inherits it in dark mode`
-Borrow from light:: Set the dark preset value equal to light for intentional light islands, or list token ids in `borrowFromLight` (stripped before the transformer). If a surface/canvas borrows light, nested text for that region should also borrow — do not force dark text recoloring inside a light-stable island. The WARN skips light-stable figures and still flags adapted dark backgrounds that left light-mode text behind.
+Adaptive Themed SVG fallbacks should use lighter text when the dark palette darkens the background (component `diagrams:generate` / `diagrams:build` checks help).
+The hub playbook loads `lib/verify-themed-svg-dark-mode.js`, which at Antora `contentClassified` emits **one WARN per finding** (per diagram / issue) in plain language — not a single rollup with details hidden at info.
+Example: `WARN themed-svg-dark-text: Dark-mode picture agent-cli-auth-flow.svg still has dark text that will be hard to read. Try lighter text for dark backgrounds.`
+Borrow from light:: Keep intentional light islands by matching dark preset values to light (for example `access-mock-*` UI mocks), or list token ids in `borrowFromLight` (stripped before the transformer). If a surface stays light, nested text for that region should stay light-looking too. The check skips light-stable figures and still flags darkened backgrounds that left light-mode text behind.
 ****
 
 These adapters are general-purpose packages in **dev-centr**; Antora importance is compose/recommend (see link:https://antora-supplemental.org/facto-stack/[facto-stack]; GitHub: link:https://github.com/antora-supplemental/facto-stack[antora-supplemental/facto-stack]), not forks into antora-supplemental.
