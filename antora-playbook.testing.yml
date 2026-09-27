@@ -46,6 +46,9 @@ antora:
       statusDefault: unchecked
     - require: '@antora-supplemental/extension-lister'
       layouts: [footer]
+    - require: '@antora-supplemental/orphan-finder/extension'
+      reportEmail: support@devcentr.org
+      failOnUnresolved: false
     - require: '@antora-supplemental/page-context/antora'
       component: home
       path: keywords
