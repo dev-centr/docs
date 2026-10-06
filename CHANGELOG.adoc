@@ -1,5 +1,9 @@
 = Changelog
 
+== Unreleased
+
+* Lockfile refresh so Antora and `asciidoctor-kroki` resolve `@asciidoctor/core` 2.2.9; its Opal runtime (0.3.4) uses `fast-glob` instead of the deprecated `glob@7` and `inflight`.
+
 == 2026-09-27 - Themed SVG dark-text WARN: per-item plain language
 
 * Revert the broken rollup path in `lib/verify-themed-svg-dark-mode.js` (one WARN + `info` advice that default Antora logs never showed).
