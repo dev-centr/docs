@@ -43,10 +43,10 @@ Wire-service “always name the subject” still applies when the subject is *
 
 Whenever the title uses an *action*, rewrite until it reads naturally after an invisible *On*:
 
-* Good: `Sharing the IR, not the pixels` â†’ *On sharing the IR…*
-* Good: `Navigating by content` â†’ *On navigating by content*
-* Awkward: `Navigate by content` â†’ bare imperative
-* Awkward: `Navigating by the content` â†’ surplus *the*; overformal once *On* is implied
+* Good: `Sharing the IR, not the pixels` → *On sharing the IR…*
+* Good: `Navigating by content` → *On navigating by content*
+* Awkward: `Navigate by content` → bare imperative
+* Awkward: `Navigating by the content` → surplus *the*; overformal once *On* is implied
 
 Also acceptable: noun framing `Navigation by content` (*On navigation by content*).
 
@@ -112,9 +112,9 @@ Encyclopedia concept names (`= Instruction flows`) — no forced news verb.
 
 == Quick checklist
 
-. First-party news â†’ org omitted unless another actor?
-. Action title â†’ *[On] + title* sounds human? Surplus *the* dropped?
-. Abstract claim â†’ *as* / process / *a* / question / *when* / disproof instead of rigid *X is Y*?
+. First-party news → org omitted unless another actor?
+. Action title → *[On] + title* sounds human? Surplus *the* dropped?
+. Abstract claim → *as* / process / *a* / question / *when* / disproof instead of rigid *X is Y*?
 . Modifiers attached to an object?
 . One idea per news item? Big idea first?
 . Sentence case? Orienting? Honest enough?
