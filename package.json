@@ -3,6 +3,8 @@
     "@antora-supplemental/page-context": "github:antora-supplemental/page-context#v0.6.7",
     "@antora/lunr-extension": "^1.0.0-alpha.13",
     "@chenglou/pretext": "^0.0.4",
+    "@antora-supplemental/asciidoctor-emoji-literals": "github:antora-supplemental/asciidoctor-emoji-literals#main",
+    "asciidoctor-emoji": "^0.5.0",
     "asciidoctor-kroki": "^0.18.1"
   },
   "scripts": {
@@ -49,6 +51,10 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "puppeteer"
+    ],
+    "publicHoistPattern": [
+      "@antora-supplemental/asciidoctor-emoji-literals",
+      "asciidoctor-emoji"
     ]
   }
 }

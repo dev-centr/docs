@@ -145,6 +145,26 @@ asciidoc:
 
 Load KaTeX even when the current corpus has zero formulas — plumbing, not polish.
 
+=== Emoji literals + Twemoji (`@antora-supplemental/asciidoctor-emoji-literals` + `asciidoctor-emoji`)
+
+*Packages:* link:https://github.com/antora-supplemental/asciidoctor-emoji-literals[`@antora-supplemental/asciidoctor-emoji-literals`] (interim preprocessor) + link:https://www.npmjs.com/package/asciidoctor-emoji[official npm `asciidoctor-emoji@0.5.x`]
+
+*Problem:* Authors paste Unicode emoji (🚀) into AsciiDoc. Official 0.5.x only converts explicit `emoji:rocket[]` macros. Antora 3 still uses `@asciidoctor/core` 2.x/3.x, so asciidoctor-emoji 1.x (core 4) is not available yet.
+
+*Behavior:* The literals extension rewrites known Unicode emoji in prose to `emoji:name[]` before parsing; `asciidoctor-emoji` renders Twemoji (or playbook `emoji-pattern`). Listing/passthrough/literal blocks are skipped. Opt out with `:emoji-literals: false`. When link:https://github.com/ggrossetie/asciidoctor-emoji/pull/104[upstream literal support] ships on core 4, remove the interim package and keep `asciidoctor-emoji` only.
+
+*Playbook:*
+
+[source,yaml]
+----
+asciidoc:
+  extensions:
+    - '@antora-supplemental/asciidoctor-emoji-literals'
+    - asciidoctor-emoji
+----
+
+Registered in link:https://github.com/antora-supplemental/facto-stack[facto-stack] by default.
+
 === Build stack footer (`@antora-supplemental/build-stack`)
 
 *Package:* link:https://github.com/antora-supplemental/build-stack[`@antora-supplemental/build-stack`]

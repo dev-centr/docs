@@ -155,6 +155,8 @@ output:
 
 asciidoc:
   extensions:
+    - '@antora-supplemental/asciidoctor-emoji-literals'
+    - asciidoctor-emoji
     - asciidoctor-kroki
     - '@antora-supplemental/page-context'
   attributes:
