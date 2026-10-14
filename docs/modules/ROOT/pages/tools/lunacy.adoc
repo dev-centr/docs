@@ -1,0 +1,20 @@
+= Lunacy
+:navtitle: Lunacy
+:description: Portal stub for Lunacy — free desktop Figma-class editor from Icons8.
+
+Proprietary but free core editor for UI layout, components, and prototyping. Strong Figma (`.fig`) import when the team is not on Figma seats. Not open source — compare against Penpot when license and self-host matter.
+
+Official::
+link:https://icons8.com/lunacy[Lunacy] ·
+link:https://icons8.com/[Icons8]
+
+Dev-Centr docs::
+xref:general-knowledge:reference/web-design-tools.adoc[Web design tools comparison] ·
+xref:business-bootstrap::design/index.adoc[Design] ·
+xref:tools/penpot.adoc[Penpot (open alternative)]
+
+== Highlights
+
+* Desktop app (Windows, macOS, Linux)
+* Opens Figma files for view/edit in many nonprofit and volunteer workflows
+* Use for canvas work; ship the public site from your own code repo — not a bundled closed host (see Framer warning in the comparison page)

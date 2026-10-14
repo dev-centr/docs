@@ -59,6 +59,7 @@ Founder/ops stack in Business Bootstrap (capability areas: Email · Scheduling �
 
 * xref:tools/cal-com.adoc[Cal.com / Cal.diy] — scheduling / booking pages
 * xref:tools/penpot.adoc[Penpot] — open-source design platform
+* xref:tools/lunacy.adoc[Lunacy] — free desktop Figma-class editor (Icons8)
 * xref:tools/bitwarden.adoc[Bitwarden / Vaultwarden] — secrets vault hosting
 * xref:tools/mattermost.adoc[Mattermost] — team chat self-host (stage-gated)
 * Hub: xref:business-bootstrap::index.adoc[Business Bootstrap] · xref:business-bootstrap::software-stack.adoc[Software stack]
