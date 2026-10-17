@@ -17,7 +17,7 @@ This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/
 * **switchyard** — Windows file-association switchyard (snapshot / icon lock / file-router roles).
 * **issues-browser** — Forge metadata index/backup (GUI/CLI/daemon/tray); integrates with RepoDrive. Formerly `issue-tracker`.
 * **agent-rules** — Modular agent rules assembly (`RULES.md`, `general/`, `profiles/`, skills) for local AI coding assistants. xref:tools:agent-rules:index.adoc[component] · xref:tools/agent-rules.adoc[portal].
-* **rules-manager** — Compose/watch daemon + tray for agent-rules. xref:tools:rules-manager:index.adoc[component] · xref:tools/rules-manager.adoc[portal].
+* **rules-manager** — Compose/watch daemon + tray for agent-rules. xref:rules-manager::index.adoc[component] · xref:tools/rules-manager.adoc[portal].
 * **ver** — Universal version-control interface (Git, SVN, Mercurial) — DUB library, CLI, and optional Qt GUI. xref:tools:ver:index.adoc[component] · xref:tools/ver.adoc[portal].
 * **repo-drive** — Standalone virtual forge drive (GUI + tray + FUSE/WinFsp); sparse repos, schema, VCS toolbox.
 * **RepoLab** (Dev-Centr product, RepoLabs org) — Unified browser frontend for git hosts and VCS backends. Site: link:https://repolab.dev[repolab.dev]. Docs: link:https://docs.repolab.dev[docs.repolab.dev]. xref:tools/repolab.adoc[portal].
@@ -25,7 +25,7 @@ This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/
 * **agentic-email-integration** — Own-your-inbox Gmail integration (Himalaya + agents). Complementary MCP connectors: xref:tools/composio.adoc[Composio].
 * **fixnow-dev** — FixNow pressure-driven issue tracking: AI value scoring, countdown badges, and resolution verification.
 * **scriptbook** — PlayTime engine + Scriptbook app: play CentrMark `.cmk` playbooks (intents, not shell translation). xref:tools:scriptbook:index.adoc[Scriptbook] · xref:general-knowledge::explanation/infrastructure/abstract-playbooks.adoc[Abstract playbooks].
-* **equivalence-engine** — Catalog lookup and code-domain rewrites. Host Awareness bake is CI-time; runtime PlayTime must not ask it what OS it is. xref:tools:equivalence-engine:index.adoc[Equivalence Engine].
+* **equivalence-engine** — Catalog lookup and code-domain rewrites. Host Awareness bake is CI-time; runtime PlayTime must not ask it what OS it is. xref:equivalence-engine::index.adoc[Equivalence Engine].
 
 Org-wide roadmap and activity log live here in the **docs** repo so they stay in one place across all projects. Repo-specific task lists (e.g. devcentr's root `TODO.adoc`) remain in each repository for day-to-day work; the central xref:todo-roadmap.adoc[Todo & Roadmap] summarizes themes and the xref:activity-log.adoc[Activity log] records notable updates.
 
@@ -58,9 +58,9 @@ The site uses **two different mechanisms** that are easy to confuse:
 
 The **home** tree does not mirror every page in every component. Portal pages under *Tools* (`tools/*.adoc`) are a **manual discovery list**, duplicated alongside xref:tools/index.adoc[tools/index.adoc] and this page's component inventory. Adding a playbook source updates the dropdown immediately after deploy, but **home nav and tools index must be updated by hand** unless a build extension generates them.
 
-Hub aggregator naming (`name: home`, sidebar **Overview**, portal H1, `site.start_page: home::index.adoc`): xref:publishing/hub-home-component.adoc[Hub home component].
+Hub aggregator naming (`name: home`, sidebar **Overview**, portal H1, `site.start_page: home::index.adoc`): xref:docs-site/hub-home-component.adoc[Hub home component].
 
-*Future:* an Antora extension should emit Tools nav entries (and optionally `where-docs-live` bullets) from the playbook catalog — title from each component's `antora.yml`, link to `component:ROOT:index.adoc`, portal stub when present. Until then, xref:publishing/antora-essential-extensions.adoc[essential extensions] and Phase 2 in `DOCS_STRATEGY.md` apply.
+*Future:* an Antora extension should emit Tools nav entries (and optionally `where-docs-live` bullets) from the playbook catalog — title from each component's `antora.yml`, link to `component:ROOT:index.adoc`, portal stub when present. Until then, xref:docs-site/antora-essential-extensions.adoc[essential extensions] and Phase 2 in `DOCS_STRATEGY.md` apply.
 
 == Team documentation (members only)
 

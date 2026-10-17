@@ -13,7 +13,7 @@ Dev-Centr docs::
 xref:business-bootstrap::design/explanation/penpot.adoc[Explanation] ·
 xref:business-bootstrap::design/index.adoc[Design] ·
 xref:business-bootstrap::software-stack.adoc[Software stack] ·
-xref:general-knowledge:reference/web-design-tools.adoc[Web design tools]
+xref:general-knowledge::reference/web-design-tools.adoc[Web design tools]
 
 == Highlights
 

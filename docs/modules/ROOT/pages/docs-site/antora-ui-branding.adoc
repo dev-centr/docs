@@ -91,7 +91,7 @@ See the theme guide: link:https://antora-supplemental.github.io/valentus-theme/v
 
 == Typology icon kill-switch (lab)
 
-Diataxis / typology row icons render by default when `nav_typology_diataxis` is enabled. For local A/B rebuilds only, set `site.keys.nav_typology_icons: 'false'` to skip `<svg><use>` emission from `nav-typology-icon` (see xref:publishing/nav-scroll-performance-ab.adoc[Nav scroll performance A/B]). Omit the key (or any value other than `false`) for production.
+Diataxis / typology row icons render by default when `nav_typology_diataxis` is enabled. For local A/B rebuilds only, set `site.keys.nav_typology_icons: 'false'` to skip `<svg><use>` emission from `nav-typology-icon` (see xref:docs-site/nav-scroll-performance-ab.adoc[Nav scroll performance A/B]). Omit the key (or any value other than `false`) for production.
 
 == Related
 

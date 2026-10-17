@@ -269,7 +269,7 @@ Implemented in `supplemental-ui/helpers/nav-typology-icon.js` (`typologyIconsEna
 
 == Related
 
-* xref:publishing/antora-ui-branding.adoc[Antora UI branding] — Valentus supplemental chrome, typology accent notes.
-* xref:publishing/antora-essential-extensions.adoc[Antora essential extensions] — `site-nav-tree` forest curation.
+* xref:docs-site/antora-ui-branding.adoc[Antora UI branding] — Valentus supplemental chrome, typology accent notes.
+* xref:docs-site/antora-essential-extensions.adoc[Antora essential extensions] — `site-nav-tree` forest curation.
 * Lab scripts: `scripts/nav-scroll-ab-bench.mjs`, `scripts/nav-scroll-cost-bench.mjs`.
 * Raw JSON (repo images copy): `nav-scroll-ab/results.json`, `nav-scroll-ab/cost-results.json`.

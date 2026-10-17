@@ -62,7 +62,7 @@ MSI Generator
 
 Windows installer (MSI/MSIX) engine - CFB/CAB tables and MSIX ZIP packaging.
 
-xref:tools/msi-installer-generator.adoc[Portal] | xref:tools:msi-generator:index.adoc[Component docs]
+xref:tools/msi-installer-generator.adoc[Portal] | xref:msi-generator::index.adoc[Component docs]
 ====
 
 [.tile]
@@ -82,7 +82,7 @@ RepoDrive
 
 Standalone virtual drive for forge repos - GUI, tray, sparse FUSE/WinFsp mount, Issues Browser bridge.
 
-xref:tools/repo-drive.adoc[Portal] | xref:tools:repo-drive:index.adoc[Component docs]
+xref:tools/repo-drive.adoc[Portal] | xref:repo-drive::index.adoc[Component docs]
 ====
 
 [.tile]
@@ -93,17 +93,27 @@ FixNow
 Pressure-driven issue tracking for high-value stagnated features.
 AI value scores, public countdown badges, and resolution audits.
 
-xref:tools:fixnow-dev:index.adoc[FixNow docs]
+xref:fixnow-dev::index.adoc[FixNow docs]
 ====
 
 [.tile]
 ====
 [.title]
-Software publishing
+Docs site
 
-Platform-agnostic notes on code signing, notarization, and release automation. Antora UI branding for this site.
+How this documentation site is built: hub component naming, Antora extensions, UI branding, diagram formats, and nav performance notes.
 
-xref:publishing/code-signing-in-the-release-pipeline.adoc[Code signing] | xref:publishing/antora-ui-branding.adoc[UI branding]
+xref:docs-site/hub-home-component.adoc[Hub home component] | xref:docs-site/antora-ui-branding.adoc[UI branding] | xref:docs-site/antora-diagram-formats.adoc[Diagram formats]
+====
+
+[.tile]
+====
+[.title]
+Code signing
+
+Why OS vendors require signing and how to automate it in release pipelines. Core general knowledge; Business Bootstrap links to it.
+
+xref:general-knowledge::explanation/architecture/code-signing-in-the-release-pipeline.adoc[Code signing in the release pipeline]
 ====
 
 [.tile]

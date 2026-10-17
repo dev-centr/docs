@@ -3,7 +3,7 @@
 :page-context-surface: component-home
 :keywords: tools, DevCentr, documentation hub, Ibex, Switchyard, agent-rules, UniConfig
 
-This component is the **Tools** documentation hub. Each product below is its own subtree in the sidebar (modules contributed by product repos). Portal stubs for forks, external integrations, and discovery still live under xref:home::tools/index.adoc[Home → Tools].
+This component is the **Tools** documentation hub. Each product below is its own subtree in the sidebar (modules contributed by product repos). Portal stubs for forks, external integrations, and discovery live on the Home portal (xref:home::tools/index.adoc[Constituent Tools]); they are not a second Tools tree in the sidebar.
 
 == Products (component docs)
 
@@ -14,34 +14,34 @@ This component is the **Tools** documentation hub. Each product below is its own
 | xref:agent-rules:index.adoc[Agent Rules]
 | Forkable modular agent rules and skills for local AI coding assistants.
 
-| xref:rules-manager:index.adoc[Rules Manager]
+| xref:rules-manager::index.adoc[Rules Manager]
 | Compose/watch daemon + tray for agent-rules.
 
 | xref:ibex:index.adoc[Ibex]
 | Install Builder EXtension — in-place PATH, installer projects, CI emit.
 
-| xref:msi-generator:index.adoc[MSI Generator]
+| xref:msi-generator::index.adoc[MSI Generator]
 | MSI / MSIX packaging tooling.
 
 | xref:switchyard:index.adoc[Switchyard]
 | Windows file-association switchyard (open/icon/thumbnail tracks).
 
-| xref:repo-drive:index.adoc[RepoDrive]
+| xref:repo-drive::index.adoc[RepoDrive]
 | Forge virtual drive (GUI + tray, sparse mount).
 
-| xref:issues-browser:index.adoc[Issues Browser]
+| xref:issues-browser::index.adoc[Issues Browser]
 | Cross-forge issues browser.
 
 | xref:ver:index.adoc[Ver]
 | Universal version-control interface (Git, SVN, Mercurial).
 
-| xref:fixnow-dev:index.adoc[FixNow]
+| xref:fixnow-dev::index.adoc[FixNow]
 | AI-assisted fix evaluation and workflows.
 
 | xref:scriptbook:index.adoc[Scriptbook]
 | PlayTime engine + Scriptbook app for CentrMark playbooks.
 
-| xref:equivalence-engine:index.adoc[Equivalence Engine]
+| xref:equivalence-engine::index.adoc[Equivalence Engine]
 | Catalog lookup and code-domain rewrites.
 
 | xref:uniconfig:index.adoc[UniConfig]
@@ -53,9 +53,11 @@ This component is the **Tools** documentation hub. Each product below is its own
 | xref:themed-svg-studio:index.adoc[Themed SVG Studio]
 | Adaptive diagram authoring for Antora hubs.
 
-| xref:agentic-email-integration:index.adoc[Agentic Email Integration]
+| xref:agentic-email-integration::index.adoc[Agentic Email Integration]
 | Own-your-inbox Gmail integration (Himalaya + agents).
 |===
+
+Rules Manager, MSI Generator, RepoDrive, Issues Browser, FixNow, Equivalence Engine, libequivalence, and Agentic Email Integration still publish as standalone components (links above) until their repos move to named `tools` modules; they do not appear in the sidebar yet.
 
 Additional modules (install-coordinator, libequivalence, equivalence-rules-*, infra-template, binary-tailor, and others) appear in the Tools sidebar when their repos are wired into the playbook.
 

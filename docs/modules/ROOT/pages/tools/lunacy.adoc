@@ -9,7 +9,7 @@ link:https://icons8.com/lunacy[Lunacy] ·
 link:https://icons8.com/[Icons8]
 
 Dev-Centr docs::
-xref:general-knowledge:reference/web-design-tools.adoc[Web design tools comparison] ·
+xref:general-knowledge::reference/web-design-tools.adoc[Web design tools comparison] ·
 xref:business-bootstrap::design/index.adoc[Design] ·
 xref:tools/penpot.adoc[Penpot (open alternative)]
 

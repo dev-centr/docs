@@ -2,8 +2,14 @@
 
 == Unreleased
 
+* **Home nav reorganized.** The misnamed **Software publishing** group is now **Docs site** (hub component naming, Antora UI branding, essential extensions, diagram formats, nav scroll A/B); pages moved `pages/publishing/` -> `pages/docs-site/` and xrefs updated (including `devcentr` specifications and `general-knowledge` reliability pages).
+* **Code signing in the release pipeline** moved to `general-knowledge` (`explanation/architecture/`, under Architecture next to Distribution and Packaging). Business Bootstrap and Distribution and Packaging link to it; the Home portal tile links there instead of owning it.
+* **Home > Tools nav entry removed.** Tools live only in the `tools` component; the Home `tools/` portal stubs (forks, external integrations, support systems) stay reachable from the Tools overview and the Home portal tiles.
+* **Platforms nav fixed.** `devcentr` and `devcentr.org` both declared `name: platforms` with a single `nav:` each; Antora keeps only the last source's nav, so the sidebar showed one platform plus Overview and the other platform's pages had no tree. New hub-owned `platforms-docs/` descriptor (same pattern as `tools-docs/`) lists both module navs; the product `antora.yml` files no longer carry `nav:`.
+* **Tools nav.** Product module `nav.adoc` files are now titled (`.Ibex`, `.Ver`, ...) with an **Overview** first item so `site-nav-tree` keeps each product as its own subtree instead of flattening duplicate Overview/Changelog rows under Tools.
+* Pin `@antora-supplemental/site-nav-tree` v0.6.0 (includes v0.5.7 duplicate-Overview landing fix).
 * `@antora-supplemental/soft-nav-page-toc` **v0.1.6** (`injectScript: false`): build-time `:hide-page:` meta and breadcrumb injection; hub `soft-nav.js` rebuilds the aside TOC with the Default UI heading selector and normalizes indexify pathnames for same-page `#` jumps.
-* Publishing explanation xref:publishing/hub-home-component.adoc[Hub home component] — `name: home`, sidebar Overview, portal H1, `site.start_page: home::index.adoc`, avoiding `/docs/docs/` when Pages base is `/docs`; cross-link from xref:where-docs-live.adoc[Where documentation lives].
+* Publishing explanation xref:docs-site/hub-home-component.adoc[Hub home component] — `name: home`, sidebar Overview, portal H1, `site.start_page: home::index.adoc`, avoiding `/docs/docs/` when Pages base is `/docs`; cross-link from xref:where-docs-live.adoc[Where documentation lives].
 * Lockfile refresh so Antora and `asciidoctor-kroki` resolve `@asciidoctor/core` 2.2.9; its Opal runtime (0.3.4) uses `fast-glob` instead of the deprecated `glob@7` and `inflight`.
 
 == 2026-10-17 - General-knowledge canonical pages rehomed from Business Bootstrap

@@ -230,8 +230,8 @@ Client Mermaid + diagram lightbox (`diagram-lightbox`) are **supported supplemen
 
 == Related
 
-* xref:publishing/antora-essential-extensions.adoc[Antora essential extensions]
-* xref:publishing/antora-ui-branding.adoc[Antora UI branding]
+* xref:docs-site/antora-essential-extensions.adoc[Antora essential extensions]
+* xref:docs-site/antora-ui-branding.adoc[Antora UI branding]
 * xref:general-knowledge::explanation/internet-architecture/reliability/index.adoc[Internet Reliability] (uses both formats)
 * link:https://github.com/antora-supplemental/antora-diagram-engines[antora-diagram-engines] (mermaid-client + diagram-lightbox)
 * link:https://github.com/antora-supplemental/antora-ui-chassis/tree/main/packages/diagram-zoom[Chassis diagram-zoom patterns]

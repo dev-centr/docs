@@ -19,7 +19,7 @@ Agent skill: `hub-home-overview` (canonical under `dev-centr/agent-rules`; xref:
 | `Home` (forest / picker label — not the sidebar first item)
 
 | Hub repo layout
-| Antora component under `{org}/docs/docs/` (this repo). Playbook lists the hub source with `start_path: docs`.
+| Antora component under `\{org}/docs/docs/` (this repo). Playbook lists the hub source with `start_path: docs`.
 
 | `site.start_page`
 | `home::index.adoc`
@@ -69,9 +69,9 @@ When GitHub Pages (or `site.url`) already serves under `/docs`, a component name
 
 == site-nav-tree
 
-On multi-component hubs, register `@antora-supplemental/site-nav-tree` with `home` first in `include` and `order`. Prefer **Overview** as the start-page nav label in product components so forest roots do not collide with the **Home** component title — see xref:publishing/antora-essential-extensions.adoc#site-wide-component-nav-tree[site-nav-tree] and link:https://github.com/antora-supplemental/site-nav-tree#hub-home-component-naming[site-nav-tree README — hub component naming^].
+On multi-component hubs, register `@antora-supplemental/site-nav-tree` with `home` first in `include` and `order`. Prefer **Overview** as the start-page nav label in product components so forest roots do not collide with the **Home** component title — see xref:docs-site/antora-essential-extensions.adoc#site-wide-component-nav-tree[site-nav-tree] and link:https://github.com/antora-supplemental/site-nav-tree#hub-home-component-naming[site-nav-tree README — hub component naming^].
 
 == See also
 
 * xref:where-docs-live.adoc[Where documentation lives] — inventory and nav vs component picker
-* xref:publishing/antora-essential-extensions.adoc[Antora essential extensions]
+* xref:docs-site/antora-essential-extensions.adoc[Antora essential extensions]

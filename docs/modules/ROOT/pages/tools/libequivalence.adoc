@@ -4,7 +4,7 @@
 Core D library for Equivalence Engine rules parsing and path resolution.
 
 Full component docs::
-xref:tools:libequivalence:index.adoc[libequivalence]
+xref:libequivalence::index.adoc[libequivalence]
 
 Repository::
 https://github.com/dev-centr/libequivalence

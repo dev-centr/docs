@@ -63,7 +63,7 @@ Antora allows multiple `nav:` entries in `antora.yml`. Each file becomes a **sep
 [.themed-svg]
 image::nav-typology.svg[Nav typology: single tree with includes vs parallel multi-nav trees,width=760]
 
-Hub companion JS (`supplemental-ui/js/site-nav-tree-current.js`) prefers the deepest `is-current-page`, expands only that ancestry (`is-current-path`), and restores other open trees from `sessionStorage` across navigations. In-doc link crossfade + scroll preservation: `supplemental-ui/js/site-doc-nav.js`. Wide AsciiDoc tables: `supplemental-ui/js/adt-table-scroll.js` (see xref:publishing/antora-ui-branding.adoc#wide-asciidoc-tables[wide table scroll]).
+Hub companion JS (`supplemental-ui/js/site-nav-tree-current.js`) prefers the deepest `is-current-page`, expands only that ancestry (`is-current-path`), and restores other open trees from `sessionStorage` across navigations. In-doc link crossfade + scroll preservation: `supplemental-ui/js/site-doc-nav.js`. Wide AsciiDoc tables: `supplemental-ui/js/adt-table-scroll.js` (see xref:docs-site/antora-ui-branding.adoc#wide-asciidoc-tables[wide table scroll]).
 
 *Upstream note for `@antora-supplemental/site-nav-tree`:* multi-nav concatenation behavior is documented in the extension README (hub diagram: `nav-typology.svg` above).
 
@@ -126,7 +126,7 @@ antora:
 
 *Behavior:* At Antora build time, Mermaid and PlantUML blocks are converted to SVG via Kroki (`kroki-fetch-diagram: true` embeds them so readers do not call Kroki at view time).
 
-*Playbook:* See xref:publishing/antora-diagram-formats.adoc[Antora diagram formats]. Compose with Lunr/math/Valentus via link:https://github.com/antora-supplemental/facto-stack[`facto-stack`] — not by loading extras into Valentus core.
+*Playbook:* See xref:docs-site/antora-diagram-formats.adoc[Antora diagram formats]. Compose with Lunr/math/Valentus via link:https://github.com/antora-supplemental/facto-stack[`facto-stack`] — not by loading extras into Valentus core.
 
 === Math formulas (KaTeX + AsciiDoc `stem`)
 
@@ -186,4 +186,4 @@ Registered in link:https://github.com/antora-supplemental/facto-stack[facto-stac
 
 == Related
 
-* xref:publishing/antora-ui-branding.adoc[Antora UI branding]
+* xref:docs-site/antora-ui-branding.adoc[Antora UI branding]
