@@ -6,15 +6,19 @@
  *   (2) overflow-y:visible on .nav-panel-menu and overflow-y:auto on nav.nav-menu
  *       so the tree (not the SoftNav scroll key) is the scrollport — or neither is
  *   (3) overscroll-behavior:auto !important chains wheel to the page
- * A fixed height of (100vh - navbar) on a column that starts *below* the tool band
- * also hangs past the fold, so page scroll was required to reach the tree bottom.
+ * A fixed height of (100vh - navbar) on a column that starts *below* the doc mast
+ * and tool band hangs past the viewport bottom; sticky top must match that stack.
  *
- * Fix: sticky + max-height = remaining viewport under sticky top; panel
+ * Fix: keep the read-width tool band stuck under the mast so its block height stays
+ * in the sticky offset; nav-container sticky + max-height = remaining viewport;
  * [data-panel=menu] is the only vertical scrollport (SoftNav scroll-y key);
  * contain overscroll; tree grows with content (horizontal edge-fade only).
  */
 :root {
-  --adt-nav-sticky-top: var(--navbar-height, 3.5rem);
+  --adt-tool-band-block: calc(
+    var(--adt-global-rail-top, 0.85rem) + var(--adt-tool-band, 2.15rem) + var(--adt-tool-gap, 0.65rem)
+  );
+  --adt-nav-sticky-top: calc(var(--adt-mast-total, calc(3.5rem + 2.75rem)) + var(--adt-tool-band-block));
   --adt-nav-sticky-max: calc(100vh - var(--adt-nav-sticky-top));
 }
 
@@ -25,6 +29,19 @@
 }
 
 @media screen and (min-width: 1024px) {
+  /* Tool band scrolls away by default; pin it so nav sticky top stays stable. */
+  .adt-shell > .adt-tool-band {
+    position: sticky;
+    top: var(--adt-mast-total, calc(3.5rem + 2.75rem));
+    z-index: 19;
+    background: var(--adt-canvas, var(--body-background, #f3f5f8));
+    box-sizing: border-box;
+  }
+
+  html.dark-theme .adt-shell > .adt-tool-band {
+    background: var(--adt-canvas, var(--body-background, #0b0e13));
+  }
+
   .body.adt-body {
     align-items: flex-start !important;
   }
@@ -35,21 +52,22 @@
     position: sticky !important;
     top: var(--adt-nav-sticky-top) !important;
     max-height: var(--adt-nav-sticky-max) !important;
-    height: var(--adt-nav-sticky-max) !important;
     min-height: 0 !important;
     overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-sizing: border-box !important;
   }
 
   .nav-container .nav,
   .nav {
     position: static !important;
     top: auto !important;
-    height: 100% !important;
-    max-height: 100% !important;
+    flex: 1 1 auto !important;
     min-height: 0 !important;
+    max-height: 100% !important;
     display: flex !important;
     flex-direction: column !important;
-    flex: 1 1 auto !important;
   }
 
   .nav .panels {
@@ -57,7 +75,6 @@
     flex-direction: column !important;
     flex: 1 1 auto !important;
     min-height: 0 !important;
-    height: 100% !important;
     max-height: 100% !important;
   }
 
