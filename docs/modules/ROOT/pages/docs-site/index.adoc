@@ -1,0 +1,23 @@
+= Docs site
+:navtitle: Docs site
+:description: DevCentr hub playbook mechanics vs reusable Antora documentation knowledge in General Knowledge.
+
+== On this hub (Home)
+
+Playbook-specific branding and measured performance notes stay in the **Home** component:
+
+* xref:docs-site/antora-ui-branding.adoc[Antora UI branding] — valentus-theme bundle, DevCentr accent overlay, wide-table scroll
+* xref:docs-site/nav-scroll-performance-ab.adoc[Nav scroll performance A/B] — typology icon cost vs forest depth (DevCentr hub lab numbers)
+
+== General Knowledge (canonical)
+
+Reusable Antora hub patterns and CI how-tos:
+
+* xref:general-knowledge::explanation/documentation/hub-home-component.adoc[Hub home component]
+* xref:general-knowledge::explanation/documentation/antora-essential-extensions.adoc[Antora essential extensions]
+* xref:general-knowledge::explanation/documentation/antora-diagram-formats.adoc[Antora diagram formats]
+* xref:general-knowledge::how-to/notify-docs-hub-link-changes.adoc[Hub link-cache invalidation]
+
+== Upstream Antora
+
+Core Antora behavior (playbook schema, components, versions, official extensions) lives on link:https://docs.antora.org/[docs.antora.org^]. Prefer linking there instead of duplicating upstream canon on DevCentr.

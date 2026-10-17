@@ -1,0 +1,37 @@
+= Home Docs site → General Knowledge migration notes
+:description: Deferred decisions from the 2026-10-17 content architecture pass.
+
+== Moved to General Knowledge (canonical)
+
+[cols="2,2",options="header"]
+|===
+| Former Home path | GK path
+
+| `docs-site/hub-home-component.adoc`
+| `general-knowledge:explanation/documentation/hub-home-component.adoc`
+
+| `docs-site/antora-essential-extensions.adoc`
+| `general-knowledge:explanation/documentation/antora-essential-extensions.adoc`
+
+| `docs-site/antora-diagram-formats.adoc`
+| `general-knowledge:explanation/documentation/antora-diagram-formats.adoc`
+
+| `docs-site/notify-docs-hub-link-changes.adoc`
+| `general-knowledge:how-to/notify-docs-hub-link-changes.adoc`
+|===
+
+GK pages carry `:page-aliases:` for `home::docs-site/…` and legacy `home::publishing/…` where applicable.
+
+== Kept on Home (hub playbook)
+
+* xref:docs-site/antora-ui-branding.adoc[Antora UI branding] — DevCentr `supplemental-ui` accent, table scroll, typology kill-switch tied to this playbook.
+* xref:docs-site/nav-scroll-performance-ab.adoc[Nav scroll performance A/B] — measured numbers for this hub only.
+
+== Externalize to Antora upstream (defer)
+
+No entire Home page was removed as a pure duplicate of link:https://docs.antora.org/[docs.antora.org^] in this pass. *Product decision:* whether xref:docs-site/antora-ui-branding.adoc[Antora UI branding] should shrink further to valentus-theme + link:https://docs.antora.org/[Antora UI^] links, leaving only DevCentr-specific CSS/JS paths on Home.
+
+== Upstream links added (no page removal)
+
+* Essential extensions: Lunr install defers to link:https://docs.antora.org/antora/latest/extend/add-search-to-site/[Add search to the site^]; URL indexify defers to link:https://docs.antora.org/antora/latest/page/url-format/[URL format^].
+* xref:docs-site/index.adoc[Docs site] landing points readers at docs.antora.org for core canon.

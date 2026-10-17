@@ -103,7 +103,7 @@ Docs site
 
 How this documentation site is built: hub component naming, Antora extensions, UI branding, diagram formats, and nav performance notes.
 
-xref:docs-site/hub-home-component.adoc[Hub home component] | xref:docs-site/antora-ui-branding.adoc[UI branding] | xref:docs-site/antora-diagram-formats.adoc[Diagram formats]
+xref:general-knowledge::explanation/documentation/hub-home-component.adoc[Hub home component] | xref:docs-site/antora-ui-branding.adoc[UI branding] | xref:general-knowledge::explanation/documentation/antora-diagram-formats.adoc[Diagram formats]
 ====
 
 [.tile]
