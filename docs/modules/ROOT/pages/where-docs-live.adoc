@@ -21,7 +21,7 @@ This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/
 * **ver** — Universal version-control interface (Git, SVN, Mercurial) — DUB library, CLI, and optional Qt GUI. xref:tools:ver:index.adoc[component] · xref:tools/ver.adoc[portal].
 * **repo-drive** — Standalone virtual forge drive (GUI + tray + FUSE/WinFsp); sparse repos, schema, VCS toolbox.
 * **RepoLab** (Dev-Centr product, RepoLabs org) — Unified browser frontend for git hosts and VCS backends. Site: link:https://repolab.dev[repolab.dev]. Docs: link:https://docs.repolab.dev[docs.repolab.dev]. xref:tools/repolab.adoc[portal].
-* **connectome-fs** (partner org) — Graph-native filesystem substrate; docs live on link:https://connectome-fs.github.io/connectome-fs/[connectome-fs.github.io], not aggregated into this hub. Practitioner cross-links remain in general-knowledge.
+* **connectome-fs** (partner org) — Graph-native filesystem substrate; docs live on link:https://connectome-fs.github.io/docs/connectome-fs/[connectome-fs.github.io], not aggregated into this hub. Practitioner cross-links remain in general-knowledge.
 * **agentic-email-integration** — Own-your-inbox Gmail integration (Himalaya + agents). Complementary MCP connectors: xref:tools/composio.adoc[Composio].
 * **fixnow-dev** — FixNow pressure-driven issue tracking: AI value scoring, countdown badges, and resolution verification.
 * **scriptbook** — PlayTime engine + Scriptbook app: play CentrMark `.cmk` playbooks (intents, not shell translation). xref:tools:scriptbook:index.adoc[Scriptbook] · xref:general-knowledge::explanation/infrastructure/abstract-playbooks.adoc[Abstract playbooks].

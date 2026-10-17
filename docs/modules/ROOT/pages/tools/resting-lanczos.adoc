@@ -6,9 +6,8 @@ Offline Lanczos3 display tiers + `srcset` / `sizes` + `transform: scale()` — c
 
 == Live comparison demo
 
-Side-by-side on the org site: browser bilinear downscale of a huge master vs resting Lanczos tiers.
+Side-by-side comparison: browser bilinear downscale of a huge master vs resting Lanczos tiers. The devcentr.org demo page is not currently published; run the comparison from the repository.
 
-* link:https://devcentr.org/resting-lanczos[devcentr.org/resting-lanczos]
 * link:https://github.com/dev-centr/resting-lanczos[github.com/dev-centr/resting-lanczos]
 
 Mipmaps / WebGL sharpen are experimental in the repo and are **not** the default for UI or screenshot cards.

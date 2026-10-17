@@ -87,7 +87,7 @@ Place the logo at `supplemental-ui/img/logo.svg`.
 
 The bundle detects repository URLs and maps them to provider icons under `img/vcs/`.
 
-See the theme guide: link:https://antora-supplemental.github.io/valentus-theme/valentus-theme/guide/vcs-repo-logo.html[VCS Repo Logo].
+See the theme guide: link:https://antora-supplemental.org/valentus-theme/valentus-theme/1.0/guide/vcs-repo-logo.html[VCS Repo Logo].
 
 
 == Typology icon kill-switch (lab)

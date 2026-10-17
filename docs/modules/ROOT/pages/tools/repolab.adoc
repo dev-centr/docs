@@ -8,7 +8,7 @@ Product site::
 https://repolab.dev
 
 Organization homepage::
-https://repolabs.dev (`RepoLab-dev` on GitHub)
+https://github.com/RepoLab-dev (`RepoLab-dev` on GitHub)
 
 Repository::
 https://github.com/RepoLab-dev/website

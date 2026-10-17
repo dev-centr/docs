@@ -70,6 +70,6 @@ For monorepos: where `dev` / `build` script names come from, `--filter` vs `-C`,
 
 == External References
 
-* Official Docs: https://pnpm.io/npm-scripts#onlybuiltdependencies
+* Official Docs: https://pnpm.io/settings#onlybuiltdependencies
 * Educational Messaging Proposal: https://github.com/pnpm/pnpm/pull/11142 (Local patch implemented in this ecosystem)
 

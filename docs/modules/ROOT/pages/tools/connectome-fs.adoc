@@ -5,7 +5,7 @@
 GUID-addressed connectome filesystem: hierarchy as a navigation slice, graph as truth. Editions, semantic change units, and adapters live under the **connectome-fs** GitHub organization.
 
 Canonical site / manual::
-https://connectome-fs.github.io/connectome-fs/
+https://connectome-fs.github.io/docs/connectome-fs/
 
 Repository::
 https://github.com/connectome-fs/connectome-fs
