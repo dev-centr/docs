@@ -418,3 +418,34 @@ html[data-theme="dark"] {
 .doc .lifecycle-status-unknown {
   color: var(--adt-admonition-note, #2563eb);
 }
+
+/* Wide AsciiDoc tables: scroll wrapper (not the table) — Antora Zulip guidance */
+.doc .tablecontainer,
+.doc .adt-table-scroll {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.doc .tablecontainer > table.tableblock,
+.doc .adt-table-scroll > table.tableblock {
+  max-width: none;
+}
+.doc table.tableblock th,
+.doc table.tableblock td {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc table.tableblock code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.doc .listingblock > .content,
+.doc .literalblock > .content {
+  max-width: 100%;
+  overflow-x: auto;
+}
+main.adt-article,
+main.adt-article > .content {
+  min-width: 0;
+}

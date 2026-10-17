@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@antora-supplemental/asciidoctor-emoji-literals':
+        specifier: github:antora-supplemental/asciidoctor-emoji-literals#main
+        version: https://codeload.github.com/antora-supplemental/asciidoctor-emoji-literals/tar.gz/353b32fba85bcced2c635fa96b59348f45d43315(@asciidoctor/core@2.2.9)(asciidoctor-emoji@0.5.0(@asciidoctor/core@2.2.9))
       '@antora-supplemental/page-context':
         specifier: github:antora-supplemental/page-context#v0.6.7
         version: https://codeload.github.com/antora-supplemental/page-context/tar.gz/ee6fb4d68f5daf10e3b51f4a817e2ebfd5d09d6d(@antora/site-generator@3.1.14)
@@ -17,6 +20,9 @@ importers:
       '@chenglou/pretext':
         specifier: ^0.0.4
         version: 0.0.4
+      asciidoctor-emoji:
+        specifier: ^0.5.0
+        version: 0.5.0(@asciidoctor/core@2.2.9)
       asciidoctor-kroki:
         specifier: ^0.18.1
         version: 0.18.1(@asciidoctor/core@2.2.9)
@@ -96,6 +102,13 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  '@antora-supplemental/asciidoctor-emoji-literals@https://codeload.github.com/antora-supplemental/asciidoctor-emoji-literals/tar.gz/353b32fba85bcced2c635fa96b59348f45d43315':
+    resolution: {tarball: https://codeload.github.com/antora-supplemental/asciidoctor-emoji-literals/tar.gz/353b32fba85bcced2c635fa96b59348f45d43315}
+    version: 0.1.0
+    peerDependencies:
+      '@asciidoctor/core': '>=2.2 <4.0'
+      asciidoctor-emoji: '>=0.5.0 <1.0.0'
+
   '@antora-supplemental/build-stack@https://codeload.github.com/antora-supplemental/build-stack/tar.gz/591489fdbe53a2f4c99188f8ce17804a48f1dfc4':
     resolution: {tarball: https://codeload.github.com/antora-supplemental/build-stack/tar.gz/591489fdbe53a2f4c99188f8ce17804a48f1dfc4}
     version: 0.1.2
@@ -109,8 +122,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@antora-supplemental/diagram-engines-shared@https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/dbdca5920074ef1559bdd263f874270292df9558#path:packages/shared':
-    resolution: {path: packages/shared, tarball: https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/dbdca5920074ef1559bdd263f874270292df9558}
+  '@antora-supplemental/diagram-engines-shared@https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/2a1a79b1525c1eeb2a5113ed819a6c0409a77dcd#path:packages/shared':
+    resolution: {path: packages/shared, tarball: https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/2a1a79b1525c1eeb2a5113ed819a6c0409a77dcd}
     version: 0.1.0
     engines: {node: '>=18'}
 
@@ -740,6 +753,11 @@ packages:
   aria-hidden@1.2.6:
     resolution: {integrity: sha512-ik3ZgC9dY/lYVVM++OISsaYDeg1tb0VtP5uL3ouh1koGOaUMDPpbFIei4JkFimWUFPn90sbMNMXQAIVOlnYKJA==}
     engines: {node: '>=10'}
+
+  asciidoctor-emoji@0.5.0:
+    resolution: {integrity: sha512-3lsYV2kdX1MseZAm1KgSPwny+P7Fr83ZPH4MxNISIZAz3cPEGaFgNxRbr/uha4Tyv+oarpoaY5cGI7Fe0HluZg==}
+    peerDependencies:
+      '@asciidoctor/core': '>=2.2 <4.0'
 
   asciidoctor-kroki@0.18.1:
     resolution: {integrity: sha512-eQxbBCaPTbyNoJtk62Gp+6h4LlJp2147g7eS0QIVjqaLpFa8sseH0BlMiBoATrJUYv1w3nR+FTzvloBJ/MioYg==}
@@ -1787,6 +1805,11 @@ snapshots:
     dependencies:
       js-yaml: 4.1.1
 
+  '@antora-supplemental/asciidoctor-emoji-literals@https://codeload.github.com/antora-supplemental/asciidoctor-emoji-literals/tar.gz/353b32fba85bcced2c635fa96b59348f45d43315(@asciidoctor/core@2.2.9)(asciidoctor-emoji@0.5.0(@asciidoctor/core@2.2.9))':
+    dependencies:
+      '@asciidoctor/core': 2.2.9
+      asciidoctor-emoji: 0.5.0(@asciidoctor/core@2.2.9)
+
   '@antora-supplemental/build-stack@https://codeload.github.com/antora-supplemental/build-stack/tar.gz/591489fdbe53a2f4c99188f8ce17804a48f1dfc4(@antora/site-generator@3.1.14)':
     dependencies:
       '@antora/site-generator': 3.1.14
@@ -1795,11 +1818,11 @@ snapshots:
     dependencies:
       js-yaml: 4.1.1
 
-  '@antora-supplemental/diagram-engines-shared@https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/dbdca5920074ef1559bdd263f874270292df9558#path:packages/shared': {}
+  '@antora-supplemental/diagram-engines-shared@https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/2a1a79b1525c1eeb2a5113ed819a6c0409a77dcd#path:packages/shared': {}
 
   '@antora-supplemental/diagram-lightbox@https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/dbdca5920074ef1559bdd263f874270292df9558#path:packages/diagram-lightbox(@antora/site-generator@3.1.14)':
     dependencies:
-      '@antora-supplemental/diagram-engines-shared': https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/dbdca5920074ef1559bdd263f874270292df9558#path:packages/shared
+      '@antora-supplemental/diagram-engines-shared': https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/2a1a79b1525c1eeb2a5113ed819a6c0409a77dcd#path:packages/shared
     optionalDependencies:
       '@antora/site-generator': 3.1.14
 
@@ -1819,7 +1842,7 @@ snapshots:
 
   '@antora-supplemental/mermaid-client@https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/dbdca5920074ef1559bdd263f874270292df9558#path:packages/mermaid-client(@antora/site-generator@3.1.14)':
     dependencies:
-      '@antora-supplemental/diagram-engines-shared': https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/dbdca5920074ef1559bdd263f874270292df9558#path:packages/shared
+      '@antora-supplemental/diagram-engines-shared': https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/2a1a79b1525c1eeb2a5113ed819a6c0409a77dcd#path:packages/shared
     optionalDependencies:
       '@antora/site-generator': 3.1.14
 
@@ -2468,6 +2491,10 @@ snapshots:
   aria-hidden@1.2.6:
     dependencies:
       tslib: 2.8.1
+
+  asciidoctor-emoji@0.5.0(@asciidoctor/core@2.2.9):
+    dependencies:
+      '@asciidoctor/core': 2.2.9
 
   asciidoctor-kroki@0.18.1(@asciidoctor/core@2.2.9):
     dependencies:

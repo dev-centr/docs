@@ -2,6 +2,7 @@
 
 == Unreleased
 
+* Publishing explanation xref:publishing/hub-home-component.adoc[Hub home component] — `name: home`, sidebar Overview, portal H1, `site.start_page: home::index.adoc`, avoiding `/docs/docs/` when Pages base is `/docs`; cross-link from xref:where-docs-live.adoc[Where documentation lives].
 * Lockfile refresh so Antora and `asciidoctor-kroki` resolve `@asciidoctor/core` 2.2.9; its Opal runtime (0.3.4) uses `fast-glob` instead of the deprecated `glob@7` and `inflight`.
 
 == 2026-09-27 - Themed SVG dark-text WARN: per-item plain language
@@ -120,6 +121,10 @@
 == 2026-09-14 -- page-edit 0.2.3 DOCTYPE fix
 
 * Pin `@antora-supplemental/page-edit` to `v0.2.3` so View | Edit is not prepended before the HTML DOCTYPE.
+
+== 2026-09-19 -- Wide AsciiDoc table scroll in article pane
+
+* `supplemental-ui/js/adt-table-scroll.js` wraps bare `.tableblock` tables; `devcentr-brand.css` scrolls `.adt-table-scroll` / `.tablecontainer` and constrains article flex width so wide tables no longer spill past the read column.
 
 == 2026-09-10 -- page-context 0.6.6 author spacing
 
