@@ -21,6 +21,7 @@
   var listeners = { before: [], loaded: [], failed: [] }
   var regions = Object.create(null)
   var tocScrollHandler = null
+  var navigateGeneration = 0
 
   var SoftNav = {
     transition: 'crossfade',
@@ -580,8 +581,9 @@
       panel.innerHTML = ''
       while (node.firstChild) panel.appendChild(node.firstChild)
       panel.removeAttribute('data-snt-hrefs-absolutized')
+      panel.removeAttribute('data-snt-nav-base')
       if (typeof window.siteNavTreePrepareNavMenu === 'function') {
-        window.siteNavTreePrepareNavMenu(panel)
+        window.siteNavTreePrepareNavMenu(panel, ctx.url)
       }
     },
   })
@@ -647,16 +649,34 @@
     })
   }
 
+  function resolveSoftNavTarget (a) {
+    if (!a) return null
+    var raw = a.getAttribute('href')
+    if (!raw || raw.charAt(0) === '#') return null
+    if (a.closest('.nav-container') && typeof global.siteNavTreeResolveNavLink === 'function') {
+      var fromNav = global.siteNavTreeResolveNavLink(raw)
+      if (fromNav) return fromNav
+    }
+    try {
+      return pageUrl(raw).href
+    } catch (e) {
+      return a.href
+    }
+  }
+
   function navigate (url, push) {
     var dest = pageUrl(url).href
     var ctx = { url: dest, push: !!push }
+    var generation = ++navigateGeneration
     emit('before', ctx)
     return fetch(dest, { credentials: 'same-origin' })
       .then(function (res) {
+        if (generation !== navigateGeneration) return null
         if (!res.ok) throw new Error('fetch failed')
         return res.text()
       })
       .then(function (html) {
+        if (html == null || generation !== navigateGeneration) return
         var doc = new DOMParser().parseFromString(html, 'text/html')
         ctx.doc = doc
         if (push) history.pushState({ softNav: true, docNav: true }, '', dest)
@@ -665,6 +685,7 @@
         applyRegions(doc, ctx)
       })
       .catch(function (err) {
+        if (generation !== navigateGeneration) return
         emit('failed', { url: dest, error: err })
         window.location.href = dest
       })
@@ -672,8 +693,9 @@
 
   function handleLinkClick (ev, a) {
     if (!a || a.target === '_blank' || a.hasAttribute('download')) return false
-    if (!sameOrigin(a.href)) return false
-    var dest = pageUrl(a.href)
+    var destHref = resolveSoftNavTarget(a) || a.href
+    if (!sameOrigin(destHref)) return false
+    var dest = pageUrl(destHref)
     if (samePath(dest.href)) {
       if (dest.hash) {
         ev.preventDefault()
@@ -684,9 +706,9 @@
       }
       return true
     }
-    if (!sameComponent(a.href)) return false
+    if (!sameComponent(destHref)) return false
     ev.preventDefault()
-    navigate(a.href, true)
+    navigate(destHref, true)
     return true
   }
 
