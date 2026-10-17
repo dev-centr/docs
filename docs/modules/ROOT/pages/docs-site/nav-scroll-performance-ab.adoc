@@ -1,4 +1,5 @@
 = Nav tree scroll performance A/B (typology icons)
+:page-aliases: publishing/nav-scroll-performance-ab.adoc
 :navtitle: Nav scroll performance A/B
 :description: Measured A/B investigation of DevCentr left-nav scroll smoothness — typology SVG icons, SoftNav listeners, forest depth vs HCI control — with CDP/Puppeteer metrics and recommendations.
 :keywords: nav performance, typology icons, SoftNav, scroll jank, site-nav-tree, CDP, Puppeteer A/B

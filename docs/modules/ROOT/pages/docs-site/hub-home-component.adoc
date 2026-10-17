@@ -1,4 +1,5 @@
 = Hub home component (Overview + portal H1)
+:page-aliases: publishing/hub-home-component.adoc
 :navtitle: Hub home component
 :description: Recommended Antora pattern for org hub aggregators — component `home`, sidebar Overview, portal-branded start page, and avoiding `/docs/docs/` URLs.
 

@@ -1,4 +1,5 @@
 = Antora UI branding (valentus-theme)
+:page-aliases: publishing/antora-ui-branding.adoc
 :navtitle: Antora UI branding
 :description: How this site brands header logos, teal chrome, and VCS icons using valentus-theme site.keys and supplemental assets.
 

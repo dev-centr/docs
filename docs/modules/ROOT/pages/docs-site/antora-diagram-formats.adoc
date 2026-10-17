@@ -1,4 +1,5 @@
 = Antora diagram formats
+:page-aliases: publishing/antora-diagram-formats.adoc
 :navtitle: Antora diagram formats
 :description: Supported diagram paths for Antora hubs: bake SVG at build (Kroki/Themed SVG), ship client Mermaid, or hybrid per diagram — plus zoom/lightbox chrome.
 

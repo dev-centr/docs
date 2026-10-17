@@ -1,4 +1,5 @@
 = Antora essential extensions
+:page-aliases: publishing/antora-essential-extensions.adoc
 :navtitle: Antora essential extensions
 :description: Extensions that should be treated as required until Antora core absorbs them, with upstream proposal links.
 
