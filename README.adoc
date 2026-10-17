@@ -55,6 +55,33 @@ This repository contains the Antora playbook and configuration for the **Dev Cen
 | `package.json` | Defines dependencies and build scripts.
 |===
 
+=== Documentation layout (`docs/` first)
+
+All documentation in this repo lives under a `docs/`-style Antora component root.
+Antora defines **one component per `start_path`**: everything under a start path
+is a single component, so a second component cannot be nested inside `docs/`.
+
+| Path | Component | What lives there
+| `docs/` | `home` | This repo's own component: `docs/antora.yml` plus `docs/modules/ROOT/{nav.adoc,pages/…}` (portal Overview, Where Documentation Lives, Todo & Roadmap, Changelog Index, Docs site).
+| `tools-docs/` | `tools` | Hub-owned descriptor for the synthetic **Tools** aggregate component. Many product repos declare `name: tools` in their own `docs/`; Antora merges same-name descriptors last-source-wins, so this source is listed **last** in every playbook and its `antora.yml` `nav:` lists every tool module's nav. This repo contributes only the ROOT start page (`tools-docs/modules/ROOT/pages/index.adoc`).
+| `platforms-docs/` | `platforms` | Same pattern for the **Platforms** aggregate (`devcentr` + `devcentr-org` modules from their own repos). Listed last among `platforms` sources for the same last-wins reason.
+| `supplemental-ui/` | — | Hub overlay on the Valentus UI bundle (brand CSS, vendored SoftNav + site-nav-tree companion JS, partials, helpers).
+| `lib/`, `scripts/`, `test/` | — | Hub-local Antora extension, diagram/maintenance scripts, and Node tests.
+
+Why `tools-docs/` and `platforms-docs/` are not inside `docs/`: folding them
+into `docs/` would merge them into the `home` component — Antora has no nested
+component descriptors. They are the documented exception to the house rule
+"all documentation under `docs/`" (skill `antora-org-site`); each still follows
+the standard internal `modules/<MODULE>/…` layout. There is deliberately **no**
+`modules/` tree at the repo root: no playbook `start_path` points there, so
+anything placed there would look published but never build.
+
+Playbooks: `antora-playbook.yml` (production, remote sources),
+`antora-playbook-local.yml` (sibling checkouts), and
+`antora-playbook.testing.yml` (same local sources with a locally built
+Valentus UI bundle — kept for local experimentation and fast theme dev loops;
+not used by CI).
+
 link:#readme-top[back to top]
 
 == Installation

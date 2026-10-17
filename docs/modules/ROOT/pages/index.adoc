@@ -29,7 +29,7 @@ xref:platforms:devcentr:index.adoc[Explore DevCentr docs]
 Docs playbook
 
 Configuration and playbook for this documentation site.
-Org-wide xref:todo-roadmap.adoc[Todo & Roadmap] and xref:activity-log.adoc[Activity log]. xref:where-docs-live.adoc[Where documentation lives].
+Org-wide xref:todo-roadmap.adoc[Todo & Roadmap] and xref:changelog.adoc[Changelog]. xref:where-docs-live.adoc[Where documentation lives].
 
 xref:home:ROOT:index.adoc[You are here]
 ====

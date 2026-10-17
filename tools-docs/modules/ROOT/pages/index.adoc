@@ -67,4 +67,4 @@ Forks, third-party integrations, and Business Bootstrap discovery stubs remain o
 
 * xref:agent-rules:index.adoc[Agent Rules]
 * xref:ibex:index.adoc[Ibex]
-* xref:home::activity-log.adoc[Org-wide activity log] (Home)
+* xref:home::changelog.adoc[Changelog Index] (Home)

@@ -1,9 +1,17 @@
-= Activity Log
-:navtitle: Activity Log
+= Org-wide Changelog
+:navtitle: Org-wide Changelog
 :description: Notable changes and updates across Dev-Centr documentation and projects.
 :keywords: changelog, org-wide changelog, hub activity, activity log, release notes, shipping notes
+:page-aliases: home::activity-log.adoc
 
-This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see each component's xref:platforms:devcentr:changelog.adoc[Changelog] (and siblings); for release tags, see repository tags and release notes.
+This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see the xref:../changelog.adoc[Changelog Index]; for release tags, see repository tags and release notes.
+
+== 2026-10-17 — Changelog Index, Docs site dedupe, and nav-current fixes
+
+* **Activity Log is now the Changelog Index.** This page moved to Org-wide Changelog under a new xref:../changelog.adoc[Changelog Index] landing that lists every component changelog; `/home/activity-log/` aliases here.
+* **Docs site tree deduped.** Hub home component, Antora essential extensions, Antora diagram formats, and Hub link-cache invalidation now appear only in the General Knowledge tree (their canonical home); Home > Docs site keeps only hub-specific branding and nav-scroll notes.
+* **Nav tree current-page highlight.** `@antora-supplemental/site-nav-tree` 0.6.8: only the Overview leaf carries the current-page highlight on landings, section breadcrumb crumbs (Docs site) link to their Overview again, and Overview leaves render bold with no typology icon (`@antora-supplemental/nav-typology` 0.1.10).
+* **SoftNav no longer hard-reloads from the tree.** Antora's stock nav script stops click propagation on `.nav-container`; the hub SoftNav now intercepts clicks in the capture phase so tree clicks soft-navigate again.
 
 == 2026-09-27 - Themed SVG dark-text WARNs (per picture, plain language)
 

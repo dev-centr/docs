@@ -1,0 +1,30 @@
+= Changelog Index
+:navtitle: Changelog
+:description: Index of changelogs across Dev-Centr components, starting with the org-wide changelog for this hub.
+:keywords: changelog, changelog index, org-wide changelog, release notes, shipping notes
+
+This page is the index of changelogs across the Dev-Centr documentation hub. Each component keeps its own changelog next to its own pages; this index is the one place to find them all.
+
+== Hub
+
+* xref:changelog/org-wide.adoc[Org-wide Changelog] — significant documentation and project activity across Dev-Centr, newest first
+
+== Components
+
+* xref:general-knowledge::changelog.adoc[General Knowledge — Changelog]
+* xref:business-bootstrap::changelog.adoc[Business Bootstrap — Changelog]
+* xref:templates::changelog.adoc[Templates — Changelog]
+
+== Platforms
+
+* xref:platforms:devcentr:changelog.adoc[DevCentr — Changelog]
+* xref:platforms:devcentr-org:changelog.adoc[devcentr.org — Changelog]
+
+== Tools
+
+* xref:tools:agent-rules:changelog.adoc[Agent Rules — Changelog]
+* xref:tools:toolchain-framework:changelog.adoc[Toolchain Framework — Changelog]
+* xref:tools:uniconfig:changelog.adoc[UniConfig — Changelog]
+* xref:tools:themed-svg-studio:changelog.adoc[Themed SVG Studio — Changelog]
+
+For release tags and release notes, see each repository's tags and releases on GitHub.

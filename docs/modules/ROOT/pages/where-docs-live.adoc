@@ -27,23 +27,23 @@ This site (docs.devcentr.org) is built by the link:https://github.com/dev-centr/
 * **scriptbook** — PlayTime engine + Scriptbook app: play CentrMark `.cmk` playbooks (intents, not shell translation). xref:tools:scriptbook:index.adoc[Scriptbook] · xref:general-knowledge::explanation/infrastructure/abstract-playbooks.adoc[Abstract playbooks].
 * **equivalence-engine** — Catalog lookup and code-domain rewrites. Host Awareness bake is CI-time; runtime PlayTime must not ask it what OS it is. xref:tools:equivalence-engine:index.adoc[Equivalence Engine].
 
-Org-wide roadmap and activity log live here in the **docs** repo so they stay in one place across all projects. Repo-specific task lists (e.g. devcentr's root `TODO.adoc`) remain in each repository for day-to-day work; the central xref:todo-roadmap.adoc[Todo & Roadmap] summarizes themes and the xref:activity-log.adoc[Activity log] records notable updates.
+Org-wide roadmap and changelog live here in the **docs** repo so they stay in one place across all projects. Repo-specific task lists (e.g. devcentr's root `TODO.adoc`) remain in each repository for day-to-day work; the central xref:todo-roadmap.adoc[Todo & Roadmap] summarizes themes and the xref:changelog/org-wide.adoc[Org-wide Changelog] records notable updates.
 
-== Timelines: activity log vs changelog
+== Timelines: org-wide changelog vs per-component changelogs
 [#timelines-activity-log-vs-changelog]
 
 [cols="1,2",options="header"]
 |===
 | Page | Scope
 
-| xref:activity-log.adoc[Home · Activity Log]
-| Org-wide digest across all hub projects (canonical).
+| xref:changelog.adoc[Home · Changelog Index]
+| Index of every changelog in the hub; its first entry is the Org-wide Changelog.
+
+| xref:changelog/org-wide.adoc[Home · Org-wide Changelog]
+| Org-wide digest across all hub projects (canonical). The former Activity Log; `/home/activity-log/` aliases here.
 
 | `\{component}/changelog` (e.g. xref:platforms:devcentr:changelog.adoc[DevCentr Changelog])
 | Per-component app and docs shipping notes.
-
-| DevCentr `activity-log.adoc`
-| Retired — redirect stub only; do not add entries there.
 |===
 
 == Navigation vs component selector
