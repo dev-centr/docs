@@ -20,56 +20,46 @@ urls:
   html_extension_style: indexify
 antora:
   extensions:
-    - '@antora/lunr-extension'
-    - require: '@antora-supplemental/site-nav-tree'
-      filter: true
-      # Curated forest roots only — wiring a product source ≠ sidebar root.
-      include:
-        - home
-        - general-knowledge
-        - business-bootstrap
-        - platforms
-        - tools
-        - templates
-      order:
-        - home
-        - general-knowledge
-        - business-bootstrap
-        - platforms
-        - tools
-        - templates
-    - require: '@antora-supplemental/nav-typology'
-      # BB capability URLs use /how-to|tutorials|.../ as tree folders, not Diataxis buckets.
-      diataxisUrlExcludePrefixes:
-        - /business-bootstrap/
-    - require: '@antora-supplemental/nav-typology-diataxis'
-    - '@antora-supplemental/build-stack'
+    # Local dark-mode SVG guard (not part of the compose pack).
     - ./lib/verify-themed-svg-dark-mode.js
-    - '@antora-supplemental/page-edit'
-    - require: '@antora-supplemental/link-validator'
-      reportEmail: support@devcentr.org
-      softFail403: true
-      failLevel: none
-      concurrency: 6
-      timeoutMs: 15000
-      reportHistoryLimit: 5
-      cacheEnabled: true
-      cachePath: .link-check-cache.json
-    - require: '@antora-supplemental/linkinator'
-      statusDefault: unchecked
-    - require: '@antora-supplemental/extension-lister'
-      layouts: [footer]
-    - require: '@antora-supplemental/orphan-finder/extension'
-      reportEmail: support@devcentr.org
-      failOnUnresolved: false
-    - require: '@antora-supplemental/soft-nav-page-toc'
-      injectScript: false
-    - require: '@antora-supplemental/page-context/antora'
-      component: home
-      path: keywords
-    - require: '@antora-supplemental/mermaid-client/antora'
-      # CDN default; extensions inject chrome once (do not mirror into supplemental-ui)
-    - require: '@antora-supplemental/diagram-lightbox'
+    # Compose pack: footer lists "facto-stack" once (hub profile; members are not listed individually).
+    - require: '@antora-supplemental/facto-stack'
+      profile: hub
+      siteNavTree:
+        enabled: true
+        # Curated forest roots only - wiring a product source is not a sidebar root.
+        include:
+          - home
+          - general-knowledge
+          - business-bootstrap
+          - platforms
+          - tools
+          - templates
+        order:
+          - home
+          - general-knowledge
+          - business-bootstrap
+          - platforms
+          - tools
+          - templates
+      linkValidator:
+        # Hub CI reliability: lower concurrency, longer timeout, capped report history
+        # (see .antora-link-suppressions.yml); failLevel stays none via pack defaults.
+        concurrency: 6
+        timeoutMs: 15000
+        reportHistoryLimit: 5
+        cacheEnabled: true
+        cachePath: .link-check-cache.json
+      navTypology:
+        # BB capability URLs use /how-to|tutorials|.../ as tree folders, not Diataxis buckets.
+        diataxisUrlExcludePrefixes:
+          - /business-bootstrap/
+      softNavPageToc:
+        injectScript: false
+      mermaidClient:
+        enabled: true
+      diagramLightbox:
+        enabled: true
 content:
   sources:
     - url: https://github.com/dev-centr/docs.git
