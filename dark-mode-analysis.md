@@ -12,4 +12,4 @@ As of valentus-theme 2.x, header logo and navbar branding use playbook `site.key
 
 Color theming uses `supplemental-ui/css/devcentr-brand.css` (accent-token overrides), loaded from a thin `head-meta.hbs` fork (vendored from valentus so FOUC paint-hold, dark-mode, read-width, and font-size boot stay intact). The interim `adt-fouc-pending` class hides the page until layered CSS, preference attrs, and web fonts apply; keep brand CSS in the stylesheet stack before the `document.fonts.ready` release script. Playbook `site.keys` stay snake_case; Antora camelCases them for the UI model.
 
-See `docs/modules/ROOT/pages/publishing/antora-ui-branding.adoc`.
+See `docs/modules/ROOT/pages/docs-site/antora-ui-branding.adoc`.
