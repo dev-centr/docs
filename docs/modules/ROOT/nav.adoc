@@ -8,3 +8,4 @@
 ** xref:docs-site/antora-essential-extensions.adoc[Antora essential extensions]
 ** xref:docs-site/antora-diagram-formats.adoc[Antora diagram formats]
 ** xref:docs-site/nav-scroll-performance-ab.adoc[Nav scroll performance A/B]
+** xref:docs-site/notify-docs-hub-link-changes.adoc[Hub link-cache invalidation]
