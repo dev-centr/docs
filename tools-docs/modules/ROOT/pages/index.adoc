@@ -57,9 +57,7 @@ This component is the **Tools** documentation hub. Each product below is its own
 | Own-your-inbox Gmail integration (Himalaya + agents).
 |===
 
-Rules Manager, MSI Generator, RepoDrive, Issues Browser, FixNow, Equivalence Engine, libequivalence, and Agentic Email Integration still publish as standalone components (links above) until their repos move to named `tools` modules; they do not appear in the sidebar yet.
-
-Additional modules (install-coordinator, libequivalence, equivalence-rules-*, infra-template, binary-tailor, and others) appear in the Tools sidebar when their repos are wired into the playbook.
+Additional modules (install-coordinator, equivalence-rules-*, infra-template, binary-tailor, macho-memload, polyglot-debug, and others) appear in the Tools sidebar when their repos are wired into the playbook.
 
 == Portal-only / external
 
