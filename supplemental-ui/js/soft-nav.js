@@ -1,8 +1,9 @@
 /**
  * SoftNav — same-origin soft navigation for Antora UI chrome.
  *
- * Swaps mast + article by default; keeps the left nav tree stable (swapNav=false).
- * Rebuilds aside page TOC, scrolls to top on cross-page loads, injects nav-hidden
+ * Swaps breadcrumb mast + article by default; keeps `.adt-site-navbar` and the left
+ * nav tree stable (swapNav=false). Crossfades mast, article, aside TOC, and search
+ * scope label (not the full navbar). Rebuilds aside page TOC, scrolls to top on
  * children under their parent in the nav tree.
  *
  * Public API:
@@ -97,6 +98,103 @@
     } catch (e) {
       return false
     }
+  }
+
+  function transitionEnabled () {
+    if (SoftNav.transition === 'none') return false
+    try {
+      return !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    } catch (e) {
+      return true
+    }
+  }
+
+  function articleHostEl () {
+    return (
+      document.querySelector('main.article .content') ||
+      document.querySelector('main.article') ||
+      document.querySelector('article.doc')
+    )
+  }
+
+  /** Regions that crossfade; site navbar shell stays untouched. */
+  function fadeTargetEls () {
+    var list = []
+    var mast =
+      document.querySelector('.adt-doc-mast') ||
+      document.querySelector('.adt-doc-mast-center') ||
+      document.querySelector('nav.breadcrumbs')
+    var article = articleHostEl()
+    var toc = document.querySelector('aside.toc.sidebar')
+    var scopeSlot = document.querySelector('[data-adt-search-chat] [data-adt-search-scope-slot]')
+    if (mast) list.push(mast)
+    if (article) list.push(article)
+    if (toc) list.push(toc)
+    if (scopeSlot) list.push(scopeSlot)
+    return list
+  }
+
+  function setTargetsOpacity (els, opacity, withTransition) {
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i]
+      if (withTransition) el.style.transition = 'opacity ' + FADE_MS + 'ms ease'
+      el.style.opacity = String(opacity)
+    }
+  }
+
+  function clearTargetsOpacity (els) {
+    for (var i = 0; i < els.length; i++) {
+      els[i].style.transition = ''
+      els[i].style.opacity = ''
+    }
+  }
+
+  function forceReflow (els) {
+    if (els.length && els[0]) void els[0].offsetWidth
+  }
+
+  function crossfadeSwap (commitFn, afterFn) {
+    if (!transitionEnabled()) {
+      commitFn()
+      if (afterFn) afterFn()
+      return
+    }
+    var out = fadeTargetEls()
+    if (!out.length) {
+      commitFn()
+      if (afterFn) afterFn()
+      return
+    }
+    setTargetsOpacity(out, 1, true)
+    forceReflow(out)
+    setTargetsOpacity(out, 0, true)
+    window.setTimeout(function () {
+      commitFn()
+      var inn = fadeTargetEls()
+      setTargetsOpacity(inn, 0, false)
+      forceReflow(inn)
+      setTargetsOpacity(inn, 1, true)
+      window.setTimeout(function () {
+        clearTargetsOpacity(inn)
+        if (afterFn) afterFn()
+      }, FADE_MS)
+    }, FADE_MS)
+  }
+
+  function syncSearchScopeFromDoc (doc) {
+    if (!doc || !doc.querySelector) return
+    var freshRoot = doc.querySelector('[data-adt-search-chat]')
+    var liveRoot = document.querySelector('[data-adt-search-chat]')
+    if (!freshRoot || !liveRoot) return
+    ;['data-component-title', 'data-component-name', 'data-version-display', 'data-version'].forEach(
+      function (attr) {
+        var v = freshRoot.getAttribute(attr)
+        if (v != null) liveRoot.setAttribute(attr, v)
+      }
+    )
+    var scopeLabel = liveRoot.querySelector('[data-adt-search-scope-label]')
+    var freshLabel = freshRoot.querySelector('[data-adt-search-scope-label]')
+    if (scopeLabel && freshLabel) scopeLabel.textContent = freshLabel.textContent
   }
 
   function scrollToHash (hash) {
@@ -541,12 +639,13 @@
     }
   }
 
-  function finishPageTransition (ctx) {
+  function finishPageTransition (ctx, opts) {
+    opts = opts || {}
     var dest = pageUrl(ctx.url)
     if (dest.hash) scrollToHash(dest.hash)
     else if (SoftNav.scrollToTop !== false) window.scrollTo(0, 0)
 
-    safeRebuildPageToc()
+    if (!opts.skipTocRebuild) safeRebuildPageToc()
     syncNavAfterNavigate(ctx.url, ctx.doc)
     patchBreadcrumbs(ctx.url, ctx.doc)
   }
@@ -598,55 +697,53 @@
       )
     },
     apply: function (fresh, ctx) {
-      var articleHost =
-        document.querySelector('main.article .content') ||
-        document.querySelector('main.article') ||
-        document.querySelector('article.doc')
+      var articleHost = articleHostEl()
       if (!articleHost || !fresh) {
         window.location.href = ctx.url
         return
       }
       var node = document.importNode(fresh, true)
       absolutize(node, ctx.url)
-      var fade = SoftNav.transition !== 'none'
-      function commit () {
-        articleHost.innerHTML = ''
-        while (node.firstChild) articleHost.appendChild(node.firstChild)
-        if (fade) {
-          articleHost.style.opacity = '1'
-          window.setTimeout(function () {
-            articleHost.style.transition = ''
-          }, FADE_MS)
-        }
-        ctx.articleHost = articleHost
-        finishPageTransition(ctx)
-        emit('loaded', ctx)
-      }
-      if (fade) {
-        articleHost.style.transition = 'opacity ' + FADE_MS + 'ms ease'
-        articleHost.style.opacity = '0'
-        window.setTimeout(commit, FADE_MS)
-      } else {
-        commit()
-      }
+      articleHost.innerHTML = ''
+      while (node.firstChild) articleHost.appendChild(node.firstChild)
+      ctx.articleHost = articleHost
     },
   })
 
   function applyRegions (doc, ctx) {
     var order = SoftNav.swapNav ? ['mast', 'nav', 'article'] : ['mast', 'article']
+    var extracted = Object.create(null)
     for (var i = 0; i < order.length; i++) {
       var id = order[i]
       var spec = regions[id]
       if (!spec) continue
-      var fresh = spec.extract(doc)
-      if (id === 'article' && !fresh) throw new Error('no article')
-      spec.apply(fresh, ctx)
+      extracted[id] = spec.extract(doc)
+      if (id === 'article' && !extracted[id]) throw new Error('no article')
     }
     Object.keys(regions).forEach(function (id) {
       if (order.indexOf(id) >= 0) return
-      var spec = regions[id]
-      spec.apply(spec.extract(doc), ctx)
+      extracted[id] = regions[id].extract(doc)
     })
+
+    crossfadeSwap(
+      function commitRegions () {
+        for (var j = 0; j < order.length; j++) {
+          var rid = order[j]
+          var rspec = regions[rid]
+          if (rspec) rspec.apply(extracted[rid], ctx)
+        }
+        Object.keys(regions).forEach(function (rid) {
+          if (order.indexOf(rid) >= 0) return
+          regions[rid].apply(extracted[rid], ctx)
+        })
+        safeRebuildPageToc()
+        syncSearchScopeFromDoc(doc)
+        finishPageTransition(ctx, { skipTocRebuild: true })
+      },
+      function afterFadeIn () {
+        emit('loaded', ctx)
+      }
+    )
   }
 
   function resolveSoftNavTarget (a) {
@@ -665,7 +762,17 @@
   }
 
   function navigate (url, push) {
-    var dest = pageUrl(url).href
+    var destUrl = pageUrl(url)
+    var dest = destUrl.href
+    if (samePath(dest)) {
+      if (destUrl.hash) {
+        scrollToHash(destUrl.hash)
+        if (push && dest !== window.location.href) {
+          history.pushState(history.state || { softNav: true, docNav: true }, '', dest)
+        }
+      }
+      return Promise.resolve()
+    }
     var ctx = { url: dest, push: !!push }
     var generation = ++navigateGeneration
     emit('before', ctx)
@@ -716,14 +823,13 @@
     if (!sameOrigin(destHref)) return false
     var dest = pageUrl(destHref)
     if (samePath(dest.href)) {
+      ev.preventDefault()
       if (dest.hash) {
-        ev.preventDefault()
         scrollToHash(dest.hash)
         if (dest.href !== window.location.href) {
           history.pushState(history.state || { softNav: true, docNav: true }, '', dest.href)
         }
       } else if (inNavTree && a.classList.contains('nav-link')) {
-        ev.preventDefault()
         markNavCurrentFromLink(a)
       }
       return true

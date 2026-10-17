@@ -62,4 +62,16 @@ describe('soft-nav nav-tree click policy', () => {
     assert.match(src, /!sameComponent\(destHref\) && !inNavTree/)
     assert.match(src, /linkOpensNewContext/)
   })
+
+  it('suppresses hard reload on same-path nav clicks', () => {
+    assert.match(src, /if \(samePath\(dest\.href\)\) \{\s*\n\s*ev\.preventDefault\(\)/)
+    assert.match(src, /if \(samePath\(dest\)\) \{/)
+  })
+
+  it('crossfades mast, article, and toc without swapping navbar', () => {
+    assert.match(src, /function crossfadeSwap/)
+    assert.match(src, /syncSearchScopeFromDoc/)
+    assert.match(src, /function fadeTargetEls/)
+    assert.doesNotMatch(src, /querySelector\(['"]\.adt-site-navbar['"]\)/)
+  })
 })
