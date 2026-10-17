@@ -4,7 +4,7 @@
 Compose and watch agent-rules: D `rulesd` daemon + Electron tray UI.
 
 Full component docs::
-xref:rules-manager::index.adoc[Rules Manager]
+xref:tools:rules-manager:index.adoc[Rules Manager]
 
 Repository::
 https://github.com/dev-centr/rules-manager

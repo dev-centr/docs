@@ -62,7 +62,7 @@ MSI Generator
 
 Windows installer (MSI/MSIX) engine - CFB/CAB tables and MSIX ZIP packaging.
 
-xref:tools/msi-installer-generator.adoc[Portal] | xref:msi-generator::index.adoc[Component docs]
+xref:tools/msi-installer-generator.adoc[Portal] | xref:tools:msi-generator:index.adoc[Component docs]
 ====
 
 [.tile]
@@ -82,7 +82,7 @@ RepoDrive
 
 Standalone virtual drive for forge repos - GUI, tray, sparse FUSE/WinFsp mount, Issues Browser bridge.
 
-xref:tools/repo-drive.adoc[Portal] | xref:repo-drive::index.adoc[Component docs]
+xref:tools/repo-drive.adoc[Portal] | xref:tools:repo-drive:index.adoc[Component docs]
 ====
 
 [.tile]
@@ -93,7 +93,7 @@ FixNow
 Pressure-driven issue tracking for high-value stagnated features.
 AI value scores, public countdown badges, and resolution audits.
 
-xref:fixnow-dev::index.adoc[FixNow docs]
+xref:tools:fixnow-dev:index.adoc[FixNow docs]
 ====
 
 [.tile]

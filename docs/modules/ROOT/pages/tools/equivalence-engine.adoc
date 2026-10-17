@@ -4,7 +4,7 @@
 Catalog lookup (CLI / filesystem intents) and version-path rewrites (`code` domain). Host Awareness bake is CI-time. Runtime PlayTime must not ask this engine what OS it is.
 
 Full component docs::
-xref:equivalence-engine::index.adoc[Equivalence Engine]
+xref:tools:equivalence-engine:index.adoc[Equivalence Engine]
 
 Host Awareness::
 xref:tools:scriptbook:host-awareness.adoc[Bake vs run]
