@@ -1,47 +1,11 @@
 /*
  * Independent column scroll for Valentus 2.x on the DevCentr docs hub.
  *
- * Root cause (still after 11d35d6): site-doc-layout
- *   (1) align-self:stretch + height:auto on .nav so the rail grows with the article
- *   (2) overflow-y:visible on .nav-panel-menu and overflow-y:auto on nav.nav-menu
- *       so the tree (not the SoftNav scroll key) is the scrollport — or neither is
- *   (3) overscroll-behavior:auto !important chains wheel to the page
- * A fixed height of (100vh - navbar) on a column that starts *below* the doc mast
- * and tool band hangs past the viewport bottom; sticky top must match that stack.
- *
- * Fix: keep the read-width tool band stuck under the mast so its block height stays
- * in the sticky offset; nav-container sticky + max-height = remaining viewport;
- * [data-panel=menu] is the only vertical scrollport (SoftNav scroll-y key);
- * contain overscroll; tree grows with content (horizontal edge-fade only).
+ * With 2.1.0+, read-width lives in .adt-doc-toolbar (article column only).
+ * Nav sticky top follows Valentus --adt-chrome-sticky-top (mast, or 0 when scroll-away).
+ * [data-panel=menu] is the vertical scrollport; tree uses horizontal edge-fade only.
  */
-:root {
-  --adt-tool-band-block: calc(
-    var(--adt-global-rail-top, 0.85rem) + var(--adt-tool-band, 2.15rem) + var(--adt-tool-gap, 0.65rem)
-  );
-  --adt-nav-sticky-top: calc(var(--adt-mast-total, calc(3.5rem + 2.75rem)) + var(--adt-tool-band-block));
-  --adt-nav-sticky-max: calc(100vh - var(--adt-nav-sticky-top));
-}
-
-@supports (height: 100dvh) {
-  :root {
-    --adt-nav-sticky-max: calc(100dvh - var(--adt-nav-sticky-top));
-  }
-}
-
 @media screen and (min-width: 1024px) {
-  /* Tool band scrolls away by default; pin it so nav sticky top stays stable. */
-  .adt-shell > .adt-tool-band {
-    position: sticky;
-    top: var(--adt-mast-total, calc(3.5rem + 2.75rem));
-    z-index: 19;
-    background: var(--adt-canvas, var(--body-background, #f3f5f8));
-    box-sizing: border-box;
-  }
-
-  html.dark-theme .adt-shell > .adt-tool-band {
-    background: var(--adt-canvas, var(--body-background, #0b0e13));
-  }
-
   .body.adt-body {
     align-items: flex-start !important;
   }
@@ -50,13 +14,20 @@
   .nav-container {
     align-self: flex-start !important;
     position: sticky !important;
-    top: var(--adt-nav-sticky-top) !important;
-    max-height: var(--adt-nav-sticky-max) !important;
+    top: var(--adt-chrome-sticky-top, var(--adt-mast-total, calc(3.5rem + 2.75rem))) !important;
+    max-height: calc(100vh - var(--adt-chrome-sticky-top, var(--adt-mast-total, calc(3.5rem + 2.75rem)))) !important;
     min-height: 0 !important;
     overflow: hidden !important;
     display: flex !important;
     flex-direction: column !important;
     box-sizing: border-box !important;
+  }
+
+  @supports (height: 100dvh) {
+    .body.adt-body > .nav-container,
+    .nav-container {
+      max-height: calc(100dvh - var(--adt-chrome-sticky-top, var(--adt-mast-total, calc(3.5rem + 2.75rem)))) !important;
+    }
   }
 
   .nav-container .nav,
@@ -78,10 +49,6 @@
     max-height: 100% !important;
   }
 
-  /*
-   * Vertical scrollport = [data-panel=menu] (JS restore key).
-   * Defeat Valentus overflow-y:visible + overscroll chaining.
-   */
   body.adt-body .nav .nav-panel-menu,
   .nav-container .nav-panel-menu,
   .nav-panel-menu {
@@ -110,9 +77,3 @@
     overflow-y: visible !important;
   }
 }
-
-/* SoftNav seamlessness: do NOT blank the tree with visibility:hidden.
- * Prior data-snt-nav-ready hide caused a flash on every soft navigation
- * (worse than DeepWiki). site-nav-tree 0.5.3 + SoftNav 0.2.0 patch currents
- * in place instead.
- */
