@@ -2,12 +2,6 @@
 # Schema: url | glob | regex, optional reason and expires (see asciidoc-link-validator example).
 
 suppressions:
-  # GitHub source links: unauthenticated CI hits rate limits (429) on blob/edit URLs.
-  - regex: '^https://github\.com/dev-centr/[^/]+/(blob|edit)/'
-    reason: GitHub blob/edit probe noise in CI (dev-centr org); use suppressions not PAT in static checks
-  - regex: '^https://github\.com/[^/]+/[^/]+/(blob|edit)/'
-    reason: GitHub blob/edit probe noise in CI (rate limits); page-edit targets remain human-verified
-
   # Documentation placeholders and local-only hosts (not reachable from CI).
   - glob: http://localhost/*
     reason: Local dev placeholder

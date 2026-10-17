@@ -44,9 +44,11 @@ antora:
       reportEmail: support@devcentr.org
       softFail403: true
       failLevel: none
-      concurrency: 2
+      concurrency: 6
       timeoutMs: 15000
       reportHistoryLimit: 5
+      cacheEnabled: true
+      cachePath: .link-check-cache.json
     - require: '@antora-supplemental/linkinator'
       statusDefault: unchecked
     - require: '@antora-supplemental/extension-lister'

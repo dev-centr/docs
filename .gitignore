@@ -5,6 +5,7 @@ node_modules/
 # Antora build output
 build/
 .cache/
+.link-check-cache.json
 
 # IDEs and editors
 .vscode/*
