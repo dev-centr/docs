@@ -2,6 +2,7 @@
 
 == Unreleased
 
+* **Link validator CI reliability.** Hub `.antora-link-suppressions.yml` quiets GitHub blob/edit rate-limit noise, local/placeholder hosts, and Google Fonts roots; production playbooks lower check concurrency (`2`), raise per-URL timeout (`15s`), and cap archived report history (`5`) so Pages deploy avoids oversized `report.json` / `JSON.stringify` failures while `failLevel: none` stays unchanged.
 * **Home nav reorganized.** The misnamed **Software publishing** group is now **Docs site** (hub component naming, Antora UI branding, essential extensions, diagram formats, nav scroll A/B); pages moved `pages/publishing/` -> `pages/docs-site/` and xrefs updated (including `devcentr` specifications and `general-knowledge` reliability pages).
 * **Code signing in the release pipeline** moved to `general-knowledge` (`explanation/architecture/`, under Architecture next to Distribution and Packaging). Business Bootstrap and Distribution and Packaging link to it; the Home portal tile links there instead of owning it.
 * **Home > Tools nav entry removed.** Tools live only in the `tools` component; the Home `tools/` portal stubs (forks, external integrations, support systems) stay reachable from the Tools overview and the Home portal tiles.

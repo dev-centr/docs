@@ -50,6 +50,9 @@ antora:
       reportEmail: support@devcentr.org
       softFail403: true
       failLevel: none
+      concurrency: 2
+      timeoutMs: 15000
+      reportHistoryLimit: 5
     - require: '@antora-supplemental/linkinator'
       statusDefault: unchecked
     - require: '@antora-supplemental/extension-lister'

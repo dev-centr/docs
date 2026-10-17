@@ -1,0 +1,35 @@
+# Hub suppressions for @antora-supplemental/link-validator (CI + local Antora builds).
+# Schema: url | glob | regex, optional reason and expires (see asciidoc-link-validator example).
+
+suppressions:
+  # GitHub source links: unauthenticated CI hits rate limits (429) on blob/edit URLs.
+  - regex: '^https://github\.com/dev-centr/[^/]+/(blob|edit)/'
+    reason: GitHub blob/edit probe noise in CI (dev-centr org); use suppressions not PAT in static checks
+  - regex: '^https://github\.com/[^/]+/[^/]+/(blob|edit)/'
+    reason: GitHub blob/edit probe noise in CI (rate limits); page-edit targets remain human-verified
+
+  # Documentation placeholders and local-only hosts (not reachable from CI).
+  - glob: http://localhost/*
+    reason: Local dev placeholder
+  - glob: https://localhost/*
+    reason: Local dev placeholder
+  - glob: http://127.0.0.1/*
+    reason: Local dev placeholder (Kroki gateway, etc.)
+  - glob: https://127.0.0.1/*
+    reason: Local dev placeholder
+  - glob: https://example.com/*
+    reason: AsciiDoc / template placeholder host
+  - glob: http://example.com/*
+    reason: AsciiDoc / template placeholder host
+  - glob: https://your.custom.domain/*
+    reason: Config placeholder hostname in examples
+  - glob: http://your.custom.domain/*
+    reason: Config placeholder hostname in examples
+  - regex: '^https?://<team-name>'
+    reason: Literal angle-bracket team placeholder in copy-paste examples
+
+  # Google Fonts root URLs (CSS @import targets; not meant as standalone GET checks).
+  - url: https://fonts.googleapis.com/
+    reason: Font CSS entrypoint; validated via browser stylesheet load
+  - url: https://fonts.gstatic.com/
+    reason: Font asset CDN root; individual woff2 URLs vary by family
