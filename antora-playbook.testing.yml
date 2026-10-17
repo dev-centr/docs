@@ -152,6 +152,10 @@ content:
       branches: HEAD
       start_path: tools-docs
       worktrees: true
+    - url: .
+      branches: HEAD
+      start_path: platforms-docs
+      worktrees: true
 
 ui:
   bundle:

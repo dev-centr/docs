@@ -1,0 +1,13 @@
+name: platforms
+title: Platforms
+version: ~
+start_page: ROOT:index.adoc
+# Hub-owned descriptor for the shared `platforms` component. DevCentr app (`devcentr`
+# repo, module `devcentr`) and devcentr.org (module `devcentr-org`) both declare
+# `name: platforms` with a single nav each; Antora merges descriptors last-wins, so
+# only one platform nav would register. List every module nav here and keep this
+# source LAST among platforms sources (and last overall in playbooks).
+nav:
+- modules/ROOT/nav.adoc
+- modules/devcentr/nav.adoc
+- modules/devcentr-org/nav.adoc

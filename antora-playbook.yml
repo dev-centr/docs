@@ -164,6 +164,9 @@ content:
     - url: https://github.com/dev-centr/docs.git
       branches: HEAD
       start_path: tools-docs
+    - url: https://github.com/dev-centr/docs.git
+      branches: HEAD
+      start_path: platforms-docs
 
 ui:
   bundle:
