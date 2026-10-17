@@ -69,6 +69,9 @@ importers:
       '@antora-supplemental/site-nav-tree':
         specifier: github:antora-supplemental/site-nav-tree#v0.5.6
         version: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/40a5a219b1b0793a265490a0ad178604bab3b115(@antora/site-generator@3.1.14)
+      '@antora-supplemental/soft-nav-page-toc':
+        specifier: github:antora-supplemental/soft-nav-page-toc#v0.1.6
+        version: https://codeload.github.com/antora-supplemental/soft-nav-page-toc/tar.gz/e14807953757708297d2ac4f1ffac1a2810b3ccb(@antora/site-generator@3.1.14)
       '@antora-supplemental/stale-page':
         specifier: github:antora-supplemental/stale-page#v0.1.0
         version: https://codeload.github.com/antora-supplemental/stale-page/tar.gz/f14becf7f88b67e19ca45ce8a8d0c5c37c5e70d1
@@ -122,8 +125,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@antora-supplemental/diagram-engines-shared@https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/2a1a79b1525c1eeb2a5113ed819a6c0409a77dcd#path:packages/shared':
-    resolution: {path: packages/shared, tarball: https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/2a1a79b1525c1eeb2a5113ed819a6c0409a77dcd}
+  '@antora-supplemental/diagram-engines-shared@https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/5fcae8cfd7a555e1021e2b081f50e3d78df44ca9#path:packages/shared':
+    resolution: {path: packages/shared, tarball: https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/5fcae8cfd7a555e1021e2b081f50e3d78df44ca9}
     version: 0.1.0
     engines: {node: '>=18'}
 
@@ -238,6 +241,16 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       '@antora/site-generator': '>=3.1.0'
+
+  '@antora-supplemental/soft-nav-page-toc@https://codeload.github.com/antora-supplemental/soft-nav-page-toc/tar.gz/e14807953757708297d2ac4f1ffac1a2810b3ccb':
+    resolution: {tarball: https://codeload.github.com/antora-supplemental/soft-nav-page-toc/tar.gz/e14807953757708297d2ac4f1ffac1a2810b3ccb}
+    version: 0.1.6
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@antora/site-generator': '>=3.1.0'
+    peerDependenciesMeta:
+      '@antora/site-generator':
+        optional: true
 
   '@antora-supplemental/stale-page@https://codeload.github.com/antora-supplemental/stale-page/tar.gz/f14becf7f88b67e19ca45ce8a8d0c5c37c5e70d1':
     resolution: {tarball: https://codeload.github.com/antora-supplemental/stale-page/tar.gz/f14becf7f88b67e19ca45ce8a8d0c5c37c5e70d1}
@@ -1818,11 +1831,11 @@ snapshots:
     dependencies:
       js-yaml: 4.1.1
 
-  '@antora-supplemental/diagram-engines-shared@https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/2a1a79b1525c1eeb2a5113ed819a6c0409a77dcd#path:packages/shared': {}
+  '@antora-supplemental/diagram-engines-shared@https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/5fcae8cfd7a555e1021e2b081f50e3d78df44ca9#path:packages/shared': {}
 
   '@antora-supplemental/diagram-lightbox@https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/dbdca5920074ef1559bdd263f874270292df9558#path:packages/diagram-lightbox(@antora/site-generator@3.1.14)':
     dependencies:
-      '@antora-supplemental/diagram-engines-shared': https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/2a1a79b1525c1eeb2a5113ed819a6c0409a77dcd#path:packages/shared
+      '@antora-supplemental/diagram-engines-shared': https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/5fcae8cfd7a555e1021e2b081f50e3d78df44ca9#path:packages/shared
     optionalDependencies:
       '@antora/site-generator': 3.1.14
 
@@ -1842,7 +1855,7 @@ snapshots:
 
   '@antora-supplemental/mermaid-client@https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/dbdca5920074ef1559bdd263f874270292df9558#path:packages/mermaid-client(@antora/site-generator@3.1.14)':
     dependencies:
-      '@antora-supplemental/diagram-engines-shared': https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/2a1a79b1525c1eeb2a5113ed819a6c0409a77dcd#path:packages/shared
+      '@antora-supplemental/diagram-engines-shared': https://codeload.github.com/antora-supplemental/antora-diagram-engines/tar.gz/5fcae8cfd7a555e1021e2b081f50e3d78df44ca9#path:packages/shared
     optionalDependencies:
       '@antora/site-generator': 3.1.14
 
@@ -1879,6 +1892,10 @@ snapshots:
 
   '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/40a5a219b1b0793a265490a0ad178604bab3b115(@antora/site-generator@3.1.14)':
     dependencies:
+      '@antora/site-generator': 3.1.14
+
+  '@antora-supplemental/soft-nav-page-toc@https://codeload.github.com/antora-supplemental/soft-nav-page-toc/tar.gz/e14807953757708297d2ac4f1ffac1a2810b3ccb(@antora/site-generator@3.1.14)':
+    optionalDependencies:
       '@antora/site-generator': 3.1.14
 
   '@antora-supplemental/stale-page@https://codeload.github.com/antora-supplemental/stale-page/tar.gz/f14becf7f88b67e19ca45ce8a8d0c5c37c5e70d1':

@@ -1,25 +1,18 @@
 /**
- * SoftNav — same-origin soft navigation bus for Antora UI chrome.
+ * SoftNav — same-origin soft navigation for Antora UI chrome.
  *
- * Intercepts in-article (and same-component nav) links, fetches the next page,
- * swaps registered regions (mast / article; nav prefers in-place current sync),
- * then emits lifecycle events so consumers rebind without SoftNav naming them.
- *
- * Same-component nav-tree clicks soft-navigate so the left rail keeps its
- * scroll position. Cross-component links do a full document load.
- *
- * On each successful load the *content* column scrolls to top for reading
- * without resetting the independent nav scrollport.
+ * Swaps mast + article by default; keeps the left nav tree stable (swapNav=false).
+ * Rebuilds aside page TOC, scrolls to top on cross-page loads, injects nav-hidden
+ * children under their parent in the nav tree.
  *
  * Public API:
- *   SoftNav.on('before'|'loaded'|'failed', handler) -> unsubscribe
+ *   SoftNav.swapNav — replace left nav panel from fetched doc (default false)
+ *   SoftNav.scrollToTop — scroll window to top on cross-page nav (default true)
+ *   SoftNav.on('before'|'loaded'|'failed', handler)
  *   SoftNav.registerRegion({ id, extract(doc), apply(fresh, ctx) })
  *   SoftNav.navigate(url)
- *   SoftNav.transition = 'none' | 'crossfade'  (default: none — DeepWiki-like)
- *   SoftNav.replaceNav = false | true          (default: false — patch currents)
- *
- * DOM events (detail = ctx): soft-nav:before | soft-nav:loaded | soft-nav:failed
- * Compat: also fires doc-nav:loaded on successful swaps.
+ *   SoftNav.rebuildPageToc()
+ *   SoftNav.syncNavForCurrentPage(doc?)
  */
 ;(function (global) {
   'use strict'
@@ -27,25 +20,12 @@
   var FADE_MS = 180
   var listeners = { before: [], loaded: [], failed: [] }
   var regions = Object.create(null)
-
-  function emit (event, detail) {
-    var list = listeners[event] || []
-    for (var i = 0; i < list.length; i++) {
-      try {
-        list[i](detail)
-      } catch (err) {
-        console.warn('[soft-nav] listener error on ' + event, err)
-      }
-    }
-    document.dispatchEvent(new CustomEvent('soft-nav:' + event, { detail: detail }))
-    if (event === 'loaded') {
-      document.dispatchEvent(new CustomEvent('doc-nav:loaded', { detail: detail }))
-    }
-  }
+  var tocScrollHandler = null
 
   var SoftNav = {
-    transition: 'none',
-    replaceNav: false,
+    transition: 'crossfade',
+    swapNav: false,
+    scrollToTop: true,
     on: function (event, handler) {
       if (!listeners[event]) listeners[event] = []
       listeners[event].push(handler)
@@ -66,10 +46,29 @@
     navigate: function (url) {
       return navigate(url, true)
     },
+    rebuildPageToc: rebuildPageToc,
+    syncNavForCurrentPage: function (doc) {
+      syncNavAfterNavigate(window.location.href, doc || document)
+    },
   }
 
-  function pageUrl (url) {
-    return new URL(url, window.location.href)
+  function emit (event, detail) {
+    var list = listeners[event] || []
+    for (var i = 0; i < list.length; i++) {
+      try {
+        list[i](detail)
+      } catch (err) {
+        console.warn('[soft-nav] listener error on ' + event, err)
+      }
+    }
+    document.dispatchEvent(new CustomEvent('soft-nav:' + event, { detail: detail }))
+    if (event === 'loaded') {
+      document.dispatchEvent(new CustomEvent('doc-nav:loaded', { detail: detail }))
+    }
+  }
+
+  function pageUrl (url, base) {
+    return new URL(url, base || window.location.href)
   }
 
   function sameOrigin (url) {
@@ -80,12 +79,33 @@
     }
   }
 
+  function normalizePathname (path) {
+    if (!path || path === '/') return '/'
+    var p = path.replace(/\/index\.html$/i, '/')
+    if (p.length > 1 && p.charAt(p.length - 1) === '/') p = p.slice(0, -1)
+    return p
+  }
+
+  function pathKey (url) {
+    return normalizePathname(pageUrl(url).pathname)
+  }
+
   function samePath (url) {
     try {
-      return pageUrl(url).pathname === window.location.pathname
+      return pathKey(url) === pathKey(window.location.href)
     } catch (e) {
       return false
     }
+  }
+
+  function scrollToHash (hash) {
+    var raw = hash || window.location.hash
+    if (!raw || raw.charAt(0) !== '#') return
+    var id = decodeURIComponent(raw.slice(1))
+    if (!id) return
+    var el = document.getElementById(id)
+    if (!el) return
+    el.scrollIntoView({ block: 'start', behavior: 'auto' })
   }
 
   function componentName (url) {
@@ -101,15 +121,14 @@
     return componentName(url) === componentName(window.location.href)
   }
 
-  function normalizePath (href) {
+  function navLinkMatchesPath (linkHref, targetUrl) {
+    if (!linkHref || linkHref.charAt(0) === '#') return false
     try {
-      var u = pageUrl(href)
-      var path = u.pathname || '/'
-      path = path.replace(/\/index\.html$/i, '/')
-      if (path.length > 1) path = path.replace(/\/+$/, '/') || '/'
-      return path
+      var linkPath = pathKey(pageUrl(linkHref, targetUrl))
+      var targetPath = pathKey(targetUrl)
+      return linkPath === targetPath
     } catch (e) {
-      return String(href || '').split(/[?#]/)[0]
+      return false
     }
   }
 
@@ -172,66 +191,363 @@
     return t ? t.textContent : document.title
   }
 
-  function navScrollEl () {
-    return document.querySelector('.nav-container [data-panel=menu]')
+  function readPageNavMeta (doc) {
+    var root = doc && doc.querySelector ? doc : document
+    var hidden =
+      root.querySelector('meta[name="antora-supplemental:hide-page"]') ||
+      root.querySelector('meta[name="antora-supplemental:hide-from-navtree"]') ||
+      root.querySelector('meta[name="antora-supplemental:nav-hidden"]')
+    var parent =
+      root.querySelector('meta[name="antora-supplemental:navtree-parent"]') ||
+      root.querySelector('meta[name="antora-supplemental:nav-parent"]')
+    return {
+      hideFromNavtree: !!hidden,
+      navParent: parent && parent.getAttribute('content') ? parent.getAttribute('content').trim() : null,
+    }
   }
 
-  function readNavScroll () {
-    var el = navScrollEl()
-    return el ? el.scrollTop || 0 : 0
+  function inferNavParentSlug (pathname) {
+    var parts = pathname.split('/').filter(Boolean)
+    for (var i = 0; i < parts.length; i++) {
+      var seg = parts[i]
+      if (seg.endsWith('-details')) return seg.slice(0, -8)
+    }
+    return null
   }
 
-  function writeNavScroll (y) {
-    var el = navScrollEl()
-    if (!el) return
-    el.scrollTop = y
-    if (typeof window.siteNavTreeSaveScroll === 'function') window.siteNavTreeSaveScroll()
+  function parentSlugFromMeta (meta, pathname) {
+    if (meta.navParent) {
+      var s = meta.navParent.replace(/\.adoc$/i, '').replace(/^\.\//, '')
+      var base = s.split('/').pop()
+      return base || s
+    }
+    return inferNavParentSlug(pathname)
   }
 
-  function scrollContentToTop () {
-    var articleHost =
-      document.querySelector('main.article .content') ||
-      document.querySelector('main.article') ||
-      document.querySelector('article.doc') ||
-      document.querySelector('.adt-article .content')
-    if (articleHost && typeof articleHost.scrollTo === 'function') {
+  function findParentNavItem (menu, parentSlug, baseUrl) {
+    var links = menu.querySelectorAll('a.nav-link')
+    for (var i = 0; i < links.length; i++) {
+      var a = links[i]
+      var href = a.getAttribute('href')
+      if (!href) continue
       try {
-        articleHost.scrollTo(0, 0)
+        var p = pathKey(pageUrl(href, baseUrl))
+        var segments = p.split('/').filter(Boolean)
+        var last = segments[segments.length - 1] || ''
+        if (last === parentSlug || p.endsWith('/' + parentSlug)) return a.closest('li.nav-item')
       } catch (e) {
-        articleHost.scrollTop = 0
+        continue
       }
-    } else if (articleHost) {
-      articleHost.scrollTop = 0
     }
-    window.scrollTo(0, 0)
-    if (document.scrollingElement) document.scrollingElement.scrollTop = 0
-    if (document.documentElement) document.documentElement.scrollTop = 0
-    if (document.body) document.body.scrollTop = 0
+    return null
   }
 
-  function markNavCurrentByUrl (url) {
-    if (typeof window.siteNavTreeMarkCurrentByPath === 'function') {
-      window.siteNavTreeMarkCurrentByPath(url)
-      return
+  function pageLabelFromDoc (doc) {
+    var root = doc && doc.querySelector ? doc : document
+    var article = root.querySelector('article.doc')
+    if (article) {
+      var h1 = article.querySelector('h1.page, h1[id].sect0')
+      if (h1 && h1.textContent) return h1.textContent.trim()
     }
+    var t = root.querySelector('title')
+    return t ? t.textContent.replace(/\s*::.*$/, '').trim() : document.title
+  }
+
+  function labelFromSlug (slug) {
+    if (!slug) return 'Parent'
+    return slug.charAt(0).toUpperCase() + slug.slice(1).replace(/-/g, ' ')
+  }
+
+  function parentPageHref (url, parentSlug) {
+    try {
+      var u = pageUrl(url)
+      var parts = u.pathname.split('/').filter(Boolean)
+      var idx = -1
+      for (var i = 0; i < parts.length; i++) {
+        if (parts[i].endsWith('-details')) {
+          idx = i
+          break
+        }
+      }
+      if (idx < 0) return null
+      var next = parts.slice(0, idx)
+      next.push(parentSlug)
+      return u.origin + '/' + next.join('/') + '/'
+    } catch (e) {
+      return null
+    }
+  }
+
+  function removeInjectedNavHidden (menu) {
+    ;[].forEach.call(menu.querySelectorAll('.nav-item.nav-hidden-injected'), function (el) {
+      el.parentNode.removeChild(el)
+    })
+  }
+
+  function syncNavAfterNavigate (url, fetchedDoc) {
     var menu = document.querySelector('.nav-container [data-panel=menu]')
     if (!menu) return
-    var want = normalizePath(url)
-    var matches = []
-    menu.querySelectorAll('a.nav-link').forEach(function (a) {
-      if (normalizePath(a.getAttribute('href') || a.href) === want) {
-        var li = a.closest('li.nav-item')
-        if (li) matches.push(li)
-      }
-    })
-    if (!matches.length) return
-    matches.sort(function (a, b) {
-      return (parseInt(b.getAttribute('data-depth'), 10) || 0) - (parseInt(a.getAttribute('data-depth'), 10) || 0)
-    })
-    menu.querySelectorAll('.nav-item.is-current-page').forEach(function (el) {
+
+    removeInjectedNavHidden(menu)
+    ;[].forEach.call(menu.querySelectorAll('.nav-item.is-current-page'), function (el) {
       el.classList.remove('is-current-page')
     })
-    matches[0].classList.add('is-current-page')
+
+    var meta = readPageNavMeta(fetchedDoc || document)
+    var pathname = pageUrl(url).pathname
+    var parentSlug = parentSlugFromMeta(meta, pathname)
+    var treatAsHidden = meta.hideFromNavtree || (parentSlug && pathname.indexOf('-details') >= 0)
+
+    if (treatAsHidden && parentSlug) {
+      var parentItem = findParentNavItem(menu, parentSlug, url)
+      if (parentItem) {
+        var depth = (parseInt(parentItem.getAttribute('data-depth'), 10) || 0) + 1
+        var list = parentItem.querySelector(':scope > ul.nav-list')
+        if (!list) {
+          list = document.createElement('ul')
+          list.className = 'nav-list'
+          parentItem.appendChild(list)
+        }
+        parentItem.classList.add('is-active', 'is-current-path')
+        var li = document.createElement('li')
+        li.className = 'nav-item nav-hidden-injected is-current-page is-active'
+        li.setAttribute('data-depth', String(depth))
+        var link = document.createElement('a')
+        link.className = 'nav-link'
+        link.href = url
+        link.textContent = pageLabelFromDoc(fetchedDoc || document)
+        li.appendChild(link)
+        list.appendChild(li)
+        if (typeof global.siteNavTreeCurrent === 'function') global.siteNavTreeCurrent()
+        return
+      }
+    }
+
+    ;[].forEach.call(menu.querySelectorAll('a.nav-link'), function (a) {
+      if (navLinkMatchesPath(a.getAttribute('href'), url)) {
+        var item = a.closest('li.nav-item')
+        if (item) item.classList.add('is-current-page')
+      }
+    })
+    if (typeof global.siteNavTreeCurrent === 'function') global.siteNavTreeCurrent()
+  }
+
+  function parsePx (el, prop) {
+    return parseFloat(window.getComputedStyle(el)[prop])
+  }
+
+  function rebuildPageToc () {
+    var aside = document.querySelector('aside.toc.sidebar')
+    if (!aside) return
+    if (document.querySelector('body.-toc')) {
+      if (aside.parentNode) aside.parentNode.removeChild(aside)
+      return
+    }
+
+    var levels = parseInt(aside.dataset.levels || '2', 10)
+    if (levels < 0) return
+
+    var articleSel = 'article.doc'
+    var article = document.querySelector(articleSel)
+    if (!article) return
+
+    var selectors = []
+    for (var i = 0; i <= levels; i++) {
+      var parts = [articleSel]
+      if (i) {
+        for (var c = 1; c <= i; c++) {
+          // Same string site.js joins: ".sectionbody>" is part of the sect token, not its own ">".
+          parts.push((c === 2 ? '.sectionbody>' : '') + '.sect' + c)
+        }
+        parts.push('h' + (i + 1) + '[id]' + (i > 1 ? ':not(.discrete)' : ''))
+      } else {
+        parts.push('h1[id].sect0')
+      }
+      selectors.push(parts.join('>'))
+    }
+
+    var query = selectors.join(',')
+    var scope = article.parentNode || document
+    var headings = [].slice.call(scope.querySelectorAll(query))
+    if (!headings.length) {
+      if (aside.parentNode) aside.parentNode.removeChild(aside)
+      return
+    }
+
+    var linkByHash = {}
+    var list = headings.reduce(function (ul, heading) {
+      var a = document.createElement('a')
+      a.textContent = heading.textContent
+      var href = '#' + heading.id
+      a.setAttribute('href', href)
+      linkByHash[href] = a
+      var li = document.createElement('li')
+      li.dataset.level = String(parseInt(heading.nodeName.slice(1), 10) - 1)
+      li.appendChild(a)
+      ul.appendChild(li)
+      return ul
+    }, document.createElement('ul'))
+
+    var menu = aside.querySelector('.toc-menu')
+    if (!menu) {
+      menu = document.createElement('div')
+      menu.className = 'toc-menu'
+      aside.appendChild(menu)
+    }
+    menu.innerHTML = ''
+    var title = document.createElement('h3')
+    title.textContent = aside.dataset.title || 'Contents'
+    menu.appendChild(title)
+    menu.appendChild(list)
+
+    if (tocScrollHandler) {
+      window.removeEventListener('scroll', tocScrollHandler)
+      tocScrollHandler = null
+    }
+
+    var tocList = menu.querySelector('ul')
+    var activeStack
+    var topOffset = article.getBoundingClientRect().top + window.pageYOffset
+    var fontSize = parsePx(document.documentElement, 'fontSize') * 1.15
+
+    tocScrollHandler = function () {
+      var scrollY = window.pageYOffset
+      var atBottom =
+        scrollY && window.innerHeight + scrollY + 2 >= document.documentElement.scrollHeight
+
+      if (atBottom) {
+        activeStack = Array.isArray(activeStack) ? activeStack : Array(activeStack || 0)
+        var visible = []
+        var last = headings.length - 1
+        headings.forEach(function (h, idx) {
+          var hash = '#' + h.id
+          if (
+            idx === last ||
+            h.getBoundingClientRect().top + parsePx(h, 'paddingTop') > topOffset
+          ) {
+            visible.push(hash)
+            if (activeStack.indexOf(hash) < 0) linkByHash[hash].classList.add('is-active')
+          } else if (~activeStack.indexOf(hash)) {
+            linkByHash[activeStack.shift()].classList.remove('is-active')
+          }
+        })
+        activeStack = visible.length > 1 ? visible : visible[0]
+        return
+      }
+
+      if (Array.isArray(activeStack)) {
+        activeStack.forEach(function (hash) {
+          linkByHash[hash].classList.remove('is-active')
+        })
+        activeStack = undefined
+      }
+
+      var current
+      headings.some(function (h) {
+        if (h.getBoundingClientRect().top + parsePx(h, 'paddingTop') - fontSize > topOffset) {
+          return true
+        }
+        current = '#' + h.id
+      })
+
+      if (current) {
+        if (current !== activeStack) {
+          if (activeStack) linkByHash[activeStack].classList.remove('is-active')
+          var link = linkByHash[current]
+          link.classList.add('is-active')
+          if (tocList.scrollHeight > tocList.offsetHeight) {
+            tocList.scrollTop = Math.max(0, link.offsetTop + link.offsetHeight - tocList.offsetHeight)
+          }
+          activeStack = current
+        }
+      } else if (activeStack) {
+        linkByHash[activeStack].classList.remove('is-active')
+        activeStack = undefined
+      }
+    }
+
+    window.addEventListener('scroll', tocScrollHandler, { passive: true })
+    tocScrollHandler()
+  }
+
+  function setCurrentCrumbLabel (current, label) {
+    var curLink = current.querySelector('a.adt-breadcrumb-trail-link')
+    if (curLink) {
+      curLink.textContent = label
+      return
+    }
+    var text = current.querySelector('.adt-breadcrumb-trail-text')
+    if (text) text.textContent = label
+  }
+
+  function patchBreadcrumbs (url, fetchedDoc) {
+    var meta = readPageNavMeta(fetchedDoc || document)
+    var pathname = pageUrl(url).pathname
+    var parentSlug = parentSlugFromMeta(meta, pathname)
+    var treatAsHidden = meta.hideFromNavtree || !!(parentSlug && pathname.indexOf('-details') >= 0)
+    if (!treatAsHidden) return
+
+    var list =
+      document.querySelector('.adt-doc-mast-center nav.adt-breadcrumbs ul') ||
+      document.querySelector('nav.adt-breadcrumbs ul')
+    if (!list) return
+
+    var current = list.querySelector('.adt-breadcrumb-trail--current')
+    if (!current) return
+
+    setCurrentCrumbLabel(current, pageLabelFromDoc(fetchedDoc || document))
+
+    if (list.querySelector('.adt-breadcrumb-trail[data-navtree-parent="1"]')) return
+    if (!parentSlug) return
+
+    var menu = document.querySelector('.nav-container [data-panel=menu]')
+    var parentItem = menu ? findParentNavItem(menu, parentSlug, url) : null
+    var parentAnchor = parentItem && parentItem.querySelector('a.nav-link')
+    var parentText = labelFromSlug(parentSlug)
+    var parentHref = parentPageHref(url, parentSlug)
+    if (parentAnchor) {
+      var navText = parentAnchor.querySelector('.nav-text')
+      parentText = (navText ? navText.textContent : parentAnchor.textContent || '').trim() || parentText
+      parentHref = parentAnchor.href || parentHref
+    }
+    if (!parentHref) return
+
+    var sep = document.createElement('li')
+    sep.className = 'adt-breadcrumb-sep'
+    sep.setAttribute('aria-hidden', 'true')
+    sep.textContent = '/'
+
+    var parentLi = document.createElement('li')
+    parentLi.className = 'adt-breadcrumb-trail'
+    parentLi.setAttribute('data-navtree-parent', '1')
+    var pa = document.createElement('a')
+    pa.className = 'adt-breadcrumb-trail-link'
+    pa.href = parentHref
+    pa.textContent = parentText
+    parentLi.appendChild(pa)
+
+    // The trail already has a "/" immediately before the current crumb. Keep that
+    // separator in front of the parent and add only the separator between parent and current.
+    list.insertBefore(parentLi, current)
+    list.insertBefore(sep, current)
+  }
+
+  function safeRebuildPageToc () {
+    try {
+      rebuildPageToc()
+    } catch (err) {
+      console.warn('[soft-nav] toc rebuild failed', err)
+    }
+  }
+
+  function finishPageTransition (ctx) {
+    var dest = pageUrl(ctx.url)
+    if (dest.hash) scrollToHash(dest.hash)
+    else if (SoftNav.scrollToTop !== false) window.scrollTo(0, 0)
+
+    safeRebuildPageToc()
+    syncNavAfterNavigate(ctx.url, ctx.doc)
+    patchBreadcrumbs(ctx.url, ctx.doc)
   }
 
   SoftNav.registerRegion({
@@ -256,25 +572,13 @@
       return doc.querySelector('.nav-container [data-panel=menu]')
     },
     apply: function (fresh, ctx) {
-      if (!fresh) return
+      if (!fresh || !SoftNav.swapNav) return
       var panel = document.querySelector('.nav-container [data-panel=menu]')
       if (!panel) return
-      // Forest nav HTML is identical across pages — keep the live DOM (no flash)
-      // and retarget is-current-page. Opt into full replace with SoftNav.replaceNav.
-      if (!SoftNav.replaceNav && panel.querySelector('nav.nav-menu')) {
-        markNavCurrentByUrl(ctx.url)
-        if (typeof ctx.navScrollY === 'number') writeNavScroll(ctx.navScrollY)
-        return
-      }
-      var savedY = typeof ctx.navScrollY === 'number' ? ctx.navScrollY : readNavScroll()
       var node = document.importNode(fresh, true)
       absolutize(node, ctx.url)
       panel.innerHTML = ''
       while (node.firstChild) panel.appendChild(node.firstChild)
-      writeNavScroll(savedY)
-      requestAnimationFrame(function () {
-        writeNavScroll(savedY)
-      })
     },
   })
 
@@ -308,10 +612,8 @@
             articleHost.style.transition = ''
           }, FADE_MS)
         }
-        scrollContentToTop()
-        if (typeof ctx.navScrollY === 'number') writeNavScroll(ctx.navScrollY)
-        else if (typeof window.siteNavTreeRestoreScroll === 'function') window.siteNavTreeRestoreScroll()
         ctx.articleHost = articleHost
+        finishPageTransition(ctx)
         emit('loaded', ctx)
       }
       if (fade) {
@@ -325,9 +627,8 @@
   })
 
   function applyRegions (doc, ctx) {
-    var order = ['mast', 'nav', 'article']
-    var i
-    for (i = 0; i < order.length; i++) {
+    var order = SoftNav.swapNav ? ['mast', 'nav', 'article'] : ['mast', 'article']
+    for (var i = 0; i < order.length; i++) {
       var id = order[i]
       var spec = regions[id]
       if (!spec) continue
@@ -344,8 +645,7 @@
 
   function navigate (url, push) {
     var dest = pageUrl(url).href
-    var ctx = { url: dest, push: !!push, navScrollY: readNavScroll() }
-    if (typeof window.siteNavTreeSaveScroll === 'function') window.siteNavTreeSaveScroll()
+    var ctx = { url: dest, push: !!push }
     emit('before', ctx)
     return fetch(dest, { credentials: 'same-origin' })
       .then(function (res) {
@@ -356,6 +656,7 @@
         var doc = new DOMParser().parseFromString(html, 'text/html')
         ctx.doc = doc
         if (push) history.pushState({ softNav: true, docNav: true }, '', dest)
+        lastPopPath = normalizePathname(pageUrl(dest).pathname) + pageUrl(dest).search
         document.title = extractTitle(doc)
         applyRegions(doc, ctx)
       })
@@ -363,6 +664,26 @@
         emit('failed', { url: dest, error: err })
         window.location.href = dest
       })
+  }
+
+  function handleLinkClick (ev, a) {
+    if (!a || a.target === '_blank' || a.hasAttribute('download')) return false
+    if (!sameOrigin(a.href)) return false
+    var dest = pageUrl(a.href)
+    if (samePath(dest.href)) {
+      if (dest.hash) {
+        ev.preventDefault()
+        scrollToHash(dest.hash)
+        if (dest.href !== window.location.href) {
+          history.pushState(history.state || { softNav: true, docNav: true }, '', dest.href)
+        }
+      }
+      return true
+    }
+    if (!sameComponent(a.href)) return false
+    ev.preventDefault()
+    navigate(a.href, true)
+    return true
   }
 
   global.SoftNav = SoftNav
@@ -374,45 +695,41 @@
     document.querySelector('article.doc')
   if (!root || !articleHost) return
 
-  function markNavCurrentFromLink (a) {
-    var li = a && a.closest && a.closest('li.nav-item')
-    var menu = document.querySelector('.nav-container [data-panel=menu]')
-    if (!li || !menu) return
-    menu.querySelectorAll('.nav-item.is-current-page').forEach(function (el) {
-      el.classList.remove('is-current-page')
-    })
-    li.classList.add('is-current-page')
-    if (typeof window.siteNavTreeCurrent === 'function') window.siteNavTreeCurrent()
-  }
-
   root.addEventListener('click', function (ev) {
     var a = ev.target.closest('a')
-    if (!a || a.target === '_blank' || a.hasAttribute('download')) return
-    var href = a.getAttribute('href')
-    if (!href || href.charAt(0) === '#') return
-    if (sameOrigin(a.href) && samePath(a.href)) {
-      if (a.classList.contains('nav-link') && a.closest('.nav-container')) {
-        ev.preventDefault()
-        markNavCurrentFromLink(a)
-      }
+    if (!a) return
+    if (a.closest('.nav-container')) {
+      handleLinkClick(ev, a)
       return
     }
-    if (!sameOrigin(a.href)) return
-    if (!sameComponent(a.href)) {
-      if (a.closest('.nav-container') && typeof window.siteNavTreeSaveScroll === 'function') {
-        window.siteNavTreeSaveScroll()
-      }
-      return
-    }
-    ev.preventDefault()
-    navigate(a.href, true)
+    handleLinkClick(ev, a)
   })
 
+  var lastPopPath = normalizePathname(window.location.pathname) + window.location.search
+
   window.addEventListener('popstate', function () {
+    var pathKeyNow = normalizePathname(window.location.pathname) + window.location.search
+    if (pathKeyNow === lastPopPath) {
+      scrollToHash()
+      return
+    }
+    lastPopPath = pathKeyNow
     navigate(window.location.href, false)
   })
 
   if (!history.state || !(history.state.softNav || history.state.docNav)) {
     history.replaceState({ softNav: true, docNav: true }, '', window.location.href)
+  }
+
+  function onInitialReady () {
+    safeRebuildPageToc()
+    syncNavAfterNavigate(window.location.href, document)
+    patchBreadcrumbs(window.location.href, document)
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onInitialReady)
+  } else {
+    onInitialReady()
   }
 })(window)

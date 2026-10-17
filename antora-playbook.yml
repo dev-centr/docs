@@ -57,6 +57,8 @@ antora:
     - require: '@antora-supplemental/orphan-finder/extension'
       reportEmail: support@devcentr.org
       failOnUnresolved: false
+    - require: '@antora-supplemental/soft-nav-page-toc'
+      injectScript: false
     - require: '@antora-supplemental/page-context/antora'
       component: home
       path: keywords

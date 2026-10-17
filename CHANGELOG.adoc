@@ -2,6 +2,7 @@
 
 == Unreleased
 
+* `@antora-supplemental/soft-nav-page-toc` **v0.1.6** (`injectScript: false`): build-time `:hide-page:` meta and breadcrumb injection; hub `soft-nav.js` rebuilds the aside TOC with the Default UI heading selector and normalizes indexify pathnames for same-page `#` jumps.
 * Publishing explanation xref:publishing/hub-home-component.adoc[Hub home component] — `name: home`, sidebar Overview, portal H1, `site.start_page: home::index.adoc`, avoiding `/docs/docs/` when Pages base is `/docs`; cross-link from xref:where-docs-live.adoc[Where documentation lives].
 * Lockfile refresh so Antora and `asciidoctor-kroki` resolve `@asciidoctor/core` 2.2.9; its Opal runtime (0.3.4) uses `fast-glob` instead of the deprecated `glob@7` and `inflight`.
 
