@@ -39,7 +39,7 @@
     "@antora-supplemental/orphan-finder": "github:antora-supplemental/orphan-finder#v0.1.0",
     "@antora-supplemental/page-edit": "github:antora-supplemental/page-edit#v0.2.4",
     "@antora-supplemental/playbook-pin-auditor": "github:antora-supplemental/playbook-pin-auditor#v0.1.0",
-    "@antora-supplemental/site-nav-tree": "github:antora-supplemental/site-nav-tree#54b6cbb",
+    "@antora-supplemental/site-nav-tree": "github:antora-supplemental/site-nav-tree#v0.5.6",
     "@antora-supplemental/stale-page": "github:antora-supplemental/stale-page#v0.1.0",
     "@antora-supplemental/triage-ux-kit": "github:antora-supplemental/triage-ux-kit#v0.1.0",
     "@biomejs/biome": "^2.3.11",
