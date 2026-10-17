@@ -691,8 +691,27 @@
       })
   }
 
+  function linkOpensNewContext (ev, a) {
+    if (!ev || !a) return true
+    if (a.target === '_blank' || a.hasAttribute('download')) return true
+    if (ev.button && ev.button !== 0) return true
+    return !!(ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.altKey)
+  }
+
+  function markNavCurrentFromLink (a) {
+    var li = a && a.closest && a.closest('li.nav-item')
+    var menu = document.querySelector('.nav-container [data-panel=menu]')
+    if (!li || !menu || !menu.contains(a)) return
+    menu.querySelectorAll('.nav-item.is-current-page').forEach(function (el) {
+      el.classList.remove('is-current-page')
+    })
+    li.classList.add('is-current-page')
+    if (typeof global.siteNavTreeCurrent === 'function') global.siteNavTreeCurrent()
+  }
+
   function handleLinkClick (ev, a) {
-    if (!a || a.target === '_blank' || a.hasAttribute('download')) return false
+    if (!a || linkOpensNewContext(ev, a)) return false
+    var inNavTree = !!(a.closest && a.closest('.nav-container'))
     var destHref = resolveSoftNavTarget(a) || a.href
     if (!sameOrigin(destHref)) return false
     var dest = pageUrl(destHref)
@@ -703,10 +722,13 @@
         if (dest.href !== window.location.href) {
           history.pushState(history.state || { softNav: true, docNav: true }, '', dest.href)
         }
+      } else if (inNavTree && a.classList.contains('nav-link')) {
+        ev.preventDefault()
+        markNavCurrentFromLink(a)
       }
       return true
     }
-    if (!sameComponent(destHref)) return false
+    if (!sameComponent(destHref) && !inNavTree) return false
     ev.preventDefault()
     navigate(destHref, true)
     return true
