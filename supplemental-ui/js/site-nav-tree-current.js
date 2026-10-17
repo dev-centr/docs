@@ -177,6 +177,7 @@
       applyExpanded(menu, remembered)
       persistMenu(menu)
       restoreNavScroll()
+      markOverviewLabels(menu)
       try {
         document.documentElement.setAttribute('data-snt-nav-ready', '1')
       } catch (e) {
@@ -213,6 +214,7 @@
     applyExpanded(menu, remembered)
     persistMenu(menu)
     restoreNavScroll()
+    markOverviewLabels(menu)
     try {
       document.documentElement.setAttribute('data-snt-nav-ready', '1')
     } catch (e) {
@@ -246,6 +248,130 @@
     matches[0].classList.add('is-current-page')
   }
 
+  function isOverviewLabel (text) {
+    var t = String(text || '').trim().replace(/\s+/g, ' ').toLowerCase()
+    return t === 'overview' || t === 'home'
+  }
+
+  function directChild (el, tagName, className) {
+    var kids = (el && el.children) || []
+    for (var i = 0; i < kids.length; i++) {
+      var k = kids[i]
+      if (k.tagName === tagName && (!className || (k.classList && k.classList.contains(className)))) return k
+    }
+    return null
+  }
+
+  /**
+   * Overview link for a nav node: the first direct child item that is a link
+   * labelled Overview (or Home). Mirrors build-site-navigation.js, which emits
+   * an Overview leaf under every component root / promoted section.
+   */
+  function overviewLinkFor (li) {
+    var list = directChild(li, 'UL', 'nav-list')
+    if (!list) return null
+    var kids = list.children || []
+    for (var i = 0; i < kids.length; i++) {
+      var item = kids[i]
+      if (item.tagName !== 'LI') continue
+      var a = directChild(item, 'A', 'nav-link')
+      if (a && isOverviewLabel(a.textContent) && a.getAttribute('href')) return a
+    }
+    return null
+  }
+
+  function hasModifier (e) {
+    return !!(e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || (e.button && e.button !== 0))
+  }
+
+  function currentPathname () {
+    try {
+      return normalizeHref(window.location.pathname)
+    } catch (e) {
+      return ''
+    }
+  }
+
+  /**
+   * SoftNav when available; otherwise activate the Overview anchor. Skips redundant
+   * navigations when the reader is already on the Overview URL (avoids hard reload
+   * when SoftNav samePath does not preventDefault on in-page nav-link clicks).
+   */
+  function openOverview (overview) {
+    if (!overview) return
+    var href = overview.getAttribute('href') || overview.href
+    if (!href) return
+    var dest = normalizeHref(href)
+    if (dest && dest === currentPathname()) return
+    if (window.SoftNav && typeof window.SoftNav.navigate === 'function') {
+      try {
+        window.SoftNav.navigate(new URL(href, window.location.href).href)
+        return
+      } catch (e) {
+        /* fall through */
+      }
+    }
+    overview.click()
+  }
+
+  /**
+   * Unlinked section labels with an Overview child get .snt-overview-label so
+   * Valentus nav-tree hover/focus chrome matches linked component roots (.nav-link).
+   */
+  function markOverviewLabels (menu) {
+    if (!menu) return
+    menu.querySelectorAll('li.nav-item').forEach(function (li) {
+      if (overviewLinkFor(li)) li.classList.add('snt-overview-label')
+      else li.classList.remove('snt-overview-label')
+    })
+  }
+
+  /**
+   * Parent label with an Overview child: one click expands the node *and* opens
+   * the Overview article. Never collapses (the caret button still toggles).
+   * - Unlinked label (Core, Extensions): stock Default UI would only toggle, so
+   *   take over in capture phase and open Overview via SoftNav when present.
+   * - Linked label (component root): expand first, then let the link navigate
+   *   (or redirect to Overview when the URLs differ).
+   * Nodes without an Overview child keep stock behavior.
+   */
+  function onLabelClick (e) {
+    if (e.defaultPrevented || hasModifier(e)) return
+    var target = e.target
+    if (!target || !target.closest) return
+    var menu = document.querySelector('.nav-container [data-panel=menu]')
+    if (!menu || !menu.contains(target)) return
+    if (target.closest('.nav-item-toggle')) return
+
+    var link = target.closest('a.nav-link')
+    var label = link || target.closest('.nav-text')
+    if (!label) return
+    var li = label.parentNode
+    if (!li || li.tagName !== 'LI' || !li.classList.contains('nav-item')) return
+
+    var overview = overviewLinkFor(li)
+    if (!overview) return
+
+    li.classList.add('is-active')
+    persistMenu(menu)
+
+    var overviewPath = normalizeHref(overview.getAttribute('href') || overview.href)
+    var onOverviewPage = overviewPath && overviewPath === currentPathname()
+
+    if (link) {
+      if (link === overview || normalizeHref(link.getAttribute('href')) === overviewPath) {
+        if (onOverviewPage) e.preventDefault()
+        return
+      }
+      e.preventDefault()
+      openOverview(overview)
+      return
+    }
+    e.stopPropagation()
+    e.preventDefault()
+    openOverview(overview)
+  }
+
   function onToggleClick (e) {
     var toggle = e.target && e.target.closest && e.target.closest('.nav-item-toggle')
     if (!toggle) return
@@ -261,7 +387,10 @@
   window.siteNavTreeSaveScroll = flushNavScroll
   window.siteNavTreeRestoreScroll = restoreNavScroll
 
+  window.siteNavTreeOverviewLink = overviewLinkFor
+  window.siteNavTreeMarkOverviewLabels = markOverviewLabels
   document.addEventListener('click', onToggleClick)
+  document.addEventListener('click', onLabelClick, true)
 
   // Debounced persist while the reader moves the left rail only.
   document.addEventListener(
@@ -296,11 +425,11 @@
   bindPanelScroll()
 
   function onSoftNavLoaded (fn) {
-    if (window.SoftNav && typeof SoftNav.on === 'function') SoftNav.on('loaded', fn)
+    if (window.SoftNav && typeof window.SoftNav.on === 'function') window.SoftNav.on('loaded', fn)
     else document.addEventListener('soft-nav:loaded', function (e) { fn(e.detail || {}) })
   }
   function onSoftNavBefore (fn) {
-    if (window.SoftNav && typeof SoftNav.on === 'function') SoftNav.on('before', fn)
+    if (window.SoftNav && typeof window.SoftNav.on === 'function') window.SoftNav.on('before', fn)
     else document.addEventListener('soft-nav:before', function (e) { fn(e.detail || {}) })
   }
   onSoftNavBefore(function () {
