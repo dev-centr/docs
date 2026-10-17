@@ -2,6 +2,7 @@
 
 == Unreleased
 
+* **Read-width toolbar alignment.** Hub `devcentr-brand.css` left-aligns `.adt-doc-toolbar` on desktop (Valentus **2.1.1**); rebuild picks up rolling `v2` bundle with the same fix upstream.
 * **SoftNav crossfade + same-page nav clicks.** Hub `soft-nav.js` crossfades the doc mast (breadcrumb band), article column, aside TOC, and search scope label while keeping `.adt-site-navbar` and the left forest stable; skips fetch/`navigate` when the destination pathname matches the current URL; always `preventDefault` on same-path link clicks (nav-tree current page no longer hard-reloads). `soft-nav-transitions.css` + `prefers-reduced-motion` respect.
 * **Tools forest xref fix.** Eight product repos (rules-manager, msi-generator, repo-drive, issues-browser, fixnow-dev, equivalence-engine, libequivalence, agentic-email-integration) now publish as `tools` named modules so `xref:tools:<module>:...` and hub `tools-docs` nav entries resolve; Tools overview note updated.
 * **Nav tree cross-component SoftNav.** Hub `soft-nav.js` intercepts all same-origin `.nav-container` link clicks (not only same Antora component), so forest hops (Home ↔ General Knowledge ↔ Tools ↔ Platforms) swap mast/article without a full reload or left-rail flicker. Modifier / middle-click still open a new tab; in-tree same-path clicks suppress redundant reloads and refresh current-page chrome.
