@@ -22,6 +22,7 @@ antora:
   extensions:
     - '@antora/lunr-extension'
     - require: '@antora-supplemental/site-nav-tree'
+      filter: true
       # Curated forest roots only — wiring a product source ≠ sidebar root.
       include:
         - home

@@ -17,6 +17,7 @@ antora:
   extensions:
     - '@antora/lunr-extension'
     - require: '@antora-supplemental/site-nav-tree'
+      filter: true
       include:
         - home
         - general-knowledge
