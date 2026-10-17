@@ -1,0 +1,72 @@
+name: Link validator nightly
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      invalidate_sources:
+        description: Comma-separated source pages to force live recheck
+        required: false
+      invalidate_urls:
+        description: Comma-separated URLs to force live recheck
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  full-refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v6
+        with:
+          package_json_file: package.json
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Start Kroki
+        run: docker compose -f docker-compose.kroki.yml up -d
+
+      - name: Wait for Kroki
+        run: |
+          for i in $(seq 1 60); do
+            if curl -sf http://127.0.0.1:8000/health >/dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          exit 1
+
+      - name: Antora build (full link refresh)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LINK_VALIDATOR_CACHE_BYPASS: 'true'
+          LINK_VALIDATOR_INVALIDATE_SOURCES: ${{ github.event.inputs.invalidate_sources }}
+          LINK_VALIDATOR_INVALIDATE_URLS: ${{ github.event.inputs.invalidate_urls }}
+        uses: antora-supplemental/antora-build-action@v3
+        with:
+          playbook: antora-playbook.yml
+          output_dir: build/site
+          install_dependencies: false
+          setup_pnpm: false
+          setup_node: false
+          fetch: true
+
+      - name: Upload link validator report
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-validator-report
+          path: |
+            build/site/link-validator/report.json
+            build/site/link-validator/report.md
+          if-no-files-found: warn

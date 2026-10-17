@@ -60,8 +60,18 @@ jobs:
           docker compose -f docker-compose.kroki.yml logs || true
           exit 1
 
+      - name: Restore link check cache
+        uses: actions/cache@v4
+        with:
+          path: .link-check-cache.json
+          key: link-check-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml', '.antora-link-suppressions.yml') }}
+          restore-keys: |
+            link-check-cache-${{ runner.os }}-
+
       - name: Build Antora site
         id: antora
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: antora-supplemental/antora-build-action@v3
         with:
           playbook: antora-playbook.yml
