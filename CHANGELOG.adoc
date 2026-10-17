@@ -2,6 +2,7 @@
 
 == Unreleased
 
+* **Doc toolbar inset.** Hub `devcentr-brand.css` sets `padding-inline` on `.adt-doc-toolbar` to match `article.doc` (`--adt-doc-pad-inline`, 1rem fallback) when the deployed UI bundle predates Valentus **2.1.2**.
 * Bump `@antora-supplemental/facto-stack` to **v0.2.22** — `@antora-supplemental/linkinator` **v0.1.10** (opaque Wayback chip on hover/focus).
 * **GitHub topics (direct deps).** Document hub topic policy in xref:docs-site/antora-ui-branding.adoc#_github_repository_topics_direct_deps[Antora UI branding]; retag this repo (drop transitive pack-member topics; keep `valentus-theme`, `facto-stack`, and direct `package.json` pins). Canonical: link:https://docs.antora-supplemental.org/docs/hub-github-topics/[Hub GitHub topics^] (`docs.antora-supplemental.org`, not apex `/docs/home/…`).
 * **Read-width toolbar alignment.** Valentus **2.1.2** shares `--adt-doc-pad-inline` between `.adt-doc-toolbar` and `article.doc` so the control lines up with prose; removed redundant hub `devcentr-brand.css` override (2.1.1 flex-start shim).

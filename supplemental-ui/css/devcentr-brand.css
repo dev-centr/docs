@@ -450,3 +450,8 @@ main.adt-article > .content {
   min-width: 0;
 }
 
+/* Read-width row: same horizontal inset as article.doc (Valentus 2.1.2+ in site-doc-layout; fallback until deploy refreshes v2 bundle). */
+main.adt-article > .content > .adt-doc-toolbar {
+  padding-inline: var(--adt-doc-pad-inline, 1rem);
+}
+
