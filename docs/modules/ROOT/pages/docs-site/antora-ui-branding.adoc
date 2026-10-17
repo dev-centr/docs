@@ -25,7 +25,7 @@ This playbook tags **direct** dependencies only so `topic:<repo>` search matches
 * *Tagged here:* `valentus-theme` (UI bundle), `facto-stack` (compose pack), `page-context`, packages pinned in this repo's `package.json` (for example `link-validator`, `site-nav-tree`, `soft-nav-page-toc`, maint tooling).
 * *Not tagged:* extensions registered only through facto-stack (`linkinator`, `page-edit`, `antora-search-chat`, `nav-typology`, `build-stack`, …). Pack releases communicate those bumps; the footer lists `facto-stack` once.
 
-Convention: link:https://antora-supplemental.org/docs/home/hub-github-topics.html[Hub GitHub topics^] · link:https://github.com/antora-supplemental/valentus-theme/blob/main/docs/modules/guide/pages/github-topics.adoc[Valentus GitHub Topics^]. Skill: `antora-extension-consumers`.
+Convention: link:https://docs.antora-supplemental.org/docs/hub-github-topics/[Hub GitHub topics^] · link:https://github.com/antora-supplemental/valentus-theme/blob/main/docs/modules/guide/pages/github-topics.adoc[Valentus GitHub Topics^]. Skill: `antora-extension-consumers`.
 
 == DevCentr accent overlay
 
