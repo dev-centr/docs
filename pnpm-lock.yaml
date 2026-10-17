@@ -276,6 +276,13 @@ packages:
     peerDependencies:
       '@antora/site-generator': '>=3.1.0'
 
+  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/f87d212a84aa11c3273822b4904c3d4706644235':
+    resolution: {tarball: https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/f87d212a84aa11c3273822b4904c3d4706644235}
+    version: 0.6.0
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@antora/site-generator': '>=3.1.0'
+
   '@antora-supplemental/soft-nav-page-toc@https://codeload.github.com/antora-supplemental/soft-nav-page-toc/tar.gz/e14807953757708297d2ac4f1ffac1a2810b3ccb':
     resolution: {tarball: https://codeload.github.com/antora-supplemental/soft-nav-page-toc/tar.gz/e14807953757708297d2ac4f1ffac1a2810b3ccb}
     version: 0.1.6
@@ -2003,6 +2010,10 @@ snapshots:
       js-yaml: 4.1.1
 
   '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/e2cf7d4ee80e03e40de929507685b1530616c45f(@antora/site-generator@3.1.14)':
+    dependencies:
+      '@antora/site-generator': 3.1.14
+
+  '@antora-supplemental/site-nav-tree@https://codeload.github.com/antora-supplemental/site-nav-tree/tar.gz/f87d212a84aa11c3273822b4904c3d4706644235(@antora/site-generator@3.1.14)':
     dependencies:
       '@antora/site-generator': 3.1.14
 
