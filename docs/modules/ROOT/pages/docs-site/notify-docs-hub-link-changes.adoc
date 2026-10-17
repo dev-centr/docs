@@ -48,9 +48,24 @@ On `link-cache-invalidate`, the build step maps `github.event.client_payload` to
 
 Deploy runs for `repository_dispatch` even when the hub checkout ref is not `refs/heads/main` (Pages still publishes the built artifact from the dispatched run).
 
+== Org secret checklist
+
+Use secret name **`DOCS_HUB_DISPATCH_TOKEN`** in every org that runs a docs hub. Each org stores **its own token value** (not one token shared across orgs).
+
+[cols="1,2",options="header"]
+|===
+| Org | Token must `repository_dispatch` into
+
+| dev-centr | `dev-centr/docs` (this hub)
+| dlang-supplemental | `dlang-supplemental/docs` — see https://dlang-supplemental.github.io/docs/notify-docs-hub-link-changes.html[DLang hub how-to^]
+| antora-supplemental | `antora-supplemental/docs` — see https://docs.antora-supplemental.org/notify-docs-hub-link-changes.html[Antora hub how-to^]
+|===
+
+Fine-grained PAT or GitHub App installation token; content repos inherit the org secret. Reusable workflows reference `secrets.DOCS_HUB_DISPATCH_TOKEN`. Callers skip dispatch when the secret is missing (configure before relying on auto-rebuild).
+
 == Fire a dispatch with `gh`
 
-Org admins store a fine-grained PAT or GitHub App token as org secret **`DOCS_HUB_DISPATCH_TOKEN`** (content repos inherit it; name matches the reusable workflow).
+Org admins store the token as organization secret **`DOCS_HUB_DISPATCH_TOKEN`** for the dev-centr org.
 
 [source,shell]
 ----

@@ -2,7 +2,7 @@
 
 == Unreleased
 
-* **Hub link-cache invalidation.** Deploy listens for `repository_dispatch` type `link-cache-invalidate`; maps payload `sources` / `urls` / `ref` to link-validator env and checkout. How-to: xref:docs-site/notify-docs-hub-link-changes.adoc[Notify the docs hub of link changes]. Reusable dispatch workflow in `dev-centr/agent-rules`.
+* **Hub link-cache invalidation.** Deploy listens for `repository_dispatch` type `link-cache-invalidate`; maps payload `sources` / `urls` / `ref` to link-validator env and checkout. How-to: xref:docs-site/notify-docs-hub-link-changes.adoc[Notify the docs hub of link changes] (multi-org `DOCS_HUB_DISPATCH_TOKEN` checklist). Reusable dispatch workflow in `dev-centr/agent-rules`.
 * **Link validator v0.2.2.** Pin `@antora-supplemental/link-validator#v0.2.2` (core throttling, file cache, quiet CI, surgical invalidation). Deploy passes `GITHUB_TOKEN`, restores `.link-check-cache.json`; nightly `link-validator-nightly.yml` runs `LINK_VALIDATOR_CACHE_BYPASS=true`. Removed GitHub blob/edit suppressions (handled by auth + cache + deferred 429).
 * **Link validator CI reliability.** Hub `.antora-link-suppressions.yml` covers local/placeholder hosts and Google Fonts roots; production playbooks use cache, concurrency `6`, per-URL timeout `15s`, and cap archived report history (`5`) while `failLevel: none` stays unchanged.
 * **Home nav reorganized.** The misnamed **Software publishing** group is now **Docs site** (hub component naming, Antora UI branding, essential extensions, diagram formats, nav scroll A/B); pages moved `pages/publishing/` -> `pages/docs-site/` and xrefs updated (including `devcentr` specifications and `general-knowledge` reliability pages).
