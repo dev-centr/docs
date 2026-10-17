@@ -450,9 +450,3 @@ main.adt-article > .content {
   min-width: 0;
 }
 
-/* Read-width control: left with article (Valentus 2.1.1; beats stale v2 bundle flex-end). */
-@media screen and (min-width: 1024px) {
-  .adt-doc-toolbar {
-    justify-content: flex-start;
-  }
-}
