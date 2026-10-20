@@ -2,6 +2,7 @@
 
 == Unreleased
 
+* Pin `@antora-supplemental/facto-stack` **v0.2.38** (disk-search banner wraps inside the frame).
 * Pin `@antora-supplemental/facto-stack` **v0.2.37** (disk-search banner prints once, as ASCII, on Windows).
 * **Opaque search dock.** `@antora-supplemental/facto-stack` **v0.2.36** / `@antora-supplemental/antora-search-chat` **v0.1.16**: the floating search shell stays solid. Theme rules that clear `.adt-nav-search` no longer let the page show through the dock, tabs, scope menu, hits, or capability row.
 * **Search dock UX.** `@antora-supplemental/facto-stack` **v0.2.35** / `@antora-supplemental/antora-search-chat` **v0.1.15**: stable Search/Ask shell (mode tabs under query, scope disabled in Ask, capability strip at dock bottom), opaque Lunr/scope/hover surfaces.
