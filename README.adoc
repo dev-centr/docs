@@ -47,9 +47,8 @@ This repository contains the Antora playbook and configuration for the **Dev Cen
 
 |===
 | File | Description
-| `antora-playbook.yml` | Production Antora playbook. Uses remote GitHub URLs for all content sources and the published UI bundle. Used by CI/CD.
-| `antora-playbook-local.yml` | Local sibling-repo playbook (committed). Expects content repos as siblings (see the playbook `sources` list: `../devcentr`, `../switchyard`, `../msi-generator`, …).
-| `antora-playbook.testing.yml` | Same local content sources, but points `ui.bundle` at `../valentus-theme/build/ui-bundle.zip` for theme work.
+| `antora-playbook.yml` | Production playbook (also used locally). Remote GitHub URLs in git; `@antora-supplemental/antora-local-content-sources` rewrites them to local clones when markers exist (auto off in CI). Snapshot: `build/.antora/antora-playbook-local.generated.yml`.
+| `antora-playbook.testing.yml` | Local Valens theme bundle (`../valentus-theme/build/ui-bundle.zip`); legacy flat extensions for fast UI iteration.
 | `supplemental-ui/` | Site overlay on the valentus-theme 2.x UI bundle: custom domain `CNAME`, accent-token brand CSS, header logo under `img/`, and a thin `head-meta.hbs` fork (FOUC paint-hold + preference boot scripts vendored from Valentus, plus the brand stylesheet link). Header logo / navbar text use playbook `site.keys`.
 | `.vscode/` | VS Code folder settings and extension recommendations for this playbook repo.
 | `package.json` | Defines dependencies and build scripts.
@@ -76,11 +75,12 @@ the standard internal `modules/<MODULE>/…` layout. There is deliberately **no*
 `modules/` tree at the repo root: no playbook `start_path` points there, so
 anything placed there would look published but never build.
 
-Playbooks: `antora-playbook.yml` (production, remote sources),
-`antora-playbook-local.yml` (sibling checkouts), and
-`antora-playbook.testing.yml` (same local sources with a locally built
-Valentus UI bundle — kept for local experimentation and fast theme dev loops;
-not used by CI).
+Playbooks: `antora-playbook.yml` (production + local — source resolution at build time),
+and `antora-playbook.testing.yml` (local Valens bundle for theme work; not CI).
+
+Each content repo can advertise its clone with a stable marker at the repo root:
+`.antora-src-*` (see https://github.com/antora-supplemental/antora-local-content-sources[antora-local-content-sources]).
+This hub repo includes `.antora-source-id` and its hash marker for `dev-centr/docs`.
 
 link:#readme-top[back to top]
 
@@ -107,7 +107,7 @@ link:#readme-top[back to top]
 
 === Getting Started (Local Development)
 
-Clone the content repos as siblings of this playbook repo (see `antora-playbook-local.yml`), start local Kroki (Mermaid companion), then build:
+Clone content repos anywhere on your machine (hive layout under `%code%/github.com/dev-centr/…` works). Add each repo's `.antora-src-*` marker (or rely on the hive path heuristic). Start local Kroki, then build:
 
 [source,powershell]
 ----
@@ -142,7 +142,7 @@ The output will be generated in the `build/site` directory (or as configured in 
 | Command | Purpose
 | `pnpm install` | Install dependencies
 | `pnpm kroki:up` / `pnpm kroki:down` | Start/stop local Kroki+Mermaid (`docker-compose.kroki.yml`)
-| `pnpm build` | Build site with local playbook (`antora-playbook-local.yml`)
+| `pnpm build` | Build site (`antora-playbook.yml` + local source resolution)
 | `pnpm build:testing` | Build with testing playbook (e.g. local UI bundle)
 | `pnpm run build:online` | Build with remote sources (production/CI)
 |===

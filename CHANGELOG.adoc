@@ -2,6 +2,7 @@
 
 == Unreleased
 
+* **Local content without committed local playbook.** Removed `antora-playbook-local.yml`. `pnpm build` uses `antora-playbook.yml` plus `@antora-supplemental/antora-local-content-sources` (v0.1.0): marker-based clone discovery, `build/.antora/local-content-cache.json`, generated `build/.antora/antora-playbook-local.generated.yml`. Hub markers: `.antora-source-id` + `.antora-src-e3cf0439ac8b22aea9c985f358734acf`. Optional D accelerator: https://github.com/antora-supplemental/antora-source-resolver[antora-source-resolver].
 * **Dedupe on facto-stack as provider.** package.json drops the member pins (page-context, site-nav-tree, soft-nav-page-toc, link-validator, Lunr, Kroki, emoji, maint CLIs, triage-ux-kit) and the publicHoistPattern; only acto-stack + ntora remain. Maint scripts run via acto-maint. Repo topics: acto-stack only.
 * **Doc toolbar inset.** Hub `devcentr-brand.css` sets `padding-inline` on `.adt-doc-toolbar` to match `article.doc` (`--adt-doc-pad-inline`, 1rem fallback) when the deployed UI bundle predates Valentus **2.1.2**.
 * Bump `@antora-supplemental/facto-stack` to **v0.2.22** — `@antora-supplemental/linkinator` **v0.1.10** (opaque Wayback chip on hover/focus).
