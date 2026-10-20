@@ -1,6 +1,6 @@
 # DevCentr Docs — CI/production (dev-centr repos only)
 # Standard name: antora-playbook.yml.
-# Local clones: same file + @antora-supplemental/antora-local-content-sources (auto off in CI).
+# Local clones: same file; facto-stack registers antora-local-content-sources (auto off in CI).
 # Generated snapshot: build/.antora/antora-playbook-local.generated.yml (gitignored).
 # Local UI bundle only: antora-playbook.testing.yml.
 site:
@@ -22,8 +22,6 @@ urls:
   html_extension_style: indexify
 antora:
   extensions:
-    - require: '@antora-supplemental/antora-local-content-sources'
-      mode: auto
     # Local dark-mode SVG guard (not part of the compose pack).
     - ./lib/verify-themed-svg-dark-mode.js
     # Compose pack: footer lists "facto-stack" once (hub profile; members are not listed individually).

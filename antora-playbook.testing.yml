@@ -1,4 +1,4 @@
-# Local UI / theme testing — same sibling content as antora-playbook-local.yml,
+# Local UI / theme testing — same content sources as antora-playbook.yml (local clone resolution via facto-stack),
 # but uses a local valentus-theme UI bundle. Build the theme first, then:
 #   pnpm build:testing
 site:

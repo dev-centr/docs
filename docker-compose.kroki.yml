@@ -1,6 +1,6 @@
 # Local Kroki for Antora builds (Mermaid needs the companion container).
 # Usage: docker compose -f docker-compose.kroki.yml up -d
-#        pnpm build   # antora-playbook-local.yml points here
+#        pnpm build   # antora-playbook.yml (local Kroki URL in attributes when needed)
 # Tear down: docker compose -f docker-compose.kroki.yml down
 services:
   kroki:

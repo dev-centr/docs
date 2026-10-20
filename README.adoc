@@ -47,7 +47,7 @@ This repository contains the Antora playbook and configuration for the **Dev Cen
 
 |===
 | File | Description
-| `antora-playbook.yml` | Production playbook (also used locally). Remote GitHub URLs in git; `@antora-supplemental/antora-local-content-sources` rewrites them to local clones when markers exist (auto off in CI). Snapshot: `build/.antora/antora-playbook-local.generated.yml`.
+| `antora-playbook.yml` | Production playbook (also used locally). Remote GitHub URLs in git; `@antora-supplemental/facto-stack` registers `antora-local-content-sources` to rewrite remotes to local clones when markers exist (auto off in CI). Snapshot: `build/.antora/antora-playbook-local.generated.yml`.
 | `antora-playbook.testing.yml` | Local Valens theme bundle (`../valentus-theme/build/ui-bundle.zip`); legacy flat extensions for fast UI iteration.
 | `supplemental-ui/` | Site overlay on the valentus-theme 2.x UI bundle: custom domain `CNAME`, accent-token brand CSS, header logo under `img/`, and a thin `head-meta.hbs` fork (FOUC paint-hold + preference boot scripts vendored from Valentus, plus the brand stylesheet link). Header logo / navbar text use playbook `site.keys`.
 | `.vscode/` | VS Code folder settings and extension recommendations for this playbook repo.
@@ -78,9 +78,7 @@ anything placed there would look published but never build.
 Playbooks: `antora-playbook.yml` (production + local — source resolution at build time),
 and `antora-playbook.testing.yml` (local Valens bundle for theme work; not CI).
 
-Each content repo can advertise its clone with a stable marker at the repo root:
-`.antora-src-*` (see https://github.com/antora-supplemental/antora-local-content-sources[antora-local-content-sources]).
-This hub repo includes `.antora-source-id` and its hash marker for `dev-centr/docs`.
+Each content repo can advertise its clone with a stable marker at the repo root: `.antora-source-id` (see https://github.com/antora-supplemental/antora-local-content-sources[antora-local-content-sources]). This hub repo includes one for `dev-centr/docs`.
 
 link:#readme-top[back to top]
 
