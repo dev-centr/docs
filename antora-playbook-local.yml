@@ -48,6 +48,9 @@ antora:
         # BB capability URLs use /how-to|tutorials|.../ as tree folders, not Diataxis buckets.
         diataxisUrlExcludePrefixes:
           - /business-bootstrap/
+      searchChat:
+        # Floating bottom dock (results open upward); top bar keeps brand + actions only.
+        placement: dock
       softNavPageToc:
         injectScript: false
       mermaidClient:
