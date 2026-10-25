@@ -1,0 +1,13 @@
+= account
+:description: Account is refused for the membership object because sites already use it for the login selector.
+:navtitle: account
+
+Account is the word sites use when they kick you back to the login selector.
+Which email, which saved session, which person.
+
+It cannot also mean the studio, the nonprofit, or the team that holds the plan.
+Those are xref:glossary/entity.adoc[entities].
+The person who signed in is a xref:glossary/user.adoc[user].
+
+Using account for both is the bug.
+The picker looks like a login screen, so people get sent to choose a session when they were choosing what the subscription belongs to.

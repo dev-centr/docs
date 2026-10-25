@@ -1,0 +1,13 @@
+= organization
+:description: Organization is the current schema table name. It is not the picker label.
+:navtitle: organization
+
+Organization is OpenAI's word for this split, and the linx.photos table is already named organizations.
+The shape is right.
+The customer word is wrong.
+It sounds like a company.
+A solo photographer and a gifted nonprofit are both xref:glossary/entity.adoc[entities].
+
+Keep the table name until a rename is worth the migration.
+Do not say organization on the picker.
+The picker says "Choose an entity:"

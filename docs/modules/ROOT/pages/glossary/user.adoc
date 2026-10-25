@@ -1,0 +1,14 @@
+= user
+:page-glossary-synonyms: login
+:description: A user is the login. A person who can authenticate. Not a plan, and not the thing a plan is applied to.
+:navtitle: user
+
+A user is the login.
+A person, a session, an email that can sign in.
+
+A user is not a plan.
+A user is not a studio, a nonprofit, or a team.
+A user can belong to many xref:glossary/entity.adoc[entities], including one that is only themselves.
+
+Do not say xref:glossary/account.adoc[account] when you mean user, if the same screen also has entities.
+The login selector and the membership selector cannot share a word.

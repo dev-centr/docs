@@ -1,0 +1,30 @@
+= Nomenclature
+:description: One glossary page per term. Words we will use, and words we refuse to overload, each get a page.
+:navtitle: Nomenclature
+
+We have to say what we are willing to call things.
+A wrong word is a product decision.
+Account, workspace, and organization each smuggle a different object into the same sentence.
+
+The glossary is the record.
+One page per term.
+An article that needs the word links to the page.
+It does not redefine it.
+
+== Glossary
+
+Browse every term on xref:glossary.adoc[one page].
+
+* xref:glossary/user.adoc[user] -- the login
+* xref:glossary/entity.adoc[entity] -- the thing a user creates or joins, and the thing a plan is applied to
+* xref:glossary/account.adoc[account] -- refused for that second object, because it already means the login selector
+* xref:glossary/workspace.adoc[workspace] -- a place-word for a screen that is not a place
+* xref:glossary/organization.adoc[organization] -- the schema table, not the picker label
+
+The purchase picker says **Choose an entity:**
+That rule is on the entity page.
+
+Confluence does not ship a governed glossary.
+Antora does not highlight these terms inside other pages.
+Those are tools.
+This page is the decision to keep the words in one glossary.

@@ -6,6 +6,10 @@
 
 This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see the xref:../changelog.adoc[Changelog Index]; for release tags, see repository tags and release notes.
 
+== 2026-10-24 - Public glossary
+
+* **Glossary on the hub.** antora-glossary **v0.1.2** (bundled by facto-stack **v0.2.68**): alphabet index at xref:glossary.adoc[Glossary], one page per term, whole-word highlights, and `glossary.json` export. First terms (user, entity, account, workspace, organization) and xref:nomenclature.adoc[Nomenclature] moved here from team-docs, which now imports this site's glossary.
+
 == 2026-10-17 — Changelog Index, Docs site dedupe, and nav-current fixes
 
 * **Activity Log is now the Changelog Index.** This page moved to Org-wide Changelog under a new xref:../changelog.adoc[Changelog Index] landing that lists every component changelog; `/home/activity-log/` aliases here.

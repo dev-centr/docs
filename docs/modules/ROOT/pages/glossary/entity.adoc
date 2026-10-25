@@ -1,0 +1,27 @@
+= entity
+:description: An entity is the thing a user creates or joins. Plans and storage attach to it. The picker says Choose an entity.
+:navtitle: entity
+
+An entity is separate from the login.
+A xref:glossary/user.adoc[user] creates one, or joins one.
+Membership is the relation between them.
+The plan, the storage, and the permission to apply a purchase live on the entity.
+
+The picker says **Choose an entity:**
+It lists every entity the signed-in user can see.
+Entities they can see but cannot apply a plan to are shown and disabled.
+Seeing one is not permission to bill it.
+
+Buying a subscription or giving one does not stamp the buyer's user.
+The buyer chooses an entity they are allowed to change.
+A gift stores the recipient email so that person can sign in, then they choose an entity they are allowed to change.
+
+"Entity" is the product word, including on the picker.
+In a model it means a distinct thing.
+It does not mean a database row.
+
+linx.photos does not do this yet: accepting a gift writes the plan onto the signed-in user.
+
+Not an xref:glossary/account.adoc[account].
+Not a xref:glossary/workspace.adoc[workspace].
+Not an xref:glossary/organization.adoc[organization] in the UI.

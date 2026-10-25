@@ -3,6 +3,7 @@
 == Unreleased
 
 * Float `@antora-supplemental/facto-stack` on rolling minor git pin **`#v0.2`** (resolves **v0.2.64** today; patch bumps without editing `package.json`).
+* **Glossary on the hub.** facto-stack `#v0.2` now resolves **v0.2.68**, which bundles `@antora-supplemental/glossary` **v0.1.2** (no separate require). Home gains xref:home::nomenclature.adoc[Nomenclature] and the public terms user, entity, account, workspace, organization (moved from team-docs); the site exports `glossary.json` for other sites to import.
 * **Search dock above the footer.** `@antora-supplemental/facto-stack` **v0.2.40** / `@antora-supplemental/antora-search-chat` **v0.1.17**: the search bar stays on screen and occupies layout space between the page and the footer, so footer links stay clickable.
 * `pnpm antora` installs when the lockfile is newer than node_modules (git tag bumps). It does not move the facto-stack pin by itself; pull the repo first.
 * Pin `@antora-supplemental/facto-stack` **v0.2.39** (Windows disk search uses a dialog instead of the Y/n banner).

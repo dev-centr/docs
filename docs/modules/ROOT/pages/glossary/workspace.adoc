@@ -1,0 +1,18 @@
+= workspace
+:description: Workspace is a spatial metaphor. Do not use it for a list of names and plans.
+:navtitle: workspace
+
+Workspace is a place-word.
+Slack, Notion, and Figma use it for the thing you join.
+That is a truce they made because they did not have a precise word.
+It is not evidence.
+
+If the word is spatial, the screen has to be spatial.
+A list of names and prices is not a place.
+It is scalar values to memorize.
+The word would be lying.
+
+It also drags in the mid-2000s IDE, where a workspace was a folder of files.
+We are not describing a directory.
+
+The thing you belong to is an xref:glossary/entity.adoc[entity].
