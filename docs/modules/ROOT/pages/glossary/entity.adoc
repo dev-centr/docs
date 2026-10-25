@@ -20,7 +20,7 @@ A gift stores the recipient email so that person can sign in, then they choose a
 In a model it means a distinct thing.
 It does not mean a database row.
 
-linx.photos does not do this yet: accepting a gift writes the plan onto the signed-in user.
+Known gap: https://github.com/LinxPhotos/photo-service/issues/14[linx.photos gift acceptance writes the plan onto the user].
 
 Not an xref:glossary/account.adoc[account].
 Not a xref:glossary/workspace.adoc[workspace].
