@@ -1,21 +1,21 @@
 /*
  * Independent column scroll for Valentus 2.x on the DevCentr docs hub.
  *
- * With 2.1.0+, read-width lives in .adt-doc-toolbar (article column only).
- * Nav sticky top follows Valentus --adt-chrome-sticky-top (mast, or 0 when scroll-away).
+ * With 2.1.0+, read-width lives in .valentus-doc-toolbar (article column only).
+ * Nav sticky top follows Valentus --valentus-chrome-sticky-top (mast, or 0 when scroll-away).
  * [data-panel=menu] is the vertical scrollport; tree uses horizontal edge-fade only.
  */
 @media screen and (min-width: 1024px) {
-  .body.adt-body {
+  .body.valentus-body {
     align-items: flex-start !important;
   }
 
-  .body.adt-body > .nav-container,
+  .body.valentus-body > .nav-container,
   .nav-container {
     align-self: flex-start !important;
     position: sticky !important;
-    top: var(--adt-chrome-sticky-top, var(--adt-mast-total, calc(3.5rem + 2.75rem))) !important;
-    max-height: calc(100vh - var(--adt-chrome-sticky-top, var(--adt-mast-total, calc(3.5rem + 2.75rem)))) !important;
+    top: var(--valentus-chrome-sticky-top, var(--valentus-mast-total, calc(3.5rem + 2.75rem))) !important;
+    max-height: calc(100vh - var(--valentus-chrome-sticky-top, var(--valentus-mast-total, calc(3.5rem + 2.75rem)))) !important;
     min-height: 0 !important;
     overflow: hidden !important;
     display: flex !important;
@@ -24,9 +24,9 @@
   }
 
   @supports (height: 100dvh) {
-    .body.adt-body > .nav-container,
+    .body.valentus-body > .nav-container,
     .nav-container {
-      max-height: calc(100dvh - var(--adt-chrome-sticky-top, var(--adt-mast-total, calc(3.5rem + 2.75rem)))) !important;
+      max-height: calc(100dvh - var(--valentus-chrome-sticky-top, var(--valentus-mast-total, calc(3.5rem + 2.75rem)))) !important;
     }
   }
 
@@ -49,7 +49,7 @@
     max-height: 100% !important;
   }
 
-  body.adt-body .nav .nav-panel-menu,
+  body.valentus-body .nav .nav-panel-menu,
   .nav-container .nav-panel-menu,
   .nav-panel-menu {
     flex: 1 1 auto !important;
@@ -63,12 +63,12 @@
     -ms-scroll-chaining: none !important;
   }
 
-  body.adt-body .nav nav.nav-menu.nav-tree-only,
-  body.adt-body .nav nav.nav-menu.adt-nav-tree-only,
+  body.valentus-body .nav nav.nav-menu.nav-tree-only,
+  body.valentus-body .nav nav.nav-menu.valentus-nav-tree-only,
   .nav-container nav.nav-menu.nav-tree-only,
-  .nav-container nav.nav-menu.adt-nav-tree-only,
+  .nav-container nav.nav-menu.valentus-nav-tree-only,
   nav.nav-menu.nav-tree-only,
-  nav.nav-menu.adt-nav-tree-only {
+  nav.nav-menu.valentus-nav-tree-only {
     flex: 0 0 auto !important;
     min-height: 0 !important;
     height: auto !important;

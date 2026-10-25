@@ -1,24 +1,24 @@
 /* SoftNav crossfade targets (opacity driven inline; class documents intent). */
 @media (prefers-reduced-motion: no-preference) {
-  .adt-doc-mast,
-  .adt-doc-mast-center,
+  .valentus-doc-mast,
+  .valentus-doc-mast-center,
   main.article .content,
   main.article,
   article.doc,
   aside.toc.sidebar,
-  [data-adt-search-chat] [data-adt-search-scope-slot] {
+  [data-valentus-search-chat] [data-valentus-search-scope-slot] {
     will-change: opacity;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .adt-doc-mast,
-  .adt-doc-mast-center,
+  .valentus-doc-mast,
+  .valentus-doc-mast-center,
   main.article .content,
   main.article,
   article.doc,
   aside.toc.sidebar,
-  [data-adt-search-chat] [data-adt-search-scope-slot] {
+  [data-valentus-search-chat] [data-valentus-search-scope-slot] {
     transition: none !important;
   }
 }

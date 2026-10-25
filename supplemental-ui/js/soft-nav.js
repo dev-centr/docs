@@ -1,7 +1,7 @@
 /**
  * SoftNav — same-origin soft navigation for Antora UI chrome.
  *
- * Swaps breadcrumb mast + article by default; keeps `.adt-site-navbar` and the left
+ * Swaps breadcrumb mast + article by default; keeps `.valentus-site-navbar` and the left
  * nav tree stable (swapNav=false). Crossfades mast, article, aside TOC, and search
  * scope label (not the full navbar). Rebuilds aside page TOC, scrolls to top on
  * children under their parent in the nav tree.
@@ -121,12 +121,12 @@
   function fadeTargetEls () {
     var list = []
     var mast =
-      document.querySelector('.adt-doc-mast') ||
-      document.querySelector('.adt-doc-mast-center') ||
+      document.querySelector('.valentus-doc-mast') ||
+      document.querySelector('.valentus-doc-mast-center') ||
       document.querySelector('nav.breadcrumbs')
     var article = articleHostEl()
     var toc = document.querySelector('aside.toc.sidebar')
-    var scopeSlot = document.querySelector('[data-adt-search-chat] [data-adt-search-scope-slot]')
+    var scopeSlot = document.querySelector('[data-valentus-search-chat] [data-valentus-search-scope-slot]')
     if (mast) list.push(mast)
     if (article) list.push(article)
     if (toc) list.push(toc)
@@ -183,8 +183,8 @@
 
   function syncSearchScopeFromDoc (doc) {
     if (!doc || !doc.querySelector) return
-    var freshRoot = doc.querySelector('[data-adt-search-chat]')
-    var liveRoot = document.querySelector('[data-adt-search-chat]')
+    var freshRoot = doc.querySelector('[data-valentus-search-chat]')
+    var liveRoot = document.querySelector('[data-valentus-search-chat]')
     if (!freshRoot || !liveRoot) return
     ;['data-component-title', 'data-component-name', 'data-version-display', 'data-version'].forEach(
       function (attr) {
@@ -192,8 +192,8 @@
         if (v != null) liveRoot.setAttribute(attr, v)
       }
     )
-    var scopeLabel = liveRoot.querySelector('[data-adt-search-scope-label]')
-    var freshLabel = freshRoot.querySelector('[data-adt-search-scope-label]')
+    var scopeLabel = liveRoot.querySelector('[data-valentus-search-scope-label]')
+    var freshLabel = freshRoot.querySelector('[data-valentus-search-scope-label]')
     if (scopeLabel && freshLabel) scopeLabel.textContent = freshLabel.textContent
   }
 
@@ -251,15 +251,15 @@
 
   function bindBreadcrumbDropdowns (scope) {
     if (!scope) return
-    ;[].forEach.call(scope.querySelectorAll('.adt-bc-dropdown'), function (el) {
+    ;[].forEach.call(scope.querySelectorAll('.valentus-bc-dropdown'), function (el) {
       el.addEventListener('click', function (e) {
         e.stopPropagation()
       })
     })
-    ;[].forEach.call(scope.querySelectorAll('[data-adt-toggle]'), function (button) {
-      if (button.getAttribute('data-adt-bound')) return
-      button.setAttribute('data-adt-bound', '1')
-      var id = button.getAttribute('data-adt-toggle')
+    ;[].forEach.call(scope.querySelectorAll('[data-valentus-toggle]'), function (button) {
+      if (button.getAttribute('data-valentus-bound')) return
+      button.setAttribute('data-valentus-bound', '1')
+      var id = button.getAttribute('data-valentus-toggle')
       if (!id) return
       var list = document.getElementById(id)
       if (!list) return
@@ -267,11 +267,11 @@
         e.preventDefault()
         e.stopPropagation()
         var isHidden = list.hasAttribute('hidden')
-        ;[].forEach.call(document.querySelectorAll('.adt-bc-dropdown'), function (dd) {
+        ;[].forEach.call(document.querySelectorAll('.valentus-bc-dropdown'), function (dd) {
           if (dd === list) return
           dd.setAttribute('hidden', 'hidden')
         })
-        ;[].forEach.call(document.querySelectorAll('[data-adt-toggle]'), function (b) {
+        ;[].forEach.call(document.querySelectorAll('[data-valentus-toggle]'), function (b) {
           b.setAttribute('aria-expanded', 'false')
         })
         if (isHidden) {
@@ -570,12 +570,12 @@
   }
 
   function setCurrentCrumbLabel (current, label) {
-    var curLink = current.querySelector('a.adt-breadcrumb-trail-link')
+    var curLink = current.querySelector('a.valentus-breadcrumb-trail-link')
     if (curLink) {
       curLink.textContent = label
       return
     }
-    var text = current.querySelector('.adt-breadcrumb-trail-text')
+    var text = current.querySelector('.valentus-breadcrumb-trail-text')
     if (text) text.textContent = label
   }
 
@@ -587,16 +587,16 @@
     if (!treatAsHidden) return
 
     var list =
-      document.querySelector('.adt-doc-mast-center nav.adt-breadcrumbs ul') ||
-      document.querySelector('nav.adt-breadcrumbs ul')
+      document.querySelector('.valentus-doc-mast-center nav.valentus-breadcrumbs ul') ||
+      document.querySelector('nav.valentus-breadcrumbs ul')
     if (!list) return
 
-    var current = list.querySelector('.adt-breadcrumb-trail--current')
+    var current = list.querySelector('.valentus-breadcrumb-trail--current')
     if (!current) return
 
     setCurrentCrumbLabel(current, pageLabelFromDoc(fetchedDoc || document))
 
-    if (list.querySelector('.adt-breadcrumb-trail[data-navtree-parent="1"]')) return
+    if (list.querySelector('.valentus-breadcrumb-trail[data-navtree-parent="1"]')) return
     if (!parentSlug) return
 
     var menu = document.querySelector('.nav-container [data-panel=menu]')
@@ -612,15 +612,15 @@
     if (!parentHref) return
 
     var sep = document.createElement('li')
-    sep.className = 'adt-breadcrumb-sep'
+    sep.className = 'valentus-breadcrumb-sep'
     sep.setAttribute('aria-hidden', 'true')
     sep.textContent = '/'
 
     var parentLi = document.createElement('li')
-    parentLi.className = 'adt-breadcrumb-trail'
+    parentLi.className = 'valentus-breadcrumb-trail'
     parentLi.setAttribute('data-navtree-parent', '1')
     var pa = document.createElement('a')
-    pa.className = 'adt-breadcrumb-trail-link'
+    pa.className = 'valentus-breadcrumb-trail-link'
     pa.href = parentHref
     pa.textContent = parentText
     parentLi.appendChild(pa)
@@ -653,10 +653,10 @@
   SoftNav.registerRegion({
     id: 'mast',
     extract: function (doc) {
-      return doc.querySelector('.adt-doc-mast-center') || doc.querySelector('nav.breadcrumbs')
+      return doc.querySelector('.valentus-doc-mast-center') || doc.querySelector('nav.breadcrumbs')
     },
     apply: function (fresh, ctx) {
-      var host = document.querySelector('.adt-doc-mast-center')
+      var host = document.querySelector('.valentus-doc-mast-center')
       if (!host) host = document.querySelector('nav.breadcrumbs')
       if (!host || !fresh) return
       var node = document.importNode(fresh, true)

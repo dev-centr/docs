@@ -11,7 +11,7 @@
   'use strict'
 
   function ensureTitleId (article) {
-    var h1 = article.querySelector('h1.page, h1.adt-page-title, h1')
+    var h1 = article.querySelector('h1.page, h1.valentus-page-title, h1')
     if (!h1) return null
     if (!h1.id) h1.id = 'main-article'
     return h1
@@ -38,7 +38,7 @@
   function ensureTocAside () {
     var aside = document.querySelector('aside.toc.sidebar')
     if (aside) return aside
-    var body = document.querySelector('.body.adt-body') || document.querySelector('.body')
+    var body = document.querySelector('.body.valentus-body') || document.querySelector('.body')
     if (!body) return null
     aside = document.createElement('aside')
     aside.className = 'toc sidebar'

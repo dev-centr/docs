@@ -1,7 +1,7 @@
 'use strict'
 
 /**
- * Hub override of Valentus `adt-bc-trail-crumbs`.
+ * Hub override of Valentus `valentus-bc-trail-crumbs`.
  *
  * Stock Valentus (with site-nav-tree) only drops a leading crumb that matches the
  * *current* component root. On this hub, `home` is the first forest root and

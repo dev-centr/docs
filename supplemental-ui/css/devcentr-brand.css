@@ -7,36 +7,36 @@
  * Dark primary:  #2DD4BF
  * Logo accents:  #14B8A6 / #0F766E
  *
- * TIP colors stay Antora/Default UI (--tip-color / Valentus --adt-admonition-tip).
+ * TIP colors stay Antora/Default UI (--tip-color / Valentus --valentus-admonition-tip).
  * Do not remap tip to brand accent.
  */
 
 :root {
-  --adt-accent: #178f80;
-  --adt-accent-hover: #0f766e;
-  --adt-accent-soft: rgba(23, 143, 128, 0.12);
+  --valentus-accent: #178f80;
+  --valentus-accent-hover: #0f766e;
+  --valentus-accent-soft: rgba(23, 143, 128, 0.12);
 }
 
 html.dark-theme {
-  --adt-accent: #2dd4bf;
-  --adt-accent-hover: #5eead4;
-  --adt-accent-soft: rgba(45, 212, 191, 0.12);
+  --valentus-accent: #2dd4bf;
+  --valentus-accent-hover: #5eead4;
+  --valentus-accent-soft: rgba(45, 212, 191, 0.12);
 }
 
 /* Component roots only (site-nav-tree depth 0); nested nav keeps Valentus ink-muted chevrons. */
 nav.nav-menu.nav-tree-only .nav-item[data-depth="0"] > .nav-item-toggle,
-nav.nav-menu.adt-nav-tree-only .nav-item[data-depth="0"] > .nav-item-toggle {
-  color: var(--adt-accent);
+nav.nav-menu.valentus-nav-tree-only .nav-item[data-depth="0"] > .nav-item-toggle {
+  color: var(--valentus-accent);
 }
 
 nav.nav-menu.nav-tree-only .nav-item[data-depth="0"] > .nav-item-toggle:hover,
-nav.nav-menu.adt-nav-tree-only .nav-item[data-depth="0"] > .nav-item-toggle:hover {
-  color: var(--adt-accent-hover);
+nav.nav-menu.valentus-nav-tree-only .nav-item[data-depth="0"] > .nav-item-toggle:hover {
+  color: var(--valentus-accent-hover);
 }
 
 /*
  * Admonition card wrap: TIP/NOTE label inside bordered table; cells clear
- * so a single table tint (from --adt-admonition-*) paints the whole card.
+ * so a single table tint (from --valentus-admonition-*) paints the whole card.
  */
 .doc .admonitionblock > table,
 .doc .admonitionblock > table > tbody,
@@ -48,10 +48,10 @@ nav.nav-menu.adt-nav-tree-only .nav-item[data-depth="0"] > .nav-item-toggle:hove
 .doc .admonitionblock > table {
   border-collapse: separate !important;
   border-spacing: 0 !important;
-  background: var(--adt-elevated, #25262b) !important;
-  border: 1px solid var(--adt-border, #373a40) !important;
+  background: var(--valentus-elevated, #25262b) !important;
+  border: 1px solid var(--valentus-border, #373a40) !important;
   border-left-width: 3px !important;
-  border-radius: var(--adt-radius, 8px) !important;
+  border-radius: var(--valentus-radius, 8px) !important;
 }
 
 .doc .admonitionblock td.icon,
@@ -78,73 +78,73 @@ html.dark-theme .doc .admonitionblock.tip > table > tbody > tr > td.content {
 
 .doc .admonitionblock td.content {
   padding: 0.25rem 1rem 0.95rem !important;
-  color: var(--adt-ink, inherit) !important;
+  color: var(--valentus-ink, inherit) !important;
 }
 
 /* Pill tracks the same tokens as the card (Default UI hardcodes otherwise) */
 .doc .admonitionblock td.icon i.icon-tip {
-  background-color: var(--adt-admonition-tip) !important;
+  background-color: var(--valentus-admonition-tip) !important;
 }
 
 .doc .admonitionblock td.icon i.icon-note {
-  background-color: var(--adt-admonition-note, #2563eb) !important;
+  background-color: var(--valentus-admonition-note, #2563eb) !important;
 }
 
 .doc .admonitionblock td.icon i.icon-important {
-  background-color: var(--adt-admonition-important, #dc2626) !important;
+  background-color: var(--valentus-admonition-important, #dc2626) !important;
 }
 
 .doc .admonitionblock td.icon i.icon-warning {
-  background-color: var(--adt-admonition-warning, #d97706) !important;
+  background-color: var(--valentus-admonition-warning, #d97706) !important;
 }
 
 .doc .admonitionblock td.icon i.icon-caution {
-  background-color: var(--adt-admonition-caution, #be185d) !important;
+  background-color: var(--valentus-admonition-caution, #be185d) !important;
 }
 
 .doc .admonitionblock.tip > table {
-  border-left-color: var(--adt-admonition-tip) !important;
-  background: color-mix(in srgb, var(--adt-admonition-tip) 8%, var(--adt-elevated, #25262b)) !important;
+  border-left-color: var(--valentus-admonition-tip) !important;
+  background: color-mix(in srgb, var(--valentus-admonition-tip) 8%, var(--valentus-elevated, #25262b)) !important;
 }
 
 .doc .admonitionblock.note > table {
-  border-left-color: var(--adt-admonition-note, #2563eb) !important;
-  background: color-mix(in srgb, var(--adt-admonition-note, #2563eb) 7%, var(--adt-elevated, #25262b)) !important;
+  border-left-color: var(--valentus-admonition-note, #2563eb) !important;
+  background: color-mix(in srgb, var(--valentus-admonition-note, #2563eb) 7%, var(--valentus-elevated, #25262b)) !important;
 }
 
 .doc .admonitionblock.important > table {
-  border-left-color: var(--adt-admonition-important, #dc2626) !important;
-  background: color-mix(in srgb, var(--adt-admonition-important, #dc2626) 8%, var(--adt-elevated, #25262b)) !important;
+  border-left-color: var(--valentus-admonition-important, #dc2626) !important;
+  background: color-mix(in srgb, var(--valentus-admonition-important, #dc2626) 8%, var(--valentus-elevated, #25262b)) !important;
 }
 
 .doc .admonitionblock.warning > table {
-  border-left-color: var(--adt-admonition-warning, #d97706) !important;
-  background: color-mix(in srgb, var(--adt-admonition-warning, #d97706) 9%, var(--adt-elevated, #25262b)) !important;
+  border-left-color: var(--valentus-admonition-warning, #d97706) !important;
+  background: color-mix(in srgb, var(--valentus-admonition-warning, #d97706) 9%, var(--valentus-elevated, #25262b)) !important;
 }
 
 .doc .admonitionblock.caution > table {
-  border-left-color: var(--adt-admonition-caution, #be185d) !important;
-  background: color-mix(in srgb, var(--adt-admonition-caution, #be185d) 8%, var(--adt-elevated, #25262b)) !important;
+  border-left-color: var(--valentus-admonition-caution, #be185d) !important;
+  background: color-mix(in srgb, var(--valentus-admonition-caution, #be185d) 8%, var(--valentus-elevated, #25262b)) !important;
 }
 
 html.dark-theme .doc .admonitionblock.tip > table {
-  background: color-mix(in srgb, var(--adt-admonition-tip) 12%, var(--adt-elevated, #25262b)) !important;
+  background: color-mix(in srgb, var(--valentus-admonition-tip) 12%, var(--valentus-elevated, #25262b)) !important;
 }
 
 html.dark-theme .doc .admonitionblock.note > table {
-  background: color-mix(in srgb, var(--adt-admonition-note, #2563eb) 12%, var(--adt-elevated, #25262b)) !important;
+  background: color-mix(in srgb, var(--valentus-admonition-note, #2563eb) 12%, var(--valentus-elevated, #25262b)) !important;
 }
 
 html.dark-theme .doc .admonitionblock.important > table {
-  background: color-mix(in srgb, var(--adt-admonition-important, #dc2626) 12%, var(--adt-elevated, #25262b)) !important;
+  background: color-mix(in srgb, var(--valentus-admonition-important, #dc2626) 12%, var(--valentus-elevated, #25262b)) !important;
 }
 
 html.dark-theme .doc .admonitionblock.warning > table {
-  background: color-mix(in srgb, var(--adt-admonition-warning, #d97706) 12%, var(--adt-elevated, #25262b)) !important;
+  background: color-mix(in srgb, var(--valentus-admonition-warning, #d97706) 12%, var(--valentus-elevated, #25262b)) !important;
 }
 
 html.dark-theme .doc .admonitionblock.caution > table {
-  background: color-mix(in srgb, var(--adt-admonition-caution, #be185d) 12%, var(--adt-elevated, #25262b)) !important;
+  background: color-mix(in srgb, var(--valentus-admonition-caution, #be185d) 12%, var(--valentus-elevated, #25262b)) !important;
 }
 
 /*
@@ -152,7 +152,7 @@ html.dark-theme .doc .admonitionblock.caution > table {
  * (not accent teal — that reads as “tip green on the code”).
  */
 .doc .admonitionblock td.content code {
-  border-radius: var(--adt-radius-sm, 0.25rem) !important;
+  border-radius: var(--valentus-radius-sm, 0.25rem) !important;
 }
 
 html.dark-theme .doc .admonitionblock td.content code {
@@ -160,12 +160,12 @@ html.dark-theme .doc .admonitionblock td.content code {
   background: #2c2e33 !important;
   background-color: #2c2e33 !important;
   border: 1px solid #404348 !important;
-  border-radius: var(--adt-radius-sm, 0.25rem) !important;
+  border-radius: var(--valentus-radius-sm, 0.25rem) !important;
   font-size: 0.9em;
   padding: 0.1em 0.35em;
 }
 
-.adt-header-logo {
+.valentus-header-logo {
   border-radius: 0.35rem;
 }
 
@@ -189,8 +189,8 @@ html.dark-theme .doc .admonitionblock td.content code {
 
 /*
  * Theme toggle timing (until rolling valentus v2 / antora-dark-mode ships
- * html.adt-theme-vt). Chromium uses View Transitions at 0.28s while Valentus
- * chrome keeps permanent --adt-transition paint rules at 0.2s — those regions
+ * html.valentus-theme-vt). Chromium uses View Transitions at 0.28s while Valentus
+ * chrome keeps permanent --valentus-transition paint rules at 0.2s — those regions
  * finish early. Kill competing transitions for the VT duration only.
  */
 @media (prefers-reduced-motion: no-preference) {
@@ -209,78 +209,78 @@ html.dark-theme .doc .admonitionblock td.content code {
  * `nav-typology` is the docs-hub sample under publishing/.
  */
 :root {
-  --themed-svg-diagram-color-canvas: var(--adt-canvas, #f3f1ec);
-  --themed-svg-diagram-color-surface-primary: var(--adt-elevated, #ffffff);
+  --themed-svg-diagram-color-canvas: var(--valentus-canvas, #f3f1ec);
+  --themed-svg-diagram-color-surface-primary: var(--valentus-elevated, #ffffff);
   --themed-svg-diagram-color-surface-secondary: color-mix(
     in srgb,
-    var(--adt-accent, #178f80) 14%,
-    var(--adt-elevated, #ffffff)
+    var(--valentus-accent, #178f80) 14%,
+    var(--valentus-elevated, #ffffff)
   );
-  --themed-svg-diagram-color-text-primary: var(--adt-ink, #1a1a1a);
-  --themed-svg-diagram-color-border-primary: var(--adt-border, #2c2c2c);
-  --themed-svg-diagram-color-edge: var(--adt-ink-muted, #2c2c2c);
-  --themed-svg-diagram-color-accent-primary: var(--adt-accent, #178f80);
+  --themed-svg-diagram-color-text-primary: var(--valentus-ink, #1a1a1a);
+  --themed-svg-diagram-color-border-primary: var(--valentus-border, #2c2c2c);
+  --themed-svg-diagram-color-edge: var(--valentus-ink-muted, #2c2c2c);
+  --themed-svg-diagram-color-accent-primary: var(--valentus-accent, #178f80);
   --themed-svg-diagram-color-accent-on-primary: #f7f3e8;
   --themed-svg-diagram-color-status-warning: color-mix(
     in srgb,
-    var(--adt-admonition-warning, #d97706) 14%,
-    var(--adt-elevated, #ffffff)
+    var(--valentus-admonition-warning, #d97706) 14%,
+    var(--valentus-elevated, #ffffff)
   );
-  --themed-svg-diagram-color-status-warning-border: var(--adt-admonition-warning, #d97706);
+  --themed-svg-diagram-color-status-warning-border: var(--valentus-admonition-warning, #d97706);
   --themed-svg-diagram-color-status-danger: color-mix(
     in srgb,
-    var(--adt-admonition-important, #dc2626) 14%,
-    var(--adt-elevated, #ffffff)
+    var(--valentus-admonition-important, #dc2626) 14%,
+    var(--valentus-elevated, #ffffff)
   );
-  --themed-svg-diagram-color-status-danger-border: var(--adt-admonition-important, #dc2626);
+  --themed-svg-diagram-color-status-danger-border: var(--valentus-admonition-important, #dc2626);
 
-  --themed-svg-nav-typology-color-canvas: var(--adt-canvas, #f3f1ec);
-  --themed-svg-nav-typology-color-surface-primary: var(--adt-elevated, #ffffff);
-  --themed-svg-nav-typology-color-text-primary: var(--adt-ink, #1a1a1a);
-  --themed-svg-nav-typology-color-border-primary: var(--adt-border, #2c3e5a);
-  --themed-svg-nav-typology-color-edge: var(--adt-ink-muted, #2c3e5a);
-  --themed-svg-nav-typology-color-edge-label: var(--adt-ink-muted, #2c3e5a);
+  --themed-svg-nav-typology-color-canvas: var(--valentus-canvas, #f3f1ec);
+  --themed-svg-nav-typology-color-surface-primary: var(--valentus-elevated, #ffffff);
+  --themed-svg-nav-typology-color-text-primary: var(--valentus-ink, #1a1a1a);
+  --themed-svg-nav-typology-color-border-primary: var(--valentus-border, #2c3e5a);
+  --themed-svg-nav-typology-color-edge: var(--valentus-ink-muted, #2c3e5a);
+  --themed-svg-nav-typology-color-edge-label: var(--valentus-ink-muted, #2c3e5a);
 
   /* agent-rules component diagrams */
-  --themed-svg-rules-geography-color-canvas: var(--adt-canvas, #f8fafc);
-  --themed-svg-rules-geography-color-surface-primary: var(--adt-elevated, #ffffff);
+  --themed-svg-rules-geography-color-canvas: var(--valentus-canvas, #f8fafc);
+  --themed-svg-rules-geography-color-surface-primary: var(--valentus-elevated, #ffffff);
   --themed-svg-rules-geography-color-surface-shared: #e8f0ea;
   --themed-svg-rules-geography-color-surface-personal: #f3ebe3;
   --themed-svg-rules-geography-color-surface-machine: #e8eef4;
   --themed-svg-rules-geography-color-surface-warning: #fff7ed;
-  --themed-svg-rules-geography-color-text-primary: var(--adt-ink, #0f172a);
-  --themed-svg-rules-geography-color-border-primary: var(--adt-border, #475569);
-  --themed-svg-rules-geography-color-edge: var(--adt-ink-muted, #475569);
-  --themed-svg-rules-geography-color-edge-label: var(--adt-ink-muted, #334155);
+  --themed-svg-rules-geography-color-text-primary: var(--valentus-ink, #0f172a);
+  --themed-svg-rules-geography-color-border-primary: var(--valentus-border, #475569);
+  --themed-svg-rules-geography-color-edge: var(--valentus-ink-muted, #475569);
+  --themed-svg-rules-geography-color-edge-label: var(--valentus-ink-muted, #334155);
 
-  --themed-svg-agent-cli-auth-color-canvas: var(--adt-canvas, #f8fafc);
+  --themed-svg-agent-cli-auth-color-canvas: var(--valentus-canvas, #f8fafc);
   --themed-svg-agent-cli-auth-color-surface-operator: #e2e8f0;
   --themed-svg-agent-cli-auth-color-surface-store: #dbeafe;
   --themed-svg-agent-cli-auth-color-surface-entry: #dcfce7;
   --themed-svg-agent-cli-auth-color-surface-cli: #fef3c7;
-  --themed-svg-agent-cli-auth-color-surface-stamps: var(--adt-elevated, #ffffff);
-  --themed-svg-agent-cli-auth-color-text-primary: var(--adt-ink, #0f172a);
-  --themed-svg-agent-cli-auth-color-border-primary: var(--adt-border, #475569);
-  --themed-svg-agent-cli-auth-color-edge: var(--adt-ink-muted, #334155);
+  --themed-svg-agent-cli-auth-color-surface-stamps: var(--valentus-elevated, #ffffff);
+  --themed-svg-agent-cli-auth-color-text-primary: var(--valentus-ink, #0f172a);
+  --themed-svg-agent-cli-auth-color-border-primary: var(--valentus-border, #475569);
+  --themed-svg-agent-cli-auth-color-edge: var(--valentus-ink-muted, #334155);
 
   /* uniconfig component diagrams */
-  --themed-svg-uniconfig-layers-color-canvas: var(--adt-canvas, #f4f1eb);
+  --themed-svg-uniconfig-layers-color-canvas: var(--valentus-canvas, #f4f1eb);
   --themed-svg-uniconfig-layers-color-surface-panel: #ece8e1;
   --themed-svg-uniconfig-layers-color-surface-meaning: #2c4f4b;
   --themed-svg-uniconfig-layers-color-surface-storage: #1c1c1e;
-  --themed-svg-uniconfig-layers-color-text-primary: var(--adt-ink, #1c1c1e);
+  --themed-svg-uniconfig-layers-color-text-primary: var(--valentus-ink, #1c1c1e);
   --themed-svg-uniconfig-layers-color-text-inverse: #ece8e1;
-  --themed-svg-uniconfig-layers-color-border-primary: var(--adt-border, #1c1c1e);
+  --themed-svg-uniconfig-layers-color-border-primary: var(--valentus-border, #1c1c1e);
   --themed-svg-uniconfig-layers-color-edge: #4b7f7a;
 
-  --themed-svg-uniconfig-schema-minus-instance-color-canvas: var(--adt-canvas, #f4f1eb);
-  --themed-svg-uniconfig-schema-minus-instance-color-surface-instance: var(--adt-elevated, #ffffff);
+  --themed-svg-uniconfig-schema-minus-instance-color-canvas: var(--valentus-canvas, #f4f1eb);
+  --themed-svg-uniconfig-schema-minus-instance-color-surface-instance: var(--valentus-elevated, #ffffff);
   --themed-svg-uniconfig-schema-minus-instance-color-surface-panel: #ece8e1;
-  --themed-svg-uniconfig-schema-minus-instance-color-text-primary: var(--adt-ink, #1c1c1e);
+  --themed-svg-uniconfig-schema-minus-instance-color-text-primary: var(--valentus-ink, #1c1c1e);
   --themed-svg-uniconfig-schema-minus-instance-color-text-muted: #4a4742;
-  --themed-svg-uniconfig-schema-minus-instance-color-border-primary: var(--adt-border, #1c1c1e);
+  --themed-svg-uniconfig-schema-minus-instance-color-border-primary: var(--valentus-border, #1c1c1e);
   --themed-svg-uniconfig-schema-minus-instance-color-edge: #4b7f7a;
-  --themed-svg-uniconfig-schema-minus-instance-color-edge-label: var(--adt-canvas, #f4f1eb);
+  --themed-svg-uniconfig-schema-minus-instance-color-edge-label: var(--valentus-canvas, #f4f1eb);
 }
 
 html.dark-theme {
@@ -298,58 +298,58 @@ html.dark-theme {
   --themed-svg-nav-typology-color-status-danger: #fca5a5;
 
   /* agent-rules + uniconfig (component diagrams on this hub) */
-  --themed-svg-rules-geography-color-canvas: var(--adt-canvas, #111827);
-  --themed-svg-rules-geography-color-surface-primary: var(--adt-elevated, #1f2937);
+  --themed-svg-rules-geography-color-canvas: var(--valentus-canvas, #111827);
+  --themed-svg-rules-geography-color-surface-primary: var(--valentus-elevated, #1f2937);
   --themed-svg-rules-geography-color-surface-shared: #17352b;
   --themed-svg-rules-geography-color-surface-personal: #422c24;
   --themed-svg-rules-geography-color-surface-machine: #172f4d;
   --themed-svg-rules-geography-color-surface-warning: #431f14;
-  --themed-svg-rules-geography-color-text-primary: var(--adt-ink, #f8fafc);
-  --themed-svg-rules-geography-color-border-primary: var(--adt-border, #94a3b8);
-  --themed-svg-rules-geography-color-edge: var(--adt-ink-muted, #cbd5e1);
-  --themed-svg-rules-geography-color-edge-label: var(--adt-ink, #e2e8f0);
+  --themed-svg-rules-geography-color-text-primary: var(--valentus-ink, #f8fafc);
+  --themed-svg-rules-geography-color-border-primary: var(--valentus-border, #94a3b8);
+  --themed-svg-rules-geography-color-edge: var(--valentus-ink-muted, #cbd5e1);
+  --themed-svg-rules-geography-color-edge-label: var(--valentus-ink, #e2e8f0);
 
-  --themed-svg-agent-cli-auth-color-canvas: var(--adt-canvas, #0f172a);
+  --themed-svg-agent-cli-auth-color-canvas: var(--valentus-canvas, #0f172a);
   --themed-svg-agent-cli-auth-color-surface-operator: #334155;
   --themed-svg-agent-cli-auth-color-surface-store: #17375e;
   --themed-svg-agent-cli-auth-color-surface-entry: #17452d;
   --themed-svg-agent-cli-auth-color-surface-cli: #4b3513;
-  --themed-svg-agent-cli-auth-color-surface-stamps: var(--adt-elevated, #1e293b);
-  --themed-svg-agent-cli-auth-color-text-primary: var(--adt-ink, #f8fafc);
-  --themed-svg-agent-cli-auth-color-border-primary: var(--adt-border, #94a3b8);
-  --themed-svg-agent-cli-auth-color-edge: var(--adt-ink-muted, #cbd5e1);
+  --themed-svg-agent-cli-auth-color-surface-stamps: var(--valentus-elevated, #1e293b);
+  --themed-svg-agent-cli-auth-color-text-primary: var(--valentus-ink, #f8fafc);
+  --themed-svg-agent-cli-auth-color-border-primary: var(--valentus-border, #94a3b8);
+  --themed-svg-agent-cli-auth-color-edge: var(--valentus-ink-muted, #cbd5e1);
 
-  --themed-svg-uniconfig-layers-color-canvas: var(--adt-canvas, #111315);
+  --themed-svg-uniconfig-layers-color-canvas: var(--valentus-canvas, #111315);
   --themed-svg-uniconfig-layers-color-surface-panel: #292b2e;
   --themed-svg-uniconfig-layers-color-surface-meaning: #315d57;
   --themed-svg-uniconfig-layers-color-surface-storage: #08090a;
-  --themed-svg-uniconfig-layers-color-text-primary: var(--adt-ink, #f2eee7);
+  --themed-svg-uniconfig-layers-color-text-primary: var(--valentus-ink, #f2eee7);
   --themed-svg-uniconfig-layers-color-text-inverse: #f2eee7;
-  --themed-svg-uniconfig-layers-color-border-primary: var(--adt-border, #c8c3bb);
+  --themed-svg-uniconfig-layers-color-border-primary: var(--valentus-border, #c8c3bb);
   --themed-svg-uniconfig-layers-color-edge: #78aaa4;
 
-  --themed-svg-uniconfig-schema-minus-instance-color-canvas: var(--adt-canvas, #111315);
+  --themed-svg-uniconfig-schema-minus-instance-color-canvas: var(--valentus-canvas, #111315);
   --themed-svg-uniconfig-schema-minus-instance-color-surface-instance: #202225;
   --themed-svg-uniconfig-schema-minus-instance-color-surface-panel: #292b2e;
-  --themed-svg-uniconfig-schema-minus-instance-color-text-primary: var(--adt-ink, #f2eee7);
+  --themed-svg-uniconfig-schema-minus-instance-color-text-primary: var(--valentus-ink, #f2eee7);
   --themed-svg-uniconfig-schema-minus-instance-color-text-muted: #d0cbc3;
-  --themed-svg-uniconfig-schema-minus-instance-color-border-primary: var(--adt-border, #c8c3bb);
+  --themed-svg-uniconfig-schema-minus-instance-color-border-primary: var(--valentus-border, #c8c3bb);
   --themed-svg-uniconfig-schema-minus-instance-color-edge: #78aaa4;
-  --themed-svg-uniconfig-schema-minus-instance-color-edge-label: var(--adt-canvas, #111315);
+  --themed-svg-uniconfig-schema-minus-instance-color-edge-label: var(--valentus-canvas, #111315);
 }
 
 /* Portal home tiles (FTN-style .cards / .tile) — mirror Valentus site-extra */
 :root {
   --doc-tile-radius: 0.5rem;
-  --doc-tile-border-color: var(--adt-border, var(--panel-border-color, #d9dee7));
-  --doc-tile-background: var(--adt-elevated, var(--color-white, #fff));
+  --doc-tile-border-color: var(--valentus-border, var(--panel-border-color, #d9dee7));
+  --doc-tile-background: var(--valentus-elevated, var(--color-white, #fff));
   --doc-tile-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.08);
   --doc-tile-shadow-hover: 0 4px 8px -2px rgba(0, 0, 0, 0.1), 0 12px 24px -4px rgba(0, 0, 0, 0.12);
 }
 html.dark-theme,
 html[data-theme="dark"] {
-  --doc-tile-border-color: var(--adt-border, #3d4048);
-  --doc-tile-background: var(--adt-elevated, #1f2125);
+  --doc-tile-border-color: var(--valentus-border, #3d4048);
+  --doc-tile-background: var(--valentus-elevated, #1f2125);
 }
 .doc .openblock.cards { margin: 1.5rem 0 0; }
 .doc .openblock.cards > .content {
@@ -407,28 +407,28 @@ html[data-theme="dark"] {
   font-size: 0.95em;
 }
 .doc .lifecycle-status-active {
-  color: var(--adt-admonition-tip, #059669);
+  color: var(--valentus-admonition-tip, #059669);
 }
 .doc .lifecycle-status-deprecated {
-  color: var(--adt-admonition-warning, #d97706);
+  color: var(--valentus-admonition-warning, #d97706);
 }
 .doc .lifecycle-status-expired {
-  color: var(--adt-admonition-important, #dc2626);
+  color: var(--valentus-admonition-important, #dc2626);
 }
 .doc .lifecycle-status-unknown {
-  color: var(--adt-admonition-note, #2563eb);
+  color: var(--valentus-admonition-note, #2563eb);
 }
 
 /* Wide AsciiDoc tables: scroll wrapper (not the table) — Antora Zulip guidance */
 .doc .tablecontainer,
-.doc .adt-table-scroll {
+.doc .valentus-table-scroll {
   display: block;
   max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 .doc .tablecontainer > table.tableblock,
-.doc .adt-table-scroll > table.tableblock {
+.doc .valentus-table-scroll > table.tableblock {
   max-width: none;
 }
 .doc table.tableblock th,
@@ -445,13 +445,13 @@ html[data-theme="dark"] {
   max-width: 100%;
   overflow-x: auto;
 }
-main.adt-article,
-main.adt-article > .content {
+main.valentus-article,
+main.valentus-article > .content {
   min-width: 0;
 }
 
 /* Read-width row: same horizontal inset as article.doc (Valentus 2.1.2+ in site-doc-layout; fallback until deploy refreshes v2 bundle). */
-main.adt-article > .content > .adt-doc-toolbar {
-  padding-inline: var(--adt-doc-pad-inline, 1rem);
+main.valentus-article > .content > .valentus-doc-toolbar {
+  padding-inline: var(--valentus-doc-pad-inline, 1rem);
 }
 

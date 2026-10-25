@@ -28,7 +28,7 @@ Convention: link:https://docs.antora-supplemental.org/docs/hub-github-topics/[Hu
 
 == DevCentr accent overlay
 
-Layout, fonts, and default teal chrome stay valentus-theme. `devcentr-brand.css` remaps `--adt-accent*` tokens to the org palette and tints *component-root* nav expand/collapse chevrons (`data-depth="0"`) with that accent — nested nav children keep Valentus muted ink toggles. Component roots do **not** use the generic `component-root` typology sprite; optional per-app logos come from `nav-component-logo.js` + `supplemental-ui/img/nav-logos/`. Deeper nav rows still use typology icons (Diátaxis, spec groupings, changelog). TIP/NOTE colors stay on Default UI / Valentus admonition tokens (`--tip-color` / `--adt-admonition-tip` — Antora green by default; do not remap tip to brand accent):
+Layout, fonts, and default teal chrome stay valentus-theme. `devcentr-brand.css` remaps `--valentus-accent*` tokens to the org palette and tints *component-root* nav expand/collapse chevrons (`data-depth="0"`) with that accent — nested nav children keep Valentus muted ink toggles. Component roots do **not** use the generic `component-root` typology sprite; optional per-app logos come from `nav-component-logo.js` + `supplemental-ui/img/nav-logos/`. Deeper nav rows still use typology icons (Diátaxis, spec groupings, changelog). TIP/NOTE colors stay on Default UI / Valentus admonition tokens (`--tip-color` / `--valentus-admonition-tip` — Antora green by default; do not remap tip to brand accent):
 
 * Light primary: `#178F80`
 * Dark primary: `#2DD4BF`
@@ -41,15 +41,15 @@ Overlay files:
 * `supplemental-ui/css/devcentr-brand.css` — accent token overrides (loaded last)
 * `supplemental-ui/partials/head-meta.hbs` — vendored from valentus-theme 2.x, plus the brand stylesheet link
 * `supplemental-ui/img/logo.svg` — orbit mark for the header
-* `supplemental-ui/js/adt-table-scroll.js` — wraps bare `.tableblock` tables for horizontal scroll (loaded from `footer-content.hbs`)
+* `supplemental-ui/js/valentus-table-scroll.js` — wraps bare `.tableblock` tables for horizontal scroll (loaded from `footer-content.hbs`)
 
 [#wide-asciidoc-tables]
 == Wide AsciiDoc tables
 
 Wide attribute tables and matrix layouts must stay inside the article column. Browsers cannot apply `overflow-x: auto` reliably on `<table>` alone, so the hub uses a scroll *wrapper* (Antora community guidance):
 
-* **CSS** (`devcentr-brand.css`): `.tablecontainer` and `.adt-table-scroll` are block-level with `max-width: 100%` and `overflow-x: auto`. Article flex children use `min-width: 0` so the pane can shrink. Cell `code` and long tokens use `overflow-wrap: anywhere`; listing blocks get the same horizontal scroll treatment.
-* **JS** (`adt-table-scroll.js`): On `DOMContentLoaded`, each bare `.doc table.tableblock` not already inside `.tablecontainer`, `.adt-table-scroll`, `.admonitionblock`, or `.colist` is wrapped in `<div class="adt-table-scroll" role="region" tabindex="0">` with an `aria-label` from the table caption (or `Scrollable table`).
+* **CSS** (`devcentr-brand.css`): `.tablecontainer` and `.valentus-table-scroll` are block-level with `max-width: 100%` and `overflow-x: auto`. Article flex children use `min-width: 0` so the pane can shrink. Cell `code` and long tokens use `overflow-wrap: anywhere`; listing blocks get the same horizontal scroll treatment.
+* **JS** (`valentus-table-scroll.js`): On `DOMContentLoaded`, each bare `.doc table.tableblock` not already inside `.tablecontainer`, `.valentus-table-scroll`, `.admonitionblock`, or `.colist` is wrapped in `<div class="valentus-table-scroll" role="region" tabindex="0">` with an `aria-label` from the table caption (or `Scrollable table`).
 
 Admonition and column-list tables are excluded so TIP/NOTE card chrome and colists keep their layout.
 
@@ -64,10 +64,10 @@ Valentus 2.x ships an interim *paint-hold* in `head-meta.hbs` while Default UI s
 
 Load order in `supplemental-ui/partials/head-meta.hbs`:
 
-. Inline `html.adt-fouc-pending { visibility: hidden !important; }` plus a script that adds `adt-fouc-pending` on `<html>` *before* stylesheets.
+. Inline `html.valentus-fouc-pending { visibility: hidden !important; }` plus a script that adds `valentus-fouc-pending` on `<html>` *before* stylesheets.
 . All layered CSS links (fonts, `site-doc-layout.css`, `site-visual.css`, read-width, font-size, `devcentr-brand.css`, mermaid, math).
 . Preference boot scripts (dark mode, read-width, font-size) that set `data-*` attrs / `dark-theme` from `localStorage`.
-. A final script that removes `adt-fouc-pending` *after* those scripts run — on this site, via `document.fonts.load` / `document.fonts.ready` with a 3s fallback if the CDN stalls.
+. A final script that removes `valentus-fouc-pending` *after* those scripts run — on this site, via `document.fonts.load` / `document.fonts.ready` with a 3s fallback if the CDN stalls.
 
 Do **not** place the paint-hold release script before the brand or module stylesheets — users would see a flash of unstyled or wrong-accent chrome. Do **not** drop the read-width or font-size FOUC blocks; they are separate from the global paint-hold but must run before the release script.
 

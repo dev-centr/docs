@@ -72,6 +72,6 @@ describe('soft-nav nav-tree click policy', () => {
     assert.match(src, /function crossfadeSwap/)
     assert.match(src, /syncSearchScopeFromDoc/)
     assert.match(src, /function fadeTargetEls/)
-    assert.doesNotMatch(src, /querySelector\(['"]\.adt-site-navbar['"]\)/)
+    assert.doesNotMatch(src, /querySelector\(['"]\.valentus-site-navbar['"]\)/)
   })
 })
