@@ -6,9 +6,57 @@
 
 This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see the xref:../changelog.adoc[Changelog Index]; for release tags, see repository tags and release notes.
 
+== 2026-10-25 - Hub CI fix and repo root cleanup
+
+* **Deploy fixed (Valentus v3).** `antora-playbook.yml` UI bundle moves from Valentus `v2` to `v3`. `antora-search-chat` (via facto-stack) now ships the `valentus-search-chat` partial while the `v2` bundle still called `adt-search-chat`, so every Pages build failed with a FATAL missing partial. Hub `supplemental-ui` overrides (helpers, CSS tokens, partials, JS) use the `valentus-` prefix to match.
+* **Lockfile refresh.** `pnpm-lock.yaml` resolves `facto-stack#v0.2` to **v0.2.68**, which bundles antora-glossary, so xref:glossary.adoc[Glossary] resolves in CI (the lock was still on v0.2.64).
+* **Repo root cleanup.** The real changelog now lives only here; root `CHANGELOG.adoc` is a stub, and its unique entries are merged into this page. Old reports and saved prompts moved to unlisted pages under `changelog-details/history/` (see <<history-and-reports>>). Throwaway `antora-playbook-verify-local-fixes.yml` deleted (nothing referenced it). `STYLE.adoc` stays at the root as the contributor style guide.
+
 == 2026-10-24 - Public glossary
 
 * **Glossary on the hub.** antora-glossary **v0.1.2** (bundled by facto-stack **v0.2.68**): alphabet index at xref:glossary.adoc[Glossary], one page per term, whole-word highlights, and `glossary.json` export. First terms (user, entity, account, workspace, organization) and xref:nomenclature.adoc[Nomenclature] moved here from team-docs, which now imports this site's glossary.
+
+== 2026-10-24 - Hub build stack and UI (formerly root CHANGELOG Unreleased)
+
+* Float `@antora-supplemental/facto-stack` on rolling minor git pin **`#v0.2`** (resolves **v0.2.64** today; patch bumps without editing `package.json`).
+* **Glossary on the hub.** facto-stack `#v0.2` now resolves **v0.2.68**, which bundles `@antora-supplemental/glossary` **v0.1.2** (no separate require). Home gains xref:home::nomenclature.adoc[Nomenclature] and the public terms user, entity, account, workspace, organization (moved from team-docs); the site exports `glossary.json` for other sites to import.
+* **Search dock above the footer.** `@antora-supplemental/facto-stack` **v0.2.40** / `@antora-supplemental/antora-search-chat` **v0.1.17**: the search bar stays on screen and occupies layout space between the page and the footer, so footer links stay clickable.
+* `pnpm antora` installs when the lockfile is newer than node_modules (git tag bumps). It does not move the facto-stack pin by itself; pull the repo first.
+* Pin `@antora-supplemental/facto-stack` **v0.2.39** (Windows disk search uses a dialog instead of the Y/n banner).
+* Pin `@antora-supplemental/facto-stack` **v0.2.38** (disk-search banner wraps inside the frame).
+* Pin `@antora-supplemental/facto-stack` **v0.2.37** (disk-search banner prints once, as ASCII, on Windows).
+* **Opaque search dock.** `@antora-supplemental/facto-stack` **v0.2.36** / `@antora-supplemental/antora-search-chat` **v0.1.16**: the floating search shell stays solid. Theme rules that clear `.valentus-nav-search` no longer let the page show through the dock, tabs, scope menu, hits, or capability row.
+* **Search dock UX.** `@antora-supplemental/facto-stack` **v0.2.35** / `@antora-supplemental/antora-search-chat` **v0.1.15**: stable Search/Ask shell (mode tabs under query, scope disabled in Ask, capability strip at dock bottom), opaque Lunr/scope/hover surfaces.
+* **Local content via facto-stack.** Dropped direct `@antora-supplemental/antora-local-content-sources` playbook require and package pin; `@antora-supplemental/facto-stack` **v0.2.34** registers it before other pack members. Same single `antora-playbook.yml` for CI and local (`mode: auto`, off in CI).
+* **Dedupe on facto-stack as provider.** package.json drops the member pins (page-context, site-nav-tree, soft-nav-page-toc, link-validator, Lunr, Kroki, emoji, maint CLIs, triage-ux-kit) and the publicHoistPattern; only acto-stack + ntora remain. Maint scripts run via acto-maint. Repo topics: acto-stack only.
+* **Doc toolbar inset.** Hub `devcentr-brand.css` sets `padding-inline` on `.valentus-doc-toolbar` to match `article.doc` (`--valentus-doc-pad-inline`, 1rem fallback) when the deployed UI bundle predates Valentus **2.1.2**.
+* Bump `@antora-supplemental/facto-stack` to **v0.2.22** — `@antora-supplemental/linkinator` **v0.1.10** (opaque Wayback chip on hover/focus).
+* **GitHub topics (direct deps).** Document hub topic policy in xref:docs-site/antora-ui-branding.adoc#_github_repository_topics_facto_stack_provider[Antora UI branding]; retag this repo (`facto-stack` only; drop `valentus-theme` and every pack-member topic). Canonical: link:https://docs.antora-supplemental.org/docs/hub-github-topics/[Hub GitHub topics^] (`docs.antora-supplemental.org`, not apex `/docs/home/…`).
+* **Read-width toolbar alignment.** Valentus **2.1.2** shares `--valentus-doc-pad-inline` between `.valentus-doc-toolbar` and `article.doc` so the control lines up with prose; removed redundant hub `devcentr-brand.css` override (2.1.1 flex-start shim).
+* **SoftNav crossfade + same-page nav clicks.** Hub `soft-nav.js` crossfades the doc mast (breadcrumb band), article column, aside TOC, and search scope label while keeping `.valentus-site-navbar` and the left forest stable; skips fetch/`navigate` when the destination pathname matches the current URL; always `preventDefault` on same-path link clicks (nav-tree current page no longer hard-reloads). `soft-nav-transitions.css` + `prefers-reduced-motion` respect.
+* **Tools forest xref fix.** Eight product repos (rules-manager, msi-generator, repo-drive, issues-browser, fixnow-dev, equivalence-engine, libequivalence, agentic-email-integration) now publish as `tools` named modules so `xref:tools:<module>:...` and hub `tools-docs` nav entries resolve; Tools overview note updated.
+* **Nav tree cross-component SoftNav.** Hub `soft-nav.js` intercepts all same-origin `.nav-container` link clicks (not only same Antora component), so forest hops (Home ↔ General Knowledge ↔ Tools ↔ Platforms) swap mast/article without a full reload or left-rail flicker. Modifier / middle-click still open a new tab; in-tree same-path clicks suppress redundant reloads and refresh current-page chrome.
+* **Left nav viewport height.** Hub `site-nav-column-scroll.css` simplified for Valentus **2.1.0** (read-width in `.valentus-doc-toolbar`, no shell tool band): nav sticky top follows `--valentus-chrome-sticky-top` only; `[data-panel=menu]` remains the vertical scrollport with overscroll containment.
+* **General Knowledge nav highlight vs content.** `@antora-supplemental/facto-stack` **v0.2.15** / `@antora-supplemental/site-nav-tree` **v0.6.7** (includes v0.6.6 forest owner + landing expand): DOM owner-root current-page selection, full depth-1 expand on forest landing / root click, `?v=` script cache bust. Removed duplicate **General Knowledge** xref from DevCentr platform nav (was a third `is-current-page` on GK landing). **Deploy note:** `bba681d`/`f6b32c0` Pages deploys were cancelled or superseded while Cloudflare served stale unversioned JS — hard-refresh or wait for `?v=0.6.6` after green Deploy workflow.
+* **Linkinator floating Wayback.** `@antora-supplemental/facto-stack` **v0.2.16** ships `@antora-supplemental/linkinator` **v0.1.6**: link-only hover tint; **⧉** control floats above the link (not inline in prose or whole bullets).
+* **Explanation nav SoftNav 404s (intermittent).** Antora nav hrefs are page-relative; SoftNav keeps the live sidebar (`swapNav: false`), so clicks after a swap resolved siblings against the *current* article URL (doubled segments / missing `general-knowledge/`). **v0.6.3** stores the forest base on the nav panel, re-normalizes relative links before each navigation, resolves nav clicks via `siteNavTreeResolveNavLink`, loads `site-nav-tree-current.js` before `soft-nav.js`, and ignores stale in-flight SoftNav fetches when the reader clicks rapidly.
+* **Nav typology alignment.** Vendored `nav-typology.css` v0.1.9: expander chevrons and category icons vertically aligned with nav labels (matches `@antora-supplemental/nav-typology` package).
+* **Docs site content architecture.** Reusable Antora hub articles moved from Home `docs-site/` to `general-knowledge` (Documentation explanation + hub link-cache how-to); old Home URLs alias on GK pages. Home keeps playbook-specific xref:docs-site/index.adoc[Docs site] hub (UI branding, nav scroll A/B) with xrefs to GK. Upstream Antora canon defers to link:https://docs.antora.org/[docs.antora.org^]. See xref:changelog-details/history/2026-10-17-home-to-general-knowledge-migration-notes.adoc[migration notes].
+* **Hub link-cache invalidation.** Deploy listens for `repository_dispatch` type `link-cache-invalidate`; maps payload `sources` / `urls` / `ref` to link-validator env and checkout. How-to: xref:general-knowledge::how-to/notify-docs-hub-link-changes.adoc[Notify the docs hub of link changes] (multi-org `DOCS_HUB_DISPATCH_TOKEN` checklist). Reusable dispatch workflow in `dev-centr/agent-rules`.
+* **Link validator v0.2.2.** Pin `@antora-supplemental/link-validator#v0.2.2` (core throttling, file cache, quiet CI, surgical invalidation). Deploy passes `GITHUB_TOKEN`, restores `.link-check-cache.json`; nightly `link-validator-nightly.yml` runs `LINK_VALIDATOR_CACHE_BYPASS=true`. Removed GitHub blob/edit suppressions (handled by auth + cache + deferred 429).
+* **Link validator CI reliability.** Hub `.antora-link-suppressions.yml` covers local/placeholder hosts and Google Fonts roots; production playbooks use cache, concurrency `6`, per-URL timeout `15s`, and cap archived report history (`5`) while `failLevel: none` stays unchanged.
+* **Footer: compose pack listed once.** Playbooks (`antora-playbook.yml`, `antora-playbook-local.yml`) register a single `@antora-supplemental/facto-stack` require (**v0.2.8**, `profile: hub`) instead of ~15 flat extensions, so the footer *Extensions* line shows `facto-stack` once rather than Lunr, site-nav-tree, linkinator, and every other member. Forest include/order, nav-typology Diataxis excludes, link-validator tuning, `soft-nav-page-toc` `injectScript: false`, and client Mermaid + diagram lightbox are pack config (`siteNavTree`, `navTypology`, `linkValidator`, `softNavPageToc`, `mermaidClient`, `diagramLightbox`). Pack-only direct devDependencies were dropped (`link-validator` stays pinned directly at v0.2.2 for the file cache until the pack catches up); `site-nav-tree` and `soft-nav-page-toc` stay pinned for the synced `supplemental-ui` assets. Adds search-chat (Lunr-first Search/Ask omnibox) and unversioned-component-urls from the pack.
+* **Tools nav root cause.** `site-nav-tree` flattens anonymous nav trees and hard-sorts Overview / Changelog rows to the front, so untitled per-module `nav.adoc` lists from ~24 product repos collapsed into one soup of duplicate Overview and Changelog rows. Each product `nav.adoc` now starts with a list title (`.Ibex`, `.Ver`, ...) and an **Overview** first item, so each product renders as its own section.
+* **Home xref and link audit.** Restored `xref:tools:<module>:...` for tool pages (every tool repo publishes as component `tools`; the `<module>::page` form fails to resolve), fixed same-component module xrefs on the Tools overview, repaired `general-knowledge::` / `home::` cross-component xrefs, moved `docs.devcentr.org/...html` and `/latest/` absolute URLs to xrefs, `devcentr.org/news/...` slugs to `/blog/`, the connectome-fs docs site, the pnpm settings anchor, and the `repolabs.dev` typo.
+* **Home nav reorganized.** The misnamed **Software publishing** group is now **Docs site** (hub component naming, Antora UI branding, essential extensions, diagram formats, nav scroll A/B); pages moved `pages/publishing/` -> `pages/docs-site/` and xrefs updated (including `devcentr` specifications and `general-knowledge` reliability pages).
+* **Code signing in the release pipeline** moved to `general-knowledge` (`explanation/architecture/`, under Architecture next to Distribution and Packaging). Business Bootstrap and Distribution and Packaging link to it; the Home portal tile links there instead of owning it.
+* **Home > Tools nav entry removed.** Tools live only in the `tools` component; the Home `tools/` portal stubs (forks, external integrations, support systems) stay reachable from the Tools overview and the Home portal tiles.
+* **Platforms nav fixed.** `devcentr` and `devcentr.org` both declared `name: platforms` with a single `nav:` each; Antora keeps only the last source's nav, so the sidebar showed one platform plus Overview and the other platform's pages had no tree. New hub-owned `platforms-docs/` descriptor (same pattern as `tools-docs/`) lists both module navs; the product `antora.yml` files no longer carry `nav:`.
+* **Tools nav.** Product module `nav.adoc` files are now titled (`.Ibex`, `.Ver`, ...) with an **Overview** first item so `site-nav-tree` keeps each product as its own subtree instead of flattening duplicate Overview/Changelog rows under Tools.
+* Pin `@antora-supplemental/site-nav-tree` **v0.6.1** (Overview-landing label hover chrome + SoftNav navigate without reload flash; includes v0.6.0 parent-label opens Overview).
+* `@antora-supplemental/soft-nav-page-toc` **v0.1.6** (`injectScript: false`): build-time `:hide-page:` meta and breadcrumb injection; hub `soft-nav.js` rebuilds the aside TOC with the Default UI heading selector and normalizes indexify pathnames for same-page `#` jumps.
+* Publishing explanation xref:general-knowledge::explanation/documentation/hub-home-component.adoc[Hub home component] — `name: home`, sidebar Overview, portal H1, `site.start_page: home::index.adoc`, avoiding `/docs/docs/` when Pages base is `/docs`; cross-link from xref:where-docs-live.adoc[Where documentation lives].
+* Lockfile refresh so Antora and `asciidoctor-kroki` resolve `@asciidoctor/core` 2.2.9; its Opal runtime (0.3.4) uses `fast-glob` instead of the deprecated `glob@7` and `inflight`.
 
 == 2026-10-17 — Changelog Index, Docs site dedupe, and nav-current fixes
 
@@ -17,10 +65,20 @@ This page is the org-wide changelog: significant documentation and project activ
 * **Nav tree current-page highlight.** `@antora-supplemental/site-nav-tree` 0.6.8: only the Overview leaf carries the current-page highlight on landings, section breadcrumb crumbs (Docs site) link to their Overview again, and Overview leaves render bold with no typology icon (`@antora-supplemental/nav-typology` 0.1.10).
 * **SoftNav no longer hard-reloads from the tree.** Antora's stock nav script stops click propagation on `.nav-container`; the hub SoftNav now intercepts clicks in the capture phase so tree clicks soft-navigate again.
 
+== 2026-10-17 - General-knowledge canonical pages rehomed from Business Bootstrap
+
+* Twelve concept pages (email, org infra, Pulumi, funding) moved from `business-bootstrap` to `general-knowledge`; bootstrap pages link to them and old URLs alias. Hub nav and playbook unchanged (both components already in `content.sources`). Details in each component changelog.
+
 == 2026-09-27 - Themed SVG dark-text WARNs (per picture, plain language)
 
 * Hub checker again WARNs once per dark-text finding (no rollup + hidden info advice).
 * Messages use plain language, e.g. `Dark-mode picture X still has dark text that will be hard to read.`
+
+== 2026-09-27 - Themed SVG dark-text WARN: per-item plain language
+
+* Revert the broken rollup path in `lib/verify-themed-svg-dark-mode.js` (one WARN + `info` advice that default Antora logs never showed).
+* Emit **one WARN per finding** again, reworded in plain language (no SVG fill / CSS-var jargon in the WARN line).
+* Document on `publishing/antora-diagram-formats.adoc`; add `test/verify-themed-svg-dark-mode.test.js` (`pnpm test` / `npm test`).
 
 == 2026-09-26 - Nav scroll performance A/B
 
@@ -37,11 +95,136 @@ This page is the org-wide changelog: significant documentation and project activ
 * Prefer **Overview** over **Home** / component-titled start-page nav duplicates under site-nav-tree forest roots (`Home > Overview`, `General Knowledge > Overview`, `Business Bootstrap > Overview`, …).
 * Hub dependency `@antora-supplemental/site-nav-tree` **0.5.0**: unwrap emits Overview; synthesizes Overview when missing (Platforms, Tools, Templates parity).
 * Content nav: Home, Business Bootstrap, General Knowledge, Templates; Platforms module landings (DevCentr / devcentr.org) Home → Overview. Page H1s stay descriptive; Home *component* title unchanged.
+* Home `nav.adoc`: start-page label **Overview** (was Home) — component title remains **Home**.
+* `tools-docs` relies on site-nav-tree **0.5.0** Overview synthesis for `/tools/` (no ROOT nav file; avoids multi-nav anonymous wrapper).
+* Activity log entry records the forest-wide convention.
 
 == 2026-09-26 -- Themed SVG dark-text rollup + content fix
 
 * Hub checker: one rollup WARN + per-file info.
 * Content: adaptive SVG #my-svg / .label -> `color.text.primary` vars; `access-mock-*` marked borrow-from-light; playtime sets synced across scriptbook / equivalence-engine / devcentr / general-knowledge.
+== 2026-09-26 - Nav scroll performance A/B (typology icons)
+
+* Published Home explanation `publishing/nav-scroll-performance-ab.adoc` with CDP/Puppeteer A/B metrics (icons ON/OFF, SoftNav listeners, expand-all paint, HCI control).
+* Hub helper `nav-typology-icon`: temporary lab kill-switch `site.keys.nav_typology_icons: 'false'` (production default remains icons on).
+* Lab harnesses: `scripts/nav-scroll-ab-bench.mjs`, `scripts/nav-scroll-cost-bench.mjs`; screenshots under `docs/modules/ROOT/images/nav-scroll-ab/`.
+* Verdict: visible SVG/`use` icons costly when many expanded; default-path scroll gap vs HCI dominated by forest DOM size; SoftNav scroll persist and horizontal overflow weak/rejected as primary causes.
+
+== 2026-09-26 - Section Overview selectable + nav scroll/TOC/flash
+
+* Bump `@antora-supplemental/site-nav-tree` **0.5.2**: promote linked section parents with children to unlinked section + **Overview** child (fixes Overview collapsing into Email/Software stack when URLs collided).
+* SoftNav: same-path nav-link clicks still mark the clicked leaf current (Overview vs parent).
+* Left nav scroll: strengthen `site-nav-column-scroll.css` — sticky + viewport `max-height`/`height`, panel-only vertical scrollport, `overscroll-behavior: contain`, defeat Valentus stretch/`overflow-y:visible` on the panel.
+* Nav open-path flash: hide tree until `data-snt-nav-ready` after expand/current restore (SoftNav before clears the flag).
+* Right TOC: `site-toc-main-article.js` keeps Contents chrome; heading-light pages get a **Main article** placeholder linking to the page title.
+* Deferred: BB graft under GK → Tutorials (Ryan deciding); BB stays a forest root.
+
+== 2026-09-26 - Forest nav IA: Overview peers, Tools flatten, BB Software stack
+
+* Bump `@antora-supplemental/site-nav-tree` **0.5.1**: flatten multi-anonymous Tools module navs; recursively unwrap Overview parents that wrapped sibling articles.
+* Bump `@antora-supplemental/nav-typology` **0.1.7**: Overview icon; `diataxisUrlExcludePrefixes` for Business Bootstrap; explicit `:page-nav-typology:` page-attr path.
+* Playbooks: exclude `/business-bootstrap/` from Diataxis URL heuristics. Companion `nav-typology.svg` / CSS synced (Overview sprite).
+* Content: Business Bootstrap categories under Software stack; platforms `devcentr.org` Overview is a sibling leaf (not a wrapper).
+
+== 2026-09-26 - Themed SVG dark-text WARN rollup
+
+* `lib/verify-themed-svg-dark-mode.js`: emit **one rollup WARN** with the issue count; move per-file dark-text advice to **info** (not WARN) so default Antora logs stay readable while fix agents still see an actionable WARN.
+* Documented the rollup on `publishing/antora-diagram-formats.adoc`.
+
+== 2026-09-26 - One owner for mermaid/lightbox UI (extensions inject)
+
+* Removed hub `supplemental-ui` mirrors of mermaid-client + diagram-lightbox JS/CSS/partials; playbooks no longer set `injectAssets: false` (durable in `72e9ed6` after `b43c8d2` cite-sweep collision + mistaken `85c0684` restore).
+* Extensions inject chrome once. Head/footer still include `{{> mermaid-client-*}}` / `{{> diagram-lightbox-*}}` (partials come from the packages).
+* Bump `mermaid-client` + `diagram-lightbox` pin to `antora-diagram-engines@dbdca59` (duplicate UI inject WARNs again instead of quiet debug skip).
+
+== 2026-09-26 -- Independent nav vs article column scroll
+
+* Fix left-rail / article scroll coupling: Valentus `site-doc-layout` stretched `.nav` to document height with `overflow-y:visible` on `.nav-panel-menu`, so window scroll moved both columns. Supplemental `site-nav-column-scroll.css` restores a sticky viewport-height nav column and makes `[data-panel=menu]` the vertical scrollport (matches SoftNav / `site-nav-tree:scroll-y` restore).
+* Wire the stylesheet after Valentus layout CSS in `head-meta.hbs`.
+
+== 2026-09-26 - Stale path cite sweep (siblings)
+
+* Recorded sibling retargets for Tools-forest agent-rules URLs, facto-stack cites, and Platforms changelog ingest on devcentr.org (see activity log). Hub content already current from prior commits.
+
+== 2026-09-26 - Retarget facto-stack references
+
+* Retargeted hub guidance, activity logs, and publishing docs to the facto-stack product name and current repository/site links.
+
+== 2026-09-25 - Fix injectAssets false for mermaid-client / diagram-lightbox
+
+* Bump `@antora-supplemental/mermaid-client` + `diagram-lightbox` pin to `antora-diagram-engines@f5c293c` so `register({ config })` keeps `length === 1` (and this-binding) and Antora honors playbook `injectAssets: false` (stops Duplicate UI file WARNs against hub `supplemental-ui` mirrors).
+
+== 2026-09-25 - Mermaid client + diagram lightbox packages
+
+* Require `@antora-supplemental/mermaid-client/antora` + `@antora-supplemental/diagram-lightbox` (pinned `antora-diagram-engines@981eb29`) on all hub playbooks; attrs `mermaid-client` / `mermaid-client-mode: client` so Mermaid uses the CDN client path (PlantUML stays on `asciidoctor-kroki`).
+* Asciidoctor tree-processor converts `[source,mermaid]` to client hosts before Kroki bake — no dual SVG.
+* Head/footer use `{{> mermaid-client-*}}` / `{{> diagram-lightbox-*}}` partials; chrome assets mirrored from the packages into `supplemental-ui` (`injectAssets: false` to avoid double-load). Replaced hub-vendored `site-diagram-zoom.*` with `site-diagram-lightbox.*`.
+* Docs: `publishing/antora-diagram-formats.adoc` + `AGENTS.md` (lightbox UX name; Themed SVG still live/unmaintained).
+
+== 2026-09-25 - Home to Tools migration; Agent Rules under Tools
+
+* Added hub `tools-docs` Antora source (`name: tools`, `ROOT:index.adoc`) so `/tools/` is the Tools forest start page (same pattern as Platforms `/platforms/`).
+* Removed `agent-rules` from site-nav-tree `include` / `order` in all playbooks; content source remains. Agent Rules docs publish as `tools:agent-rules`.
+* Home `nav.adoc`: drop nested Tools children; keep portal `tools/index.adoc` and stub pages for forks/external discovery.
+* Portal stub and inventory xrefs point at `tools:agent-rules:*`.
+
+== 2026-09-25 -- Diagram engines doc + zoom/lightbox
+
+* Document Option A (Kroki/Themed SVG bake), Option B (client Mermaid), and hybrid per-diagram how-to on `publishing/antora-diagram-formats.adoc` (borrow-from-light WARN unchanged).
+* Vendor chassis `diagram-zoom` into `supplemental-ui` (in-article zoom + pan/zoom lightbox); wire CSS/JS in head/footer.
+* Teach `site-mermaid.js` to collect `[.mermaid-client]` / `pre.mermaid` listings so Kroki can keep baking PlantUML while selected Mermaid stays client-rendered.
+
+== 2026-09-25 - Themed SVG dark-text WARN on Antora build
+
+* Added `lib/verify-themed-svg-dark-mode.js` and registered it in the playbooks: at `contentClassified`, WARN when adaptive Themed SVG images still hardcode Mermaid root `#my-svg` fill / `.label` color under `prefers-color-scheme: dark`. Borrow-from-light / parent -> child policy: equal light/dark token values (or `borrowFromLight`) mark stable light islands so nested text is not forced to flip; WARN still fires when a darker adapted surface keeps light-mode text.
+* Documented the check on the Antora diagram formats page.
+
+== 2026-09-25 -- Nav icon inheritance, scroll decoupling, footer middot
+
+* SoftNav: same-component nav-tree clicks soft-navigate; content column/window scrolls to top on load while left-rail scroll is preserved (and restored after nav panel swap).
+* Vendor `@antora-supplemental/site-nav-tree` 0.4.1 companion JS (`site-nav-tree:scroll-y` sessionStorage) so full cross-component navigations also keep nav scroll.
+* Pick up `@antora-supplemental/nav-typology` 0.1.6 so Diataxis How-to icons inherit on cross-component leaves (Bitwarden CLI / gcloud CLI under general-knowledge).
+* Footer related-projects separators: replace double-encoded UTF-8 middle dots with `&middot;` (fixes `A·` mojibake).
+
+== 2026-09-25 -- Platforms hub IA + SoftNav expand keys + Source-only lead
+
+* Platforms: shared component start page is `/platforms/` hub; DevCentr + devcentr.org titled nav trees as platform children; removed missing sibling nav paths footgun.
+* Home nav: drop untitled Architecture section (pages kept; GK already xrefs them).
+* Vendor `@antora-supplemental/site-nav-tree` 0.4.0 companion JS (pathname expand keys + Home/Changelog hard-sort); SoftNav rebind no longer looks like inject/remove.
+* Pin `@antora-supplemental/page-context` to `v0.6.7` for shrink-wrapped Source-only lead tables on component homes.
+
+== 2026-09-19 -- Wide AsciiDoc table scroll in article pane
+
+* `supplemental-ui/js/valentus-table-scroll.js` wraps bare `.tableblock` tables; `devcentr-brand.css` scrolls `.valentus-table-scroll` / `.tablecontainer` and constrains article flex width so wide tables no longer spill past the read column.
+
+== 2026-09-15 -- page-edit 0.2.4 component-home Source
+
+* Pin `@antora-supplemental/page-edit` to `v0.2.4` so Antora component start pages get the Source | View | Edit row (empty lead shells no longer false-positive on page-context CSS).
+
+== 2026-09-15 -- Drop Home from component breadcrumb trail
+
+* Hub supplemental helper `valentus-bc-trail-crumbs` overrides Valentus: with site-nav-tree, strip leading foreign component-root crumbs (especially Home / site home) before the usual current-component-root strip so the underlined trail stays within the current component (house icon still covers site home).
+
+== 2026-09-15 -- Restore breadcrumb trail separators
+
+* Hub `breadcrumbs.hbs` again emits Valentus `/` separator nodes between trail crumbs (via `valentus-bc-trail-crumbs`), and keeps the component kicker visible with site-nav-tree (curated picker only) so the mast matches HCI Nerdz / stock Valentus.
+
+== 2026-09-14 -- page-edit 0.2.3 DOCTYPE fix
+
+* Pin `@antora-supplemental/page-edit` to `v0.2.3` so View | Edit is not prepended before the HTML DOCTYPE.
+
+== 2026-09-10 -- page-context 0.6.6 author spacing
+
+* Pin `@antora-supplemental/page-context` to `v0.6.6` so the linked name, circular avatar, and `via \{product}` stay separated in the lead byline and footer author cells.
+
+== 2026-09-10 -- Dark-mode Mermaid diagram box fills
+
+* Bumped `@dev-centr/themed-svg` to **0.2.3** and regenerated themed diagrams / vendor runtime so node fills follow host dark mode (no light boxes under light text).
+
+== 2026-09-10 -- Publish robots.txt with sitemap
+
+* Antora `site.robots` now emits `/robots.txt` with an absolute `Sitemap:` line for `https://docs.devcentr.org`.
+
 == 2026
 
 === September
@@ -50,18 +233,18 @@ This page is the org-wide changelog: significant documentation and project activ
 * **2026-09-25 - Home -> Tools migration + Agent Rules fold** - Tools forest now has a ROOT start page at `/tools/` (hub `tools-docs`). Home nav drops the duplicated full Tools subtree (portal `tools/index` + stub pages remain). `agent-rules` leaves the site-nav-tree forest allowlist and publishes as `tools:agent-rules`. Update xrefs from `agent-rules::` to `tools:agent-rules:`. Old `/agent-rules/` URLs need redirects or bookmarks updated.
 * **2026-09-25 - Agent Rules diagrams: dark text + Bitwarden table** - Bound Mermaid `#my-svg` fill / `.label` color to `color.text.primary` on `agent-cli-auth-flow` (Bitwarden + gcloud pages) and `rules-geography`; fixed the Bitwarden **What persists** AsciiDoc table. Hub Antora extension `lib/verify-themed-svg-dark-mode.js` WARNs at `contentClassified` when adaptive Themed SVGs keep hardcoded dark text. Borrow-from-light / parent->child: light islands may reuse light colors (and their text); WARN only when adapted dark surfaces leave light-mode text behind. xref:tools:agent-rules:bitwarden-cli-agents.adoc[Bitwarden CLI] · xref:tools:agent-rules:gcloud-cli-agents.adoc[gcloud CLI] · xref:general-knowledge::explanation/documentation/antora-diagram-formats.adoc[Diagram formats].
 * **2026-09-25 - Platforms hub IA + SoftNav expand stability** - Platforms component start URL is `/platforms/` (ROOT hub) with DevCentr and devcentr.org as titled sidebar children; removed missing `antora.yml` nav paths. `@antora-supplemental/site-nav-tree` **0.4.0** keeps Home then Changelog hard-sort and pathname expand keys so SoftNav nav swaps do not look like inject/remove; hub vendors the companion JS. page-context **0.6.7** shrink-wraps Source-only lead tables. Home nav drops the Architecture folder (pages remain).
-* **2026-09-15 — Breadcrumb trail drops foreign Home crumb** — Hub supplemental `adt-bc-trail-crumbs` strips leading Home / foreign component-root crumbs under site-nav-tree so trails like Reference reliability read **Internet Architecture / Reference reliability** (house icon still covers site home). xref:general-knowledge::explanation/internet-architecture/reliability/reference-reliability.adoc[Reference reliability].
+* **2026-09-15 — Breadcrumb trail drops foreign Home crumb** — Hub supplemental `valentus-bc-trail-crumbs` strips leading Home / foreign component-root crumbs under site-nav-tree so trails like Reference reliability read **Internet Architecture / Reference reliability** (house icon still covers site home). xref:general-knowledge::explanation/internet-architecture/reliability/reference-reliability.adoc[Reference reliability].
 * **2026-09-15 — Actor stick figures follow edge paints** — `@dev-centr/plantuml-svg-css-vars` **v0.1.2** binds stick-figure strokes to `color.edge` (host borders are often near-invisible hairlines); Mermaid sequence builds gain `.actor-man` circle/line bindings. Rebuilt `label-as-wire-break` (+ `access-github-membership-flow` manifest). Hub redeploy refreshes `_images/`. xref:general-knowledge::explanation/internet-architecture/reliability/reference-reliability.adoc[Reference reliability] · link:https://github.com/dev-centr/plantuml-svg-css-vars/releases/tag/v0.1.2[v0.1.2].
-* **2026-09-15 — Mast version dropdown shows `~`** — Hub supplemental `breadcrumbs` / `adt-version-label` still remapped Antora’s unversioned version to **Default** after Valentus switched dropdown rows to literal `~` (button stays **Version**). Aligned the override with valentus-theme so docs.devcentr.org matches HCI-Nerdz.
+* **2026-09-15 — Mast version dropdown shows `~`** — Hub supplemental `breadcrumbs` / `valentus-version-label` still remapped Antora’s unversioned version to **Default** after Valentus switched dropdown rows to literal `~` (button stays **Version**). Aligned the override with valentus-theme so docs.devcentr.org matches HCI-Nerdz.
 * **2026-09-15 — PlantUML sequence dark-mode paint** — `@dev-centr/plantuml-svg-css-vars` **v0.1.1** binds painted sequence descendants and classifies note/divider fills; rebuilt `label-as-wire-break`. Hub redeploy refreshes `_images/`. npm Trusted Publisher for the package name still pending. xref:general-knowledge::explanation/internet-architecture/reliability/reference-reliability.adoc[Reference reliability] · link:https://github.com/dev-centr/plantuml-svg-css-vars[plantuml-svg-css-vars].
 * **2026-09-15 — PlantUML Themed SVG adapter** — Published `dev-centr/plantuml-svg-css-vars` (git tag `v0.1.0`; npm registry awaits Trusted Publisher registration for the new package name). facto-stack docs recommend Mermaid + PlantUML adapters as compose, not forks. Hub diagram formats page documents the pipeline; general-knowledge builds `label-as-wire-break` from PlantUML via Kroki → adapter. xref:general-knowledge::explanation/documentation/antora-diagram-formats.adoc[Antora diagram formats] · link:https://github.com/dev-centr/plantuml-svg-css-vars[plantuml-svg-css-vars].
 * **2026-09-14 — Reliability PlantUML → Themed SVG** — Kroki PlantUML (and one inline Mermaid) on Reference reliability / Identity stack / NDN and friends stayed light under the site dark toggle. Migrated to Mermaid + Themed SVG adaptive/host assets; hub redeploy refreshes `_images/`. xref:general-knowledge::explanation/internet-architecture/reliability/reference-reliability.adoc[Reference reliability].
-* **2026-09-19 — Wide AsciiDoc table scroll** — Hub `adt-table-scroll.js` wraps bare article tables; `devcentr-brand.css` applies horizontal scroll on the wrapper (not the table) and `min-width: 0` on the article pane so wide attribute matrices stay inside the read column. xref:docs-site/antora-ui-branding.adoc#wide-asciidoc-tables[Antora UI branding].
+* **2026-09-19 — Wide AsciiDoc table scroll** — Hub `valentus-table-scroll.js` wraps bare article tables; `devcentr-brand.css` applies horizontal scroll on the wrapper (not the table) and `min-width: 0` on the article pane so wide attribute matrices stay inside the read column. xref:docs-site/antora-ui-branding.adoc#wide-asciidoc-tables[Antora UI branding].
 * **2026-09-10 — Nav expand/collapse + Valentus 2.0.30 top-level inset** — Replaced hub `site-nav-tree-current.js` with `@antora-supplemental/site-nav-tree` companion (deepest current page, ancestry-only `is-current-path`, `sessionStorage` expand retention). Rebuild against Valentus **2.0.30** drops redundant top-level `.nav-list` left margin. link:https://github.com/antora-supplemental/valentus-theme/releases/tag/v2.0.30[v2.0.30].
 * **2026-09-10 — Valentus 2.0.27 / 2.0.28 breadcrumb mast** — Rebuild against rolling `v2`: trail segments (links, folder nodes, current page) use accent + underline; Version/component kickers drop resting underline; copyable `/` path separators; keep component kicker with conjoined `~` version menu under site-nav-tree. link:https://github.com/antora-supplemental/valentus-theme/releases/tag/v2.0.28[v2.0.28] · link:https://github.com/antora-supplemental/valentus-theme/releases/tag/v2.0.27[v2.0.27].
 * **2026-09-10 — Themed SVG host palettes (all hub namespaces)** — Host-mode figures fell back to light after runtime upgrade when brand CSS only mapped `nav-typology`. Mapped `diagram`, `rules-geography`, `agent-cli-auth`, `uniconfig-layers`, and `uniconfig-schema-minus-instance` to Valentus light/dark so manual dark mode keeps the dark palette. xref:general-knowledge::explanation/what-seo-does-for-a-public-website.adoc[SEO explanation].
-* **2026-09-10 — Valentus 2.0.26 flat dark rail + hidden nav scrollbars** — Rebuild against rolling `v2` after valentus-theme **2.0.25** / **2.0.26**: dark side-rail wash opt-in only (`adt-side-panels`); tree-nav scrollbars hidden while edge fades remain. link:https://github.com/antora-supplemental/valentus-theme/releases/tag/v2.0.26[v2.0.26].
-* **2026-09-10 — Valentus 2.0.24 tree-nav width containment** — Rebuild against rolling `v2` after valentus-theme **2.0.24+antora.3**: elevated `nav.nav-menu` stays inside the fixed `--adt-nav-width` column so long nowrap labels scroll horizontally and edge fades no longer paint over article content. link:https://github.com/antora-supplemental/valentus-theme/releases/tag/v2.0.24[v2.0.24].
+* **2026-09-10 — Valentus 2.0.26 flat dark rail + hidden nav scrollbars** — Rebuild against rolling `v2` after valentus-theme **2.0.25** / **2.0.26**: dark side-rail wash opt-in only (`valentus-side-panels`); tree-nav scrollbars hidden while edge fades remain. link:https://github.com/antora-supplemental/valentus-theme/releases/tag/v2.0.26[v2.0.26].
+* **2026-09-10 — Valentus 2.0.24 tree-nav width containment** — Rebuild against rolling `v2` after valentus-theme **2.0.24+antora.3**: elevated `nav.nav-menu` stays inside the fixed `--valentus-nav-width` column so long nowrap labels scroll horizontally and edge fades no longer paint over article content. link:https://github.com/antora-supplemental/valentus-theme/releases/tag/v2.0.24[v2.0.24].
 * **2026-09-09 — SEO explanation, Next.js listing tutorial, and hub robots.txt** — Published a concept guide to discoverability, crawlability, metadata, internal links, sitemap/robots, structured data, performance, Search Console, and automated Google sitelinks; paired it with a task-oriented App Router listing-site build and raw-HTML verification. The hub now publishes `robots.txt` with its production sitemap URL. xref:general-knowledge::explanation/what-seo-does-for-a-public-website.adoc[Explanation] · xref:general-knowledge::tutorials/build-a-search-ready-nextjs-listing-site.adoc[Tutorial].
 * **2026-09-08 — Nav typology themed diagram** — Migrated the documentation diagram to deterministic Mermaid source and a Themed SVG v1 manifest. The hub serves a standalone adaptive fallback and progressively upgrades the role-marked image to the sanitized same-origin host SVG; the original fixed diagram remains available for comparison.
 * **2026-09-03 — Internet Reliability diagram SVG encoding** — Live `<img>` and `_images/` 200 were fine after alt quoting; the SVG itself declared UTF-8 but used latin-1 `0xB7` middots, so browsers hit XML *Encoding error* and showed a broken figure. Rewrote to ASCII; renamed published file to `three-altitudes-diagram.svg` to bust CDN cache on the old path; also fixed rename mockup + curated-watching SVG. Hub redeploy refreshes `_images/`. xref:general-knowledge::explanation/internet-architecture/reliability/index.adoc[Internet Reliability].
@@ -77,11 +260,11 @@ This page is the org-wide changelog: significant documentation and project activ
 * **2026-09-01 — Changelog nav typology** — `@antora-supplemental/nav-typology` v0.1.2: changelog / activity-log icon + auto-hoist to second slot in each nav branch; hub supplemental UI + DevCentr nav source updated.
 * **2026-09-01 — Nav typology icons extension** — New `@antora-supplemental/nav-typology` (+ optional `nav-typology-diataxis`) enriches sidebar nav with uniform SVG typology icons; integrated on docs hub playbook and facto-stack fragment. general-knowledge: removed structural emoji from Diátaxis nav/H1s. site-nav-tree README: multi-nav concatenation vs `include::`. xref:general-knowledge::explanation/documentation/antora-essential-extensions.adoc#nav-typology-icons-antora-supplementalnav-typology[essential extensions entry].
 * **2026-09-01 — DevCentr nav consolidation + doc UX** — DevCentr component: single ROOT nav with `include::` for specifications / secrets-manager / publishing / upstream-contributions (fixes parallel-tree swap and Secrets Manager sections appearing as DevCentr IA). Toolchain lifecycle group; specifications Components / Features / Reference. Hub: `home` component title **Home** (was Project Portal); `site-doc-nav.js` crossfade + scroll preservation; `site-nav-tree-current.js` keeps component branches expanded; xref:general-knowledge::explanation/documentation/antora-essential-extensions.adoc#multi-nav-files-vs-include-component-modules[multi-nav vs include] + `nav-typology.svg`. Scaffold link:https://github.com/dev-centr/d-emoji[d-emoji] (Diátaxis glyph constants for D UI).
-* **2026-09-01 — Diátaxis grid table cells (`a|`)** — general-knowledge start page used plain `|` cells so `[.text-center]` and `===` printed literally; fixed to `a|` (commit `b695417`). Hive-wide Antora audit found no other live `.adoc` instances; corrected the same example in the historical `cursor_knowledge_base_module_organization.md` dump so it is not re-copied wrong.
+* **2026-09-01 — Diátaxis grid table cells (`a|`)** — general-knowledge start page used plain `|` cells so `[.text-center]` and `===` printed literally; fixed to `a|` (commit `b695417`). Hive-wide Antora audit found no other live `.adoc` instances; corrected the same example in the historical xref:changelog-details/history/2026-01-19-cursor-knowledge-base-module-organization.adoc[knowledge base module organization] dump so it is not re-copied wrong.
 * **2026-09-01 — Component nav: logos not typology icons (fix)** — Hub supplemental helpers now skip `component-root` typology sprites on site-nav-tree roots (chevron-only when no logo). Wired `nav-component-logo.js` for **DevCentr App** and **devcentr.org** (`img/nav-logos/` from canonical brand marks). Deeper rows still use Diátaxis / spec / changelog typology icons.
 * **2026-09-01 — Component nav: chevrons not typology icons** — Hub sidebar: drop `component-root` typology sprite on site-nav-tree roots (accent expand chevron marks components instead). Optional app logos via `nav-component-logo.js` + `img/nav-logos/`; typology icons remain for Diátaxis, spec groupings, and changelog deeper in the tree. xref:docs-site/antora-ui-branding.adoc[Antora UI branding].
-* **2026-09-01 — Nav-tree expand chevrons** — Valentus **2.0.15+antora.3** adds `--adt-nav-item-toggle` / `--adt-nav-item-toggle-hover`; hub `devcentr-brand.css` tints only component-root chevrons (`data-depth="0"`) with brand accent — nested nav children keep Valentus muted ink. xref:docs-site/antora-ui-branding.adoc[Antora UI branding].
-* **2026-09-01 — Breadcrumb mast UX** — Home icon links to site root (not component index). Component picker hidden when site-nav-tree is active (sidebar already lists components). Implicit version kicker shows **Version** / **Default** instead of raw `default`. Shipped in valentus-theme **2.0.14+antora.3**; hub supplemental keeps curated component list + `in-site-nav-tree` helper. Dropped interim `.adt-doc-mast` z-index override from brand CSS (fixed upstream in 2.0.14).
+* **2026-09-01 — Nav-tree expand chevrons** — Valentus **2.0.15+antora.3** adds `--valentus-nav-item-toggle` / `--valentus-nav-item-toggle-hover`; hub `devcentr-brand.css` tints only component-root chevrons (`data-depth="0"`) with brand accent — nested nav children keep Valentus muted ink. xref:docs-site/antora-ui-branding.adoc[Antora UI branding].
+* **2026-09-01 — Breadcrumb mast UX** — Home icon links to site root (not component index). Component picker hidden when site-nav-tree is active (sidebar already lists components). Implicit version kicker shows **Version** / **Default** instead of raw `default`. Shipped in valentus-theme **2.0.14+antora.3**; hub supplemental keeps curated component list + `in-site-nav-tree` helper. Dropped interim `.valentus-doc-mast` z-index override from brand CSS (fixed upstream in 2.0.14).
 
 === August
 
@@ -90,7 +273,7 @@ This page is the org-wide changelog: significant documentation and project activ
 * **2026-08-30 — Curated site-nav-tree forest** — Hub uses site-nav-tree `include` allowlist (home, general-knowledge, business-bootstrap, agent-rules, DevCentr, templates, devcentr-org). Content source ≠ sidebar root; breadcrumb picker shares curation via `site.keys.site_nav_tree_*`. Product stubs stay reachable by URL/`home` tools portal.
 * **Linked parent section landings** — Drop `.Section` + Overview. Nav uses a linked parent whose text equals the landing H1 (`Email`, `Org infra`, …); file stays `index.adoc`; folder URLs via `urls.html_extension_style: indexify`.
 * **Folder URLs (indexify)** — Hub playbooks set `urls.html_extension_style: indexify` so landings at `…/index.adoc` publish as folder paths (`…/email/`, not `…/email/index.html`). Canonical and sitemap follow Antora page URLs. Do not invent `overview.adoc`; do not advertise `index.html`.
-* **valentus-theme FOUC paint-hold** — Synced supplemental `head-meta.hbs` with Valentus interim paint-hold (`adt-fouc-pending`): hide until layered CSS, preference attrs, and web fonts apply; release via `document.fonts.ready` (3s fallback). Brand CSS stays in the stylesheet stack before the release script. xref:docs-site/antora-ui-branding.adoc#fouc-paint-hold-interim[Antora UI branding].
+* **valentus-theme FOUC paint-hold** — Synced supplemental `head-meta.hbs` with Valentus interim paint-hold (`valentus-fouc-pending`): hide until layered CSS, preference attrs, and web fonts apply; release via `document.fonts.ready` (3s fallback). Brand CSS stays in the stylesheet stack before the release script. xref:docs-site/antora-ui-branding.adoc#fouc-paint-hold-interim[Antora UI branding].
 * **Internet Architecture / Internet Reliability** — Peer home-nav group (body in general-knowledge): systems altitude for reference durability and usability of the internet; deep-links HCI *Labels versus wires* + connectome-fs. Build-time Mermaid + PlantUML via Kroki (`asciidoctor-kroki`); how-to xref:general-knowledge::explanation/documentation/antora-diagram-formats.adoc[Antora diagram formats]. Compose pack scaffold `antora-supplemental/facto-stack` (Valentus stays lean). xref:general-knowledge::explanation/internet-architecture/reliability/index.adoc[Internet Reliability].
 * **Spatial web windows** — multi-window desktop web UX for UI-heavy and WASM apps: lite palettes, SharedWorker hubs, intent routing. HCI Nerdz essay link:https://hci-nerdz.github.io/blog/when-the-browser-flattens-working-memory/[When the browser flattens working memory]; docs link:https://hci-nerdz.github.io/docs/hci-nerdz/spatial-web-windows.html[Spatial web windows]; demo link:https://hci-nerdz.github.io/demos/spatial-web-windows/[desk]. Developer notes: xref:explanation/architecture/ui-heavy-web-apps.adoc#spatial-windows-and-lite-palettes[Spatial windows and lite palettes]. Browser fork: link:https://github.com/Desktop-Tooling/spatial-browser[Desktop-Tooling/spatial-browser].
 
@@ -130,10 +313,10 @@ This page is the org-wide changelog: significant documentation and project activ
 * **Composio MCP** — Connector plane for Cursor/CLI agents (Gmail, GitHub, Vercel, …). How-to + stack explanation in general-knowledge; hub stub under Tools. xref:general-knowledge::how-to/composio-mcp-setup.adoc[Setup] · xref:general-knowledge::explanation/infrastructure/composio-and-mcp-connectors.adoc[Stack placement] · xref:tools/composio.adoc[portal].
 * **Software Product Essentials — auxiliary templates** — general-knowledge gained desktop/web/mobile auxiliary feature matrices (Help, About, updates, diagnostics, connectivity, privacy) plus macOS/Linux update apply guidance (quit/replace, package timers, AppImage). xref:general-knowledge::explanation/architecture/auxiliary-features.adoc[Auxiliary features] · xref:general-knowledge::explanation/architecture/classes/index.adoc[Delivery classes] · xref:general-knowledge::how-to/unix-auto-updates.adoc[Unix/macOS auto-updates].
 * **Rules Manager** — Compose/watch daemon + tray for agent-rules (`dev-centr/rules-manager`); Antora component on the hub. xref:tools:rules-manager:index.adoc[Rules Manager docs] · xref:tools/rules-manager.adoc[portal] · https://docs.devcentr.org/tools/rules-manager/
-* **Admonition TIP Antora green** — DevCentr no longer remaps tip to brand teal; TIP pill + card stay on `--tip-color` / `--adt-admonition-tip` (Antora `#41af46`). Tip inline code keeps charcoal/coral with a rounded gray border.
-* **Admonition TIP one green** — TIP pill and card tint both follow `--adt-admonition-tip` (no second emerald on the body). Brand overlay clears stale cell washes; Valentus / antora-dark-mode ship the token wiring.
+* **Admonition TIP Antora green** — DevCentr no longer remaps tip to brand teal; TIP pill + card stay on `--tip-color` / `--valentus-admonition-tip` (Antora `#41af46`). Tip inline code keeps charcoal/coral with a rounded gray border.
+* **Admonition TIP one green** — TIP pill and card tint both follow `--valentus-admonition-tip` (no second emerald on the body). Brand overlay clears stale cell washes; Valentus / antora-dark-mode ship the token wiring.
 * **Admonition TIP card** — TIP/NOTE label now sits *inside* the bordered card (table chrome). Prior overlay/fix only cleared the green wash and left the border on the body.
-* **Theme toggle timing** — Light↔dark animation was uneven: View Transitions (0.28s) raced Valentus `--adt-transition` paint rules (0.2s). Fixed upstream in antora-dark-mode (`html.adt-theme-vt` + `:active-view-transition`); docs brand overlay uses the CSS-only suppress until rolling `v2` updates.
+* **Theme toggle timing** — Light↔dark animation was uneven: View Transitions (0.28s) raced Valentus `--valentus-transition` paint rules (0.2s). Fixed upstream in antora-dark-mode (`html.valentus-theme-vt` + `:active-view-transition`); docs brand overlay uses the CSS-only suppress until rolling `v2` updates.
 * **Admonition dark TIP wash** — Earlier fix cleared type-tint wash on the TIP label cell (antora-dark-mode 1.4.1 / valentus-theme 2.0.6); superseded by the card-wrap fix above.
 * **RepoDrive** — Standalone forge virtual drive (`dev-centr/repo-drive`): GUI + tray, sparse mount, Ibex installers; wired into Antora hub. xref:tools:repo-drive:index.adoc[RepoDrive docs] · xref:tools/repo-drive.adoc[portal] · https://docs.devcentr.org/tools/repo-drive/
 * **Switchyard** — New Windows file-association switchyard (`dev-centr/switchyard`): snapshot open/icon tracks, planned icon lock; Antora component on the hub. xref:tools:switchyard:index.adoc[Switchyard docs].
@@ -178,3 +361,13 @@ This page is the org-wide changelog: significant documentation and project activ
 
 ---
 _Add new entries at the top of the current year/month. Use a short bold label and a one-line description._
+
+[#history-and-reports]
+== History and reports
+
+Older reports and saved prompts, kept for context. These pages are not in the nav.
+
+* xref:changelog-details/history/2026-10-17-home-to-general-knowledge-migration-notes.adoc[2026-10-17 - Home Docs site to General Knowledge migration notes]
+* xref:changelog-details/history/2026-02-13-documentation-stratification-strategy.adoc[2026-02-13 - Documentation stratification strategy]
+* xref:changelog-details/history/2026-01-26-dark-mode-analysis.adoc[2026-01-26 - Dark mode analysis]
+* xref:changelog-details/history/2026-01-19-cursor-knowledge-base-module-organization.adoc[2026-01-19 - Saved prompt: knowledge base module organization]

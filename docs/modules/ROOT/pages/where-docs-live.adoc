@@ -60,7 +60,7 @@ The **home** tree does not mirror every page in every component. Portal pages un
 
 Hub aggregator naming (`name: home`, sidebar **Overview**, portal H1, `site.start_page: home::index.adoc`): xref:general-knowledge::explanation/documentation/hub-home-component.adoc[Hub home component].
 
-*Future:* an Antora extension should emit Tools nav entries (and optionally `where-docs-live` bullets) from the playbook catalog — title from each component's `antora.yml`, link to `component:ROOT:index.adoc`, portal stub when present. Until then, xref:general-knowledge::explanation/documentation/antora-essential-extensions.adoc[essential extensions] and Phase 2 in `DOCS_STRATEGY.md` apply.
+*Future:* an Antora extension should emit Tools nav entries (and optionally `where-docs-live` bullets) from the playbook catalog — title from each component's `antora.yml`, link to `component:ROOT:index.adoc`, portal stub when present. Until then, xref:general-knowledge::explanation/documentation/antora-essential-extensions.adoc[essential extensions] and Phase 2 in the historical xref:changelog-details/history/2026-02-13-documentation-stratification-strategy.adoc[documentation stratification strategy] apply.
 
 == Team documentation (members only)
 

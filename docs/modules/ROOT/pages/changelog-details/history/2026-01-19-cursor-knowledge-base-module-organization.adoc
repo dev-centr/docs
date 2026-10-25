@@ -1,60 +1,67 @@
-# Knowledge base module organization
+= Saved prompt: knowledge base module organization
+:description: Exported Cursor chat that planned the dev-center knowledge-base module reorganization (historical).
+:hide-page:
+:page-revdate: 2026-01-19
+
+NOTE: Historical artifact kept for context (2026-01-19). Formerly `cursor_knowledge_base_module_organization.md` at the repo root; moved here on 2026-10-25. Content may be out of date. See xref:changelog/org-wide.adoc[Org-wide Changelog] for current state.
+
 _Exported on 1/19/2026 at 18:18:03 CST from Cursor (2.3.41)_
 
----
+'''
 
-**User**
+*User*
 
 organize Z:\code\dev-centr\dev-center\docs\modules\knowledge-base . show plan first
 
----
+'''
 
-**Cursor**
+*Cursor*
 
 I've analyzed the current structure of the `knowledge-base` module and found several inconsistencies in file naming, directory organization, and navigation.
 
 Here is the proposed plan to organize `Z:\code\dev-centr\dev-center\docs\modules\knowledge-base`:
 
-### 1. File Renaming & Standardization
-Standardize all files to use **kebab-case** and ensure main section files are named `index.adoc` for consistency with the `development-tools` pattern.
+=== 1. File Renaming & Standardization
+Standardize all files to use *kebab-case* and ensure main section files are named `index.adoc` for consistency with the `development-tools` pattern.
 
-*   `pages/ssh-keys/SSH Keys.adoc` → `pages/ssh-keys/ssh-keys.adoc` (fix casing and spaces)
-*   `pages/nodejs/nodejs.adoc` → `pages/nodejs/index.adoc`
-*   `pages/flutter/dartSDK-setup.adoc` → `pages/flutter/dart-sdk-setup.adoc`
-*   `pages/asciidoc/asciidoc-tools.adoc` → `pages/asciidoc/index.adoc`
-*   `pages/file-sync/sync.adoc` → `pages/file-sync/index.adoc`
+* `pages/ssh-keys/SSH Keys.adoc` → `pages/ssh-keys/ssh-keys.adoc` (fix casing and spaces)
+* `pages/nodejs/nodejs.adoc` → `pages/nodejs/index.adoc`
+* `pages/flutter/dartSDK-setup.adoc` → `pages/flutter/dart-sdk-setup.adoc`
+* `pages/asciidoc/asciidoc-tools.adoc` → `pages/asciidoc/index.adoc`
+* `pages/file-sync/sync.adoc` → `pages/file-sync/index.adoc`
 
-### 2. Relocate Non-Renderable Files
+=== 2. Relocate Non-Renderable Files
 Antora expects rendered pages in `pages/`. Scripts and raw text reports should be moved to `examples/` or `attachments/`.
 
-*   **Attachments**: Move `pages/git/git-ssh-ux-bug-report.txt` → `attachments/git/git-ssh-ux-bug-report.txt`.
-*   **Examples**: Move `pages/ssh-keys/ssh-agent-setup/setup-linux.sh` and `setup-windows.ps1` → `examples/ssh-keys/`.
-*   Clean up the now-empty `pages/ssh-keys/ssh-agent-setup/` directory.
+* *Attachments*: Move `pages/git/git-ssh-ux-bug-report.txt` → `attachments/git/git-ssh-ux-bug-report.txt`.
+* *Examples*: Move `pages/ssh-keys/ssh-agent-setup/setup-linux.sh` and `setup-windows.ps1` → `examples/ssh-keys/`.
+* Clean up the now-empty `pages/ssh-keys/ssh-agent-setup/` directory.
 
-### 3. Update Navigation (`nav.adoc`)
+=== 3. Update Navigation (`nav.adoc`)
 Update the navigation file to reflect new names and improve grouping:
 
-*   Add missing pages: `sync-by-gemini.adoc` and `sync-grok4.adoc` under File Sync.
-*   Fix broken link to `ssh-keys.adoc`.
-*   Ensure all links point to the renamed `index.adoc` files where applicable.
+* Add missing pages: `sync-by-gemini.adoc` and `sync-grok4.adoc` under File Sync.
+* Fix broken link to `ssh-keys.adoc`.
+* Ensure all links point to the renamed `index.adoc` files where applicable.
 
-### 4. Audit Internal Links
-*   Update `pages/index.adoc` (the module landing page) to use the new standardized paths.
-*   Search and replace any cross-references (`xref:`) within the `.adoc` files that point to the old filenames.
+=== 4. Audit Internal Links
+* Update `pages/index.adoc` (the module landing page) to use the new standardized paths.
+* Search and replace any cross-references (`xref:`) within the `.adoc` files that point to the old filenames.
 
-**Would you like me to proceed with this plan?**
+*Would you like me to proceed with this plan?*
 
----
+'''
 
-**User**
+*User*
 
 yes
 
----
+'''
 
-**Cursor**
+*Cursor*
 
-```asciidoc
+[source,asciidoc]
+----
 * xref:index.adoc[Knowledge Base]
 * xref:development-tools/index.adoc[Development Tools]
 ** xref:development-tools/tailwind-setup.adoc[Tailwind Setup]
@@ -74,9 +81,10 @@ yes
 ** xref:file-sync/sync-by-gemini.adoc[Sync by Gemini]
 ** xref:file-sync/sync-grok4.adoc[Sync Grok4]
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 * xref:index.adoc[Knowledge Base]
 * xref:development-tools/index.adoc[Development Tools]
 ** xref:development-tools/tailwind-setup.adoc[Tailwind Setup]
@@ -96,9 +104,10 @@ yes
 ** xref:file-sync/sync-by-gemini.adoc[Sync by Gemini]
 ** xref:file-sync/sync-grok4.adoc[Sync Grok4]
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Knowledge Base
 
 This knowledge base contains best practices and technical knowledge that will be enforced and presented in the Dev Center application.
@@ -115,9 +124,10 @@ include::ROOT:partial$tooling-knowledge-gap.adoc[]
 * xref:flutter/dart-sdk-setup.adoc[Flutter] - Flutter development setup
 * xref:file-sync/index.adoc[File Sync] - File synchronization strategies
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = SSH Keys Explanation
 
 SSH keys are a highly secure replacement for the use of passwords when communicating with a remote machine or service. In order to use them, you need to generate a key pair using a command line tool, such as `ssh-keygen`,and configure your local machine to use the private key, then copy the public key into the SSH settings of the service, such as GitHub, GitLab, or Bitbucket. When generating the keys, you can password-protect the private key to further enhance security, preventing unauthorized access even if the private key is compromised.
@@ -653,9 +663,10 @@ However, this means you need to use Git Bash for all Git operations, not PowerSh
 
 3. **Use a third-party SSH agent:** Tools like Pageant (from PuTTY) or 1Password's SSH agent can bridge this gap, but add complexity.
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Code Sync
 
 Developers commonly like to work on code using multiple computers. While git can technically synchronize code between machines, it is not a good solution. First, you have to handle conflicts by inspecting the code, which can take time. Second, the code that you commit to your repository should not be unfinished or incomplete, as it can lead to confusion in a team and more complex git history to look at when you need to roll back changes.
@@ -674,9 +685,10 @@ In the future, I would like to see Syncthing attempt to port their web GUI to Ye
 * xref:sync-grok4.adoc[Sync Grok4]
 
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 || `pnpm-lock.yaml` locks down the entire dependency tree to specific versions, ensuring consistent and reproducible builds for `pnpm`.
 |===
 
@@ -684,9 +696,10 @@ In the future, I would like to see Syncthing attempt to port their web GUI to Ye
 
 * xref:pnpm-disk-space-saving-mechanisms.adoc[pnpm Disk Space Saving Mechanisms]
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 || `pnpm-lock.yaml` locks down the entire dependency tree to specific versions, ensuring consistent and reproducible builds for `pnpm`.
 |===
 
@@ -694,9 +707,10 @@ In the future, I would like to see Syncthing attempt to port their web GUI to Ye
 
 * xref:pnpm-disk-space-saving-mechanisms.adoc[pnpm Disk Space Saving Mechanisms]
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Node.js Environment, Tools, and Management
 
 Node's libraries/packages can be managed using different package managers. By default, it uses `npm`.
@@ -726,9 +740,10 @@ Node.js projects often contain configuration files for package managers:
 
 * xref:pnpm-disk-space-saving-mechanisms.adoc[pnpm Disk Space Saving Mechanisms]
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Node.js Environment, Tools, and Management
 
 Node's libraries/packages can be managed using different package managers. By default, it uses `npm`.
@@ -753,213 +768,216 @@ Node.js projects often contain configuration files for package managers:
 
 * xref:pnpm-disk-space-saving-mechanisms.adoc[pnpm Disk Space Saving Mechanisms]
 
-```
+----
 
 I have completed the reorganization and standardization of the `Z:\code\dev-centr\dev-center\docs\modules\knowledge-base` directory.
 
-### Summary of Changes
+=== Summary of Changes
 
-#### 1. File Renaming & Standardization
-Renamed files to follow **kebab-case** and standardized main section files to use the `index.adoc` pattern for consistency:
-- `pages/ssh-keys/SSH Keys.adoc` → `pages/ssh-keys/ssh-keys.adoc`
-- `pages/nodejs/nodejs.adoc` → `pages/nodejs/index.adoc`
-- `pages/flutter/dartSDK-setup.adoc` → `pages/flutter/dart-sdk-setup.adoc`
-- `pages/asciidoc/asciidoc-tools.adoc` → `pages/asciidoc/index.adoc`
-- `pages/file-sync/sync.adoc` → `pages/file-sync/index.adoc`
-- `pages/git/git-repo-management.adoc` → `pages/git/index.adoc`
+==== 1. File Renaming & Standardization
+Renamed files to follow *kebab-case* and standardized main section files to use the `index.adoc` pattern for consistency:
+* `pages/ssh-keys/SSH Keys.adoc` → `pages/ssh-keys/ssh-keys.adoc`
+* `pages/nodejs/nodejs.adoc` → `pages/nodejs/index.adoc`
+* `pages/flutter/dartSDK-setup.adoc` → `pages/flutter/dart-sdk-setup.adoc`
+* `pages/asciidoc/asciidoc-tools.adoc` → `pages/asciidoc/index.adoc`
+* `pages/file-sync/sync.adoc` → `pages/file-sync/index.adoc`
+* `pages/git/git-repo-management.adoc` → `pages/git/index.adoc`
 
-#### 2. Relocated Non-Renderable Files
+==== 2. Relocated Non-Renderable Files
 Moved scripts and raw text files to the appropriate Antora directories to prevent them from being rendered as broken pages:
-- **Attachments**: 
-    - `attachments/git/git-ssh-ux-bug-report.txt`
-    - `attachments/ssh-keys/setup-linux.sh`
-    - `attachments/ssh-keys/setup-windows.ps1`
-- Cleaned up empty source directories.
+* *Attachments*: 
+*** `attachments/git/git-ssh-ux-bug-report.txt`
+*** `attachments/ssh-keys/setup-linux.sh`
+*** `attachments/ssh-keys/setup-windows.ps1`
+* Cleaned up empty source directories.
 
-#### 3. Updated Navigation (`nav.adoc`)
+==== 3. Updated Navigation (`nav.adoc`)
 Refreshed the navigation structure to reflect the new file paths and included previously missing files:
-- Updated all links to use the new `index.adoc` and kebab-case filenames.
-- Added `Sync by Gemini` and `Sync Grok4` to the File Sync section.
-- Removed direct `xref` links to scripts, as they are now handled as attachments within the relevant pages.
+* Updated all links to use the new `index.adoc` and kebab-case filenames.
+* Added `Sync by Gemini` and `Sync Grok4` to the File Sync section.
+* Removed direct `xref` links to scripts, as they are now handled as attachments within the relevant pages.
 
-#### 4. Fixed Internal Links & References
-- Updated the module landing page (`pages/index.adoc`) with the new standardized paths.
-- Fixed references in `pages/ssh-keys/ssh-keys.adoc` to point to the new attachment locations for the setup scripts.
-- Added "Related Topics" sections to `pages/file-sync/index.adoc` and `pages/nodejs/index.adoc` to improve discoverability of sub-pages.
+==== 4. Fixed Internal Links & References
+* Updated the module landing page (`pages/index.adoc`) with the new standardized paths.
+* Fixed references in `pages/ssh-keys/ssh-keys.adoc` to point to the new attachment locations for the setup scripts.
+* Added "Related Topics" sections to `pages/file-sync/index.adoc` and `pages/nodejs/index.adoc` to improve discoverability of sub-pages.
 
 The module is now logically organized and follows Antora best practices.
 
----
+'''
 
-**User**
+*User*
 
 tailwind setup in 'development tools' folder is a bit obtuse. most of the pages are about development tools, are they not? that folder was created because I moved a team introduction doc from foodtrucknerds into this knowledge base. I think it just wasn't integrated that well. But I like the quick-start aspect of it (index.adoc). What can we do?
 
----
+'''
 
-**Cursor**
+*Cursor*
 
 That is a great observation. Since almost everything in this module is a "development tool" (Git, Node.js, Flutter, etc.), having a separate folder called `development-tools` just for a general list and Tailwind creates a redundant and confusing hierarchy.
 
 To integrate this better and preserve the "Quick Start" feel you like, I propose the following plan:
 
-### 1. Promote "Recommended Tools" to the Landing Page
+=== 1. Promote "Recommended Tools" to the Landing Page
 Move the content of `pages/development-tools/index.adoc` (the list of UniGetUI, Gittyup, Warp, etc.) directly into the main `pages/index.adoc`. 
-*   This transforms the Knowledge Base landing page into a **"Quick Start / Environment Setup"** guide.
-*   The "Topics" (Git, Node, etc.) will be moved to a section at the bottom of this new landing page, grouped logically.
+* This transforms the Knowledge Base landing page into a *"Quick Start / Environment Setup"* guide.
+* The "Topics" (Git, Node, etc.) will be moved to a section at the bottom of this new landing page, grouped logically.
 
-### 2. Move Tailwind to a Dedicated Topic
+=== 2. Move Tailwind to a Dedicated Topic
 Move `tailwind-setup.adoc` into a more descriptive folder.
-*   **Path**: `pages/styling/tailwind.adoc` (or `pages/frontend/tailwind.adoc`).
-*   This treats Tailwind as a specific technical topic like Git or Node.js, rather than a "tool" hidden in a generic folder.
+* *Path*: `pages/styling/tailwind.adoc` (or `pages/frontend/tailwind.adoc`).
+* This treats Tailwind as a specific technical topic like Git or Node.js, rather than a "tool" hidden in a generic folder.
 
-### 3. Cleanup & Navigation Updates
-*   **Delete** the now-redundant `development-tools` directory.
-*   **Update `nav.adoc`** to reflect the flatter, more logical structure.
-*   **Categorize Topics** on the landing page to make them easier to scan:
-    *   **Core Infrastructure**: Git, SSH, Node.js
-    *   **Frontend & Styling**: Tailwind, Flutter
-    *   **Productivity**: File Sync, AsciiDoc
+=== 3. Cleanup & Navigation Updates
+* *Delete* the now-redundant `development-tools` directory.
+* *Update `nav.adoc`* to reflect the flatter, more logical structure.
+* *Categorize Topics* on the landing page to make them easier to scan:
+*** *Core Infrastructure*: Git, SSH, Node.js
+*** *Frontend & Styling*: Tailwind, Flutter
+*** *Productivity*: File Sync, AsciiDoc
 
-**Does this sound like a better way to integrate that "team introduction" content?**
+*Does this sound like a better way to integrate that "team introduction" content?*
 
----
+'''
 
-**User**
+*User*
 
 There is a categorical difference between the tailwind document and the rest of the development tools documents. Please organize the tools based on their layering/abstraction level. Show me the plan first
 
----
+'''
 
-**Cursor**
+*Cursor*
 
-I have designed a plan to organize the Knowledge Base using **Layers of Abstraction**, moving away from the generic "Development Tools" bucket and clearly separating system-level setup from high-level frameworks like Tailwind.
+I have designed a plan to organize the Knowledge Base using *Layers of Abstraction*, moving away from the generic "Development Tools" bucket and clearly separating system-level setup from high-level frameworks like Tailwind.
 
-### The Abstraction Layers
-1.  **Access & Connectivity** (Bottom Layer): How you securely connect to services.
-2.  **Platform & Shell** (System Layer): The terminal, shell, and OS-level utilities you use to interact with the computer.
-3.  **Runtimes & SDKs** (Environment Layer): The language engines (Node, Flutter) required to run code.
-4.  **Version Control & Management** (Workflow Layer): Tracking changes (Git) and managing software (UniGetUI).
-5.  **Synchronization** (Process Layer): Keeping development environments consistent across machines.
-6.  **Frameworks & Standards** (High Layer): The building blocks of the actual applications (Tailwind) and documentation (AsciiDoc).
+=== The Abstraction Layers
+. *Access & Connectivity* (Bottom Layer): How you securely connect to services.
+. *Platform & Shell* (System Layer): The terminal, shell, and OS-level utilities you use to interact with the computer.
+. *Runtimes & SDKs* (Environment Layer): The language engines (Node, Flutter) required to run code.
+. *Version Control & Management* (Workflow Layer): Tracking changes (Git) and managing software (UniGetUI).
+. *Synchronization* (Process Layer): Keeping development environments consistent across machines.
+. *Frameworks & Standards* (High Layer): The building blocks of the actual applications (Tailwind) and documentation (AsciiDoc).
 
----
+'''
 
-### Proposed Action Plan
+=== Proposed Action Plan
 
-#### 1. Reorganize into Layered Folders
+==== 1. Reorganize into Layered Folders
 I will create a new directory structure that reflects these levels:
-*   `access/` (formerly `ssh-keys/`)
-*   `platform/` (The OS-level tools currently in `development-tools`)
-*   `runtimes/` (Node.js and Flutter)
-*   `version-control/` (Git and Git GUIs)
-*   `sync/` (formerly `file-sync/`)
-*   `frameworks/` (Tailwind)
-*   `standards/` (formerly `asciidoc/`)
+* `access/` (formerly `ssh-keys/`)
+* `platform/` (The OS-level tools currently in `development-tools`)
+* `runtimes/` (Node.js and Flutter)
+* `version-control/` (Git and Git GUIs)
+* `sync/` (formerly `file-sync/`)
+* `frameworks/` (Tailwind)
+* `standards/` (formerly `asciidoc/`)
 
-#### 2. Specific Moves & Refactors
-*   **Frameworks**: Move `tailwind-setup.adoc` to `pages/frameworks/tailwind.adoc`. This isolates it as a high-level technology choice.
-*   **Platform**: Extract the "Recommended Tools" (Windows Terminal, Warp, PowerShell, Sudo, UniGetUI) from the old index and place them in `pages/platform/index.adoc`.
-*   **Version Control**: Move Git and the Git GUI recommendations (Gittyup, etc.) into `pages/version-control/`.
-*   **Standardization**: Ensure every folder has a clear `index.adoc` as its entry point.
+==== 2. Specific Moves & Refactors
+* *Frameworks*: Move `tailwind-setup.adoc` to `pages/frameworks/tailwind.adoc`. This isolates it as a high-level technology choice.
+* *Platform*: Extract the "Recommended Tools" (Windows Terminal, Warp, PowerShell, Sudo, UniGetUI) from the old index and place them in `pages/platform/index.adoc`.
+* *Version Control*: Move Git and the Git GUI recommendations (Gittyup, etc.) into `pages/version-control/`.
+* *Standardization*: Ensure every folder has a clear `index.adoc` as its entry point.
 
-#### 3. Update Navigation & Landing Page
-*   **`nav.adoc`**: I will restructure the navigation to follow these layers, making it clear how a developer "levels up" from hardware access to application frameworks.
-*   **Module `index.adoc`**: I will rewrite the module landing page to explain this "Developer Stack" philosophy, helping the team understand where to find specific information based on what level of the stack they are working on.
+==== 3. Update Navigation & Landing Page
+* *`nav.adoc`*: I will restructure the navigation to follow these layers, making it clear how a developer "levels up" from hardware access to application frameworks.
+* *Module `index.adoc`*: I will rewrite the module landing page to explain this "Developer Stack" philosophy, helping the team understand where to find specific information based on what level of the stack they are working on.
 
-**Does this organization by layering align with how you see the difference between the tools and the frameworks?**
+*Does this organization by layering align with how you see the difference between the tools and the frameworks?*
 
----
+'''
 
-**User**
+*User*
 
 Based on the diataxis model mentioned in @z:\code\dev-centr\dev-center\docs\User Documentation Learning Modes.md  generate distinct documentation for each mode of learning in their own trees and make the user choose between them on the documentation front page. Front page should be orientation to the documentation with a quick introduction to the app's purpose first. If done correctly, common snippets should be shared between documents. Formulate a plan. Use the Ordering in @z:\code\dev-centr\dev-center\docs\Organizing Development Layers_ Two Models.md 's onboarding section for the tutorial mode. The tool recommendations page should be separate from the orientation/front page perhaps in the reference section, but a small link, mention, or snippet should be embedded in the front page.
 
----
+'''
 
-**Cursor**
+*Cursor*
 
-This is a significant architectural shift that will align the Knowledge Base with professional documentation standards. By separating content into **Diátaxis modes** and using the **Onboarding Path** for the tutorial, we create a clear distinction between "learning to use the system" and "using the system to work."
+This is a significant architectural shift that will align the Knowledge Base with professional documentation standards. By separating content into *Diátaxis modes* and using the *Onboarding Path* for the tutorial, we create a clear distinction between "learning to use the system" and "using the system to work."
 
 Here is the plan to restructure the Knowledge Base:
 
-### 1. New Directory Structure
+=== 1. New Directory Structure
 I will organize the `pages/` directory into four main branches, plus a `partials/` directory for shared content:
 
-*   `partials/`: Fragments of code or text used in multiple places (e.g., `ssh-keygen` commands, `pnpm` install steps).
-*   `pages/tutorials/`: The **Onboarding Path**. A single, linear guide (or series) moving through:
-    1.  **Platform** (Terminal/Shell)
-    2.  **Access** (SSH)
-    3.  **Workflow** (Git/pnpm)
-    4.  **Runtimes** (Node/Flutter)
-    5.  **Frameworks** (Tailwind/AsciiDoc)
-    6.  **Sync** (Environment persistence)
-*   `pages/how-to/`: Task-oriented recipes (e.g., "How to fix line endings," "How to add a SSH key to GitHub").
-*   `pages/reference/`: Technical facts, including the **Tool Recommendations** list.
-*   `pages/explanation/`: Conceptual "Why" documents (e.g., why we prioritize the right hemisphere in UI design).
+* `partials/`: Fragments of code or text used in multiple places (e.g., `ssh-keygen` commands, `pnpm` install steps).
+* `pages/tutorials/`: The *Onboarding Path*. A single, linear guide (or series) moving through:
+.. *Platform* (Terminal/Shell)
+.. *Access* (SSH)
+.. *Workflow* (Git/pnpm)
+.. *Runtimes* (Node/Flutter)
+.. *Frameworks* (Tailwind/AsciiDoc)
+.. *Sync* (Environment persistence)
+* `pages/how-to/`: Task-oriented recipes (e.g., "How to fix line endings," "How to add a SSH key to GitHub").
+* `pages/reference/`: Technical facts, including the *Tool Recommendations* list.
+* `pages/explanation/`: Conceptual "Why" documents (e.g., why we prioritize the right hemisphere in UI design).
 
----
+'''
 
-### 2. Implementation Steps
+=== 2. Implementation Steps
 
-#### A. Content Extraction (Partials)
-I will move repeated technical instructions into `partials/` so they can be `include::`ed in both the **Tutorial** (where they are part of a story) and **How-to** (where they are part of a recipe).
-*   *Example*: The SSH generation command will live in a partial and be used in the "Access" step of the tutorial AND the "Generate a Key" how-to.
+==== A. Content Extraction (Partials)
+I will move repeated technical instructions into `partials/` so they can be `include::`ed in both the *Tutorial* (where they are part of a story) and *How-to* (where they are part of a recipe).
+* *Example*: The SSH generation command will live in a partial and be used in the "Access" step of the tutorial AND the "Generate a Key" how-to.
 
-#### B. The Landing Page (`pages/index.adoc`)
-I will rewrite the main index to act as a **Router**:
-1.  **Introduction**: Define the "Dev Center" app’s purpose (centralizing developer intelligence and workflow).
-2.  **Orientation**: Briefly explain the four modes (Diátaxis) so users know where to click.
-3.  **Quick Links**: 
-    *   A prominent "Start Onboarding" button.
-    *   A snippet/link to the "Recommended Tools" reference page.
+==== B. The Landing Page (`pages/index.adoc`)
+I will rewrite the main index to act as a *Router*:
+. *Introduction*: Define the "Dev Center" app’s purpose (centralizing developer intelligence and workflow).
+. *Orientation*: Briefly explain the four modes (Diátaxis) so users know where to click.
+. *Quick Links*: 
+*** A prominent "Start Onboarding" button.
+*** A snippet/link to the "Recommended Tools" reference page.
 
-#### C. The Tutorial (`pages/tutorials/onboarding.adoc`)
+==== C. The Tutorial (`pages/tutorials/onboarding.adoc`)
 I will synthesize a master tutorial that follows the onboarding order. It will focus on "getting your first commit pushed" as the success metric.
 
-#### D. Reference & Tooling
+==== D. Reference & Tooling
 The `development-tools` content will be refactored into `pages/reference/tool-recommendations.adoc`.
 
-#### E. Navigation (`nav.adoc`)
+==== E. Navigation (`nav.adoc`)
 I will restructure the navigation tree to group by these four modes, making the documentation "logical mapping" visible at a glance.
 
----
+'''
 
-### 3. File Move Map (Draft)
-*   `pages/ssh-keys/ssh-keys.adoc` → `pages/how-to/setup-ssh.adoc` (How-to) & `pages/explanation/ssh-security.adoc` (Explanation).
-*   `pages/development-tools/index.adoc` → `pages/reference/recommended-tools.adoc`.
-*   `pages/development-tools/tailwind-setup.adoc` → `pages/how-to/setup-tailwind.adoc`.
-*   `pages/git/index.adoc` → Split between `pages/reference/git-cheat-sheet.adoc` and `pages/how-to/git-workflow.adoc`.
+=== 3. File Move Map (Draft)
+* `pages/ssh-keys/ssh-keys.adoc` → `pages/how-to/setup-ssh.adoc` (How-to) & `pages/explanation/ssh-security.adoc` (Explanation).
+* `pages/development-tools/index.adoc` → `pages/reference/recommended-tools.adoc`.
+* `pages/development-tools/tailwind-setup.adoc` → `pages/how-to/setup-tailwind.adoc`.
+* `pages/git/index.adoc` → Split between `pages/reference/git-cheat-sheet.adoc` and `pages/how-to/git-workflow.adoc`.
 
-**Shall I proceed with creating the partials and restructuring the directories according to this plan?**
+*Shall I proceed with creating the partials and restructuring the directories according to this plan?*
 
----
+'''
 
-**User**
+*User*
 
 yes
 
----
+'''
 
-**Cursor**
+*Cursor*
 
-```asciidoc
+[source,asciidoc]
+----
 [source,sh]
 ----
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ----
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 [source,sh]
 ----
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ----
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 [source,powershell]
 ----
 # Set the service to automatic startup
@@ -969,33 +987,37 @@ Set-Service -Name ssh-agent -StartupType Automatic
 Start-Service ssh-agent
 ----
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 [source,bash]
 ----
 git config --global core.autocrlf input
 ----
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 [source,html]
 ----
 <script src="https://cdn.tailwindcss.com"></script>
 ----
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 [source,sh]
 ----
 npm install tailwindcss @tailwindcss/cli
 ----
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Knowledge Base Orientation
 
 Welcome to the Dev Center Knowledge Base. This is the central repository for technical intelligence, best practices, and the collective memory of our engineering team.
@@ -1042,9 +1064,10 @@ xref:explanation/index.adoc[💡 Explore Concepts]
 **Quick Start:** If you are new to the team, start with the xref:tutorials/onboarding.adoc[Onboarding Tutorial]. It will guide you through setting up your machine using our xref:reference/recommended-tools.adoc[Recommended Tools].
 ====
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Recommended Development Tools
 
 We recommend these tools to improve your dev workflow and maintain consistency across the team.
@@ -1076,9 +1099,10 @@ We recommend these tools to improve your dev workflow and maintain consistency a
 * link:https://jam.dev[Jam.dev] - One-click bug reporting with logs and video.
 * link:https://chromewebstore.google.com/detail/visbug/cdockenadnadldjbbgcallicgledbeoc[VisBug] - Live design debugging in the browser.
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Developer Onboarding: Zero to One
 
 This tutorial will guide you through setting up your development environment from scratch. Our goal is to get you from a fresh machine to your first successful code contribution.
@@ -1150,9 +1174,10 @@ To maintain consistency across multiple machines, we use **Syncthing**.
 
 **Congratulations!** Your environment is now fully configured. You are ready to clone your first repository and start building.
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = How-to Guides
 
 Practical recipes for real-world tasks.
@@ -1165,9 +1190,10 @@ Practical recipes for real-world tasks.
 * xref:how-to/git-lfs.adoc[Large Files & LFS]
 * xref:how-to/git-recovery.adoc[Git Recovery & Troubleshooting]
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Technical Reference
 
 Dry, technical facts and specifications.
@@ -1177,9 +1203,10 @@ Dry, technical facts and specifications.
 * xref:reference/nodejs-env.adoc[Node.js Environment]
 * xref:reference/asciidoc-tools.adoc[AsciiDoc Tooling]
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Concept Explanations
 
 Discursive and conceptual content to facilitate a deeper mental model.
@@ -1191,9 +1218,10 @@ Discursive and conceptual content to facilitate a deeper mental model.
 * xref:explanation/sync-by-gemini.adoc[Sync Strategy: Gemini]
 * xref:explanation/sync-grok4.adoc[Sync Strategy: Grok4]
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 * xref:index.adoc[Knowledge Base]
 
 .🎓 Tutorials
@@ -1225,9 +1253,10 @@ Discursive and conceptual content to facilitate a deeper mental model.
 * xref:explanation/sync-by-gemini.adoc[Sync: Gemini]
 * xref:explanation/sync-grok4.adoc[Sync: Grok4]
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Code Sync
 
 Developers commonly like to work on code using multiple computers. While git can technically synchronize code between machines, it is not a good solution. First, you have to handle conflicts by inspecting the code, which can take time. Second, the code that you commit to your repository should not be unfinished or incomplete, as it can lead to confusion in a team and more complex git history to look at when you need to roll back changes.
@@ -1246,9 +1275,10 @@ In the future, I would like to see Syncthing attempt to port their web GUI to Ye
 * xref:explanation/sync-grok4.adoc[Sync Grok4]
 
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Node.js Environment, Tools, and Management
 
 Node's libraries/packages can be managed using different package managers. By default, it uses `npm`.
@@ -1273,9 +1303,10 @@ Node.js projects often contain configuration files for package managers:
 
 * xref:explanation/pnpm-mechanics.adoc[pnpm Disk Space Saving Mechanisms]
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Git Repository Management
 
 Git repository management encompasses the practices, configurations, and workflows needed to effectively maintain version-controlled projects. This document covers common configuration concerns and troubleshooting topics.
@@ -1385,9 +1416,10 @@ git config --global core.safecrlf false
 * xref:explanation/git-submodules.adoc[Submodules & Monorepos] - Multi-repository patterns
 * xref:how-to/git-recovery.adoc[Recovery & Troubleshooting] - Reflog, reset, and fixing mistakes
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Git Branching Strategies
 
 // TODO: Document common branching strategies
@@ -1410,9 +1442,10 @@ This document will cover common Git branching strategies and when to use each.
 * xref:reference/git-management.adoc[Git Repository Management]
 
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Git Hooks
 
 // TODO: Document Git hooks setup and common use cases
@@ -1435,9 +1468,10 @@ This document will cover Git hooks for automating tasks during the Git workflow.
 * xref:reference/git-management.adoc[Git Repository Management]
 
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Large Files & Git LFS
 
 // TODO: Document Git LFS and large file handling strategies
@@ -1460,9 +1494,10 @@ This document will cover handling large files and binary assets in Git repositor
 * xref:reference/git-management.adoc[Git Repository Management]
 
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Git Recovery & Troubleshooting
 
 // TODO: Document Git recovery techniques and common troubleshooting
@@ -1487,9 +1522,10 @@ This document will cover recovering from mistakes and troubleshooting common Git
 * xref:reference/git-management.adoc[Git Repository Management]
 
 
-```
+----
 
-```asciidoc
+[source,asciidoc]
+----
 = Submodules & Monorepos
 
 // TODO: Document Git submodules and monorepo patterns
@@ -1512,23 +1548,23 @@ This document will cover multi-repository patterns including submodules and mono
 * xref:reference/git-management.adoc[Git Repository Management]
 
 
-```
+----
 
-I have restructured the `knowledge-base` module to follow the **Diátaxis model**, organizing the documentation into four distinct learning modes: **Tutorials**, **How-to Guides**, **Reference**, and **Explanation**.
+I have restructured the `knowledge-base` module to follow the *Diátaxis model*, organizing the documentation into four distinct learning modes: *Tutorials*, *How-to Guides*, *Reference*, and *Explanation*.
 
-### New Architectural Highlights
+=== New Architectural Highlights
 
-1.  **Centralized Intelligence (Partials)**: I extracted high-value technical snippets (like SSH key generation, Git configurations, and Tailwind scripts) into a new `partials/` directory. These are now shared between the step-by-step Tutorial and the goal-oriented How-to guides, ensuring consistency and making updates easier.
-2.  **The Onboarding Journey (Tutorial)**: I created a linear `onboarding.adoc` guide that follows the **Onboarding Path** model. It takes a new developer from "Zero to One" by ordering tasks chronologically: Platform Setup → Access → Workflow → Runtimes → Frameworks → Synchronization.
-3.  **The Orientation Landing Page**: The main `index.adoc` now acts as a router. It introduces the purpose of the **Dev Center** app and provides a clear choice between the four learning modes, including a prominent call to action for new team members to start onboarding.
-4.  **Reference & Tools**: The "Recommended Tools" have been moved to a dedicated reference page, cleanly separated from the onboarding narrative but linked directly from the front page for quick access.
+. *Centralized Intelligence (Partials)*: I extracted high-value technical snippets (like SSH key generation, Git configurations, and Tailwind scripts) into a new `partials/` directory. These are now shared between the step-by-step Tutorial and the goal-oriented How-to guides, ensuring consistency and making updates easier.
+. *The Onboarding Journey (Tutorial)*: I created a linear `onboarding.adoc` guide that follows the *Onboarding Path* model. It takes a new developer from "Zero to One" by ordering tasks chronologically: Platform Setup → Access → Workflow → Runtimes → Frameworks → Synchronization.
+. *The Orientation Landing Page*: The main `index.adoc` now acts as a router. It introduces the purpose of the *Dev Center* app and provides a clear choice between the four learning modes, including a prominent call to action for new team members to start onboarding.
+. *Reference & Tools*: The "Recommended Tools" have been moved to a dedicated reference page, cleanly separated from the onboarding narrative but linked directly from the front page for quick access.
 
-### Restructured Navigation (`nav.adoc`)
+=== Restructured Navigation (`nav.adoc`)
 The navigation tree is now grouped by cognitive intent:
-*   **🎓 Tutorials**: For learning-oriented onboarding.
-*   **🛠️ How-to Guides**: For problem-oriented task execution.
-*   **📚 Reference**: For information-oriented retrieval of facts and tools.
-*   **🧠 Explanation**: For understanding-oriented conceptual knowledge.
+* *🎓 Tutorials*: For learning-oriented onboarding.
+* *🛠️ How-to Guides*: For problem-oriented task execution.
+* *📚 Reference*: For information-oriented retrieval of facts and tools.
+* *🧠 Explanation*: For understanding-oriented conceptual knowledge.
 
 All internal cross-references (`xref:`) have been updated to reflect this new, flattened, and more logical directory structure.
 

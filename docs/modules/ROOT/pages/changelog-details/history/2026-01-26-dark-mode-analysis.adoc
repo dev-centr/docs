@@ -1,0 +1,20 @@
+= Dark mode analysis
+:description: Report on the dark-mode and branding setup of the hub UI (historical).
+:hide-page:
+:page-revdate: 2026-01-26
+
+NOTE: Historical artifact kept for context (2026-01-26). Formerly `dark-mode-analysis.md` at the repo root; moved here on 2026-10-25. Content may be out of date. See xref:changelog/org-wide.adoc[Org-wide Changelog] for current state.
+
+== Current setup
+
+This site uses the link:https://github.com/antora-supplemental/valentus-theme[valentus-theme] pre-built UI bundle (`ui-bundle.zip`). Dark mode, Lunr search chrome, and the doc layout ship in the bundle. The playbook adds a `supplemental-ui` layer for the custom domain, DevCentr teal brand CSS, and logo assets.
+
+Migrated from the retired `antora-dark-theme` package (2026-06).
+
+== Branding without forking partials
+
+As of valentus-theme 2.x, header logo and navbar branding use playbook `site.keys` (for example `header_logo`) plus optional SVGs in `supplemental-ui/img/`. Search lives in the tool band (not the header). Consumers should not override `partials/header-content.hbs` for logo wiring alone; keep `head-meta.hbs` in sync with upstream when upgrading.
+
+Color theming uses `supplemental-ui/css/devcentr-brand.css` (accent-token overrides), loaded from a thin `head-meta.hbs` fork (vendored from valentus so FOUC paint-hold, dark-mode, read-width, and font-size boot stay intact). The interim `valentus-fouc-pending` class hides the page until layered CSS, preference attrs, and web fonts apply; keep brand CSS in the stylesheet stack before the `document.fonts.ready` release script. Playbook `site.keys` stay snake_case; Antora camelCases them for the UI model.
+
+See xref:docs-site/antora-ui-branding.adoc[Antora UI branding] for the current setup.

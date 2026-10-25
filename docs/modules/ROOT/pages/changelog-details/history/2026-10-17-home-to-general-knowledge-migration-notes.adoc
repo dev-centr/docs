@@ -1,5 +1,9 @@
-= Home Docs site → General Knowledge migration notes
-:description: Deferred decisions from the 2026-10-17 content architecture pass.
+= Home Docs site to General Knowledge migration notes
+:description: Deferred decisions from the 2026-10-17 content architecture pass (historical).
+:hide-page:
+:page-revdate: 2026-10-17
+
+NOTE: Historical artifact kept for context (2026-10-17). Formerly `MIGRATION-NOTES.adoc` at the repo root; moved here on 2026-10-25. Content may be out of date. See xref:changelog/org-wide.adoc[Org-wide Changelog] for current state.
 
 == Moved to General Knowledge (canonical)
 
