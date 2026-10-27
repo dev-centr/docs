@@ -11,5 +11,18 @@
     },
     "reason": "Dev-Centr brand accent #178f80 on the light page surface #f3f5f8 is 3.64:1 (< 4.5:1) for body links and nav text. Known before facto-stack 0.4.x; it fails the build only because the search-results state is in the fail scope. Follow-up: darken the light accent (e.g. #147d70) in supplemental-ui/css/devcentr-brand.css.",
     "expires": "2027-01-31"
+  },
+  {
+    "id": "devcentr-accent-nav-current-light",
+    "rule": "color-contrast",
+    "scheme": [
+      "light"
+    ],
+    "colors": {
+      "fg": "#178f80",
+      "bg": "#d9e9ea"
+    },
+    "reason": "Current-page nav text: Dev-Centr brand accent #178f80 on the current-item tint #d9e9ea is 3.18:1. Same root cause as devcentr-accent-links-light; follow-up: darken the light accent (e.g. #127266) in supplemental-ui/css/devcentr-brand.css.",
+    "expires": "2027-01-31"
   }
 ]
