@@ -1,7 +1,7 @@
 {{!
-  Hub breadcrumbs: Valentus mast (component + version + copyable "/" trail seps).
-  Only hub delta vs stock Valentus: component dropdown filtered to site-nav-tree
-  curated roots via `in-site-nav-tree` (plus the current component).
+  DevCentr hub override of valentus-theme v4.2.2 breadcrumbs.hbs. Only delta: the component
+  dropdown lists site-nav-tree curated roots (in-site-nav-tree) plus the current component.
+  Foreign Home crumb stripping comes from the theme's valentus-bc-trail-crumbs helper.
 }}
 <nav class="breadcrumbs valentus-breadcrumbs" aria-label="Breadcrumb: component, version, and page path">
   <ul>
@@ -20,6 +20,7 @@
         Component + version stay visible together (including with site-nav-tree).
         Mobile needs the component jump; version sits conjoined to its right.
         Trail drops a duplicate component-root crumb via valentus-bc-trail-crumbs.
+        Separators are real "/" text nodes so the mast copies as a pasteable path.
       }}
       <div class="valentus-bc-cluster" role="group" aria-label="Documentation component and version">
         <div class="valentus-bc-menu valentus-bc-menu-project">
@@ -69,7 +70,9 @@
     {{#each this}}
     <li class="valentus-breadcrumb-sep" aria-hidden="true">/</li>
     <li class="valentus-breadcrumb-trail{{#if @last}} valentus-breadcrumb-trail--current{{/if}}">
-    {{~#if (and ./url (eq ./urlType 'internal'))~}}
+    {{~#if @last~}}
+    <span class="valentus-breadcrumb-trail-text" aria-current="page">{{{./content}}}</span>
+    {{~else if (and ./url (eq ./urlType 'internal'))~}}
     <a class="valentus-breadcrumb-trail-link" href="{{{relativize ./url}}}">{{{./content}}}</a>
     {{~else~}}
     <span class="valentus-breadcrumb-trail-text">{{{./content}}}</span>

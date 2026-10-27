@@ -1,7 +1,15 @@
+{{!-- DevCentr hub override of valentus-theme v4.2.2 head-meta.hbs: stock content plus the hub stylesheet links marked below. --}}
 {{!--
-  HACK (interim paint-hold): hide until layered Valentus CSS + prefs + web fonts.
-  Vendored from valentus-theme 2.0.13+; keep brand/mermaid/math links with the
-  other stylesheets, before the fonts.ready release script.
+  HACK (interim paint-hold): hide the document until layered supplemental CSS has
+  loaded, preference attrs are set, and web fonts are ready. Default UI paints
+  site.css first; Valentus then applies the paint (slot) / layout / visual / read-width /
+  font-size (and often a site brand overlay). Google Fonts use display=swap, so
+  releasing before font files arrive causes a FOUT width jump on refresh.
+
+  Pending better upstream: compile theme + layout tokens into a single site.css
+  and ship the FOUC preference contract in antora-ui-default (dark mode: !207;
+  supplemental cascade: !213). Remove this hold when first paint no longer depends
+  on post-site.css layers / remote webfonts.
 --}}
 <style>
 html.valentus-fouc-pending { visibility: hidden !important; }
@@ -9,7 +17,9 @@ html.valentus-fouc-pending { visibility: hidden !important; }
 <script>
 document.documentElement.classList.add('valentus-fouc-pending')
 </script>
-<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-extra.css">
+{{!-- color-scheme:paint-slot --}}
+<link rel="stylesheet" href="{{{uiRootPath}}}/css/valentus-paint.css">
+<link rel="stylesheet" href="{{{uiRootPath}}}/css/valentus-chrome.css">
 <meta name="dm-navbar" content="{{or site.keys.darkModeNavbar 'light'}}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,38 +28,22 @@ document.documentElement.classList.add('valentus-fouc-pending')
 <link rel="stylesheet" href="{{{uiRootPath}}}/css/site-visual.css">
 <link rel="stylesheet" href="{{{uiRootPath}}}/css/site-read-width.css">
 <link rel="stylesheet" href="{{{uiRootPath}}}/css/site-font-size.css">
-{{!-- DevCentr brand token overlay (after valentus visual CSS) --}}
+<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-math.css">
+<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-themed-svg.css">
+{{!-- DevCentr hub additions (after Valentus layers) --}}
 <link rel="stylesheet" href="{{{uiRootPath}}}/css/devcentr-brand.css">
 {{> mermaid-client-styles}}
 {{> diagram-lightbox-styles}}
-<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-math.css">
-<link rel="stylesheet" href="{{{uiRootPath}}}/css/nav-typology.css">
-<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-nav-tree-overview-label.css">
 {{!-- Independent nav vs article column scroll (after Valentus layout) --}}
 <link rel="stylesheet" href="{{{uiRootPath}}}/css/site-nav-column-scroll.css">
 <link rel="stylesheet" href="{{{uiRootPath}}}/css/soft-nav-transitions.css">
+{{!-- Color scheme: html.dark-theme / data-theme come from the chassis
+  @antora-supplemental/color-scheme head hook (playbook extension). Valentus only
+  maps its dm-navbar key to the html hook here. --}}
 <script>
 (function () {
-  const dmNavbar = document.querySelector('meta[name="dm-navbar"]')
-  if (dmNavbar && dmNavbar.content) {
-    document.documentElement.dataset.dmNavbar = dmNavbar.content
-  }
-  const MODE = 'antora-theme-mode'
-  const LEGACY = 'antora-theme'
-  function mode() {
-    const m = localStorage.getItem(MODE)
-    if (m === 'system' || m === 'dark' || m === 'light') return m
-    const o = localStorage.getItem(LEGACY)
-    if (o === 'dark' || o === 'light') return o
-    return 'system'
-  }
-  function isDark() {
-    const m = mode()
-    if (m === 'dark') return true
-    if (m === 'light') return false
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-  }
-  if (isDark()) document.documentElement.classList.add('dark-theme')
+  var m = document.querySelector('meta[name="dm-navbar"]')
+  if (m && m.content) document.documentElement.dataset.dmNavbar = m.content
 })()
 </script>
 {{!-- read-width FOUC (same as ui-modules/packages/read-width/ui/js/valentus-read-width-fouc.js) --}}

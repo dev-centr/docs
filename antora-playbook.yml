@@ -170,26 +170,16 @@ content:
 
 ui:
   bundle:
-    url: https://github.com/antora-supplemental/valentus-theme/releases/download/v3/ui-bundle.zip
+    url: https://github.com/antora-supplemental/valentus-theme/releases/download/v4.2.2/ui-bundle.zip
     snapshot: true
   supplemental_files: ./supplemental-ui
 output:
   dir: ./build/site
 
 asciidoc:
-  extensions:
-    - '@antora-supplemental/asciidoctor-emoji-literals'
-    - asciidoctor-emoji
-    - asciidoctor-kroki
-    - '@antora-supplemental/page-context'
+  # facto-stack 0.3.0 registers the AsciiDoc extensions (emoji-literals, emoji, kroki, page-context)
+  # and stem / kroki-fetch-diagram / page-context defaults; mermaid-client registers its own attributes.
   attributes:
-    stem: latexmath
-    # Self-hosted gateway+mermaid (CI services or: pnpm kroki:up)
-    # Override to public if needed: --attribute kroki-server-url=https://kroki.io
+    # Hub override of the facto-stack default (https://kroki.io): self-hosted gateway+mermaid
+    # (CI services or: pnpm kroki:up). Override to public: --attribute kroki-server-url=https://kroki.io
     kroki-server-url: http://127.0.0.1:8000
-    kroki-fetch-diagram: true
-    mermaid-client: ''
-    mermaid-client-mode: client
-    # PlantUML / non-Mermaid still bake via Kroki; Mermaid listings become client hosts
-    page-context-active: ''
-    page-context-keyword-base: '/home/keywords'

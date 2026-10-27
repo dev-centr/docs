@@ -1,4 +1,6 @@
+{{!-- DevCentr hub override of valentus-theme v4.2.2 footer-content.hbs: stock content plus the hub additions marked below. --}}
 <footer class="footer">
+  {{!-- DevCentr hub additions --}}
   <div class="footer-related" aria-label="Related projects">
     <p class="footer-related-label">Related projects</p>
     <p class="footer-related-links">
@@ -13,19 +15,17 @@
   <p>
     Built with <a href="https://antora.org" target="_blank" rel="noopener">Antora</a>{{#if antoraVersion}} <span class="antora-version">({{antoraVersion}})</span>{{/if}}.
     UI:
-    {{#if site.keys.ui_bundle_name}}
-    <a href="{{site.keys.ui_bundle_url}}" target="_blank" rel="noopener">{{site.keys.ui_bundle_name}}</a>
+    {{#if site.keys.uiBundleName}}
+    <a href="{{site.keys.uiBundleUrl}}" target="_blank" rel="noopener">{{site.keys.uiBundleName}}</a>
     {{else}}
     <a href="https://github.com/antora-supplemental/valentus-theme" target="_blank" rel="noopener">valentus-theme</a>
     {{/if}}
     (MIT){{#if site.keys.footerNote}}. <span class="site-footer-note">{{{site.keys.footerNote}}}</span>{{/if}}.
   </p>
+  {{> light-dark-footer-slot}}
 </footer>
-<script src="{{{uiRootPath}}}/js/site-nav-tree-current.js?v=0.6.8" defer></script>
-<script src="{{{uiRootPath}}}/js/soft-nav.js" defer></script>
+{{!-- DevCentr hub scripts (soft-nav, site-nav-tree-current, site-math, table-scroll come from upstream) --}}
 {{> mermaid-client-scripts}}
 {{> diagram-lightbox-scripts}}
-<script src="{{{uiRootPath}}}/js/site-math.js" defer></script>
 <script src="{{{uiRootPath}}}/js/site-toc-main-article.js" defer></script>
-<script src="{{{uiRootPath}}}/js/valentus-table-scroll.js" defer></script>
 <script type="module" src="{{{uiRootPath}}}/js/site-themed-svg.js"></script>
