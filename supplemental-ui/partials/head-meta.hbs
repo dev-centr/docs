@@ -1,4 +1,4 @@
-{{!-- DevCentr hub override of valentus-theme v4.2.2 head-meta.hbs: stock content plus the hub stylesheet links marked below. --}}
+{{!-- DevCentr hub override of valentus-theme v4.3.0 head-meta.hbs: stock content plus the hub stylesheet links marked below. --}}
 {{!--
   HACK (interim paint-hold): hide the document until layered supplemental CSS has
   loaded, preference attrs are set, and web fonts are ready. Default UI paints
@@ -34,8 +34,6 @@ document.documentElement.classList.add('valentus-fouc-pending')
 <link rel="stylesheet" href="{{{uiRootPath}}}/css/devcentr-brand.css">
 {{> mermaid-client-styles}}
 {{> diagram-lightbox-styles}}
-{{!-- Independent nav vs article column scroll (after Valentus layout) --}}
-<link rel="stylesheet" href="{{{uiRootPath}}}/css/site-nav-column-scroll.css">
 <link rel="stylesheet" href="{{{uiRootPath}}}/css/soft-nav-transitions.css">
 {{!-- Color scheme: html.dark-theme / data-theme come from the chassis
   @antora-supplemental/color-scheme head hook (playbook extension). Valentus only
