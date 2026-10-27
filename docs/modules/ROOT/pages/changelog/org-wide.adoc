@@ -9,6 +9,7 @@ This page is the org-wide changelog: significant documentation and project activ
 == 2026-10-27 - facto-stack v0.4.1
 
 * **Search box corners.** `@antora-supplemental/facto-stack` **v0.4.1** / `@antora-supplemental/antora-search-chat` **v0.1.26**: the search box corners no longer show the search surface color in light and dark mode. facto-stack v0.4.x also runs the built-in contrast check on every build.
+* **Contrast check suppression.** `contrast-check.suppress.json` (playbook `contrastCheck.suppress`) accepts the light-mode brand accent links (#178f80 on #f3f5f8, 3.64:1) until 2027-01-31; they failed the facto-stack v0.4.x check only in the search-results state. Follow-up: darken the light accent.
 
 == 2026-10-25 - Hub CI fix and repo root cleanup
 

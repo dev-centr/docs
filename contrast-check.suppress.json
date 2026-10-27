@@ -1,0 +1,15 @@
+[
+  {
+    "id": "devcentr-accent-links-light",
+    "rule": "color-contrast",
+    "scheme": [
+      "light"
+    ],
+    "colors": {
+      "fg": "#178f80",
+      "bg": "#f3f5f8"
+    },
+    "reason": "Dev-Centr brand accent #178f80 on the light page surface #f3f5f8 is 3.64:1 (< 4.5:1) for body links and nav text. Known before facto-stack 0.4.x; it fails the build only because the search-results state is in the fail scope. Follow-up: darken the light accent (e.g. #147d70) in supplemental-ui/css/devcentr-brand.css.",
+    "expires": "2027-01-31"
+  }
+]

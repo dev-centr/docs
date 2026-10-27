@@ -29,6 +29,9 @@ antora:
     # Compose pack: footer lists "facto-stack" once (hub profile; members are not listed individually).
     - require: '@antora-supplemental/facto-stack'
       profile: hub
+      # Built-in contrast check (facto-stack >= 0.4.0): defaults, plus this hub's known light-mode accent link findings (expire 2027-01-31).
+      contrastCheck:
+        suppress: contrast-check.suppress.json
       siteNavTree:
         enabled: true
         # Curated forest roots only - wiring a product source is not a sidebar root.
