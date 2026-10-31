@@ -6,6 +6,10 @@
 
 This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see the xref:../changelog.adoc[Changelog Index]; for release tags, see repository tags and release notes.
 
+== 2026-10-31 - Cloudflare Email Routing + Sending reference
+
+* **New reference page.** xref:general-knowledge::reference/email/cloudflare-email-routing-and-sending.adoc[Cloudflare Email Routing + Email Sending]: free inbound Routing next to Email Sending (beta, Workers Paid; per-account quota and per-1k pricing as of 2026-10-31), how the `cf-bounce` DNS records coexist with Routing's MX/SPF, Gmail *Send mail as* over `smtp.mx.cloudflare.net:465`, parked-domain DNS (null MX, SPF `-all`, DMARC reject), and a verification checklist.
+
 == 2026-10-27 - facto-stack v0.4.1
 
 * **Search box corners.** `@antora-supplemental/facto-stack` **v0.4.1** / `@antora-supplemental/antora-search-chat` **v0.1.26**: the search box corners no longer show the search surface color in light and dark mode. facto-stack v0.4.x also runs the built-in contrast check on every build.
