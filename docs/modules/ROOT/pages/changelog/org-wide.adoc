@@ -6,6 +6,10 @@
 
 This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see the xref:../changelog.adoc[Changelog Index]; for release tags, see repository tags and release notes.
 
+== 2026-11-01 - Hub GitHub Actions group bump (dependabot)
+
+* **CI workflow pins.** Dependabot bumped `actions/cache` **v4 → v6** in the Deploy workflow link-check cache restore (`.github/workflows/deploy.yml`) and `actions/upload-artifact` **v4 → v7** for nightly link-validator reports (`.github/workflows/link-validator-nightly.yml`). Usage is unchanged (multi-file artifact upload with default `archive: true`; cache key still ties to `pnpm-lock.yaml` and `.antora-link-suppressions.yml`). GitHub-hosted runners satisfy the Node 24 / runner **2.327.1** minimum for artifact v6+.
+
 == 2026-10-31 - Cloudflare Email Routing + Sending reference
 
 * **New reference page.** xref:general-knowledge::reference/email/cloudflare-email-routing-and-sending.adoc[Cloudflare Email Routing + Email Sending]: free inbound Routing next to Email Sending (beta, Workers Paid; per-account quota and per-1k pricing as of 2026-10-31), how the `cf-bounce` DNS records coexist with Routing's MX/SPF, Gmail *Send mail as* over `smtp.mx.cloudflare.net:465`, parked-domain DNS (null MX, SPF `-all`, DMARC reject), and a verification checklist.
