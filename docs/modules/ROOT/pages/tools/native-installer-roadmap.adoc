@@ -1,5 +1,7 @@
 = Native installer builder roadmap
 
+Which formats to ship per software type (MSI, MSIX, .pkg, .dmg, Homebrew, .deb/.rpm, Flatpak, AppImage, and why): xref:general-knowledge::explanation/architecture/distribution-and-packaging/package-formats-by-software-type.adoc[Package formats by software type].
+
 == Why not web tech for installers
 
 Installers need small binaries, elevated trust boundaries, and predictable Linux targets. Chromium/WebView2 stacks add hundreds of megabytes and fragile GTK/WebKit dependencies. DevCentr targets a **native D stack**: `dlangui` + `vello-d` for the builder UI, and a minimal stub runtime for end users.
