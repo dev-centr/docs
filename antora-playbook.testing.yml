@@ -15,6 +15,7 @@ urls:
   html_extension_style: indexify
 antora:
   extensions:
+    - require: ./theme
     - '@antora/lunr-extension'
     - require: '@antora-supplemental/site-nav-tree'
       filter: true

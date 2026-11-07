@@ -37,5 +37,5 @@ No entire Home page was removed as a pure duplicate of link:https://docs.antora.
 
 == Upstream links added (no page removal)
 
-* Essential extensions: Lunr install defers to link:https://docs.antora.org/antora/latest/extend/add-search-to-site/[Add search to the site^]; URL indexify defers to link:https://docs.antora.org/antora/latest/page/url-format/[URL format^].
+* Essential extensions: Lunr install defers to link:https://gitlab.com/antora/antora-lunr-extension[Add search to the site^]; URL indexify defers to link:https://docs.antora.org/antora/latest/playbook/urls-html-extension-style/[URL format^].
 * xref:docs-site/index.adoc[Docs site] landing points readers at docs.antora.org for core canon.

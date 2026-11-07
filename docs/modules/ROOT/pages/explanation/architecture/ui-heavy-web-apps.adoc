@@ -11,7 +11,7 @@ It is informed by comparisons among link:https://opensource.janestreet.com/bonsa
 It does not host a database or enforce authentication by itself; it renders in the browser and talks to backends over HTTP or WebSockets, like any SPA stack.
 
 * **Database access** belongs on a **server** (or managed backend).
-  In OCaml that often means link:https://github.com/ocaml-multicore/caqti[Caqti] with PostgreSQL or SQLite, behind link:https://github.com/aantron/dream[Dream] (or similar), not inside the compiled browser bundle.
+  In OCaml that often means link:https://github.com/paurkedal/ocaml-caqti[Caqti] with PostgreSQL or SQLite, behind link:https://github.com/aantron/dream[Dream] (or similar), not inside the compiled browser bundle.
 * **Authentication** splits naturally: **UX and tokens in the client**, **trust and authorization on the server** (sessions, JWT verification, OIDC code exchange, row-level rules).
   There is no single “Bonsai auth” package; many teams pair an OCaml API with hosted identity (Auth0, Clerk, Supabase, and so on) when OIDC/JWKS churn outpaces hand-maintained OCaml clients.
 
@@ -118,12 +118,12 @@ UI-heavy web apps often collapse both into one SPA viewport—or reimplement win
 === Browser gaps (Desktop-Tooling fork)
 
 Stock Chromium lacks parent-relative always-on-top, workspace window grouping, and reduced background throttling among peer palette windows.
-Track patches in link:https://github.com/Desktop-Tooling/spatial-browser[Desktop-Tooling/spatial-browser].
+Track patches in `Desktop-Tooling/spatial-browser` (prototype repository not publicly reachable).
 Demos can detect `window.spatialBrowser` when running on the fork.
 
 === HCI Nerdz public face
 
-* Explanation: link:https://hci-nerdz.github.io/docs/hci-nerdz/spatial-web-windows.html[Spatial web windows]
+* Explanation: link:https://hci-nerdz.github.io/docs/hci-nerdz/spatial-web-windows/[Spatial web windows]
 * Essay: link:https://hci-nerdz.github.io/blog/when-the-browser-flattens-working-memory/[When the browser flattens working memory]
 * Demo: link:https://hci-nerdz.github.io/demos/spatial-web-windows/[Spatial web windows desk]
 

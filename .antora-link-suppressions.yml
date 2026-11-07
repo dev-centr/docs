@@ -3,14 +3,6 @@
 
 suppressions:
   # Documentation placeholders and local-only hosts (not reachable from CI).
-  - glob: http://localhost/*
-    reason: Local dev placeholder
-  - glob: https://localhost/*
-    reason: Local dev placeholder
-  - glob: http://127.0.0.1/*
-    reason: Local dev placeholder (Kroki gateway, etc.)
-  - glob: https://127.0.0.1/*
-    reason: Local dev placeholder
   - glob: https://example.com/*
     reason: AsciiDoc / template placeholder host
   - glob: http://example.com/*
@@ -27,3 +19,33 @@ suppressions:
     reason: Font CSS entrypoint; validated via browser stylesheet load
   - url: https://fonts.gstatic.com/
     reason: Font asset CDN root; individual woff2 URLs vary by family
+
+  # Identifiers and reserved documentation examples are not navigable pages.
+  - regex: '^https?://(?:localhost|127\.0\.0\.1)(?::[0-9]+)?/'
+    reason: Local service examples (including explicit ports), not public endpoints
+  - regex: '^https?://(?:host|team\.docs|listings\.example)(?::[0-9]+)?/'
+    reason: Literal example hostnames in code and infrastructure walkthroughs
+  - regex: '^https://github\.com/(?:/?(?:owner|OWNER|example|mycompany|%7Bowner%7D|%7Borg%7D))/'
+    reason: Template owner/repository placeholders in API examples, not real repositories
+  - regex: '^https://github\.com//%7Borg%7D\?'
+    reason: Encoded organization placeholder in a profile URL example
+  - url: https://devcentr.org/schemas/tcf/
+    reason: JSON Schema identifier namespace prefix, not a published web page
+  - url: https://gitlab.videolan.org/
+    reason: Historical broken URL deliberately used to demonstrate provider URL migration
+  # Verified private repositories: the public hub CI token cannot read these.
+  - url: https://github.com/dev-centr/team-docs
+    reason: Private member documentation repository; requires an authorized GitHub session
+  - url: https://github.com/dev-centr/hive-watch
+    reason: Verified private source repository; requires an authorized GitHub session
+  - url: https://github.com/dev-centr/antora
+    reason: Verified private Antora fork; requires an authorized GitHub session
+  - url: https://github.com/dev-centr/antora/tree/feature/page-level-version-selector
+    reason: Branch in the verified private Antora fork; requires an authorized GitHub session
+  - url: https://github.com/FoodTruckNerdz/infra
+    reason: Verified private infrastructure example; requires an authorized GitHub session
+  - url: https://github.com/nonprofit-resources/infra
+    reason: Verified private infrastructure example; requires an authorized GitHub session
+
+  - url: https://github.com/LinxPhotos/photo-service/issues/14
+    reason: Issue in a verified private source repository; requires an authorized GitHub session

@@ -1,0 +1,12 @@
+{
+  "name": "@dev-centr/docs-theme",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared DevCentr brand overlay for the public and member docs hubs",
+  "main": "index.js",
+  "engines": {
+    "antora": "^3"
+  },
+  "homepage": "https://docs.devcentr.org/home/docs-site/antora-ui-branding/",
+  "license": "UNLICENSED"
+}

@@ -49,7 +49,7 @@ This repository contains the Antora playbook and configuration for the **Dev Cen
 | File | Description
 | `antora-playbook.yml` | Production playbook (also used locally). Remote GitHub URLs in git; `@antora-supplemental/facto-stack` registers `antora-local-content-sources` to rewrite remotes to local clones when markers exist (auto off in CI). Snapshot: `build/.antora/antora-playbook-local.generated.yml`.
 | `antora-playbook.testing.yml` | Local Valens theme bundle (`../valentus-theme/build/ui-bundle.zip`); legacy flat extensions for fast UI iteration.
-| `supplemental-ui/` | Site overlay on the valentus-theme 2.x UI bundle: custom domain `CNAME`, accent-token brand CSS, header logo under `img/`, and a thin `head-meta.hbs` fork (FOUC paint-hold + preference boot scripts vendored from Valentus, plus the brand stylesheet link). Header logo / navbar text use playbook `site.keys`.
+| `supplemental-ui/` | Hub-specific overlay on the Valentus 4.x UI bundle: custom domain `CNAME`, diagram/layout CSS, header logo under `img/`, and a thin `head-meta.hbs` fork (FOUC paint-hold + preference boot scripts vendored from Valentus, plus the shared theme stylesheet link). Shared accent/footer/focus CSS lives in `theme/` and is also consumed by team-docs. Header logo / navbar text use playbook `site.keys`.
 | `.vscode/` | VS Code folder settings and extension recommendations for this playbook repo.
 | `package.json` | Defines dependencies and build scripts.
 |===

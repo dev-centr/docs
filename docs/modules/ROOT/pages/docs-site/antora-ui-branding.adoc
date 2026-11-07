@@ -1,4 +1,4 @@
-= Antora UI branding (valentus-theme)
+= Antora UI branding
 :page-aliases: publishing/antora-ui-branding.adoc
 :navtitle: Antora UI branding
 :description: How this site brands header logos, teal chrome, and VCS icons using valentus-theme site.keys and supplemental assets.
@@ -30,7 +30,7 @@ Convention: link:https://docs.antora-supplemental.org/docs/hub-github-topics/[Hu
 
 Layout, fonts, and default teal chrome stay valentus-theme. `devcentr-brand.css` remaps `--valentus-accent*` tokens to the org palette and tints *component-root* nav expand/collapse chevrons (`data-depth="0"`) with that accent — nested nav children keep Valentus muted ink toggles. Component roots do **not** use the generic `component-root` typology sprite; optional per-app logos come from `nav-component-logo.js` + `supplemental-ui/img/nav-logos/`. Deeper nav rows still use typology icons (Diátaxis, spec groupings, changelog). TIP/NOTE colors stay on Default UI / Valentus admonition tokens (`--tip-color` / `--valentus-admonition-tip` — Antora green by default; do not remap tip to brand accent):
 
-* Light primary: `#178F80`
+* Light primary: `#127266`
 * Dark primary: `#2DD4BF`
 * Logo accents: `#14B8A6` / `#0F766E`
 * Nav-tree expand chevrons: component roots only → brand accent (replaces `component-root` typology icon); nested items → Valentus muted ink
@@ -39,7 +39,7 @@ Layout, fonts, and default teal chrome stay valentus-theme. `devcentr-brand.css`
 Overlay files:
 
 * `supplemental-ui/css/devcentr-brand.css` — accent token overrides (loaded last)
-* `supplemental-ui/partials/head-meta.hbs` — vendored from valentus-theme 2.x, plus the brand stylesheet link
+* `supplemental-ui/partials/head-meta.hbs` — vendored preference boot/metadata, plus the shared brand and hub stylesheet links
 * `supplemental-ui/img/logo.svg` — orbit mark for the header
 * `supplemental-ui/js/valentus-table-scroll.js` — wraps bare `.tableblock` tables for horizontal scroll (loaded from `footer-content.hbs`)
 
@@ -48,7 +48,7 @@ Overlay files:
 
 Wide attribute tables and matrix layouts must stay inside the article column. Browsers cannot apply `overflow-x: auto` reliably on `<table>` alone, so the hub uses a scroll *wrapper* (Antora community guidance):
 
-* **CSS** (`devcentr-brand.css`): `.tablecontainer` and `.valentus-table-scroll` are block-level with `max-width: 100%` and `overflow-x: auto`. Article flex children use `min-width: 0` so the pane can shrink. Cell `code` and long tokens use `overflow-wrap: anywhere`; listing blocks get the same horizontal scroll treatment.
+* **CSS** (`devcentr-hub.css`): `.tablecontainer` and `.valentus-table-scroll` are block-level with `max-width: 100%` and `overflow-x: auto`. Article flex children use `min-width: 0` so the pane can shrink. Cell `code` and long tokens use `overflow-wrap: anywhere`; listing blocks get the same horizontal scroll treatment.
 * **JS** (`valentus-table-scroll.js`): On `DOMContentLoaded`, each bare `.doc table.tableblock` not already inside `.tablecontainer`, `.valentus-table-scroll`, `.admonitionblock`, or `.colist` is wrapped in `<div class="valentus-table-scroll" role="region" tabindex="0">` with an `aria-label` from the table caption (or `Scrollable table`).
 
 Admonition and column-list tables are excluded so TIP/NOTE card chrome and colists keep their layout.
@@ -60,7 +60,7 @@ When upgrading valentus-theme, re-diff `head-meta.hbs` against upstream and keep
 [#fouc-paint-hold-interim]
 == FOUC paint-hold (interim)
 
-Valentus 2.x ships an interim *paint-hold* in `head-meta.hbs` while Default UI single-pass CSS lands (see link:https://gitlab.com/antora/antora-ui-default/-/merge_requests/207[antora-ui-default!207] and upstream FOUC/stylesheets guidance). The supplemental overlay must stay in sync with that block.
+The hub retains the Valentus *paint-hold* in its vendored `head-meta.hbs` while Default UI single-pass CSS lands (see link:https://gitlab.com/antora/antora-ui-default/-/merge_requests/207[antora-ui-default!207] and upstream FOUC/stylesheets guidance). The supplemental overlay must stay in sync with that block.
 
 Load order in `supplemental-ui/partials/head-meta.hbs`:
 
@@ -104,3 +104,21 @@ Diataxis / typology row icons render by default when `nav_typology_diataxis` is 
 
 * link:https://antora-supplemental.github.io/valentus-theme/[valentus-theme documentation site]
 * link:https://github.com/antora-supplemental/valentus-theme[valentus-theme repository]
+
+== Shared theme and contrast sampling
+
+The public hub registers the local theme package at ./theme. The team hub consumes the same package as @dev-centr/docs-theme from a commit-pinned Git dependency on the docs repository. No copied team CSS override remains. The light accent is #127266; footer labels use #69707b in light mode and #a9afb8 in dark mode. Keyboard focus covers search, scope controls, TOC links, copy buttons and nav toggles.
+
+Facto 0.5.0 checks every changed/new source page since the last successful deploy plus representative layouts and configured extension pages. The page budget applies only to an unknown-base fallback, never to changed pages. Both hubs persist build/contrast-check-baseline.json only after a successful deployment and include it in the check reports. To reproduce CI selection locally, restore the same baseline artifact and content revisions before running the normal Antora command.
+
+[source,yaml]
+----
+contrastCheck:
+  maxPages: 6
+  pages: [home/index.html, home/glossary/index.html]
+  sampling:
+    baseline: build/contrast-check-baseline.json
+    # baseRef: origin/main # optional explicit git comparison base
+----
+
+Choose representatives that actually exist in the built site. The public hub also pins a diagram page, UI-branding reference and agent-rules page; the team hub pins its agent-rules and packaging guides. Dynamic search/extension fixture states are checked on every selected page. Exemptions are summarized once per rule with a finding count; individual instances require --exempted all.

@@ -24,15 +24,20 @@ urls:
   html_extension_style: indexify
 antora:
   extensions:
+    - require: ./theme
     # Local dark-mode SVG guard (not part of the compose pack).
     - ./lib/verify-themed-svg-dark-mode.js
     # Compose pack: footer lists "facto-stack" once (hub profile; members are not listed individually).
     - require: '@antora-supplemental/facto-stack'
       profile: hub
-      # Built-in contrast check (facto-stack >= 0.4.0): defaults, plus this hub's known light-mode accent link findings (expire 2027-01-31).
+      # Changed/new source pages plus fixed layout/extension representatives; no accent exemptions.
       contrastCheck:
+        maxPages: 6
+        pages: [home/index.html, home/glossary/index.html, home/docs-site/antora-ui-branding/index.html, general-knowledge/explanation/documentation/antora-diagram-formats/index.html, tools/agent-rules/harness-neutral/index.html]
+        sampling:
+          baseline: build/contrast-check-baseline.json
         suppress: contrast-check.suppress.json
-        json: build/contrast-check.json   # kept for the check-reports CI artifact (facto-stack 0.4.2 does not create subdirectories)
+        json: build/contrast-check.json   # published in the check-reports CI artifact
       siteNavTree:
         enabled: true
         # Curated forest roots only - wiring a product source is not a sidebar root.
@@ -73,7 +78,7 @@ antora:
         enabled: true
 content:
   sources:
-    - url: https://github.com/dev-centr/docs.git
+    - url: .
       branches: HEAD
       start_path: docs
 
@@ -167,16 +172,16 @@ content:
     - url: https://github.com/dev-centr/toolchain-framework.git
       branches: HEAD
       start_path: docs
-    - url: https://github.com/dev-centr/docs.git
+    - url: .
       branches: HEAD
       start_path: tools-docs
-    - url: https://github.com/dev-centr/docs.git
+    - url: .
       branches: HEAD
       start_path: platforms-docs
 
 ui:
   bundle:
-    url: https://github.com/antora-supplemental/valentus-theme/releases/download/v4.3.2/ui-bundle.zip
+    url: https://github.com/antora-supplemental/valentus-theme/releases/download/v4.3.3/ui-bundle.zip
     snapshot: true
   supplemental_files: ./supplemental-ui
 output:
