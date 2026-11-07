@@ -127,6 +127,17 @@ jobs:
           setup_node: false
           fetch: true
 
+      - name: Upload check reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: check-reports
+          path: |
+            build/site/link-validator/report.json
+            build/contrast-check/report.json
+          if-no-files-found: warn
+          retention-days: 30
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
