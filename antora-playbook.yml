@@ -32,7 +32,7 @@ antora:
       # Built-in contrast check (facto-stack >= 0.4.0): defaults, plus this hub's known light-mode accent link findings (expire 2027-01-31).
       contrastCheck:
         suppress: contrast-check.suppress.json
-        json: build/contrast-check/report.json   # kept for the check-reports CI artifact
+        json: build/contrast-check.json   # kept for the check-reports CI artifact (facto-stack 0.4.2 does not create subdirectories)
       siteNavTree:
         enabled: true
         # Curated forest roots only - wiring a product source is not a sidebar root.

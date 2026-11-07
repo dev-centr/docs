@@ -134,7 +134,7 @@ jobs:
           name: check-reports
           path: |
             build/site/link-validator/report.json
-            build/contrast-check/report.json
+            build/contrast-check.json
           if-no-files-found: warn
           retention-days: 30
 
