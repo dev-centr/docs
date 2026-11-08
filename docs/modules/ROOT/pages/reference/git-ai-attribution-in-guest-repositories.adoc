@@ -79,6 +79,10 @@ Contributors must not push refs/notes/ai to this repository; see [the project's 
 
 `.gitignore` cannot block notes refs: it controls untracked working-tree files, not refs. The maintainers' request establishes policy; technical enforcement requires a server-side ref restriction or hook. Use hosting rules or branch protection only if that host actually supports covering `refs/notes/ai`; ordinary protection for branches alone does not necessarily cover notes. Declining remote notes does not require a contributor to stop keeping local attribution. Follow the project's separate AI-contribution policy in either case.
 
+=== Proposed repository opt-out
+
+A preferred repo-level opt-out would be a `.gitattributes` key meaning "no Git AI notes". This is a *proposal pending upstream*, not an implemented Git attribute or an agreed key spelling. The related https://github.com/git-ai-project/git-ai/issues/2399[upstream filter bug] reports that `exclude_repositories` does not stop notes from being written or pushed, including the daemon's notes-push side effect during an ordinary branch push. Do not rely on that setting as a publication barrier. Until an opt-out mechanism lands and is verified, the `CONTRIBUTING.md`/`AGENTS.md` decline line above remains the way to state the project's decision; server-side ref restrictions are the enforcement backstop.
+
 == Sources
 
 * https://github.com/git-ai-project/git-ai[Git AI implementation]

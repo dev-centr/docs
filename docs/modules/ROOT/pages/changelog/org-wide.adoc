@@ -14,6 +14,8 @@ This page is the org-wide changelog: significant documentation and project activ
 
 === Git AI guest-repository policy
 
+* Describe the proposed repository attribute opt-out and the upstream exclusion-filter limitation; keep contribution-guide policy as the current decline mechanism.
+
 * Add xref:../reference/git-ai-attribution-in-guest-repositories.adoc[Git AI attribution in guest repositories]: notes transport, current and legacy fields, privacy, and maintainers' acceptance or decline policy.
 
 == 2026-11-07
