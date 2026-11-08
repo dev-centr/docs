@@ -8,6 +8,10 @@ This page is the org-wide changelog: significant documentation and project activ
 
 == 2026-11-08
 
+=== Historical transcript rendering
+
+* Render the saved knowledge-base organization transcript literally so quoted examples cannot run as live includes or document headings.
+
 === Git AI guest-repository policy
 
 * Add xref:../reference/git-ai-attribution-in-guest-repositories.adoc[Git AI attribution in guest repositories]: notes transport, current and legacy fields, privacy, and maintainers' acceptance or decline policy.

@@ -5,6 +5,8 @@
 
 NOTE: Historical artifact kept for context (2026-01-19). Formerly `cursor_knowledge_base_module_organization.md` at the repo root; moved here on 2026-10-25. Content may be out of date. See xref:changelog/org-wide.adoc[Org-wide Changelog] for current state.
 
+[source,text]
+--------------------------------------------------------------------------------
 _Exported on 1/19/2026 at 18:18:03 CST from Cursor (2.3.41)_
 
 '''
@@ -1569,3 +1571,5 @@ The navigation tree is now grouped by cognitive intent:
 All internal cross-references (`xref:`) have been updated to reflect this new, flattened, and more logical directory structure.
 
 
+
+--------------------------------------------------------------------------------
