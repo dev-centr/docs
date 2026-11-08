@@ -14,7 +14,7 @@
 :root {
   --valentus-accent: #127266;
   --valentus-accent-hover: #0f766e;
-  --valentus-accent-soft: rgba(18, 114, 102, 0.12);
+  --valentus-accent-soft: rgba(18, 114, 102, 0.05);
 }
 
 html.dark-theme {
@@ -204,10 +204,11 @@ html.dark-theme .doc .admonitionblock td.content code {
 
 
 html.dark-theme .footer .footer-related-label { color: #a9afb8; }
-/* WCAG AA: page-context lead/footer labels render #878787 on white (3.6:1). */
-html:not(.dark-theme) .page-context-lead dt,
-html:not(.dark-theme) .page-context-footer dt {
-  color: #696969;
+/* Metadata uses opaque ink, not alpha-dimmed labels on the light canvas. */
+html:not(.dark-theme) .page-context,
+html:not(.dark-theme) .page-context-source-line {
+  --page-context-fg: #69707b;
+  --page-context-label: #69707b;
 }
 
 /* Visible keyboard focus where Valentus shows none (copy button, page TOC links,

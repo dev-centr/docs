@@ -10,6 +10,7 @@ This page is the org-wide changelog: significant documentation and project activ
 
 === Shared accessible theme and source-aware checks
 
+* Light selected-row backgrounds use a lighter accent wash so #127266 remains above 4.5:1; page-context metadata uses opaque readable label ink.
 * Both DevCentr documentation hubs use the shared docs-theme package: darker light accent, readable footer labels and visible keyboard focus. Remove obsolete accent contrast exemptions.
 * Adopt Facto 0.5.0 with per-rule exemption counts and changed/new-page sampling plus representative extension/layout pages. Save sampling baselines only after successful deployments.
 * Refresh moved documentation and article links; identify reserved template URLs and verified private repositories separately from public broken pages.

@@ -23,3 +23,13 @@ test('theme asset follows Antora custom UI output directories', () => {
  handler({playbook:{ui:{outputDir:'assets'}},uiCatalog:{addFile:f => {file=f}}})
  assert.equal(file.out.path,'assets/css/devcentr-brand.css')
 })
+
+test('light selected surfaces and metadata retain AA contrast', () => {
+ let handler, asset
+ theme.register.call({on:(e,fn)=>{handler=fn}})
+ handler({uiCatalog:{addFile:f=>{asset=f}}})
+ const css=asset.contents.toString()
+ assert.match(css,/rgba\(18, 114, 102, 0\.05\)/)
+ assert.match(css,/--page-context-fg: #69707b/)
+ assert.match(css,/--page-context-label: #69707b/)
+})
