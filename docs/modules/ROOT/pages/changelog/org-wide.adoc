@@ -6,6 +6,12 @@
 
 This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see the xref:../changelog.adoc[Changelog Index]; for release tags, see repository tags and release notes.
 
+== 2026-11-08
+
+=== Git AI guest-repository policy
+
+* Add xref:../reference/git-ai-attribution-in-guest-repositories.adoc[Git AI attribution in guest repositories]: notes transport, current and legacy fields, privacy, and maintainers' acceptance or decline policy.
+
 == 2026-11-07
 
 === Shared accessible theme and source-aware checks
