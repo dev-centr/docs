@@ -114,7 +114,7 @@ yes
 
 This knowledge base contains best practices and technical knowledge that will be enforced and presented in the Dev Center application.
 
-include::ROOT:partial$tooling-knowledge-gap.adoc[]
+\include::ROOT:partial$tooling-knowledge-gap.adoc[]
 
 == Topics
 
@@ -1121,11 +1121,11 @@ To interact with our repositories, you need a secure identity.
 
 1. Generate a new SSH key using the recommended Ed25519 algorithm:
 +
-include::partial$ssh-keygen-ed25519.adoc[]
+\include::partial$ssh-keygen-ed25519.adoc[]
 
 2. Start the SSH Agent service:
 +
-include::partial$ssh-agent-windows-start.adoc[]
+\include::partial$ssh-agent-windows-start.adoc[]
 
 3. Add your public key to your GitHub account settings.
 
@@ -1134,7 +1134,7 @@ With access granted, let's configure your local workflow.
 
 1. Configure Git to handle line endings correctly (crucial for Windows users):
 +
-include::partial$git-autocrlf-input.adoc[]
+\include::partial$git-autocrlf-input.adoc[]
 
 2. Install **pnpm** globally:
 +
@@ -1160,11 +1160,11 @@ Most of our web projects use **Tailwind CSS** for styling.
 
 1. For a quick start in a static project, you can use the CDN:
 +
-include::partial$tailwind-cdn.adoc[]
+\include::partial$tailwind-cdn.adoc[]
 
 2. For production projects, install it via the CLI:
 +
-include::partial$tailwind-cli-install.adoc[]
+\include::partial$tailwind-cli-install.adoc[]
 
 == 6. Sync (Persistence)
 To maintain consistency across multiple machines, we use **Syncthing**.
