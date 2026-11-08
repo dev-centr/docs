@@ -8,6 +8,11 @@ This page is the org-wide changelog: significant documentation and project activ
 
 == 2026-11-08
 
+=== Bounded source-only contrast sampling
+
+* Adopt Facto 0.5.1 / Contrast Check 0.4.2: check changed source pages and their transitive include dependents; exercise site-wide navigation, UI/theme and preprocessor edits through layout/extension representatives instead of every page. Log each selected page and its reason.
+* Enforce a ten-minute total audit budget; incomplete runs fail and never advance the last successful deployment baseline.
+
 === Historical transcript rendering
 
 * Render the saved knowledge-base organization transcript literally so quoted examples cannot run as live includes or document headings.

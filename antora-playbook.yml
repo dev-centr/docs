@@ -33,6 +33,7 @@ antora:
       # Changed/new source pages plus fixed layout/extension representatives; no accent exemptions.
       contrastCheck:
         maxPages: 6
+        maxDurationMs: 600000 # hard total audit budget, not per page
         pages: [home/index.html, home/glossary/index.html, home/docs-site/antora-ui-branding/index.html, general-knowledge/explanation/documentation/antora-diagram-formats/index.html, tools/agent-rules/harness-neutral/index.html]
         sampling:
           baseline: build/contrast-check-baseline.json
