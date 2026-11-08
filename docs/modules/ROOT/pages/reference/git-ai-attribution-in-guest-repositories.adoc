@@ -37,6 +37,7 @@ The log has an attestation section mapping files and line ranges to attribution 
 |===
 
 [cols="1,2,3",options="header"]
+|===
 |Line state |Attestation |Interpretation
 |AI |`s_<hash>::t_<hash>` or a legacy bare hash |Recorded AI session; the trace suffix identifies a checkpoint. Legacy keys resolve through `prompts`.
 |Human |`h_<hash>` |Human typing explicitly observed by the integration; resolves through `humans`.
