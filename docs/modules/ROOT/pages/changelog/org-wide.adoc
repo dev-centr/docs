@@ -6,6 +6,12 @@
 
 This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see the xref:../changelog.adoc[Changelog Index]; for release tags, see repository tags and release notes.
 
+== 2026-11-12
+
+=== Schema.org on docs pages
+
+* Each hub page states its organization, website, article, and breadcrumb trail as Schema.org JSON-LD in the raw HTML. The organization is DevCentr at https://devcentr.org.
+
 == 2026-11-08
 
 === Bounded source-only contrast sampling

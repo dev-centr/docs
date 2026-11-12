@@ -9,6 +9,8 @@ site:
     header_logo: logo.svg
     site_home_url: https://devcentr.org
     site_home_label: DevCentr home
+    schema_org_name: DevCentr
+    schema_org_url: https://devcentr.org
     header_doc_title: DevCentr Docs
     nav_typology_diataxis: 'true'
 urls:
