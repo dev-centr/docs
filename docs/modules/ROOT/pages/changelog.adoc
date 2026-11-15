@@ -5,6 +5,13 @@
 
 This page is the index of changelogs across the Dev-Centr documentation hub. Each component keeps its own changelog next to its own pages; this index is the one place to find them all.
 
+== 2026-11-15
+
+=== README contents list
+
+* The README contents list now sits under the header inside the expander.
+* Detail: xref:changelog-details/2026-11-15 - readme-contents-list.adoc[README contents list].
+
 == Hub
 
 * xref:changelog/org-wide.adoc[Org-wide Changelog] — significant documentation and project activity across Dev-Centr, newest first
