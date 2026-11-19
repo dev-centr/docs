@@ -1,0 +1,15 @@
+= 2026-11-19
+:hide-page:
+:navtree-parent: changelog.adoc
+:page-orig-author: Ryan Johnson
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
+:page-last-edited: 2026-11-19
+
+== Private docs login how-to
+
+private-docs-login is a Tools content source.
+The how-to URL the playbook serves is https://docs.devcentr.org/tools/private-docs-login/how-to/ .
+This hub build publishes that page.
+The Antora Supplemental page refers here.
+
+Deploy accepts `docs-source-updated` so a content repository can request a rebuild.

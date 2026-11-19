@@ -6,7 +6,7 @@ on:
       - main
   workflow_dispatch:
   repository_dispatch:
-    types: [extension-updated, link-cache-invalidate]
+    types: [docs-source-updated, extension-updated, link-cache-invalidate]
 
 permissions:
   contents: read

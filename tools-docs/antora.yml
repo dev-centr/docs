@@ -31,3 +31,4 @@ nav:
 - modules/themed-svg-studio/nav.adoc
 - modules/agentic-email-integration/nav.adoc
 - modules/infra-template/nav.adoc
+- modules/private-docs-login/nav.adoc

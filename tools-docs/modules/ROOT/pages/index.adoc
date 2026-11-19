@@ -55,6 +55,9 @@ This component is the **Tools** documentation hub. Each product below is its own
 
 | xref:agentic-email-integration:index.adoc[Agentic Email Integration]
 | Own-your-inbox Gmail integration (Himalaya + agents).
+
+| xref:private-docs-login:index.adoc[Private docs login]
+| Login provider for private documentation sites. GitHub and GitLab org members sign in through their org's installation.
 |===
 
 Additional modules (install-coordinator, equivalence-rules-*, infra-template, binary-tailor, macho-memload, polyglot-debug, and others) appear in the Tools sidebar when their repos are wired into the playbook.

@@ -2,8 +2,30 @@
 :navtitle: Changelog
 :description: Index of changelogs across Dev-Centr components, starting with the org-wide changelog for this hub.
 :keywords: changelog, changelog index, org-wide changelog, release notes, shipping notes
+:page-audience: Maintainers and readers tracking functional history of this hub
+:page-usage-context: Timeline index on the Dev-Centr docs hub
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
+:page-last-edited: 2026-11-19
+
+ifndef::page-context-active[]
+[.page-context.page-context-lead]
+****
+Audience role:: {page-audience}
+Usage context:: {page-usage-context}
+Latest contributor:: {page-last-author}
+Last updated:: {page-last-edited}
+****
+endif::[]
 
 This page is the index of changelogs across the Dev-Centr documentation hub. Each component keeps its own changelog next to its own pages; this index is the one place to find them all.
+
+== 2026-11-19
+
+=== Private docs login how-to
+
+* private-docs-login is a Tools content source. The how-to URL the playbook serves is https://docs.devcentr.org/tools/private-docs-login/how-to/ . This hub build publishes that page.
+* Deploy accepts `docs-source-updated` so a content repository can request a rebuild.
+* Detail: xref:changelog-details/2026-11-19 - private-docs-login-how-to.adoc[Private docs login how-to].
 
 == 2026-11-15
 
@@ -30,6 +52,7 @@ This page is the index of changelogs across the Dev-Centr documentation hub. Eac
 == Tools
 
 * xref:tools:agent-rules:changelog.adoc[Agent Rules — Changelog]
+* xref:tools:private-docs-login:changelog.adoc[Private docs login — Changelog]
 * xref:tools:toolchain-framework:changelog.adoc[Toolchain Framework — Changelog]
 * xref:tools:uniconfig:changelog.adoc[UniConfig — Changelog]
 * xref:tools:themed-svg-studio:changelog.adoc[Themed SVG Studio — Changelog]

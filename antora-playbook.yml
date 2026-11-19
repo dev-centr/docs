@@ -175,6 +175,9 @@ content:
     - url: https://github.com/dev-centr/toolchain-framework.git
       branches: HEAD
       start_path: docs
+    - url: https://github.com/dev-centr/private-docs-login.git
+      branches: HEAD
+      start_path: docs
     - url: .
       branches: HEAD
       start_path: tools-docs

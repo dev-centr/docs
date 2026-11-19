@@ -23,6 +23,7 @@ These tools are original works developed as part of this ecosystem.
 * xref:tools/connectome-fs.adoc[connectome-fs]
 * xref:tools/fixnow-dev.adoc[FixNow]
 * xref:tools/scriptbook.adoc[Scriptbook]
+* xref:tools:private-docs-login:index.adoc[Private docs login]
 * xref:tools/equivalence-engine.adoc[Equivalence Engine]
 * xref:tools/equivalence-engine-action.adoc[Equivalence Engine Action]
 * xref:tools/libequivalence.adoc[libequivalence]

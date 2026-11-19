@@ -156,6 +156,10 @@ content:
       branches: HEAD
       start_path: docs
       worktrees: true
+    - url: ../private-docs-login
+      branches: HEAD
+      start_path: docs
+      worktrees: true
     - url: .
       branches: HEAD
       start_path: tools-docs
