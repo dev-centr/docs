@@ -127,8 +127,18 @@ Demos can detect `window.spatialBrowser` when running on the fork.
 * Essay: link:https://hci-nerdz.github.io/blog/when-the-browser-flattens-working-memory/[When the browser flattens working memory]
 * Demo: link:https://hci-nerdz.github.io/demos/spatial-web-windows/[Spatial web windows desk]
 
+== Agent-operable UI layer
+
+Dense browser applications (mail clients, dashboards, inspectors, editors) are the worst case for DOM or screenshot scraping: deep layout trees, closed popovers, virtualized lists, and canvas viewports hide state from raw DOM traversal.
+
+Expose a **structured state and action surface** alongside the visual DOM and ARIA tree—either directly through feature-detected **WebMCP** (`document.modelContext`) or through a behavior-driven bridge such as **Vercel UI SDK** (`createAgent` + `registerTools`)—with `allow` gates on destructive actions and server-side authorization unchanged.
+
+* Reference and comparison: xref:general-knowledge::reference/agent-operable-web-ui.adoc[Agent-operable web UI]
+* Progressive wiring guide: xref:general-knowledge::how-to/add-agent-operable-web-ui.adoc[Add an agent-operable UI layer to a web app]
+
 == See also
 
 * xref:where-docs-live.adoc[Where documentation lives] — how this site aggregates repos.
 * xref:general-knowledge::explanation/architecture/graphics-rendering-engines.adoc[Graphics rendering engines] — desktop UI stacks, large-document behavior, post-Skia pipelines.
+* xref:general-knowledge::reference/agent-operable-web-ui.adoc[Agent-operable web UI] — semantic state/action layer (WebMCP and Vercel UI SDK).
 * xref:general-knowledge::explanation/index.adoc[General knowledge — Explanation] — broader Diátaxis-style notes (when those pages are present in the playbook).
