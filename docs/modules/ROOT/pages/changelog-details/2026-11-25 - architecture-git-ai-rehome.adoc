@@ -1,0 +1,13 @@
+= 2026-11-25
+:hide-page:
+:navtree-parent: changelog.adoc
+
+== Architecture and Git AI pages rehomed
+
+Three product-agnostic pages left the Home component for General Knowledge:
+
+* xref:general-knowledge::explanation/architecture/ui-heavy-web-apps.adoc[UI-heavy web applications]
+* xref:general-knowledge::explanation/architecture/subscription-management-platforms.adoc[Subscription management platforms]
+* xref:general-knowledge::reference/git-ai-attribution-in-guest-repositories.adoc[Git AI attribution in guest repositories]
+
+Home nav no longer has a Reference section. The former Home resource IDs stay valid as `:page-aliases:` on the General Knowledge pages, so existing /home/explanation/architecture/… and /home/reference/git-ai-attribution-in-guest-repositories/ URLs do not 404.
