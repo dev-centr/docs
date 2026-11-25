@@ -19,8 +19,14 @@ endif::[]
 
 This page is the index of changelogs across the Dev-Centr documentation hub. Each component keeps its own changelog next to its own pages; this index is the one place to find them all.
 
-== 2026-11-19
+== 2026-11-25
 
+=== Architecture and Git AI pages rehomed
+
+* UI-heavy web applications, subscription management platforms, and Git AI attribution in guest repositories now live in General Knowledge. This hub keeps page aliases for the old Home URLs.
+* Detail: xref:changelog-details/2026-11-25 - architecture-git-ai-rehome.adoc[Architecture and Git AI pages rehomed].
+
+== 2026-11-19
 === Private docs login how-to
 
 * private-docs-login is a Tools content source. The how-to URL the playbook serves is https://docs.devcentr.org/tools/private-docs-login/how-to/ . This hub build publishes that page.

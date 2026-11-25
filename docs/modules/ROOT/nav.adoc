@@ -13,5 +13,3 @@
 *** xref:glossary/workspace.adoc[workspace]
 *** xref:glossary/organization.adoc[organization]
 
-* Reference
-** xref:reference/git-ai-attribution-in-guest-repositories.adoc[Git AI attribution in guest repositories]

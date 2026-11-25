@@ -6,8 +6,13 @@
 
 This page is the org-wide changelog: significant documentation and project activity across Dev-Centr. New entries are added at the top. For per-component shipping notes, see the xref:../changelog.adoc[Changelog Index]; for release tags, see repository tags and release notes.
 
-== 2026-11-12
+== 2026-11-25
 
+=== Architecture and Git AI pages rehomed
+
+* Moved xref:general-knowledge::explanation/architecture/ui-heavy-web-apps.adoc[UI-heavy web applications], xref:general-knowledge::explanation/architecture/subscription-management-platforms.adoc[Subscription management platforms], and xref:general-knowledge::reference/git-ai-attribution-in-guest-repositories.adoc[Git AI attribution in guest repositories] from Home into General Knowledge. Page aliases keep the former /home/… URLs working.
+
+== 2026-11-12
 === Schema.org on docs pages
 
 * Each hub page states its organization, website, article, and breadcrumb trail as Schema.org JSON-LD in the raw HTML. The organization is DevCentr at https://devcentr.org.
@@ -27,7 +32,7 @@ This page is the org-wide changelog: significant documentation and project activ
 
 * Describe the proposed repository attribute opt-out and the upstream exclusion-filter limitation; keep contribution-guide policy as the current decline mechanism.
 
-* Add xref:../reference/git-ai-attribution-in-guest-repositories.adoc[Git AI attribution in guest repositories]: notes transport, current and legacy fields, privacy, and maintainers' acceptance or decline policy.
+* Add xref:general-knowledge::reference/git-ai-attribution-in-guest-repositories.adoc[Git AI attribution in guest repositories]: notes transport, current and legacy fields, privacy, and maintainers' acceptance or decline policy.
 
 == 2026-11-07
 
@@ -388,7 +393,7 @@ This page is the org-wide changelog: significant documentation and project activ
 * **Folder URLs (indexify)** — Hub playbooks set `urls.html_extension_style: indexify` so landings at `…/index.adoc` publish as folder paths (`…/email/`, not `…/email/index.html`). Canonical and sitemap follow Antora page URLs. Do not invent `overview.adoc`; do not advertise `index.html`.
 * **valentus-theme FOUC paint-hold** — Synced supplemental `head-meta.hbs` with Valentus interim paint-hold (`valentus-fouc-pending`): hide until layered CSS, preference attrs, and web fonts apply; release via `document.fonts.ready` (3s fallback). Brand CSS stays in the stylesheet stack before the release script. xref:docs-site/antora-ui-branding.adoc#fouc-paint-hold-interim[Antora UI branding].
 * **Internet Architecture / Internet Reliability** — Peer home-nav group (body in general-knowledge): systems altitude for reference durability and usability of the internet; deep-links HCI *Labels versus wires* + connectome-fs. Build-time Mermaid + PlantUML via Kroki (`asciidoctor-kroki`); how-to xref:general-knowledge::explanation/documentation/antora-diagram-formats.adoc[Antora diagram formats]. Compose pack scaffold `antora-supplemental/facto-stack` (Valentus stays lean). xref:general-knowledge::explanation/internet-architecture/reliability/index.adoc[Internet Reliability].
-* **Spatial web windows** — multi-window desktop web UX for UI-heavy and WASM apps: lite palettes, SharedWorker hubs, intent routing. HCI Nerdz essay link:https://hci-nerdz.github.io/blog/when-the-browser-flattens-working-memory/[When the browser flattens working memory]; docs link:https://hci-nerdz.github.io/docs/hci-nerdz/spatial-web-windows/[Spatial web windows]; demo link:https://hci-nerdz.github.io/demos/spatial-web-windows/[desk]. Developer notes: xref:explanation/architecture/ui-heavy-web-apps.adoc#spatial-windows-and-lite-palettes[Spatial windows and lite palettes]. Browser fork: `Desktop-Tooling/spatial-browser` (prototype repository not publicly reachable).
+* **Spatial web windows** — multi-window desktop web UX for UI-heavy and WASM apps: lite palettes, SharedWorker hubs, intent routing. HCI Nerdz essay link:https://hci-nerdz.github.io/blog/when-the-browser-flattens-working-memory/[When the browser flattens working memory]; docs link:https://hci-nerdz.github.io/docs/hci-nerdz/spatial-web-windows/[Spatial web windows]; demo link:https://hci-nerdz.github.io/demos/spatial-web-windows/[desk]. Developer notes: xref:general-knowledge::explanation/architecture/ui-heavy-web-apps.adoc#spatial-windows-and-lite-palettes[Spatial windows and lite palettes]. Browser fork: `Desktop-Tooling/spatial-browser` (prototype repository not publicly reachable).
 
 * **Graphics rendering engines** — general-knowledge explanation for desktop UI stacks, large-document patterns, and post-Skia pipelines (Graphite, Impeller, Vello). Essay: link:https://devcentr.org/blog/2026-08-19-after-skia-modern-2d-rendering-engine-with-vello[After Skia: where rendering is headed]. Wired into DevCentr toolchain advisor and docs nav. xref:general-knowledge::explanation/architecture/graphics-rendering-engines.adoc[Explanation].
 
