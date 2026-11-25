@@ -1,0 +1,26 @@
+= 2026-11-25
+:hide-page:
+:navtree-parent: changelog.adoc
+:page-orig-author: name=Ryan Johnson; harness=grok-bot; model=unknown
+:page-last-author: name=Ryan Johnson; harness=grok-bot; model=unknown
+:page-last-edited: 2026-11-25
+
+== Contrast check carries pages over
+
+Deploy to GitHub Pages failed on every run from 2026-11-19. Each failure was the contrast check reaching its ten-minute limit.
+
+* The check audits every page changed since the last green deploy. The last green baseline was from 2026-11-08, so the changed set was 157 pages on 2026-11-23, 164 on 2026-11-24 and 170 on 2026-11-25.
+* A full audit of one page in light and dark mode, with the search states and the focus and hover pass, takes about 40 to 50 seconds. Ten minutes covered about 30 pages in light mode only.
+* The baseline is saved only after a green deploy. Each failure kept the old baseline, so every new edit made the next run larger.
+* One content source added since 2026-11-08 had no saved revision. That switched on the broad fallback for the whole site and added more pages.
+
+Facto 0.5.3 with Contrast Check 0.4.3 fixes this at the source:
+
+* Pages run in priority order: one page per layout and the configured representatives, then one changelog-details page for the whole group, then pages carried over from the last run, then changed pages, most recently changed first.
+* Changed pages get axe and the text probe in both modes. The representatives keep the full audit.
+* The audit stops at a soft budget of 510 seconds. If the audited pages pass, the deploy passes, and the unchecked pages are saved with the baseline. The next run checks them right after the representatives.
+* A source added since the last green run needs no broad fallback.
+
+A local run with the 2026-11-08 baseline selected 86 pages out of 183 changed: 103 changelog-details pages were covered by one representative. The contrast phase took 504 seconds, audited 33 pages and carried 53 over. The build passed.
+
+The link validator now skips the reserved `.example`, `.invalid`, `.test` and `.localhost` hosts used in code examples.

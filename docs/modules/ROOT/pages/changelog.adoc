@@ -4,8 +4,8 @@
 :keywords: changelog, changelog index, org-wide changelog, release notes, shipping notes
 :page-audience: Maintainers and readers tracking functional history of this hub
 :page-usage-context: Timeline index on the Dev-Centr docs hub
-:page-last-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
-:page-last-edited: 2026-11-19
+:page-last-author: name=Ryan Johnson; harness=grok-bot; model=unknown
+:page-last-edited: 2026-11-25
 
 ifndef::page-context-active[]
 [.page-context.page-context-lead]
@@ -20,6 +20,13 @@ endif::[]
 This page is the index of changelogs across the Dev-Centr documentation hub. Each component keeps its own changelog next to its own pages; this index is the one place to find them all.
 
 == 2026-11-25
+
+=== Contrast check carries pages over
+
+* Deploy failed on every run since 2026-11-19 because the contrast check had more changed pages than its ten-minute limit allowed. Each failure kept the old baseline, so the backlog grew.
+* Facto 0.5.3 audits representatives first, then one changelog-details page for the group, then carried-over and recently changed pages. It stops at a soft budget and saves the unchecked pages for the next run instead of failing.
+* The link validator skips reserved example hosts such as `.invalid`.
+* Detail: xref:changelog-details/2026-11-25 - contrast-check-carry-over.adoc[Contrast check carries pages over].
 
 === Architecture and Git AI pages rehomed
 

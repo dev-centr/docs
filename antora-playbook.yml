@@ -36,6 +36,7 @@ antora:
       contrastCheck:
         maxPages: 6
         maxDurationMs: 600000 # hard total audit budget, not per page
+        budgetMs: 510000 # soft budget (facto 0.5.3): pages that do not fit are carried over to the next green run
         pages: [home/index.html, home/glossary/index.html, home/docs-site/antora-ui-branding/index.html, general-knowledge/explanation/documentation/antora-diagram-formats/index.html, tools/agent-rules/harness-neutral/index.html]
         sampling:
           baseline: build/contrast-check-baseline.json

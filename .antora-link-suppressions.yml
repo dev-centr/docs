@@ -25,6 +25,8 @@ suppressions:
     reason: Local service examples (including explicit ports), not public endpoints
   - regex: '^https?://(?:host|team\.docs|listings\.example)(?::[0-9]+)?/'
     reason: Literal example hostnames in code and infrastructure walkthroughs
+  - regex: '^https?://(?:[a-z0-9-]+\.)*(?:example|invalid|test|localhost)(?::[0-9]+)?(?:/|$)'
+    reason: Reserved example top-level domains (RFC 2606 / RFC 6761) in code examples, never resolvable
   - regex: '^https://github\.com/(?:/?(?:owner|OWNER|example|mycompany|%7Bowner%7D|%7Borg%7D))/'
     reason: Template owner/repository placeholders in API examples, not real repositories
   - regex: '^https://github\.com//%7Borg%7D\?'
